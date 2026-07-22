@@ -3478,8 +3478,41 @@
       ${photos.length ? `<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:14px;">${photos.map(p => `<img src="${escHtml(p.url)}" alt="Work photo" loading="lazy" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:9px;">`).join('')}</div>` : ''}
       ${services.length ? `<div style="margin-top:14px;"><div style="font-weight:800; font-size:14px; margin-bottom:6px;">Services &amp; prices</div>${services.map(s => `<div style="display:flex; justify-content:space-between; font-size:13.5px; padding:7px 2px; border-bottom:1px solid #f1f5f9;"><span>${escHtml(s.name)}</span><strong>$${s.price}</strong></div>`).join('')}</div>` : ''}
       ${reviews.length ? `<div style="margin-top:14px;"><div style="font-weight:800; font-size:14px; margin-bottom:6px;">Recent reviews</div>${reviews.map(r => `<div style="background:#f8fafc; border-radius:9px; padding:9px 12px; margin-bottom:7px;"><span style="color:#b45309; font-size:12.5px;">${stars(r.rating || 5)}</span>${r.comment ? `<div style="font-size:13px; color:#475569; margin-top:3px; line-height:1.5;">${escHtml(r.comment)}</div>` : ''}</div>`).join('')}</div>` : ''}
+      <div id="googleReviews-${d.id}"></div>
       <button class="primary" style="width:100%; margin-top:16px;" onclick="profileBook(${d.id})">Book ${escHtml((d.name || '').split(' ')[0])} →</button>
     `;
+    loadGoogleReviews(d.id);
+  }
+
+  // Pull the detailer's Google rating + reviews (server-cached weekly; official Places API).
+  // Dormant until GOOGLE_MAPS_API_KEY is set on the backend — section simply doesn't render.
+  async function loadGoogleReviews(id) {
+    try {
+      const res = await fetch(BACKEND_URL + '/google-reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ detailerId: id })
+      });
+      const data = await res.json();
+      const box = document.getElementById('googleReviews-' + id);
+      if (!box || data.skipped || !data.rating) return;
+      const gStars = '★'.repeat(Math.round(data.rating)) + '☆'.repeat(5 - Math.round(data.rating));
+      box.innerHTML =
+        '<div style="margin-top:14px;">' +
+        '<div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">' +
+        '<span style="font-weight:800; font-size:14px;">Reviews from Google</span>' +
+        '<span style="background:#fff; border:1px solid #e5e9f2; border-radius:999px; padding:2px 10px; font-size:12.5px; font-weight:700;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#b45309;">' + gStars + '</span> ' + data.rating + ' <span style="color:#5f6b7d; font-weight:500;">(' + (data.count || 0) + ')</span></span>' +
+        '</div>' +
+        (data.reviews || []).slice(0, 4).map(function (r) {
+          return '<div style="background:#f8fafc; border-radius:9px; padding:9px 12px; margin-bottom:7px;">' +
+            '<div style="font-size:12px; color:#5f6b7d;"><strong style="color:#334155;">' + escHtml(r.author || 'Google user') + '</strong>' +
+            (r.rating ? ' · <span style="color:#b45309;">' + '★'.repeat(Math.round(r.rating)) + '</span>' : '') +
+            (r.when ? ' · ' + escHtml(r.when) : '') + '</div>' +
+            (r.text ? '<div style="font-size:13px; color:#475569; margin-top:3px; line-height:1.5;">' + escHtml(r.text) + '</div>' : '') +
+            '</div>';
+        }).join('') +
+        '</div>';
+    } catch (e) { /* Google reviews are enrichment — never break the profile */ }
   }
 
   function profileBook(id) {
