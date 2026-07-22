@@ -778,6 +778,45 @@
   }
 ]
 </script>
+<style>
+  /* ===== PROFESSIONAL THEME REFINEMENT (overrides — keep last in head) =====
+     Goal: premium, modern, trustworthy. Deeper blues over candy-cyan, quieter
+     gradients, consistent radii/shadows, editorial typography. */
+  :root{
+    --cyan:#3B82F6;                 /* accents: steel blue instead of bright cyan */
+    --violet:#4F46E5;               /* aurora violet -> deep indigo */
+    --ring:rgba(59,130,246,.30);
+    --accent-grad:linear-gradient(135deg,#2563EB,#1D4ED8);
+  }
+  /* Primary actions: solid confident blue, white text (was bright cyan/dark text) */
+  .tab-btn.active{ background:var(--accent-grad); color:#fff; border-color:transparent;
+    box-shadow:0 6px 16px -6px rgba(29,78,216,.5); }
+  .book-btn, a.cta, .btn-cta{ background:var(--accent-grad) !important; color:#fff !important;
+    box-shadow:0 8px 20px -8px rgba(29,78,216,.55) !important; }
+  .hero-cta{ background:none !important; box-shadow:none !important; }
+  button.primary{ background:var(--accent-grad); }
+  button.primary:hover{ filter:brightness(1.08); background:var(--accent-grad); }
+  /* Stats: editorial numerals, not terminal monospace */
+  .stat-box .num, .trust-item strong{ font-family:'Sora','Inter',sans-serif; letter-spacing:-.5px; }
+  .stat-box .num{ color:#1E3A8A; }
+  .trust-item strong{ color:#93C5FD; }
+  /* Quieter aurora: less purple glow, more depth */
+  .aurora-bg{ filter:saturate(.8); opacity:.9; }
+  /* Cards & chips: crisper borders, softer shadows, consistent radius */
+  .card{ border:1px solid #E5EAF3; box-shadow:0 4px 16px -8px rgba(15,32,84,.10); border-radius:14px; }
+  .badge{ border-radius:6px; font-weight:700; letter-spacing:.2px; }
+  .badge.featured{ background:#1E3A8A; color:#fff; }
+  .badge.cert{ background:#ECFDF5; color:#047857; border:1px solid #A7F3D0; }
+  .detailer-card{ border:1px solid #E5EAF3; border-radius:14px; }
+  .detailer-card.featured{ border-color:#BFDBFE; box-shadow:0 8px 22px -10px rgba(29,78,216,.22); }
+  /* Inputs: calmer focus ring */
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color:#93C5FD; }
+  /* Payout / status chips: muted professional tones */
+  .payout-badge{ border-radius:6px; letter-spacing:.3px; }
+  /* Dashboard sidebar active: match new accent */
+  .dash-nav-link.active{ box-shadow:inset 3px 0 0 #2563EB; }
+  .dash-nav-link.active svg{ color:#2563EB; }
+</style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -1089,6 +1128,18 @@
       <div class="faq-q">Can I cancel a booking?</div>
       <div class="faq-a">Message your detailer through "My Bookings" to request a cancellation — they'll confirm it on their end.</div>
     </div>
+    <div class="faq-item">
+      <div class="faq-q">How does the "Give $10, get $10" referral work?</div>
+      <div class="faq-a">After you book, you get a personal code (like DR-A7K2). Share it — friends get $10 off the final balance of their first detail, and once their job is completed you get $10 off your next one. Your code is shown on every booking confirmation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is there a DetailRadius app?</div>
+      <div class="faq-a">Yes — on your phone, open this site and choose "Install" when prompted (Android/Chrome), or on iPhone tap Share → "Add to Home Screen." It installs with an app icon and works full-screen. App Store and Google Play versions are on the way.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">I manage a fleet or dealership — can you handle multiple vehicles?</div>
+      <div class="faq-a">Absolutely. We coordinate vetted detailers for dealer lots, rental fleets, and company vehicles on a recurring schedule with one invoice. See the <a href="/fleet.html">Fleet &amp; Business page</a> to request a quote.</div>
+    </div>
     </div>
 
     <h3 class="faq-group-title" id="faqDetailerHeading">For Detailers</h3>
@@ -1120,6 +1171,18 @@
     <div class="faq-item">
       <div class="faq-q">How do I upload photos of my work?</div>
       <div class="faq-a">Detailer Dashboard → "My Photos" — real photos of your own work build trust and show up on the homepage.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does DetailRadius Pro get me?</div>
+      <div class="faq-a">Pro ($19/mo, cancel anytime) pins you to the top of customer search with a Featured badge, gives you a personal booking link that opens your full storefront profile, and adds one-tap review-request tools. One extra job a month more than pays for it — upgrade from the "Pro" section of your dashboard.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do my Google reviews show on my profile?</div>
+      <div class="faq-a">Yes — once connected, your profile automatically shows your Google rating and recent Google reviews alongside your DetailRadius reviews, so you start with the reputation you've already earned.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">A customer used a referral code — what do I do?</div>
+      <div class="faq-a">The job card flags it. Just take $10 off the final balance when you send the payment request — the platform tracks the referrer's credit for you.</div>
     </div>
     </div>
 
@@ -3244,7 +3307,7 @@
 
     // Remember each detailer's working days for availability checks.
     detailerAvailability = {};
-    list.forEach(d => { detailerAvailability[d.id] = d.available_days || ''; });
+    list.forEach(d => { detailerAvailability[d.id] = { days: d.available_days || '', start: d.avail_start || '', end: d.avail_end || '' }; });
     updateAvailWarnings();
 
     renderCustomerMap(list);
@@ -3549,10 +3612,23 @@
     Object.keys(detailerAvailability).forEach(function (id) {
       var warn = document.getElementById('availwarn-' + id);
       if (!warn) return;
-      warn.textContent = (dayIdx !== null && !worksOnDay(detailerAvailability[id], dayIdx))
+      var av = detailerAvailability[id] || {};
+      warn.textContent = (dayIdx !== null && !worksOnDay(av.days, dayIdx))
         ? '· ⚠ not available that ' + DAY_FULL[dayIdx]
         : '';
     });
+  }
+
+  // Does the customer's preferred time window (Morning/Afternoon/Evening) overlap
+  // the detailer's working hours? Loose on purpose — this warns, never hard-blocks.
+  var TIME_WINDOWS = { Morning: [8, 12], Afternoon: [12, 17], Evening: [17, 21] };
+  function timeWindowOk(av, timeStr) {
+    if (!av || !av.start || !av.end || !TIME_WINDOWS[timeStr]) return true;
+    var toH = function (t) { var m = /^(\d{1,2}):(\d{2})/.exec(t); return m ? (+m[1] + (+m[2]) / 60) : null; };
+    var s = toH(av.start), e = toH(av.end);
+    if (s === null || e === null || e <= s) return true;
+    var w = TIME_WINDOWS[timeStr];
+    return w[0] < e && w[1] > s; // any overlap counts
   }
 
   // ---------- Referral program (give $10, get $10) ----------
@@ -3660,15 +3736,20 @@
     const time = document.getElementById('prefTime').value;
 
     // Availability check: don't let a booking land on a day this detailer doesn't work.
-    var availStr = detailerAvailability[detailerId] || '';
-    if (availStr) {
+    var av = detailerAvailability[detailerId] || {};
+    if (av.days) {
       var dayIdx = new Date(date + 'T12:00:00').getDay();
-      if (!isNaN(dayIdx) && !worksOnDay(availStr, dayIdx)) {
-        alert(detailerName + ' isn\'t available on ' + DAY_FULL[dayIdx] + 's.\n\nTheir working days are: ' + availStr + '.\n\nPick one of those days and you\'re all set!');
+      if (!isNaN(dayIdx) && !worksOnDay(av.days, dayIdx)) {
+        alert(detailerName + ' isn\'t available on ' + DAY_FULL[dayIdx] + 's.\n\nTheir working days are: ' + av.days + '.\n\nPick one of those days and you\'re all set!');
         var dEl = document.getElementById('prefDate');
         if (dEl) { dEl.focus(); dEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
         return;
       }
+    }
+    // Soft time-window check: warn (but allow) if their preferred window falls outside working hours.
+    if (!timeWindowOk(av, time)) {
+      var goAhead = confirm(detailerName + ' typically works ' + av.start + '–' + av.end + ', so "' + time + '" may not be available.\n\nSend the request anyway? They can confirm or suggest another time.');
+      if (!goAhead) return;
     }
 
     // Prevent double-booking: lock the button for the DB insert + Stripe round-trip.
@@ -3975,7 +4056,7 @@
       bar.innerHTML =
         '<img src="/icon-192.png" alt="" width="34" height="34" style="border-radius:8px;flex:0 0 auto;">' +
         '<span style="line-height:1.35;">Get the <strong>DetailRadius app</strong> — book faster next time.</span>' +
-        '<button id="dr-install-yes" style="background:#38BDF8;color:#04263a;border:none;font-weight:700;' +
+        '<button id="dr-install-yes" style="background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;font-weight:700;' +
         'padding:8px 14px;border-radius:9px;cursor:pointer;flex:0 0 auto;">Install</button>' +
         '<button id="dr-install-no" aria-label="Dismiss" style="background:none;border:none;color:#93a4c4;' +
         'font-size:18px;cursor:pointer;flex:0 0 auto;padding:4px;">&times;</button>';
