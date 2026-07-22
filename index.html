@@ -1473,6 +1473,7 @@
       </div>
       <div class="card" id="sec-profile">
         <h2>Edit My Business Listing</h2>
+        <div id="profileStrength" style="margin:4px 0 14px;"></div>
         <div class="form-grid">
           <div class="field"><label>Business Name</label><input type="text" id="eName" value="${myDetailer.name.replace(/"/g,'')}"></div>
           <div class="field"><label>Price ($)</label><input type="number" id="ePrice" value="${myDetailer.price}"></div>
@@ -1545,7 +1546,46 @@
     handlePayoutReturn();
     renderProCard();
     checkProReturn();
+    renderProfileStrength();
     setTimeout(setupDashScrollspy, 300);
+  }
+
+  // ---------- Profile strength meter (drives listing completeness = more bookings) ----------
+  async function renderProfileStrength() {
+    const box = document.getElementById('profileStrength');
+    if (!box || !myDetailer) return;
+    let photoCount = 0, svcCount = 0;
+    try {
+      const [p, s] = await Promise.all([
+        sb.from('photos').select('id').eq('detailer_id', myDetailer.id),
+        sb.from('services').select('id').eq('detailer_id', myDetailer.id)
+      ]);
+      photoCount = (p.data || []).length;
+      svcCount = (s.data || []).length;
+    } catch (e) { /* meter is best-effort */ }
+
+    const checks = [
+      { pts: 15, ok: !!myDetailer.logo_url,                            tip: 'Add your logo' },
+      { pts: 15, ok: !!(myDetailer.bio && myDetailer.bio.length >= 40), tip: 'Write a bio (2–3 sentences)' },
+      { pts: 15, ok: photoCount >= 3,                                  tip: 'Upload 3+ work photos' },
+      { pts: 15, ok: svcCount >= 2,                                    tip: 'List 2+ services with prices' },
+      { pts: 10, ok: !!myDetailer.service_area,                        tip: 'Set your service area' },
+      { pts: 10, ok: myDetailer.latitude != null,                      tip: 'Drop your map pin (distance search needs it)' },
+      { pts: 10, ok: !!myDetailer.available_days,                      tip: 'Set your working days' },
+      { pts: 10, ok: !!(myDetailer.instagram_url || myDetailer.facebook_url || myDetailer.tiktok_url || myDetailer.google_maps_url), tip: 'Link a social profile' },
+    ];
+    const score = checks.reduce((sum, c) => sum + (c.ok ? c.pts : 0), 0);
+    const missing = checks.filter(c => !c.ok).slice(0, 3);
+    const color = score >= 80 ? '#15803d' : (score >= 50 ? '#b45309' : '#b91c1c');
+
+    box.innerHTML =
+      '<div style="display:flex; align-items:center; justify-content:space-between; font-size:13px; font-weight:700;">' +
+      '<span>Profile strength</span><span style="color:' + color + ';">' + score + '%</span></div>' +
+      '<div style="background:#eef2f9; border-radius:999px; height:9px; margin:6px 0;">' +
+      '<div style="width:' + score + '%; height:9px; border-radius:999px; background:linear-gradient(90deg,#38BDF8,#2563eb); transition:width .4s;"></div></div>' +
+      (missing.length
+        ? '<div style="font-size:12.5px; color:#5f6b7d;">Boost it: ' + missing.map(m => m.tip).join(' · ') + '</div>'
+        : '<div style="font-size:12.5px; color:#15803d;">✓ Complete profile — this is what gets you booked.</div>');
   }
 
   // ---------- DetailRadius Pro ($19/mo detailer upgrade) ----------
@@ -3194,6 +3234,7 @@
           ${d.available_days ? `<div style="font-size:12px; color:#5f6b7d; margin-top:4px;">Available: ${d.available_days}${d.avail_start ? ' · ' + d.avail_start + '–' + d.avail_end : ''} <span class="avail-warn" id="availwarn-${d.id}" style="color:#b45309; font-weight:700;"></span></div>` : ''}
           ${d.service_area ? `<div style="font-size:12px; color:#5f6b7d;">${d.service_area}</div>` : ''}
           ${d.bio ? `<div style="font-size:12.5px; color:#555; margin-top:6px; line-height:1.4;">${(d.bio.length > 160 ? d.bio.slice(0,160) + '…' : d.bio).replace(/</g,'&lt;')}</div>` : ''}
+          <a href="#" onclick="openDetailerProfile(${d.id}); return false;" style="display:inline-block; font-size:12.5px; font-weight:700; color:#1e3a8a; margin-top:6px;">View full profile — photos &amp; reviews →</a>
           <select id="svc-${d.id}" aria-label="Choose a service to book with ${(d.name||'this detailer').replace(/"/g,'')}" style="margin-top:8px;">${svcOptions}</select>
         </div>
         <button class="book-btn" onclick="bookDetailer(${d.id}, '${d.name.replace(/'/g, "")}', this)">Book</button>
@@ -3217,6 +3258,8 @@
         if (el) {
           el.style.boxShadow = '0 0 0 3px #38BDF8';
           setTimeout(() => { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 350);
+          // A shared booking link opens the detailer's full storefront profile.
+          setTimeout(() => { openDetailerProfile(parseInt(dParam, 10) || dParam); }, 900);
         }
       }
     } catch (e) { /* deep link is best-effort */ }
@@ -3391,6 +3434,62 @@
       <button class="primary" style="margin-top:14px;" onclick="closeBookingModal()">Got it</button>
     `;
     showBookingModal();
+  }
+
+  // ---------- Public detailer profile (storefront modal) ----------
+  async function openDetailerProfile(id) {
+    const box = document.getElementById('bookingModalContent');
+    if (!box) return;
+    box.innerHTML = '<div class="empty-msg">Loading profile…</div>';
+    showBookingModal();
+
+    const [dRes, sRes, pRes, rRes] = await Promise.all([
+      sb.from('detailers').select('*').eq('id', id).single(),
+      sb.from('services').select('name,price').eq('detailer_id', id).order('price', { ascending: true }),
+      sb.from('photos').select('url').eq('detailer_id', id).order('id', { ascending: false }).limit(6),
+      sb.from('reviews').select('rating,comment,created_at').eq('detailer_id', id).order('created_at', { ascending: false }).limit(5)
+    ]);
+    const d = dRes.data;
+    if (!d) { box.innerHTML = '<div class="empty-msg">This detailer isn\'t available right now.</div>'; return; }
+    const services = sRes.data || [];
+    const photos = (pRes.data || []).filter(p => p.url);
+    const reviews = rRes.data || [];
+
+    const stars = n => '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math.round(n));
+    const socials = [
+      ['Instagram', d.instagram_url], ['Facebook', d.facebook_url],
+      ['TikTok', d.tiktok_url], ['Google', d.google_maps_url]
+    ].filter(s => s[1] && /^https?:\/\//i.test(s[1]))
+     .map(s => `<a href="${escHtml(s[1])}" target="_blank" rel="noopener" style="font-size:12.5px; font-weight:700; color:#1e3a8a; background:#eff6ff; border:1px solid #dbeafe; padding:5px 12px; border-radius:999px; text-decoration:none;">${s[0]} ↗</a>`)
+     .join(' ');
+
+    box.innerHTML = `
+      <div id="bookingModalTitle" style="display:flex; align-items:center; gap:12px; margin-bottom:4px;">
+        ${d.logo_url ? `<img src="${escHtml(d.logo_url)}" alt="" style="width:54px; height:54px; border-radius:12px; object-fit:cover; border:1px solid #e5e9f2;">` : ''}
+        <div>
+          <h2 style="margin:0;">${escHtml(d.name)} ${(d.pro || d.featured) ? '<span class="badge featured">Featured</span>' : ''}${d.certified ? ' <span class="badge cert">Certified</span>' : ''}</h2>
+          <div style="font-size:13px; color:#b45309;">${d.rating ? stars(d.rating) + ' ' + d.rating : '⭐ New'} <span style="color:#5f6b7d;">(${d.reviews || 0} reviews)</span></div>
+        </div>
+      </div>
+      ${d.service_area ? `<div style="font-size:13px; color:#5f6b7d;">📍 ${escHtml(d.service_area)}</div>` : ''}
+      ${d.available_days ? `<div style="font-size:13px; color:#5f6b7d; margin-top:2px;">🗓 ${escHtml(d.available_days)}${d.avail_start ? ' · ' + escHtml(d.avail_start) + '–' + escHtml(d.avail_end || '') : ''}</div>` : ''}
+      ${d.bio ? `<p style="font-size:13.5px; color:#475569; line-height:1.55; margin:10px 0 0;">${escHtml(d.bio)}</p>` : ''}
+      ${socials ? `<div style="display:flex; gap:7px; flex-wrap:wrap; margin-top:10px;">${socials}</div>` : ''}
+      ${photos.length ? `<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:14px;">${photos.map(p => `<img src="${escHtml(p.url)}" alt="Work photo" loading="lazy" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:9px;">`).join('')}</div>` : ''}
+      ${services.length ? `<div style="margin-top:14px;"><div style="font-weight:800; font-size:14px; margin-bottom:6px;">Services &amp; prices</div>${services.map(s => `<div style="display:flex; justify-content:space-between; font-size:13.5px; padding:7px 2px; border-bottom:1px solid #f1f5f9;"><span>${escHtml(s.name)}</span><strong>$${s.price}</strong></div>`).join('')}</div>` : ''}
+      ${reviews.length ? `<div style="margin-top:14px;"><div style="font-weight:800; font-size:14px; margin-bottom:6px;">Recent reviews</div>${reviews.map(r => `<div style="background:#f8fafc; border-radius:9px; padding:9px 12px; margin-bottom:7px;"><span style="color:#b45309; font-size:12.5px;">${stars(r.rating || 5)}</span>${r.comment ? `<div style="font-size:13px; color:#475569; margin-top:3px; line-height:1.5;">${escHtml(r.comment)}</div>` : ''}</div>`).join('')}</div>` : ''}
+      <button class="primary" style="width:100%; margin-top:16px;" onclick="profileBook(${d.id})">Book ${escHtml((d.name || '').split(' ')[0])} →</button>
+    `;
+  }
+
+  function profileBook(id) {
+    closeBookingModal();
+    var card = document.getElementById('dcard-' + id);
+    if (card) {
+      card.style.boxShadow = '0 0 0 3px #38BDF8';
+      setTimeout(function () { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 150);
+      setTimeout(function () { card.style.boxShadow = ''; }, 3500);
+    }
   }
 
   // ---------- Availability-aware booking ----------
