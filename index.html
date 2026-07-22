@@ -1170,6 +1170,7 @@
   let currentUser = null;
   let myDetailer = null;
   let customerLat = null;
+  var detailerAvailability = {};   // id -> "Mon,Tue,…" (filled when results render)
   let customerLng = null;
   let custMapInstance = null;
   let custMarkersLayer = null;
@@ -3190,7 +3191,7 @@
             ⭐ ${d.rating ? d.rating : 'New'} (${d.reviews || 0} reviews)
             ${d.distance !== null ? ' &nbsp;•&nbsp; ' + d.distance.toFixed(1) + ' mi away' : ''}
           </div>
-          ${d.available_days ? `<div style="font-size:12px; color:#5f6b7d; margin-top:4px;">Available: ${d.available_days}${d.avail_start ? ' · ' + d.avail_start + '–' + d.avail_end : ''}</div>` : ''}
+          ${d.available_days ? `<div style="font-size:12px; color:#5f6b7d; margin-top:4px;">Available: ${d.available_days}${d.avail_start ? ' · ' + d.avail_start + '–' + d.avail_end : ''} <span class="avail-warn" id="availwarn-${d.id}" style="color:#b45309; font-weight:700;"></span></div>` : ''}
           ${d.service_area ? `<div style="font-size:12px; color:#5f6b7d;">${d.service_area}</div>` : ''}
           ${d.bio ? `<div style="font-size:12.5px; color:#555; margin-top:6px; line-height:1.4;">${(d.bio.length > 160 ? d.bio.slice(0,160) + '…' : d.bio).replace(/</g,'&lt;')}</div>` : ''}
           <select id="svc-${d.id}" aria-label="Choose a service to book with ${(d.name||'this detailer').replace(/"/g,'')}" style="margin-top:8px;">${svcOptions}</select>
@@ -3199,6 +3200,11 @@
       </div>
     `;
     }).join('');
+
+    // Remember each detailer's working days for availability checks.
+    detailerAvailability = {};
+    list.forEach(d => { detailerAvailability[d.id] = d.available_days || ''; });
+    updateAvailWarnings();
 
     renderCustomerMap(list);
     populateQuoteDetailerSelect(list);
@@ -3387,6 +3393,36 @@
     showBookingModal();
   }
 
+  // ---------- Availability-aware booking ----------
+  var DAY_ABBR = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var DAY_FULL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  // Which weekday is the customer's chosen date? (noon anchor avoids timezone off-by-one)
+  function chosenDayIndex() {
+    var el = document.getElementById('prefDate');
+    if (!el || !el.value) return null;
+    var d = new Date(el.value + 'T12:00:00');
+    return isNaN(d.getTime()) ? null : d.getDay();
+  }
+
+  function worksOnDay(availStr, dayIdx) {
+    if (!availStr || dayIdx === null) return true; // no schedule set / no date picked = don't block
+    var days = availStr.split(',').map(function (s) { return s.trim().slice(0, 3).toLowerCase(); });
+    return days.indexOf(DAY_ABBR[dayIdx].toLowerCase()) !== -1;
+  }
+
+  // Show "· not available that day" on each card the moment the customer picks a date.
+  function updateAvailWarnings() {
+    var dayIdx = chosenDayIndex();
+    Object.keys(detailerAvailability).forEach(function (id) {
+      var warn = document.getElementById('availwarn-' + id);
+      if (!warn) return;
+      warn.textContent = (dayIdx !== null && !worksOnDay(detailerAvailability[id], dayIdx))
+        ? '· ⚠ not available that ' + DAY_FULL[dayIdx]
+        : '';
+    });
+  }
+
   // ---------- Referral program (give $10, get $10) ----------
   async function getOrCreateReferralCode(email) {
     if (!email) return null;
@@ -3490,6 +3526,18 @@
     }
     const date = document.getElementById('prefDate').value || new Date().toISOString().split('T')[0];
     const time = document.getElementById('prefTime').value;
+
+    // Availability check: don't let a booking land on a day this detailer doesn't work.
+    var availStr = detailerAvailability[detailerId] || '';
+    if (availStr) {
+      var dayIdx = new Date(date + 'T12:00:00').getDay();
+      if (!isNaN(dayIdx) && !worksOnDay(availStr, dayIdx)) {
+        alert(detailerName + ' isn\'t available on ' + DAY_FULL[dayIdx] + 's.\n\nTheir working days are: ' + availStr + '.\n\nPick one of those days and you\'re all set!');
+        var dEl = document.getElementById('prefDate');
+        if (dEl) { dEl.focus(); dEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        return;
+      }
+    }
 
     // Prevent double-booking: lock the button for the DB insert + Stripe round-trip.
     var original = btn ? btn.textContent : '';
@@ -3682,7 +3730,10 @@
   // Prevent booking a date in the past — set the date picker's floor to today.
   (function () {
     var d = document.getElementById('prefDate');
-    if (d) { try { d.min = new Date().toISOString().split('T')[0]; } catch (e) {} }
+    if (d) {
+      try { d.min = new Date().toISOString().split('T')[0]; } catch (e) {}
+      d.addEventListener('change', updateAvailWarnings);
+    }
   })();
   // Prefill referral code from a shared ?ref= link.
   (function () {
