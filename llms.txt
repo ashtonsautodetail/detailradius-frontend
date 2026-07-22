@@ -1,0 +1,27 @@
+# DetailRadius
+
+> DetailRadius is a marketplace that connects customers with vetted mobile and drop-off auto detailers in Illinois. Customers compare local detailers with upfront prices, book online in minutes, and pay securely through Stripe with a small deposit. Detailers join free, keep 90% of every job, and get a full business dashboard.
+
+## Book a detailer
+- [Find a detailer](https://serene-cupcake-78a254.netlify.app/): search by location, compare prices and reviews, book with a deposit
+- Packages: Express Detail from $70, Standard Detail from $150, Premium Detail from $280, Ceramic Coating from $400
+
+## City pages
+- [Decatur, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-decatur-il.html)
+- [Springfield, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-springfield-il.html)
+- [Champaign-Urbana, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-champaign-urbana-il.html)
+- [Bloomington-Normal, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-bloomington-normal-il.html)
+- [Peoria, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-peoria-il.html)
+- [Chicago, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-chicago-il.html)
+- [Naperville-Aurora, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-naperville-aurora-il.html)
+- [Joliet, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-joliet-il.html)
+- [Schaumburg, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-schaumburg-il.html)
+- [Rockford, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-rockford-il.html)
+
+## For detailers
+- [Become a detailer](https://serene-cupcake-78a254.netlify.app/for-detailers.html): free to join, keep 90%, deposits stop no-shows, business dashboard included
+- [Fleet & business detailing](https://serene-cupcake-78a254.netlify.app/fleet.html): recurring fleet detailing for dealerships, rental lots, and delivery fleets — one invoice
+
+## Policies
+- [Terms of Service](https://serene-cupcake-78a254.netlify.app/terms.html)
+- [Privacy Policy](https://serene-cupcake-78a254.netlify.app/privacy.html)

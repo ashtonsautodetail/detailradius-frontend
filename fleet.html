@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fleet & Business Detailing — One Invoice, Every Vehicle Clean | DetailRadius</title>
+<meta name="description" content="Fleet detailing for dealerships, rental lots, real estate teams, and delivery fleets across Illinois. Vetted detailers, one invoice, on-site service. Get a fleet quote from DetailRadius.">
+<link rel="canonical" href="https://serene-cupcake-78a254.netlify.app/fleet.html">
+<meta name="theme-color" content="#0B1533">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/icon-192.png">
+<meta property="og:title" content="Fleet & Business Detailing — DetailRadius">
+<meta property="og:description" content="One invoice. Every vehicle clean. Vetted detailers come to your lot on a schedule.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Fleet vehicle detailing",
+  "name": "DetailRadius Fleet & Business Detailing",
+  "provider": { "@type": "Organization", "name": "DetailRadius", "url": "https://serene-cupcake-78a254.netlify.app/" },
+  "areaServed": { "@type": "State", "name": "Illinois" }
+}
+</script>
+<style>
+  :root { --navy:#0B1533; --navy2:#13276a; --cyan:#38BDF8; --ink:#1e293b; --muted:#556074; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); background:#f6f9ff; }
+  .hero { background:linear-gradient(150deg,#0B1533 20%,#13276a 70%,#1e3a8a); color:#fff; padding:56px 20px 64px; text-align:center; }
+  .hero .logo { font-size:24px; font-weight:800; letter-spacing:-.5px; margin-bottom:26px; display:inline-flex; align-items:center; gap:9px; }
+  .hero .logo img { width:36px; height:36px; border-radius:8px; }
+  .hero .logo span { color:var(--cyan); }
+  .hero .logo a { color:inherit; text-decoration:none; display:inline-flex; align-items:center; gap:9px; }
+  .hero h1 { font-size:clamp(28px,5vw,44px); line-height:1.15; max-width:820px; margin:0 auto 14px; }
+  .hero p { color:#b9c6e2; max-width:660px; margin:0 auto 28px; font-size:17px; line-height:1.6; }
+  .cta { display:inline-block; background:var(--cyan); color:#04263a; font-weight:800; font-size:17px; padding:15px 34px; border-radius:12px; text-decoration:none; box-shadow:0 14px 30px -8px rgba(56,189,248,.55); }
+  .cta:hover { filter:brightness(1.07); }
+  .wrap { max-width:960px; margin:0 auto; padding:52px 20px; }
+  h2 { font-size:26px; color:var(--navy); margin-bottom:10px; }
+  .sub { color:var(--muted); margin-bottom:26px; line-height:1.6; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .card { background:#fff; border:1px solid #e3e9f6; border-radius:14px; padding:20px; box-shadow:0 6px 18px -10px rgba(15,32,84,.14); }
+  .card h3 { font-size:16.5px; color:var(--navy); margin-bottom:6px; }
+  .card p { font-size:13.5px; color:var(--muted); line-height:1.55; }
+  .who { display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+  .chip { font-size:13px; font-weight:600; background:#eaf6ff; border:1px solid #bfe3fb; color:#0b4a6f; padding:7px 14px; border-radius:999px; }
+  form { background:#fff; border:1px solid #e3e9f6; border-radius:16px; padding:26px; box-shadow:0 10px 26px -12px rgba(15,32,84,.18); }
+  .frow { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .field { margin-bottom:14px; }
+  label { display:block; font-size:13px; font-weight:700; color:var(--navy); margin-bottom:5px; }
+  input, select, textarea { width:100%; padding:11px 12px; border:1px solid #cfd8ea; border-radius:9px; font-size:14px; font-family:inherit; background:#fbfdff; }
+  input:focus, select:focus, textarea:focus { outline:2px solid var(--cyan); border-color:transparent; }
+  button.submit { width:100%; background:linear-gradient(135deg,var(--cyan),#2563eb); color:#fff; font-weight:800; font-size:16px; padding:14px; border:none; border-radius:11px; cursor:pointer; }
+  button.submit:disabled { opacity:.6; cursor:default; }
+  .ok { background:#ecfdf5; border:1px solid #a7f3d0; color:#065f46; border-radius:10px; padding:14px; font-size:14px; line-height:1.55; display:none; margin-top:12px; }
+  .err { background:#fef2f2; border:1px solid #fecaca; color:#991b1b; border-radius:10px; padding:12px; font-size:13.5px; display:none; margin-top:12px; }
+  footer { text-align:center; padding:26px 16px; font-size:13px; color:#7c8aa5; }
+  footer a { color:#5b7bb6; }
+  @media (max-width:640px){ .frow { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="logo"><a href="/"><img src="/icon-192.png" alt="DetailRadius logo">Detail<span>Radius</span></a></div>
+  <h1>One invoice. Every vehicle clean.</h1>
+  <p>Dealership lots, rental fleets, delivery vans, company cars — DetailRadius coordinates vetted local detailers to keep your whole fleet showroom-ready, on your schedule, on your lot. You get one point of contact and one monthly invoice.</p>
+  <a class="cta" href="#quote">Get a Fleet Quote →</a>
+  <div class="who">
+    <span class="chip" style="margin:22px auto 0;">🚗 Dealerships</span>
+    <span class="chip" style="margin-top:22px;">🔑 Rental lots</span>
+    <span class="chip" style="margin-top:22px;">📦 Delivery fleets</span>
+    <span class="chip" style="margin-top:22px;">🏠 Real estate teams</span>
+    <span class="chip" style="margin-top:22px;">⚰️ Funeral homes</span>
+  </div>
+</header>
+
+<section class="wrap">
+  <h2>Why fleets run on DetailRadius</h2>
+  <p class="sub">Stop juggling three detailers' phone numbers and a stack of paper invoices.</p>
+  <div class="grid">
+    <div class="card"><h3>📍 We come to your lot</h3><p>Detailers arrive on-site with self-contained water and power. No shuttling vehicles, no downtime beyond the detail itself.</p></div>
+    <div class="card"><h3>🧾 One invoice, one contact</h3><p>Whether it's 5 vehicles or 50, you deal with DetailRadius once — we coordinate the detailers, quality, and scheduling.</p></div>
+    <div class="card"><h3>⭐ Vetted, reviewed pros</h3><p>Every detailer is rated by real customers on our platform. Fleet work goes to the proven ones.</p></div>
+    <div class="card"><h3>📅 Recurring schedules</h3><p>Weekly, biweekly, or monthly rotations sized to your lot — front-line units first, aging stock on cycle.</p></div>
+    <div class="card"><h3>💵 Volume pricing</h3><p>Fleet rates beat one-off retail pricing. The bigger the rotation, the better the per-vehicle rate.</p></div>
+    <div class="card"><h3>🛡️ Payment protection</h3><p>Everything runs through the platform — tracked, receipted, and covered by our service standards.</p></div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0;" id="quote">
+  <h2>Get your fleet quote</h2>
+  <p class="sub">Tell us about your fleet — you'll hear back within one business day.</p>
+  <form onsubmit="return submitFleet(event)">
+    <div class="frow">
+      <div class="field"><label>Company / dealership *</label><input type="text" id="fCompany" required maxlength="120" placeholder="e.g. Route 36 Auto Group"></div>
+      <div class="field"><label>Your name</label><input type="text" id="fName" maxlength="120" placeholder="First & last name"></div>
+    </div>
+    <div class="frow">
+      <div class="field"><label>Email *</label><input type="email" id="fEmail" required maxlength="160" placeholder="you@company.com"></div>
+      <div class="field"><label>Phone</label><input type="tel" id="fPhone" maxlength="30" placeholder="(217) 555-0100"></div>
+    </div>
+    <div class="frow">
+      <div class="field"><label>Fleet size *</label>
+        <select id="fSize" required>
+          <option value="">Choose…</option>
+          <option>2–5 vehicles</option>
+          <option>6–15 vehicles</option>
+          <option>16–40 vehicles</option>
+          <option>40+ vehicles</option>
+        </select>
+      </div>
+      <div class="field"><label>City *</label><input type="text" id="fCity" required maxlength="80" placeholder="e.g. Decatur, IL"></div>
+    </div>
+    <div class="field"><label>What do you need?</label><textarea id="fMsg" rows="4" maxlength="1500" placeholder="e.g. 12 front-line vehicles detailed biweekly, plus full details on trade-ins as they land…"></textarea></div>
+    <button class="submit" id="fBtn" type="submit">Request Fleet Quote</button>
+    <div class="ok" id="fOk">✓ Got it — your fleet inquiry is in. We'll get back to you within one business day with a plan and pricing.</div>
+    <div class="err" id="fErr"></div>
+  </form>
+</section>
+
+<footer>© 2026 DetailRadius · <a href="/">Book a detailer</a> · <a href="/#detailers">Become a detailer</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  var sb = window.supabase ? window.supabase.createClient(
+    'https://asfqmjccfnjfrspvhnpt.supabase.co',
+    'sb_publishable_pYFsa-rOViOifoGLrRSPiQ_e9-KAfd4'
+  ) : null;
+
+  async function submitFleet(e) {
+    e.preventDefault();
+    var btn = document.getElementById('fBtn');
+    var ok = document.getElementById('fOk');
+    var err = document.getElementById('fErr');
+    ok.style.display = 'none'; err.style.display = 'none';
+
+    var payload = {
+      company: document.getElementById('fCompany').value.trim(),
+      contact_name: document.getElementById('fName').value.trim(),
+      email: document.getElementById('fEmail').value.trim(),
+      phone: document.getElementById('fPhone').value.trim(),
+      fleet_size: document.getElementById('fSize').value,
+      city: document.getElementById('fCity').value.trim(),
+      message: document.getElementById('fMsg').value.trim()
+    };
+    if (!payload.company || !payload.email || !payload.fleet_size || !payload.city) {
+      err.textContent = 'Please fill in company, email, fleet size, and city.';
+      err.style.display = ''; return false;
+    }
+    if (!sb) { err.textContent = 'Connection problem — please email us instead.'; err.style.display = ''; return false; }
+
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      var res = await sb.from('fleet_inquiries').insert([payload]);
+      if (res.error) throw new Error(res.error.message);
+      ok.style.display = '';
+      e.target.reset();
+      // Best-effort email notification (dormant until notifications are switched on)
+      try {
+        fetch('https://detailradius-backend.netlify.app/.netlify/functions/notify-booking', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'fleet', company: payload.company, email: payload.email, fleetSize: payload.fleet_size, city: payload.city, message: payload.message })
+        }).catch(function () {});
+      } catch (e2) {}
+    } catch (ex) {
+      err.textContent = 'Couldn\'t send just now (' + ex.message + '). Try again in a minute.';
+      err.style.display = '';
+    }
+    btn.disabled = false; btn.textContent = 'Request Fleet Quote';
+    return false;
+  }
+</script>
+</body>
+</html>

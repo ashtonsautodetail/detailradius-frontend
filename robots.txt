@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serene-cupcake-78a254.netlify.app/sitemap.xml
