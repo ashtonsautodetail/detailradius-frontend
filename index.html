@@ -943,6 +943,14 @@
   <div class="hero-inner" id="heroContent"></div>
 </section>
 
+<section class="how-section" id="howSection">
+  <div class="how-inner">
+    <div class="section-eyebrow">Simple by design</div>
+    <h2 id="howHeading">How It Works</h2>
+    <div class="how-grid" id="howGrid"></div>
+  </div>
+</section>
+
 
 
 <main id="main" tabindex="-1">
@@ -1090,82 +1098,7 @@
   </div>
 </section>
 
-<section class="how-section" id="howSection">
-  <div class="how-inner">
-    <div class="section-eyebrow">Simple by design</div>
-    <h2 id="howHeading">How It Works</h2>
-    <div class="how-grid" id="howGrid"></div>
-  </div>
-</section>
 
-<section class="services-section reveal" id="servicesSection" aria-label="Types of detailing">
-  <div class="services-inner">
-    <div class="section-eyebrow">Book online · upfront pricing</div>
-    <h2>Detailing Packages</h2>
-    <p class="services-sub">Real packages, upfront starting prices — book in minutes. <span class="svc-note">Final price depends on vehicle size &amp; condition; larger or heavily soiled vehicles may be quoted higher.</span></p>
-    <div class="svc-tabs" role="tablist" aria-label="Types of detailing">
-      <button class="svc-tab active" role="tab" id="svctab-ext" aria-selected="true" aria-controls="svcpanel-ext" onclick="switchServiceTab('ext')">Express</button>
-      <button class="svc-tab" role="tab" id="svctab-int" aria-selected="false" aria-controls="svcpanel-int" tabindex="-1" onclick="switchServiceTab('int')">Standard</button>
-      <button class="svc-tab" role="tab" id="svctab-full" aria-selected="false" aria-controls="svcpanel-full" tabindex="-1" onclick="switchServiceTab('full')">Premium</button>
-      <button class="svc-tab" role="tab" id="svctab-ceramic" aria-selected="false" aria-controls="svcpanel-ceramic" tabindex="-1" onclick="switchServiceTab('ceramic')">Ceramic</button>
-    </div>
-    <div class="svc-panels">
-      <div class="svc-panel active" id="svcpanel-ext" role="tabpanel" aria-labelledby="svctab-ext" tabindex="0">
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Express <span>&mdash; Quick Touch-Up</span><b>Starting at $70</b></div>
-            <p>A fast refresh inside and out to keep your car looking sharp between deep details.</p>
-            <ul class="svc-list"><li>2-step foam wash</li><li>Hand dry</li><li>Tire &amp; wheel cleaning</li><li>Interior vacuum</li><li>Dash wipe-down</li><li>Windows &amp; air freshener</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-      <div class="svc-panel" id="svcpanel-int" role="tabpanel" aria-labelledby="svctab-int" tabindex="0" hidden>
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Standard <span>&mdash; Deep Clean &amp; Protect</span><b>Starting at $150</b></div>
-            <p>A thorough deep clean plus protection that lasts — our most popular package.</p>
-            <ul class="svc-list"><li>3-step foam wash</li><li>1-month ceramic sealant</li><li>Bug &amp; tar removal</li><li>Door jamb cleaning</li><li>Full interior shampoo &amp; mat scrub</li><li>UV protectant</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-      <div class="svc-panel" id="svcpanel-full" role="tabpanel" aria-labelledby="svctab-full" tabindex="0" hidden>
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Premium <span>&mdash; Showroom Finish</span><b>Starting at $280</b></div>
-            <p>The works — a complete, showroom-level reset from paint to leather to engine bay.</p>
-            <ul class="svc-list"><li>Clay bar decontamination</li><li>Hand wax or 3–6 month sealant</li><li>Exterior trim dressing</li><li>Steam cleaning &amp; leather conditioning</li><li>Engine bay wipe-down</li><li>Exhaust polishing</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-      <div class="svc-panel" id="svcpanel-ceramic" role="tabpanel" aria-labelledby="svctab-ceramic" tabindex="0" hidden>
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Ceramic Coating<span></span><b>Starting at $400</b></div>
-            <p>Long-lasting paint protection that keeps your car looking new for years.</p>
-            <ul class="svc-list"><li>Paint prep &amp; correction*</li><li>Professional ceramic coating application</li><li>Months to years of protection</li><li>Hydrophobic, easy-to-clean finish</li><li>Deep, lasting gloss</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="addons-strip">
-      <div class="addons-title">Popular Add-Ons</div>
-      <div class="addons-grid">
-        <div class="addon"><span>Paint Correction</span><b>$250</b><small>1-stage &middot; $450 two-stage</small></div>
-        <div class="addon"><span>Engine Bay Cleaning</span><b>$50</b></div>
-        <div class="addon"><span>Odor Elimination</span><b>$50</b></div>
-        <div class="addon"><span>Headlight Restoration</span><b>$60</b></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="why-us">
   <div class="why-us-inner">
