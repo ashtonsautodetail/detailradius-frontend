@@ -2454,6 +2454,40 @@
     `).join('');
   }
 
+  var chosenTips = {};
+  function pickTip(btn) {
+    var jobId = btn.dataset.job, tip = parseInt(btn.dataset.tip) || 0;
+    chosenTips[jobId] = tip;
+    var row = btn.parentElement;
+    Array.prototype.forEach.call(row.querySelectorAll('.tip-chip'), function (b) {
+      var on = b === btn;
+      b.style.background = on ? '#1C232C' : '';
+      b.style.color = on ? '#fff' : '';
+      b.style.borderColor = on ? '#1C232C' : '';
+    });
+    var note = document.getElementById('tipNote-' + jobId);
+    if (note) note.textContent = tip > 0 ? ' + $' + tip + ' tip' : '';
+  }
+  async function payMyBalance(jobId, btn) {
+    var tip = chosenTips[jobId] || 0;
+    if (btn) { btn.disabled = true; btn.textContent = 'Opening secure checkout\u2026'; }
+    try {
+      const { error: tipErr } = await sb.from('jobs').update({ tip_amount: tip }).eq('id', jobId);
+      if (tipErr) throw new Error(tipErr.message);
+      const returnUrl = window.location.origin + window.location.pathname + '?balance=paid&job=' + jobId;
+      const res = await fetch(BACKEND_URL + '/stripe-checkout', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jobId: jobId, type: 'remainder', successUrl: returnUrl, cancelUrl: window.location.origin + window.location.pathname })
+      });
+      const data = await res.json().catch(function () { return {}; });
+      if (!data.url) throw new Error(data.error || 'Could not start checkout');
+      window.location.href = data.url;
+    } catch (e) {
+      if (btn) { btn.disabled = false; btn.textContent = 'Pay balance'; }
+      alert('Payment could not start: ' + e.message);
+    }
+  }
+
   async function cancelMyBooking(jobId, email) {
     if (!confirm('Cancel this booking request? If you paid a deposit, message the detailer about a refund — cancelling before they accept usually means a full refund.')) return;
     const { error } = await sb.from('jobs').update({ status: 'cancelled' }).eq('id', jobId);
@@ -2479,6 +2513,14 @@
         <div class="details">${escHtml(j.vehicle)} &nbsp;•&nbsp; ${escHtml(j.service)}<br>${escHtml(j.date)}${j.requested_time ? ' · ' + escHtml(j.requested_time) : ''}</div>
         <div class="status-pill ${j.status}">${j.status}</div>
         ${j.status !== 'declined' ? `<div style="font-size:12px; color:#666; margin:4px 0;">${paymentStatusLabel(j)}</div>` : ''}
+        ${(j.payment_status === 'deposit_paid' && (j.price - (j.deposit_amount || 0)) > 0 && j.status !== 'declined' && j.status !== 'cancelled') ? `
+          <div style="border:1px solid #D5D9E0; background:#F4F5F7; border-radius:10px; padding:10px 12px; margin:8px 0;">
+            <div style="font-size:12.5px; font-weight:700; color:#1C232C; margin-bottom:6px;">Add a tip for your detailer? <span style="font-weight:500; color:#6B7280;">(they keep 100%)</span></div>
+            <div style="display:flex; gap:5px; flex-wrap:wrap; margin-bottom:8px;">
+              ${[0, 0.15, 0.20, 0.25].map(p => `<button class="secondary tip-chip" data-job="${j.id}" data-tip="${p === 0 ? 0 : Math.round((j.price - (j.deposit_amount || 0)) * p)}" style="font-size:12px; padding:5px 11px;" onclick="pickTip(this)">${p === 0 ? 'No tip' : Math.round(p * 100) + '% ($' + Math.round((j.price - (j.deposit_amount || 0)) * p) + ')'}</button>`).join('')}
+            </div>
+            <button class="primary" style="font-size:13px;" onclick="payMyBalance(${j.id}, this)">Pay balance ($${j.price - (j.deposit_amount || 0)}<span id="tipNote-${j.id}"></span>)</button>
+          </div>` : ''}
         ${j.status !== 'declined' ? `
           <div class="msg-thread" id="cmsgThread-${j.id}"></div>
           <div class="msg-row">
