@@ -13,7 +13,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="DetailRadius">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20width%3D%2748%27%20height%3D%2748%27%20rx%3D%2711%27%20fill%3D%27%230F1116%27/%3E%3Ccircle%20cx%3D%2724%27%20cy%3D%2724%27%20r%3D%2717%27%20fill%3D%27none%27%20stroke%3D%27%23C9CDD6%27%20stroke-width%3D%273.5%27/%3E%3Cpath%20d%3D%27M24%2024%20L24%207%20A17%2017%200%200%201%2038.7%2015.5%20Z%27%20fill%3D%27rgba(201%2C205%2C214%2C.3)%27/%3E%3Ccircle%20cx%3D%2724%27%20cy%3D%2724%27%20r%3D%274%27%20fill%3D%27%23C9CDD6%27/%3E%3Ccircle%20cx%3D%2732.5%27%20cy%3D%2712.8%27%20r%3D%272.8%27%20fill%3D%27%23FFFFFF%27/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20width%3D%2748%27%20height%3D%2748%27%20rx%3D%2711%27%20fill%3D%27%230F1116%27%2F%3E%3Cpath%20fill-rule%3D%27evenodd%27%20d%3D%27M11%209%20H24%20A15.5%2015.5%200%200%201%2024%2040%20H11%20Z%20M17%2015%20V34%20H24%20A9.5%209.5%200%200%200%2024%2015%20Z%27%20fill%3D%27%23C9CDD6%27%2F%3E%3Cpath%20d%3D%27M33%206.2%20A6.8%206.8%200%200%201%2039.8%2013%27%20stroke%3D%27%23C9CDD6%27%20stroke-width%3D%272.6%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20d%3D%27M33%201.8%20A11.2%2011.2%200%200%201%2044.2%2013%27%20stroke%3D%27%23C9CDD6%27%20stroke-width%3D%272.4%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20opacity%3D%27.45%27%2F%3E%3Ccircle%20cx%3D%2733%27%20cy%3D%2713%27%20r%3D%272.9%27%20fill%3D%27%23FFFFFF%27%2F%3E%3C%2Fsvg%3E">
 <meta property="og:title" content="DetailRadius — Book a Trusted Mobile Detailer in Minutes">
 <meta property="og:description" content="Real local car detailers, upfront prices, booked and confirmed online. Mobile or drop-off.">
 <meta property="og:type" content="website">
@@ -894,6 +894,7 @@
   .cal-cell.has-jobs{ background:#EDEFF2 !important; color:#1A2028 !important; }
   .agenda-row.today{ background:#F4F5F7 !important; border-left-color:#1C232C !important; }
   .link-chip:hover{ background:#F1F2F5 !important; }
+  input[type="radio"], input[type="checkbox"]{ accent-color:#1C232C; }
   .earn-tile.paid{ background:linear-gradient(135deg,#F4F5F7,#ECEDF0) !important; border-color:#DDE0E5 !important; }
   .earn-tile.paid .earn-num{ color:#1C232C !important; } .earn-tile.paid .earn-label{ color:#3B4351 !important; }
   .earn-tile.pipe .earn-num{ color:#4A5260 !important; } .earn-tile.pipe .earn-label{ color:#3B4351 !important; }
@@ -915,10 +916,10 @@
   <div class="logo">
     <span class="car-icon" aria-hidden="true">
       <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="19" fill="none" stroke="#C9CDD6" stroke-width="3.5"/>
-        <path d="M24 24 L24 5 A19 19 0 0 1 40.5 14.5 Z" fill="rgba(201,205,214,.30)"/>
-        <circle cx="24" cy="24" r="4.2" fill="#C9CDD6"/>
-        <circle cx="33.5" cy="11.5" r="3" fill="#FFFFFF"/>
+        <path fill-rule="evenodd" d="M11 9 H24 A15.5 15.5 0 0 1 24 40 H11 Z M17 15 V34 H24 A9.5 9.5 0 0 0 24 15 Z" fill="#C9CDD6"/>
+        <path d="M33 6.2 A6.8 6.8 0 0 1 39.8 13" stroke="#C9CDD6" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".8"/>
+        <path d="M33 1.8 A11.2 11.2 0 0 1 44.2 13" stroke="#C9CDD6" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".45"/>
+        <circle cx="33" cy="13" r="2.9" fill="#FFFFFF"/>
       </svg>
     </span>
     <span>Detail</span><span class="radius">Radius</span>
@@ -936,105 +937,6 @@
   <div class="hero-inner" id="heroContent"></div>
 </section>
 
-<section class="trust-band" aria-label="Why you can trust DetailRadius">
-  <div class="trust-band-inner">
-    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 L20 5 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V5 Z"/><path d="M9 12 l2 2 l4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Secure Stripe deposits</span>
-    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21 s7-5.5 7-11 a7 7 0 1 0-14 0 c0 5.5 7 11 7 11 Z"/><circle cx="12" cy="10" r="2.5"/></svg>Local &amp; mobile detailers</span>
-    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12 l3 3 l5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>No account needed</span>
-    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><text x="12" y="16" font-size="12" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">$</text></svg>Upfront pricing</span>
-  </div>
-</section>
-
-<section class="how-section" id="howSection">
-  <div class="how-inner">
-    <div class="section-eyebrow">Simple by design</div>
-    <h2 id="howHeading">How It Works</h2>
-    <div class="how-grid" id="howGrid"></div>
-  </div>
-</section>
-
-<section class="services-section reveal" id="servicesSection" aria-label="Types of detailing">
-  <div class="services-inner">
-    <div class="section-eyebrow">Book online · upfront pricing</div>
-    <h2>Detailing Packages</h2>
-    <p class="services-sub">Real packages, upfront starting prices — book in minutes. <span class="svc-note">Final price depends on vehicle size &amp; condition; larger or heavily soiled vehicles may be quoted higher.</span></p>
-    <div class="svc-tabs" role="tablist" aria-label="Types of detailing">
-      <button class="svc-tab active" role="tab" id="svctab-ext" aria-selected="true" aria-controls="svcpanel-ext" onclick="switchServiceTab('ext')">Express</button>
-      <button class="svc-tab" role="tab" id="svctab-int" aria-selected="false" aria-controls="svcpanel-int" tabindex="-1" onclick="switchServiceTab('int')">Standard</button>
-      <button class="svc-tab" role="tab" id="svctab-full" aria-selected="false" aria-controls="svcpanel-full" tabindex="-1" onclick="switchServiceTab('full')">Premium</button>
-      <button class="svc-tab" role="tab" id="svctab-ceramic" aria-selected="false" aria-controls="svcpanel-ceramic" tabindex="-1" onclick="switchServiceTab('ceramic')">Ceramic</button>
-    </div>
-    <div class="svc-panels">
-      <div class="svc-panel active" id="svcpanel-ext" role="tabpanel" aria-labelledby="svctab-ext" tabindex="0">
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Express <span>&mdash; Quick Touch-Up</span><b>Starting at $70</b></div>
-            <p>A fast refresh inside and out to keep your car looking sharp between deep details.</p>
-            <ul class="svc-list"><li>2-step foam wash</li><li>Hand dry</li><li>Tire &amp; wheel cleaning</li><li>Interior vacuum</li><li>Dash wipe-down</li><li>Windows &amp; air freshener</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-      <div class="svc-panel" id="svcpanel-int" role="tabpanel" aria-labelledby="svctab-int" tabindex="0" hidden>
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Standard <span>&mdash; Deep Clean &amp; Protect</span><b>Starting at $150</b></div>
-            <p>A thorough deep clean plus protection that lasts — our most popular package.</p>
-            <ul class="svc-list"><li>3-step foam wash</li><li>1-month ceramic sealant</li><li>Bug &amp; tar removal</li><li>Door jamb cleaning</li><li>Full interior shampoo &amp; mat scrub</li><li>UV protectant</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-      <div class="svc-panel" id="svcpanel-full" role="tabpanel" aria-labelledby="svctab-full" tabindex="0" hidden>
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Premium <span>&mdash; Showroom Finish</span><b>Starting at $280</b></div>
-            <p>The works — a complete, showroom-level reset from paint to leather to engine bay.</p>
-            <ul class="svc-list"><li>Clay bar decontamination</li><li>Hand wax or 3–6 month sealant</li><li>Exterior trim dressing</li><li>Steam cleaning &amp; leather conditioning</li><li>Engine bay wipe-down</li><li>Exhaust polishing</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-      <div class="svc-panel" id="svcpanel-ceramic" role="tabpanel" aria-labelledby="svctab-ceramic" tabindex="0" hidden>
-        <div class="svc-panel-inner">
-          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
-          <div class="svc-panel-body">
-            <div class="svc-price">Ceramic Coating<span></span><b>Starting at $400</b></div>
-            <p>Long-lasting paint protection that keeps your car looking new for years.</p>
-            <ul class="svc-list"><li>Paint prep &amp; correction*</li><li>Professional ceramic coating application</li><li>Months to years of protection</li><li>Hydrophobic, easy-to-clean finish</li><li>Deep, lasting gloss</li></ul>
-            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="addons-strip">
-      <div class="addons-title">Popular Add-Ons</div>
-      <div class="addons-grid">
-        <div class="addon"><span>Paint Correction</span><b>$250</b><small>1-stage &middot; $450 two-stage</small></div>
-        <div class="addon"><span>Engine Bay Cleaning</span><b>$50</b></div>
-        <div class="addon"><span>Odor Elimination</span><b>$50</b></div>
-        <div class="addon"><span>Headlight Restoration</span><b>$60</b></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="why-us">
-  <div class="why-us-inner">
-    <h2 id="whyUsHeading">Why DetailRadius</h2>
-    <div class="why-grid" id="whyUsGrid"></div>
-  </div>
-</section>
-
-<section class="showcase">
-  <div class="showcase-inner">
-    <h2>Recent Work</h2>
-    <div id="publicPhotoStrip" class="photo-strip"><div class="empty-msg">Loading...</div></div>
-  </div>
-</section>
 
 
 <main id="main" tabindex="-1">
@@ -1173,6 +1075,106 @@
 
 </main>
 
+<section class="trust-band" aria-label="Why you can trust DetailRadius">
+  <div class="trust-band-inner">
+    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 L20 5 V11 C20 16 16.5 20 12 22 C7.5 20 4 16 4 11 V5 Z"/><path d="M9 12 l2 2 l4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Secure Stripe deposits</span>
+    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21 s7-5.5 7-11 a7 7 0 1 0-14 0 c0 5.5 7 11 7 11 Z"/><circle cx="12" cy="10" r="2.5"/></svg>Local &amp; mobile detailers</span>
+    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12 l3 3 l5-6" stroke-linecap="round" stroke-linejoin="round"/></svg>No account needed</span>
+    <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><text x="12" y="16" font-size="12" text-anchor="middle" fill="currentColor" stroke="none" font-weight="700">$</text></svg>Upfront pricing</span>
+  </div>
+</section>
+
+<section class="how-section" id="howSection">
+  <div class="how-inner">
+    <div class="section-eyebrow">Simple by design</div>
+    <h2 id="howHeading">How It Works</h2>
+    <div class="how-grid" id="howGrid"></div>
+  </div>
+</section>
+
+<section class="services-section reveal" id="servicesSection" aria-label="Types of detailing">
+  <div class="services-inner">
+    <div class="section-eyebrow">Book online · upfront pricing</div>
+    <h2>Detailing Packages</h2>
+    <p class="services-sub">Real packages, upfront starting prices — book in minutes. <span class="svc-note">Final price depends on vehicle size &amp; condition; larger or heavily soiled vehicles may be quoted higher.</span></p>
+    <div class="svc-tabs" role="tablist" aria-label="Types of detailing">
+      <button class="svc-tab active" role="tab" id="svctab-ext" aria-selected="true" aria-controls="svcpanel-ext" onclick="switchServiceTab('ext')">Express</button>
+      <button class="svc-tab" role="tab" id="svctab-int" aria-selected="false" aria-controls="svcpanel-int" tabindex="-1" onclick="switchServiceTab('int')">Standard</button>
+      <button class="svc-tab" role="tab" id="svctab-full" aria-selected="false" aria-controls="svcpanel-full" tabindex="-1" onclick="switchServiceTab('full')">Premium</button>
+      <button class="svc-tab" role="tab" id="svctab-ceramic" aria-selected="false" aria-controls="svcpanel-ceramic" tabindex="-1" onclick="switchServiceTab('ceramic')">Ceramic</button>
+    </div>
+    <div class="svc-panels">
+      <div class="svc-panel active" id="svcpanel-ext" role="tabpanel" aria-labelledby="svctab-ext" tabindex="0">
+        <div class="svc-panel-inner">
+          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
+          <div class="svc-panel-body">
+            <div class="svc-price">Express <span>&mdash; Quick Touch-Up</span><b>Starting at $70</b></div>
+            <p>A fast refresh inside and out to keep your car looking sharp between deep details.</p>
+            <ul class="svc-list"><li>2-step foam wash</li><li>Hand dry</li><li>Tire &amp; wheel cleaning</li><li>Interior vacuum</li><li>Dash wipe-down</li><li>Windows &amp; air freshener</li></ul>
+            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="svc-panel" id="svcpanel-int" role="tabpanel" aria-labelledby="svctab-int" tabindex="0" hidden>
+        <div class="svc-panel-inner">
+          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
+          <div class="svc-panel-body">
+            <div class="svc-price">Standard <span>&mdash; Deep Clean &amp; Protect</span><b>Starting at $150</b></div>
+            <p>A thorough deep clean plus protection that lasts — our most popular package.</p>
+            <ul class="svc-list"><li>3-step foam wash</li><li>1-month ceramic sealant</li><li>Bug &amp; tar removal</li><li>Door jamb cleaning</li><li>Full interior shampoo &amp; mat scrub</li><li>UV protectant</li></ul>
+            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="svc-panel" id="svcpanel-full" role="tabpanel" aria-labelledby="svctab-full" tabindex="0" hidden>
+        <div class="svc-panel-inner">
+          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
+          <div class="svc-panel-body">
+            <div class="svc-price">Premium <span>&mdash; Showroom Finish</span><b>Starting at $280</b></div>
+            <p>The works — a complete, showroom-level reset from paint to leather to engine bay.</p>
+            <ul class="svc-list"><li>Clay bar decontamination</li><li>Hand wax or 3–6 month sealant</li><li>Exterior trim dressing</li><li>Steam cleaning &amp; leather conditioning</li><li>Engine bay wipe-down</li><li>Exhaust polishing</li></ul>
+            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="svc-panel" id="svcpanel-ceramic" role="tabpanel" aria-labelledby="svctab-ceramic" tabindex="0" hidden>
+        <div class="svc-panel-inner">
+          <div class="svc-panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.3h10.2A2 2 0 0 1 19 8l2 5"/><path d="M5 13h14v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H8v1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="15.5" r="0.6" fill="currentColor"/><circle cx="16.5" cy="15.5" r="0.6" fill="currentColor"/></svg></div>
+          <div class="svc-panel-body">
+            <div class="svc-price">Ceramic Coating<span></span><b>Starting at $400</b></div>
+            <p>Long-lasting paint protection that keeps your car looking new for years.</p>
+            <ul class="svc-list"><li>Paint prep &amp; correction*</li><li>Professional ceramic coating application</li><li>Months to years of protection</li><li>Hydrophobic, easy-to-clean finish</li><li>Deep, lasting gloss</li></ul>
+            <button class="btn-cta" onclick="scrollToBooking()">Find a detailer <span>&rarr;</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="addons-strip">
+      <div class="addons-title">Popular Add-Ons</div>
+      <div class="addons-grid">
+        <div class="addon"><span>Paint Correction</span><b>$250</b><small>1-stage &middot; $450 two-stage</small></div>
+        <div class="addon"><span>Engine Bay Cleaning</span><b>$50</b></div>
+        <div class="addon"><span>Odor Elimination</span><b>$50</b></div>
+        <div class="addon"><span>Headlight Restoration</span><b>$60</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-us">
+  <div class="why-us-inner">
+    <h2 id="whyUsHeading">Why DetailRadius</h2>
+    <div class="why-grid" id="whyUsGrid"></div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="showcase-inner">
+    <h2>Recent Work</h2>
+    <div id="publicPhotoStrip" class="photo-strip"><div class="empty-msg">Loading...</div></div>
+  </div>
+</section>
+
 <div class="modal-overlay" id="bookingModal">
   <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle" tabindex="-1">
     <div id="bookingModalContent"></div>
@@ -1289,7 +1291,7 @@
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo"><svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="#C9CDD6" stroke-width="3.5"/><path d="M24 24 L24 5 A19 19 0 0 1 40.5 14.5 Z" fill="rgba(201,205,214,.30)"/><circle cx="24" cy="24" r="4.2" fill="#C9CDD6"/><circle cx="33.5" cy="11.5" r="3" fill="#FFFFFF"/></svg><span>Detail<span class="radius">Radius</span></span></div>
+      <div class="footer-logo"><svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" d="M11 9 H24 A15.5 15.5 0 0 1 24 40 H11 Z M17 15 V34 H24 A9.5 9.5 0 0 0 24 15 Z" fill="#C9CDD6"/><path d="M33 6.2 A6.8 6.8 0 0 1 39.8 13" stroke="#C9CDD6" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".8"/><path d="M33 1.8 A11.2 11.2 0 0 1 44.2 13" stroke="#C9CDD6" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".45"/><circle cx="33" cy="13" r="2.9" fill="#FFFFFF"/></svg><span>Detail<span class="radius">Radius</span></span></div>
       <p>Mobile &amp; drop-off car detailing, booked online in minutes — real local pros, upfront prices.</p>
     </div>
     <nav class="footer-links">
@@ -2225,14 +2227,12 @@
   // ---------- MARKETING (two landing pages: buyer vs detailer) ----------
   const HERO_CONTENT = {
     customer: `
-      <div class="hero-eyebrow">Mobile &amp; drop-off · booked online</div>
-      <h1>Your Car, Detailed — Booked in Minutes.</h1>
-      <p>Real local detailers, upfront prices, confirmed on the spot — no calling around, no guessing.</p>
+      <h1>Your Car, Detailed.</h1>
+      <p>Vetted local detailers. Upfront prices. Book below in under two minutes.</p>
       <div class="hero-cta">
         <button class="btn-cta" onclick="scrollToBooking()">Find a Detailer <span>&rarr;</span></button>
         <button class="btn-ghost" onclick="scrollToHow()">How it works</button>
       </div>
-      <div id="trustStrip" class="trust-strip"></div>
     `,
     detailer: `
       <div class="hero-eyebrow">For detailers · free to list</div>
@@ -2341,7 +2341,7 @@
     const { data: detailers } = await sb.from('detailers').select('id');
     const { data: completed } = await sb.from('jobs').select('id').eq('status', 'completed');
     const thirdStat = audience === 'detailer'
-      ? '<div class="trust-item"><strong>10%</strong>Simple Platform Fee</div>'
+      ? '<div class="trust-item"><strong>95%+</strong>You Keep Per Job</div>'
       : '<div class="trust-item"><strong>Fast</strong>Book in Minutes</div>';
     el.innerHTML = `
       <div class="trust-item"><strong>${detailers ? detailers.length : 0}</strong>Local Detailers</div>
