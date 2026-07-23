@@ -1,12 +1,13 @@
 # DetailRadius
 
-> DetailRadius is a marketplace that connects customers with vetted mobile and drop-off auto detailers in Illinois. Customers compare local detailers with upfront prices, book online in minutes, and pay securely through Stripe with a small deposit. Detailers join free, keep 90% of every job, and get a full business dashboard.
+> DetailRadius is a US marketplace that connects customers with vetted mobile and drop-off auto detailers. Customers compare local detailers with upfront prices, book online in minutes, and pay securely through Stripe with a small deposit. Detailers join free, keep 95% of every job (97% with DetailRadius Pro), and get a full business dashboard with scheduling, payments, analytics, and reviews.
 
 ## Book a detailer
 - [Find a detailer](https://serene-cupcake-78a254.netlify.app/): search by location, compare prices and reviews, book with a deposit
 - Packages: Express Detail from $70, Standard Detail from $150, Premium Detail from $280, Ceramic Coating from $400
+- Not covered yet? The search offers a waitlist — leave an email and get notified when a detailer reaches your area
 
-## City pages
+## City pages — Illinois
 - [Decatur, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-decatur-il.html)
 - [Springfield, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-springfield-il.html)
 - [Champaign-Urbana, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-champaign-urbana-il.html)
@@ -18,9 +19,27 @@
 - [Schaumburg, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-schaumburg-il.html)
 - [Rockford, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-rockford-il.html)
 
+## City pages — US metros
+- [Dallas, TX](https://serene-cupcake-78a254.netlify.app/mobile-detailing-dallas-tx.html)
+- [Houston, TX](https://serene-cupcake-78a254.netlify.app/mobile-detailing-houston-tx.html)
+- [Phoenix, AZ](https://serene-cupcake-78a254.netlify.app/mobile-detailing-phoenix-az.html)
+- [Los Angeles, CA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-los-angeles-ca.html)
+- [San Diego, CA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-san-diego-ca.html)
+- [Atlanta, GA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-atlanta-ga.html)
+- [Miami, FL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-miami-fl.html)
+- [Tampa, FL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-tampa-fl.html)
+- [Orlando, FL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-orlando-fl.html)
+- [Charlotte, NC](https://serene-cupcake-78a254.netlify.app/mobile-detailing-charlotte-nc.html)
+- [Nashville, TN](https://serene-cupcake-78a254.netlify.app/mobile-detailing-nashville-tn.html)
+- [Denver, CO](https://serene-cupcake-78a254.netlify.app/mobile-detailing-denver-co.html)
+- [Seattle, WA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-seattle-wa.html)
+- [Las Vegas, NV](https://serene-cupcake-78a254.netlify.app/mobile-detailing-las-vegas-nv.html)
+- [St. Louis, MO](https://serene-cupcake-78a254.netlify.app/mobile-detailing-st-louis-mo.html)
+
 ## For detailers
-- [Become a detailer](https://serene-cupcake-78a254.netlify.app/for-detailers.html): free to join, keep 90%, deposits stop no-shows, business dashboard included
+- [Become a detailer](https://serene-cupcake-78a254.netlify.app/for-detailers.html): free to join, keep 95% (97% with Pro at $19/mo), deposits stop no-shows, business dashboard included; founding-detailer spots open in every metro above
 - [Fleet & business detailing](https://serene-cupcake-78a254.netlify.app/fleet.html): recurring fleet detailing for dealerships, rental lots, and delivery fleets — one invoice
+- [Link hub](https://serene-cupcake-78a254.netlify.app/links.html)
 
 ## Policies
 - [Terms of Service](https://serene-cupcake-78a254.netlify.app/terms.html)
