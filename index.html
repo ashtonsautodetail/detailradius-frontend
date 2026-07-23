@@ -1492,7 +1492,7 @@
     const checkedDays = (myDetailer.available_days || '').split(',');
     container.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-        <div><div class="dash-hello">Welcome back${myDetailer.name ? ', ' + myDetailer.name.split(' ')[0].replace(/"/g,'') : ''} 👋</div><div class="dash-hello-sub">Here's your business at a glance.</div></div>
+        <div><div class="dash-hello">Welcome back${myDetailer.name ? ', ' + myDetailer.name.split(' ')[0].replace(/"/g,'') : ''} 👋</div><div class="dash-hello-sub">Here's your business at a glance.</div>${myDetailer.founding ? '<span style="display:inline-block; margin-top:6px; background:linear-gradient(135deg,#2A313B,#0F1116); color:#fff; font-size:11px; font-weight:800; letter-spacing:.5px; padding:4px 12px; border-radius:999px;">👑 FOUNDING DETAILER — 0% fees on your first 10 jobs</span>' : ''}</div>
         <button class="secondary" onclick="handleLogout()">Log Out (${currentUser.email})</button>
       </div>
       <div id="dashActions" class="dash-actions" aria-live="polite"></div>
@@ -3167,7 +3167,10 @@
     }).join('') +
     '<div style="grid-column:1/-1; font-size:11.5px; color:#94a3b8; line-height:1.5; margin-top:4px;">' +
     'Tax set-aside is a planning estimate only (typical self-employment guidance), not tax advice — DetailRadius does not withhold taxes. ' +
-    'Stripe issues your 1099-K when you meet IRS thresholds; talk to a tax professional about your situation.</div>';
+    'Stripe issues your 1099-K when you meet IRS thresholds; talk to a tax professional about your situation.</div>' +
+    ((myDetailer && myDetailer.founding)
+      ? '<div style="grid-column:1/-1; font-size:12.5px; color:#3B4351; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:10px; padding:10px 14px;">👑 <b>Founding detailer:</b> your first 10 completed jobs pay out 100% — the platform fee is $0. Tiles show standard rates, so your actual payouts will be higher until job 11.</div>'
+      : '');
   }
 
   // Service performance — which services drive the most revenue (horizontal bars).
