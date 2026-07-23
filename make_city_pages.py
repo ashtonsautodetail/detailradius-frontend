@@ -148,7 +148,7 @@ TEMPLATE = """<!DOCTYPE html>
 }}
 </script>
 <style>
-  :root {{ --navy:#0F1116; --navy2:#1A2028; --cyan:#12B981; --ink:#1e293b; --muted:#556074; }}
+  :root {{ --navy:#0F1116; --navy2:#1A2028; --cyan:#C9CDD6; --ink:#1e293b; --muted:#556074; }}
   * {{ box-sizing:border-box; margin:0; padding:0; }}
   body {{ font-family:'Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); background:#f6f9ff; }}
   a {{ color:inherit; }}
@@ -158,7 +158,7 @@ TEMPLATE = """<!DOCTYPE html>
   .hero .logo span {{ color:var(--cyan); }}
   .hero h1 {{ font-size:clamp(28px,5vw,44px); line-height:1.15; max-width:760px; margin:0 auto 14px; }}
   .hero p {{ color:#b9c6e2; max-width:640px; margin:0 auto 28px; font-size:17px; line-height:1.6; }}
-  .cta {{ display:inline-block; background:linear-gradient(135deg,#12B981,#0A8F63); color:#fff; font-weight:800; font-size:17px; padding:15px 34px; border-radius:12px; text-decoration:none; box-shadow:0 14px 30px -8px rgba(10,143,99,.5); }}
+  .cta {{ display:inline-block; background:linear-gradient(135deg,#F2F4F8,#B9C0CC); color:#0F1116; font-weight:800; font-size:17px; padding:15px 34px; border-radius:12px; text-decoration:none; box-shadow:0 14px 30px -8px rgba(15,17,22,.35); }}
   .cta:hover {{ filter:brightness(1.07); }}
   .badges {{ margin-top:22px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }}
   .badge {{ font-size:12.5px; font-weight:600; background:rgba(56,189,248,.14); border:1px solid rgba(56,189,248,.32); color:#cfe4f6; padding:6px 13px; border-radius:999px; }}

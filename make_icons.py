@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""DetailRadius brand icons: obsidian tile + emerald radar-ring mark."""
+"""DetailRadius brand icons: obsidian tile + MIDNIGHT CHROME radar-ring mark.
+Chrome-silver ring/dot, white blip. Semantic greens elsewhere are unrelated."""
 from PIL import Image, ImageDraw
-OBSIDIAN=(15,17,22,255); EM=(16,185,129,255); EM_SOFT=(16,185,129,76)
+OBSIDIAN=(15,17,22,255); CH=(201,205,214,255); CH_SOFT=(201,205,214,76); ICE=(255,255,255,255)
 
 def radar(size, rounded=True, path="icon.png", scale=1.0):
     img = Image.new("RGBA",(size,size),(0,0,0,0)); d = ImageDraw.Draw(img)
@@ -9,12 +10,12 @@ def radar(size, rounded=True, path="icon.png", scale=1.0):
     else: d.rectangle([0,0,size,size], fill=OBSIDIAN)
     s = size/48.0*scale; off = size*(1-scale)/2; X = lambda v: off+v*s
     w = max(2, int(size*0.073))
-    d.ellipse([X(5),X(5),X(43),X(43)], outline=EM, width=w)
-    d.pieslice([X(5),X(5),X(43),X(43)], start=-90, end=-30, fill=EM_SOFT)
+    d.ellipse([X(5),X(5),X(43),X(43)], outline=CH, width=w)
+    d.pieslice([X(5),X(5),X(43),X(43)], start=-90, end=-30, fill=CH_SOFT)
     r=size*0.088; cx=cy=size*scale/2+off
-    d.ellipse([cx-r,cy-r,cx+r,cy+r], fill=EM)
+    d.ellipse([cx-r,cy-r,cx+r,cy+r], fill=CH)
     bx,by,br = X(33.5),X(11.5),size*0.062
-    d.ellipse([bx-br,by-br,bx+br,by+br], fill=EM)
+    d.ellipse([bx-br,by-br,bx+br,by+br], fill=ICE)
     img.save(path); print(path, img.size)
 
 if __name__ == "__main__":
