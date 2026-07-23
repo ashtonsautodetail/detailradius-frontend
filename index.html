@@ -19,6 +19,10 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://serene-cupcake-78a254.netlify.app/">
 <meta property="og:site_name" content="DetailRadius">
+<meta property="og:image" content="https://serene-cupcake-78a254.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://serene-cupcake-78a254.netlify.app/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DetailRadius — Book a Trusted Mobile Detailer in Minutes">
 <meta name="twitter:description" content="Real local car detailers, upfront prices, booked and confirmed online. Mobile or drop-off.">
@@ -3343,6 +3347,27 @@
     );
   }
 
+  async function joinWaitlist(btn) {
+    const email = (document.getElementById('wlEmail') || {}).value || '';
+    const city = (document.getElementById('wlCity') || {}).value || '';
+    const msgEl = document.getElementById('wlMsg');
+    if (!email || email.indexOf('@') < 0) { if (msgEl) { msgEl.textContent = 'Enter a valid email.'; msgEl.style.color = '#b91c1c'; } return; }
+    btn.disabled = true;
+    try {
+      const { error } = await sb.from('fleet_inquiries').insert([{
+        company: 'CUSTOMER WAITLIST', contact_name: null, email: email, phone: null,
+        fleet_size: null, city: city || null,
+        message: 'Customer waitlist signup — wants a detailer near ' + (city || ('lat ' + customerLat + ', lng ' + customerLng))
+      }]);
+      if (error) throw error;
+      if (msgEl) { msgEl.textContent = "You're on the list — we'll email you when a detailer covers your area."; msgEl.style.color = '#15803d'; }
+      try { fetch(BACKEND_URL + '/notify-booking', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'fleet', company: 'CUSTOMER WAITLIST', email: email, city: city, message: 'Customer waitlist signup' }) }); } catch (e) {}
+    } catch (e) {
+      if (msgEl) { msgEl.textContent = 'Something went wrong — try again.'; msgEl.style.color = '#b91c1c'; }
+      btn.disabled = false;
+    }
+  }
+
   async function searchDetailers() {
     const resultsEl = document.getElementById('results');
     resultsEl.innerHTML = '<div class="empty-msg">Searching...</div>';
@@ -3388,7 +3413,29 @@
       servicesByDetailer[s.detailer_id].push(s);
     });
 
-    resultsEl.innerHTML = list.map(d => {
+    // ---- Not-in-your-area-yet: waitlist + founding-detailer capture ----
+    let waitlistHtml = '';
+    if (customerLat !== null) {
+      const NEAR_MI = 60;
+      let nearest = null;
+      list.forEach(d => { if (d.distance !== null && (nearest === null || d.distance < nearest)) nearest = d.distance; });
+      if (nearest === null || nearest > NEAR_MI) {
+        waitlistHtml =
+          '<div class="card" style="border:1px solid #D5D9E0; background:linear-gradient(135deg,#F4F5F7,#ECEDF0); margin-bottom:14px;">' +
+          '<div style="font-weight:800; font-size:15.5px; color:#0F1116;">DetailRadius hasn\'t reached your area yet' + (nearest !== null ? ' — closest pro is ' + nearest.toFixed(0) + ' mi away' : '') + '</div>' +
+          '<p style="font-size:13px; color:#3B4351; margin:6px 0 10px; line-height:1.5;">Drop your email and we\'ll let you know the moment a vetted detailer covers your neighborhood. Know a great local detailer? Send them our way — founding detailers get featured placement.</p>' +
+          '<div style="display:flex; gap:8px; flex-wrap:wrap;">' +
+          '<input type="email" id="wlEmail" placeholder="you@example.com" style="flex:2; min-width:180px;">' +
+          '<input type="text" id="wlCity" placeholder="Your city / ZIP" style="flex:1; min-width:120px;">' +
+          '<button class="primary" style="flex:0 0 auto;" onclick="joinWaitlist(this)">Notify me</button>' +
+          '</div>' +
+          '<div id="wlMsg" style="font-size:12.5px; font-weight:700; margin-top:8px;"></div>' +
+          '<div style="font-size:12px; margin-top:8px;"><a href="/for-detailers.html" style="font-weight:700; color:#1C232C;">I\'m a detailer — claim this area &rarr;</a></div>' +
+          '</div>';
+      }
+    }
+
+    resultsEl.innerHTML = waitlistHtml + list.map(d => {
       const svcs = servicesByDetailer[d.id];
       const svcOptions = (svcs && svcs.length)
         ? svcs.map(s => `<option value="${s.name.replace(/"/g, '')}|${s.price}">${s.name} — $${s.price}</option>`).join('')
@@ -3406,7 +3453,7 @@
             ⭐ ${d.rating ? d.rating : 'New'} (${d.reviews || 0} reviews)
             ${d.distance !== null ? ' &nbsp;•&nbsp; ' + d.distance.toFixed(1) + ' mi away' : ''}
           </div>
-          ${d.available_days ? `<div style="font-size:12px; color:#5f6b7d; margin-top:4px;">Available: ${d.available_days}${d.avail_start ? ' · ' + d.avail_start + '–' + d.avail_end : ''} <span class="avail-warn" id="availwarn-${d.id}" style="color:#b45309; font-weight:700;"></span></div>` : ''}
+          ${d.available_days ? `<div style="font-size:12px; color:#5f6b7d; margin-top:4px;">Available: ${d.available_days}${d.avail_start ? ' · ' + d.avail_start + '–' + d.avail_end : ''} <span class="avail-warn" id="availwarn-${d.id}" style="color:#B91C1C; font-weight:700;"></span></div>` : ''}
           ${d.service_area ? `<div style="font-size:12px; color:#5f6b7d;">${d.service_area}</div>` : ''}
           ${d.bio ? `<div style="font-size:12.5px; color:#555; margin-top:6px; line-height:1.4;">${(d.bio.length > 160 ? d.bio.slice(0,160) + '…' : d.bio).replace(/</g,'&lt;')}</div>` : ''}
           <a href="#" onclick="openDetailerProfile(${d.id}); return false;" style="display:inline-block; font-size:12.5px; font-weight:700; color:#1C232C; margin-top:6px;">View full profile — photos &amp; reviews →</a>

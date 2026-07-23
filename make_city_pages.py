@@ -100,6 +100,9 @@ TEMPLATE = """<!DOCTYPE html>
 <meta property="og:description" content="Vetted local detailers come to you. Upfront prices, secure deposits, book in minutes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{base}/mobile-detailing-{slug}-{st}.html">
+<meta property="og:image" content="{base}/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{base}/og-image.png">
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",
