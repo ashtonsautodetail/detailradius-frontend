@@ -99,6 +99,7 @@
   .status-pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; background: #F1F2F5; color: #1C232C; margin-bottom: 8px; }
   .status-pill.open { background: #F1F2F5; color: #1C232C; }
   .status-pill.accepted { background: #1C232C; color: #fff; }
+  .status-pill.cancelled { background: #FEF2F2; color: #B91C1C; }
   .status-pill.completed { background: #DCFCE7; color: #166534; }
   .status-pill.declined { background: #F3F4F6; color: #6B7280; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 16px; }
@@ -2434,6 +2435,14 @@
     `).join('');
   }
 
+  async function cancelMyBooking(jobId, email) {
+    if (!confirm('Cancel this booking request? If you paid a deposit, message the detailer about a refund — cancelling before they accept usually means a full refund.')) return;
+    const { error } = await sb.from('jobs').update({ status: 'cancelled' }).eq('id', jobId);
+    if (error) { alert('Could not cancel: ' + error.message); return; }
+    try { await sb.from('messages').insert([{ job_id: jobId, sender: 'customer', body: 'Customer cancelled this request.' }]); } catch (e) {}
+    checkMyBookings();
+  }
+
   async function checkMyBookings() {
     const email = document.getElementById('checkBookingEmail').value.trim();
     const el = document.getElementById('myBookingsList');
@@ -2461,6 +2470,7 @@
         ${j.status === 'completed' ? (reviewedJobIds.has(j.id)
           ? '<div style="font-size:12px; color:#166534; margin-top:8px;">★ Review submitted — thank you!</div>'
           : reviewFormHtml(j)) : ''}
+        ${j.status === 'open' ? `<div style="margin-top:8px;"><a href="#" onclick="cancelMyBooking(${j.id}, '${(j.customer_email || '').replace(/'/g, '')}'); return false;" style="font-size:12px; color:#B91C1C; font-weight:700;">Cancel this request</a></div>` : ''}
       </div>
     `).join('');
     data.forEach(j => {
@@ -3434,6 +3444,29 @@
       servicesByDetailer[s.detailer_id].push(s);
     });
 
+    // Service-type filter: keep detailers whose menu matches what the customer wants.
+    var svcTypeSel = document.getElementById('serviceType');
+    var svcType = svcTypeSel ? svcTypeSel.value : 'both';
+    var svcFilterNote = '';
+    if (svcType === 'interior' || svcType === 'exterior') {
+      var kw = svcType; // service names like "Interior Detail" / "Exterior Detail"
+      var matches = function (d) {
+        var svcs = servicesByDetailer[d.id] || [];
+        if (!svcs.length) return true;               // no menu yet — don't hide them
+        return svcs.some(function (s) {
+          var n = (s.name || '').toLowerCase();
+          return n.indexOf(kw) !== -1 || n.indexOf('full') !== -1 || n.indexOf('complete') !== -1 || n.indexOf('wash') !== -1 && kw === 'exterior';
+        });
+      };
+      var filtered = list.filter(matches);
+      if (filtered.length) {
+        if (filtered.length < list.length) svcFilterNote = '<div style="font-size:12.5px; color:#3B4351; margin-bottom:10px;">Showing detailers offering <b>' + kw + '</b> services — <a href="#" onclick="document.getElementById(\'serviceType\').value=\'both\'; searchDetailers(); return false;" style="color:#1C232C; font-weight:700;">show everyone</a></div>';
+        list = filtered;
+      } else {
+        svcFilterNote = '<div style="font-size:12.5px; color:#3B4351; margin-bottom:10px;">No detailers list a dedicated ' + kw + ' service nearby — showing everyone instead.</div>';
+      }
+    }
+
     // ---- Not-in-your-area-yet: waitlist + founding-detailer capture ----
     let waitlistHtml = '';
     if (customerLat !== null) {
@@ -3456,7 +3489,7 @@
       }
     }
 
-    resultsEl.innerHTML = waitlistHtml + list.map(d => {
+    resultsEl.innerHTML = svcFilterNote + waitlistHtml + list.map(d => {
       const svcs = servicesByDetailer[d.id];
       const svcOptions = (svcs && svcs.length)
         ? svcs.map(s => `<option value="${s.name.replace(/"/g, '')}|${s.price}">${s.name} — $${s.price}</option>`).join('')
