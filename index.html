@@ -963,7 +963,7 @@
       <div class="form-grid">
         <div class="field">
           <label>Vehicle</label>
-          <input type="text" id="vehicle" placeholder="e.g. 2021 Honda Civic">
+          <input type="text" id="vehicle" placeholder="e.g. 2021 Honda Civic" onkeydown="if(event.key==='Enter'){event.preventDefault(); searchDetailers();}">
         </div>
         <div class="field">
           <label>Service Type</label>
@@ -1035,7 +1035,16 @@
 
     <div class="card">
       <h2>Available Detailers</h2>
-      <button class="secondary" onclick="findMyLocation()">📍 Use My Location (sort by distance)</button>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <button class="secondary" onclick="findMyLocation()">📍 Use My Location (sort by distance)</button>
+        <label for="sortBy" style="font-size:12.5px; font-weight:700; color:#3B4351; margin-left:auto;">Sort</label>
+        <select id="sortBy" onchange="searchDetailers()" style="width:auto; font-size:13px;">
+          <option value="best">Featured first</option>
+          <option value="distance">Closest first</option>
+          <option value="price">Price: low to high</option>
+          <option value="rating">Highest rated</option>
+        </select>
+      </div>
       <div class="loc-status" id="locStatus"></div>
       <div id="custMap" style="height:260px; margin-top:14px;"></div>
       <div id="results" style="margin-top:14px;"><div class="empty-msg">Loading...</div></div>
@@ -3423,16 +3432,24 @@
       return Object.assign({}, d, { distance });
     });
 
-    // Pro subscribers are "Featured": pinned above everyone else, then the usual order.
+    // Sorting: "Featured first" keeps Pro pinned; explicit sorts are pure.
     const feat = d => (d.pro || d.featured) ? 1 : 0;
-    if (customerLat !== null) {
-      list.sort((a, b) => {
-        const f = feat(b) - feat(a);
-        if (f) return f;
-        if (a.distance === null) return 1;
-        if (b.distance === null) return -1;
-        return a.distance - b.distance;
-      });
+    const sortBySel = document.getElementById('sortBy');
+    const sortBy = sortBySel ? sortBySel.value : 'best';
+    const byDist = (a, b) => {
+      if (a.distance === null) return 1;
+      if (b.distance === null) return -1;
+      return a.distance - b.distance;
+    };
+    if (sortBy === 'price') {
+      list.sort((a, b) => (a.price || 9999) - (b.price || 9999));
+    } else if (sortBy === 'rating') {
+      list.sort((a, b) => ((b.rating || 0) - (a.rating || 0)) || ((b.reviews || 0) - (a.reviews || 0)));
+    } else if (sortBy === 'distance') {
+      if (customerLat === null) { findMyLocation(); }
+      list.sort(byDist);
+    } else if (customerLat !== null) {
+      list.sort((a, b) => (feat(b) - feat(a)) || byDist(a, b));
     } else {
       list.sort((a, b) => (feat(b) - feat(a)) || ((b.rating || 0) - (a.rating || 0)));
     }
