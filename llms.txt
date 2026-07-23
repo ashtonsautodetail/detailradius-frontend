@@ -4,6 +4,7 @@
 
 ## Book a detailer
 - [Find a detailer](https://serene-cupcake-78a254.netlify.app/): search by location, compare prices and reviews, book with a deposit
+- [All cities](https://serene-cupcake-78a254.netlify.app/locations.html): every DetailRadius city page in one place
 - Packages: Express Detail from $70, Standard Detail from $150, Premium Detail from $280, Ceramic Coating from $400
 - Not covered yet? The search offers a waitlist — leave an email and get notified when a detailer reaches your area
 

@@ -30,6 +30,8 @@
 <!-- Leaflet is loaded on demand (see ensureLeaflet) only when a map is actually needed,
      so its ~150KB CSS+JS no longer blocks the landing page's first paint. -->
 <link rel="preconnect" href="https://unpkg.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://asfqmjccfnjfrspvhnpt.supabase.co">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -1300,6 +1302,7 @@
     </div>
     <nav class="footer-links">
       <a href="#" onclick="scrollToBooking();return false;">Find a Detailer</a>
+      <a href="/locations.html">All Cities</a>
       <a href="/for-detailers.html">For Detailers</a>
       <a href="/fleet.html">Fleet &amp; Business</a>
       <a href="#" onclick="scrollToHow();return false;">How it works</a>
@@ -2237,6 +2240,7 @@
         <button class="btn-cta" onclick="scrollToBooking()">Find a Detailer <span>&rarr;</span></button>
         <button class="btn-ghost" onclick="scrollToHow()">How it works</button>
       </div>
+      <div style="margin-top:14px; font-size:12.5px; font-weight:600; color:#8A93A3; letter-spacing:.3px;">Free to book &nbsp;·&nbsp; No account needed &nbsp;·&nbsp; Secure Stripe deposits</div>
     `,
     detailer: `
       <div class="hero-eyebrow">For detailers · free to list</div>
@@ -3864,10 +3868,26 @@
     fillReferralShare(customerEmailForShare);
   }
 
+  function formNudge(fieldId, msg) {
+    var el = fieldId ? document.getElementById(fieldId) : null;
+    if (!el) { alert(msg); return; }
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.style.outline = '2px solid #B91C1C'; el.style.outlineOffset = '1px';
+    var tip = document.createElement('div');
+    tip.textContent = msg;
+    tip.style.cssText = 'font-size:12.5px; font-weight:700; color:#B91C1C; margin-top:5px;';
+    tip.className = 'form-nudge-tip';
+    (el.parentElement || el).appendChild(tip);
+    var clear = function () { el.style.outline = ''; el.style.outlineOffset = ''; if (tip.parentElement) tip.parentElement.removeChild(tip); el.removeEventListener('input', clear); el.removeEventListener('change', clear); };
+    el.addEventListener('input', clear); el.addEventListener('change', clear);
+    setTimeout(clear, 9000);
+    try { el.focus({ preventScroll: true }); } catch (e) {}
+  }
+
   async function bookDetailer(detailerId, detailerName, btn) {
     const svcSelect = document.getElementById('svc-' + detailerId);
     if (!svcSelect || !svcSelect.value) {
-      alert('Please choose a service before booking.');
+      formNudge('svc-' + detailerId, 'Choose a service to book.');
       return;
     }
     const [serviceName, priceStr] = svcSelect.value.split('|');
@@ -3876,7 +3896,7 @@
     const customerEmail = document.getElementById('customerEmail').value.trim();
     const customerPhone = document.getElementById('customerPhone').value.trim();
     if (!customerEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) {
-      alert('Please enter a valid email so the detailer can reach you and so you can check your booking later.');
+      formNudge('customerEmail', 'Enter a valid email so the detailer can reach you.');
       return;
     }
     const agree = document.getElementById('agreeTerms');
@@ -3888,7 +3908,7 @@
     const locationType = document.querySelector('input[name="locationType"]:checked').value;
     const address = locationType === 'mobile' ? document.getElementById('custAddress').value.trim() : '';
     if (locationType === 'mobile' && !address) {
-      alert('Please enter the address where you’d like the detailer to come to you.');
+      formNudge('custAddress', 'Enter the address the detailer should come to.');
       return;
     }
     const date = document.getElementById('prefDate').value || new Date().toISOString().split('T')[0];
@@ -4078,7 +4098,23 @@
       '</div>';
   }
 
-  function renderFleetInquiries(list) {
+  function renderFleetInquiries(allList) {
+    const wl = allList.filter(function (f) { return (f.company || '') === 'CUSTOMER WAITLIST'; });
+    const list = allList.filter(function (f) { return (f.company || '') !== 'CUSTOMER WAITLIST'; });
+    // Demand map: group waitlist signups by city
+    const byCity = {};
+    wl.forEach(function (f) { var c = (f.city || 'Unknown area').trim() || 'Unknown area'; (byCity[c] = byCity[c] || []).push(f); });
+    const cityRows = Object.keys(byCity).sort(function (a, b) { return byCity[b].length - byCity[a].length; }).map(function (c) {
+      var sigs = byCity[c];
+      return '<div style="display:flex; justify-content:space-between; align-items:center; border:1px solid #e5e9f2; border-radius:10px; padding:10px 14px; margin-bottom:8px;">' +
+        '<div><span style="font-weight:800;">' + escHtml(c) + '</span> <span style="font-size:12px; color:#5f6b7d;">· latest ' + escHtml((sigs[0].created_at || '').slice(0, 10)) + '</span>' +
+        '<div style="font-size:12px; color:#475569; margin-top:2px;">' + sigs.slice(0, 3).map(function (f) { return escHtml(f.email || ''); }).join(', ') + (sigs.length > 3 ? ' +' + (sigs.length - 3) + ' more' : '') + '</div></div>' +
+        '<span style="font-weight:800; font-size:18px; color:#1C232C;">' + sigs.length + '</span></div>';
+    }).join('');
+    const waitlistCard = '<div class="card"><h2>Customer Waitlist — Demand Map</h2>' +
+      '<p style="font-size:13px; color:#666; margin-bottom:12px;">People who searched, found nobody nearby, and left an email. Each city here is a recruiting target — sign one detailer and you instantly have their first customers.</p>' +
+      (cityRows || '<div class="empty-msg">No waitlist signups yet. They\'ll appear automatically when someone searches an uncovered area.</div>') +
+      '</div>';
     const rows = list.map(function (f) {
       return '<div style="border:1px solid #e5e9f2; border-radius:10px; padding:12px 14px; margin-bottom:10px;">' +
         '<div style="font-weight:700;">' + escHtml(f.company || '') + ' <span style="font-weight:400; color:#5f6b7d;">· ' + escHtml(f.fleet_size || '?') + ' vehicles · ' + escHtml(f.city || '') + '</span></div>' +
@@ -4087,7 +4123,7 @@
         '<div style="font-size:11.5px; color:#94a3b8; margin-top:6px;">' + escHtml((f.created_at || '').slice(0, 10)) + '</div>' +
         '</div>';
     }).join('');
-    return '<div class="card"><h2>Fleet &amp; Business Inquiries</h2>' +
+    return waitlistCard + '<div class="card"><h2>Fleet &amp; Business Inquiries</h2>' +
       '<p style="font-size:13px; color:#666; margin-bottom:12px;">From the fleet page — dealerships, rental lots, and businesses that want recurring detailing. One contract here can equal a month of consumer bookings; reply same-day.</p>' +
       (rows || '<div class="empty-msg">No inquiries yet. Share the fleet page: <code>/fleet.html</code></div>') +
       '</div>';
