@@ -4197,7 +4197,7 @@
   // with ?booking=success or ?booking=cancelled — this shows the right message.
   async function checkBookingReturn() {
     const params = new URLSearchParams(window.location.search);
-    const bookingStatus = params.get('booking');
+    const bookingStatus = params.get('booking') || (params.get('balance') === 'paid' ? 'paid' : null);
     const jobId = params.get('job');
     if (!bookingStatus || !jobId) return;
 
@@ -4205,6 +4205,22 @@
 
     if (bookingStatus === 'cancelled') {
       alert('No worries — the deposit payment was cancelled, so this booking was not confirmed. You can book again anytime.');
+      return;
+    }
+
+    if (bookingStatus === 'paid' || params.get('balance') === 'paid') {
+      // Customer just paid their balance (possibly with a tip) — thank them properly.
+      const { data: job } = await sb.from('jobs').select('*, detailers(name)').eq('id', jobId).single();
+      const dn = job && job.detailers ? job.detailers.name : 'your detailer';
+      const tip = job ? (parseFloat(job.tip_amount) || 0) : 0;
+      document.getElementById('bookingModalContent').innerHTML =
+        '<h2 style="margin-bottom:6px;">Balance paid &#10003;</h2>' +
+        '<p style="font-size:14px; color:#475569; line-height:1.6;">You\u2019re all settled with ' + escHtml(dn) + '.' +
+        (tip > 0 ? ' Your <b>$' + tip + ' tip</b> goes to them in full \u2014 100%, no fees. They\u2019ll appreciate it more than you know. &#129505;' : '') +
+        '</p>' +
+        (job && job.customer_email ? '<p style="font-size:13.5px; color:#475569; margin-top:10px;">One last thing \u2014 a quick review helps ' + escHtml(dn.split(' ')[0]) + ' win their next customer:</p>' +
+        '<button class="primary" style="margin-top:8px;" onclick="document.getElementById(\'bookingModal\').style.display=\'none\'; document.getElementById(\'checkBookingEmail\').value=\'' + escHtml(job.customer_email) + '\'; checkMyBookings(); document.getElementById(\'checkBookingEmail\').scrollIntoView({behavior:\'smooth\', block:\'center\'});">Leave a review &#11088;</button>' : '');
+      document.getElementById('bookingModal').style.display = 'flex';
       return;
     }
 
