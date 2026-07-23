@@ -902,6 +902,13 @@
   .agenda-row.today{ background:#F4F5F7 !important; border-left-color:#1C232C !important; }
   .link-chip:hover{ background:#F1F2F5 !important; }
   input[type="radio"], input[type="checkbox"]{ accent-color:#1C232C; }
+  .loc-seg{ display:flex !important; gap:8px; flex-wrap:wrap; padding-top:4px; }
+  .loc-seg .loc-opt{ flex:1 1 140px; display:flex !important; align-items:center !important; justify-content:center !important;
+    gap:8px; border:1.5px solid #D5D9E0 !important; border-radius:11px; padding:12px 10px; cursor:pointer;
+    font-weight:700 !important; font-size:13.5px !important; color:#1C232C !important; background:#fff;
+    margin:0 !important; width:auto !important; text-align:center; line-height:1.25; }
+  .loc-seg .loc-opt input{ margin:0 !important; width:16px !important; height:16px; flex:0 0 auto; }
+  .loc-seg .loc-opt:has(input:checked){ border-color:#1C232C !important; background:#F1F2F5; box-shadow:inset 0 0 0 1px #1C232C; }
   .earn-tile.paid{ background:linear-gradient(135deg,#F4F5F7,#ECEDF0) !important; border-color:#DDE0E5 !important; }
   .earn-tile.paid .earn-num{ color:#1C232C !important; } .earn-tile.paid .earn-label{ color:#3B4351 !important; }
   .earn-tile.pipe .earn-num{ color:#4A5260 !important; } .earn-tile.pipe .earn-label{ color:#3B4351 !important; }
@@ -982,7 +989,7 @@
           <input type="text" id="customerName" placeholder="Your name" autocomplete="name">
         </div>
         <div class="field">
-          <label>Your Email (required — so the detailer can reach you)</label>
+          <label>Your Email <span style="font-weight:500; color:#6B7280;">(required — how the detailer reaches you)</span></label>
           <input type="email" id="customerEmail" placeholder="you@example.com" autocomplete="email" inputmode="email" required aria-required="true">
         </div>
         <div class="field">
@@ -993,9 +1000,9 @@
 
       <div class="field" style="margin-bottom:14px;">
         <label>Service Location</label>
-        <div class="radio-row">
-          <label><input type="radio" name="locationType" value="mobile" id="locMobile" checked onchange="toggleAddressField()"> Mobile (they come to you)</label>
-          <label><input type="radio" name="locationType" value="dropoff" id="locDropoff" onchange="toggleAddressField()"> Drop-off</label>
+        <div class="loc-seg" role="radiogroup" aria-label="Service location">
+          <label class="loc-opt"><input type="radio" name="locationType" value="mobile" id="locMobile" checked onchange="toggleAddressField()"><span>&#128663; Mobile &mdash; comes to you</span></label>
+          <label class="loc-opt"><input type="radio" name="locationType" value="dropoff" id="locDropoff" onchange="toggleAddressField()"><span>&#127968; Drop-off</span></label>
         </div>
       </div>
 
@@ -3140,7 +3147,13 @@
   }
 
   // Earnings breakdown — net (after 5% platform fee, 3% with Pro), paid out, upcoming pipeline, fees.
+  function setTaxRate(v) {
+    try { localStorage.setItem('dr_taxrate_' + (myDetailer ? myDetailer.id : ''), v); } catch (e) {}
+    if (window.__lastJobs) renderEarnings(window.__lastJobs);
+  }
+
   function renderEarnings(jobs) {
+    window.__lastJobs = jobs;
     var el = document.getElementById('dashEarnings'); if (!el) return;
     var paidOut = 0, fees = 0, pipeline = 0, monthNet = 0;
     var ym = localDateStr().slice(0, 7);
@@ -3155,12 +3168,19 @@
     // for self-employment + income tax. We don't withhold anything — this is a
     // planning estimate, not tax advice.
     var taxSetAside = paidOut * 0.30;
+    // Tax Vault: detailer-chosen % of every payout to move to savings. Pure
+    // bookkeeping — DetailRadius legally can't hold detailer funds (that's money
+    // transmission / payroll territory for 1099 contractors), so the vault tracks
+    // what they SHOULD have parked, not money we keep.
+    var taxRate = 0.30;
+    try { var tr = localStorage.getItem('dr_taxrate_' + (myDetailer ? myDetailer.id : '')); if (tr !== null) taxRate = parseFloat(tr); } catch (e) {}
+    var taxSetAsideChosen = paidOut * taxRate;
     var tiles = [
       { cls: 'net', n: money(monthNet), l: 'Net This Month' },
       { cls: 'paid', n: money(paidOut), l: 'Paid Out (all-time)' },
       { cls: 'pipe', n: money(pipeline), l: 'In Pipeline (upcoming)' },
       { cls: 'fee', n: money(fees), l: 'Platform Fees Paid (' + myFeePct() + ')' },
-      { cls: 'tax', n: money(taxSetAside), l: 'Suggested Tax Set-Aside (~30%)' }
+      { cls: 'tax', n: money(taxSetAsideChosen), l: 'Tax Vault (' + Math.round(taxRate * 100) + '% of payouts)' }
     ];
     el.innerHTML = tiles.map(function (t) {
       return '<div class="earn-tile ' + t.cls + '"><div class="earn-num">' + t.n + '</div><div class="earn-label">' + t.l + '</div></div>';
@@ -3168,6 +3188,10 @@
     '<div style="grid-column:1/-1; font-size:11.5px; color:#94a3b8; line-height:1.5; margin-top:4px;">' +
     'Tax set-aside is a planning estimate only (typical self-employment guidance), not tax advice — DetailRadius does not withhold taxes. ' +
     'Stripe issues your 1099-K when you meet IRS thresholds; talk to a tax professional about your situation.</div>' +
+    '<div style="grid-column:1/-1; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:12.5px; color:#3B4351; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:10px; padding:10px 14px;">' +
+    '<b>Tax Vault:</b> every payday, move <select onchange="setTaxRate(this.value)" style="width:auto; font-size:12.5px; padding:4px 8px;">' +
+    [0, 0.20, 0.25, 0.30].map(function (r) { return '<option value="' + r + '"' + (Math.abs(r - taxRate) < 0.001 ? ' selected' : '') + '>' + Math.round(r * 100) + '%</option>'; }).join('') +
+    '</select> of your payout into a separate savings account. The tile above is your running target — when tax season hits, the money is already sitting there. (We can\'t hold it for you — payouts are legally 100% yours the moment Stripe sends them.)</div>' +
     ((myDetailer && myDetailer.founding)
       ? '<div style="grid-column:1/-1; font-size:12.5px; color:#3B4351; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:10px; padding:10px 14px;">👑 <b>Founding detailer:</b> your first 10 completed jobs pay out 100% — the platform fee is $0. Tiles show standard rates, so your actual payouts will be higher until job 11.</div>'
       : '');
