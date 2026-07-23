@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DetailRadius — Find a trusted detailer near you</title>
 <meta name="description" content="DetailRadius connects you with trusted local mobile & drop-off car detailers. See upfront prices, book online in minutes, and confirm with a small deposit.">
-<meta name="theme-color" content="#0B1533">
+<meta name="theme-color" content="#0F1116">
 <link rel="canonical" href="https://serene-cupcake-78a254.netlify.app/">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://unpkg.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -817,6 +817,52 @@
   .dash-nav-link.active{ box-shadow:inset 3px 0 0 #2563EB; }
   .dash-nav-link.active svg{ color:#2563EB; }
 </style>
+<style>
+  /* ===== BRAND V2 — "OBSIDIAN & TORCH" (unique identity layer; keep LAST in head) =====
+     Graphite-black surfaces, warm porcelain light, torch-amber signal color, Space
+     Grotesk display type, radar-ring mark. Deliberately NOT the navy/purple SaaS look. */
+  :root{
+    --navy:#0F1116; --brand:#1C232C; --cyan:#F59E0B; --violet:#92600A;
+    --bg:#F4F2EC; --ring:rgba(245,158,11,.35);
+    --accent-grad:linear-gradient(135deg,#F5A623,#D97706);
+  }
+  h1,h2,h3,.logo,.stat-box .num,.trust-item strong{ font-family:'Space Grotesk','Sora','Inter',sans-serif; letter-spacing:-.3px; }
+  body{ background:var(--bg); }
+  /* Dark surfaces: graphite, not navy */
+  header{ background:linear-gradient(135deg,#171C23 0%,#0F1116 100%) !important; border-bottom:1px solid rgba(245,158,11,.14); }
+  .hero{ background:
+    radial-gradient(900px circle at 78% -10%, rgba(245,158,11,.13), transparent 55%),
+    linear-gradient(150deg,#12161C 0%,#0F1116 55%,#171C23 100%) !important; }
+  .final-cta-inner{ background:linear-gradient(135deg,#1A2028,#0F1116) !important; border-color:rgba(245,158,11,.22) !important;
+    box-shadow:0 34px 74px -34px rgba(0,0,0,.7) !important; }
+  footer.site-footer{ background:linear-gradient(135deg,#12161C,#0F1116) !important; }
+  .stat-box{ background:linear-gradient(135deg,#1A2028,#0F1116) !important; }
+  .stat-box .num{ color:#F5A623 !important; }
+  .aurora-bg{ display:none !important; }
+  body::before{ content:""; position:fixed; inset:0; z-index:-2;
+    background:radial-gradient(1100px circle at 85% -5%, rgba(245,158,11,.07), transparent 60%), var(--bg); }
+  /* Signal color: torch amber. CTAs carry dark ink for contrast. */
+  .book-btn, a.cta, .btn-cta, button.primary, .tab-btn.active{
+    background:var(--accent-grad) !important; color:#1A1205 !important;
+    box-shadow:0 8px 22px -8px rgba(217,119,6,.55) !important; border:none !important; }
+  button.primary:hover{ filter:brightness(1.06); }
+  .hero-cta{ background:none !important; box-shadow:none !important; }
+  .logo .radius{ color:#F5A623; }
+  .trust-item strong{ color:#F5C36B; }
+  .hero .badge, .hero-eyebrow{ color:#F5C36B; }
+  .section-eyebrow{ color:#B45309 !important; }
+  .dash-nav-link.active{ box-shadow:inset 3px 0 0 #F59E0B; background:#FCF6EA; color:#7C4A03; }
+  .dash-nav-link.active svg{ color:#D97706; }
+  .badge.featured{ background:#1C232C; color:#F5C36B; }
+  .detailer-card.featured{ border-color:#F3D9A4; box-shadow:0 8px 22px -10px rgba(217,119,6,.28); }
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color:#F3D9A4; }
+  .payout-badge.verified{ background:#ECFDF5; }
+  .card{ border-color:#E9E5DB; background:#FFFFFF; }
+  .faq-group-title{ color:#1C232C; border-bottom-color:#F3D9A4; }
+  .trust-item strong{ color:#F5C36B !important; }
+  .step-card::before{ background:linear-gradient(90deg,#F5A623,#D97706) !important; }
+  .step-num{ background:linear-gradient(135deg,#F5A623,#B45309) !important; -webkit-background-clip:text !important; background-clip:text !important; }
+</style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to main content</a>
@@ -825,13 +871,11 @@
 <header>
   <div class="logo">
     <span class="car-icon" aria-hidden="true">
-      <svg width="28" height="17" viewBox="0 0 40 24" xmlns="http://www.w3.org/2000/svg">
-        <rect x="1" y="12" width="38" height="8" rx="4" fill="currentColor"/>
-        <path d="M8 12 L12 4 H28 L32 12 Z" fill="currentColor"/>
-        <rect x="14" y="6.5" width="6" height="5.5" fill="#0B1533"/>
-        <rect x="21" y="6.5" width="6" height="5.5" fill="#0B1533"/>
-        <circle cx="10" cy="20" r="3.2" fill="#0B1533"/>
-        <circle cx="30" cy="20" r="3.2" fill="#0B1533"/>
+      <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="19" fill="none" stroke="#F59E0B" stroke-width="3.5"/>
+        <path d="M24 24 L24 5 A19 19 0 0 1 40.5 14.5 Z" fill="rgba(245,158,11,.30)"/>
+        <circle cx="24" cy="24" r="4.2" fill="#F59E0B"/>
+        <circle cx="33.5" cy="11.5" r="3" fill="#F59E0B"/>
       </svg>
     </span>
     <span>Detail</span><span class="radius">Radius</span>
@@ -1233,7 +1277,10 @@
   let currentUser = null;
   let myDetailer = null;
   let customerLat = null;
-  var detailerAvailability = {};   // id -> "Mon,Tue,…" (filled when results render)
+  var detailerAvailability = {};   // id -> {days,start,end} (filled when results render)
+  // Plan-based platform fee: free = 5% (keep 95%), Pro members = 3% (keep 97%).
+  function myShare() { return (myDetailer && myDetailer.pro) ? 0.97 : 0.95; }
+  function myFeePct() { return (myDetailer && myDetailer.pro) ? '3%' : '5%'; }
   let customerLng = null;
   let custMapInstance = null;
   let custMarkersLayer = null;
@@ -1457,7 +1504,7 @@
       <div class="card" id="sec-earnings">
         <div class="card-head">
           <h2 style="margin-bottom:0;">Earnings &amp; Payouts</h2>
-          <span class="card-sub">You keep 90% — 10% platform fee</span>
+          <span class="card-sub" id="feeShareSub">You keep 95% — 5% platform fee (Pro members keep 97%)</span>
         </div>
         <div id="dashEarnings" class="earn-grid"><div class="empty-msg">Loading...</div></div>
       </div>
@@ -1664,17 +1711,27 @@
     if (badge) badge.style.display = isPro ? '' : 'none';
 
     if (!isPro) {
+      var row = function (label, free, pro) {
+        return '<tr><td style="padding:8px 10px; border-bottom:1px solid #eef2f9;">' + label + '</td>' +
+          '<td style="padding:8px 10px; border-bottom:1px solid #eef2f9; text-align:center; color:#64748b;">' + free + '</td>' +
+          '<td style="padding:8px 10px; border-bottom:1px solid #eef2f9; text-align:center; font-weight:700; color:#0f172a; background:#f8fafc;">' + pro + '</td></tr>';
+      };
       box.innerHTML =
-        '<p style="font-size:13.5px; color:#555; line-height:1.55; margin:0 0 10px;">Get booked more with the Pro upgrade — built for detailers who want the top spot.</p>' +
-        '<ul style="font-size:13px; color:#334155; line-height:1.7; padding-left:18px; margin:0 0 12px;">' +
-        '<li><strong>Featured placement</strong> — pinned to the top of customer search in your area</li>' +
-        '<li><strong>Your own booking link</strong> — share it on business cards, IG bio, anywhere</li>' +
-        '<li><strong>Review booster</strong> — one-tap review requests after every job</li>' +
-        '<li><strong>Priority support</strong> from the DetailRadius team</li>' +
-        '</ul>' +
+        '<p style="font-size:13.5px; color:#555; line-height:1.55; margin:0 0 12px;">Pro members pay <strong>3% instead of 5%</strong> and get the top spot in search. On a $200 job that\'s $4 back in your pocket — Pro pays for itself in about 5 jobs, before counting the extra bookings from being featured.</p>' +
+        '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:13px; margin-bottom:12px;">' +
+        '<thead><tr><th style="text-align:left; padding:8px 10px; color:#5f6b7d;"></th>' +
+        '<th style="padding:8px 10px; color:#5f6b7d; font-weight:700;">Free</th>' +
+        '<th style="padding:8px 10px; background:linear-gradient(135deg,#2563EB,#1D4ED8); color:#fff; border-radius:8px 8px 0 0;">PRO — $19/mo</th></tr></thead><tbody>' +
+        row('Platform fee per job', '5%', '<span style="font-size:15px;">3%</span>') +
+        row('You keep', '95%', '<span style="font-size:15px;">97%</span>') +
+        row('Placement in customer search', 'Standard', 'Pinned to top + Featured badge') +
+        row('Personal booking link & storefront', '—', '✓ Share anywhere') +
+        row('Review booster tools', '—', '✓ One-tap requests') +
+        row('Support', 'Standard', 'Priority, same-day') +
+        '</tbody></table></div>' +
         '<div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">' +
-        '<button class="primary" onclick="upgradeToPro(this)">Upgrade to Pro — $19/mo</button>' +
-        '<span style="font-size:12px; color:#5f6b7d;">Cancel anytime. One extra job a month pays for it.</span>' +
+        '<button class="primary" onclick="upgradeToPro(this)">Go Pro — $19/mo, keep 97%</button>' +
+        '<span style="font-size:12px; color:#5f6b7d;">Cancel anytime. Fee drop applies to every job you complete while Pro.</span>' +
         '</div>' +
         '<div id="proMsg" style="display:none; margin-top:10px; font-size:13px;"></div>';
     } else {
@@ -2133,7 +2190,7 @@
     detailer: `
       <div class="hero-eyebrow">For detailers · free to list</div>
       <h1>Get Booked. Get Paid. Grow.</h1>
-      <p>Free to list, with real booking, scheduling, and payment tools built in. You only pay 10% when a job actually books.</p>
+      <p>Free to list, with real booking, scheduling, and payment tools built in. You keep 95% of every job — 97% with Pro. The lowest platform fee in the industry.</p>
       <div class="hero-cta">
         <button class="btn-cta" onclick="goDetailer()">List Your Business <span>&rarr;</span></button>
         <button class="btn-ghost" onclick="scrollToHow()">How it works</button>
@@ -2151,7 +2208,7 @@
     detailer: `
       <div class="step-card"><div class="step-num">01</div><h3>Create your listing</h3><p>Add your services, pricing, hours, and photos — free, in just a few minutes.</p></div>
       <div class="step-card"><div class="step-num">02</div><h3>Get real bookings</h3><p>Nearby customers find you and book jobs with the deposit already secured.</p></div>
-      <div class="step-card"><div class="step-num">03</div><h3>Complete &amp; get paid</h3><p>Mark the job done and 90% is transferred straight to your account.</p></div>
+      <div class="step-card"><div class="step-num">03</div><h3>Complete &amp; get paid</h3><p>Mark the job done and your share — up to 97% — is transferred straight to your account.</p></div>
     `
   };
 
@@ -2182,7 +2239,7 @@
       <div class="why-card">
         <div class="why-icon"><svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16" font-size="10" text-anchor="middle" fill="currentColor" font-weight="700">$0</text></svg></div>
         <h3>Free to List</h3>
-        <p>No monthly fee. You only pay 10% on jobs you actually book and complete.</p>
+        <p>No monthly fee. Just 5% on completed jobs — or 3% with Pro. You keep the rest.</p>
       </div>
       <div class="why-card">
         <div class="why-icon"><svg viewBox="0 0 24 24" width="28" height="28"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="1.6"/><line x1="7" y1="2" x2="7" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="17" y1="2" x2="17" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
@@ -2677,14 +2734,14 @@
   }
 
   async function completeJob(id, btn) {
-    // This is the one action that moves real money (90% of what was collected to the
+    // This is the one action that moves real money (the detailer's 95-97% share to the
     // detailer's bank). Confirm first with the estimated payout so it's never accidental.
     let payoutNote = '';
     try {
       const job = (window._lastDashJobs || []).find(function (j) { return j.id === id; });
       if (job && job.price) {
-        var est = Math.round(job.price * 0.9);
-        payoutNote = '\n\nAn estimated $' + est + ' (your 90% share) will be sent to your connected bank account.';
+        var est = Math.round(job.price * myShare());
+        payoutNote = '\n\nAn estimated $' + est + ' (your ' + Math.round(myShare()*100) + '% share) will be sent to your connected bank account.';
       }
     } catch (e) {}
     if (!confirm('Mark this job complete?' + payoutNote + '\n\nThis closes the job and releases your payout — it can’t be undone.')) return;
@@ -2727,7 +2784,7 @@
     dashJobs = data;
 
     const completed = data.filter(j => j.status === 'completed');
-    const revenue = completed.reduce((s, j) => s + (j.price || 0) * 0.9, 0);
+    const revenue = completed.reduce((s, j) => s + (j.price || 0) * myShare(), 0);
     const upcoming = data.filter(j => j.status === 'open' || j.status === 'accepted').length;
     const total = data.filter(j => j.status !== 'declined').length;
     const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
@@ -2746,7 +2803,7 @@
     data.forEach(j => {
       const k = (j.date || '').slice(0, 10);
       if (k in book && j.status !== 'declined') book[k] += (j.price || 0);
-      if (k in rev && j.status === 'completed') rev[k] += (j.price || 0) * 0.9;
+      if (k in rev && j.status === 'completed') rev[k] += (j.price || 0) * myShare();
     });
     const labels = days.map(d => (d.getMonth() + 1) + '/' + d.getDate());
     var revSeries = days.map(function (d) { return rev[key(d)]; });
@@ -2758,8 +2815,8 @@
     data.forEach(function (j) {
       var ds = ('' + (j.date || '')).slice(0, 10); if (!ds) return;
       var dd = new Date(ds + 'T00:00:00'); var diff = Math.round((t0 - dd) / 86400000);
-      if (diff >= 0 && diff < 30) { if (j.status !== 'declined') curBook += (+j.price || 0); if (j.status === 'completed') curRev += (+j.price || 0) * 0.9; }
-      else if (diff >= 30 && diff < 60) { if (j.status !== 'declined') prevBook += (+j.price || 0); if (j.status === 'completed') prevRev += (+j.price || 0) * 0.9; }
+      if (diff >= 0 && diff < 30) { if (j.status !== 'declined') curBook += (+j.price || 0); if (j.status === 'completed') curRev += (+j.price || 0) * myShare(); }
+      else if (diff >= 30 && diff < 60) { if (j.status !== 'declined') prevBook += (+j.price || 0); if (j.status === 'completed') prevRev += (+j.price || 0) * myShare(); }
       if (diff <= 0 && diff >= -6 && (j.status === 'open' || j.status === 'accepted')) next7++;
     });
     var setH = function (id, html) { var e = document.getElementById(id); if (e) e.innerHTML = html; };
@@ -2998,20 +3055,28 @@
     var ym = localDateStr().slice(0, 7);
     jobs.forEach(function (j) {
       var price = +j.price || 0;
-      if (j.payment_status === 'transferred') { paidOut += price * 0.9; fees += price * 0.10; }
-      if (j.status === 'open' || j.status === 'accepted') pipeline += price * 0.9;
-      if (j.status === 'completed' && ('' + (j.date || '')).indexOf(ym) === 0) monthNet += price * 0.9;
+      if (j.payment_status === 'transferred') { paidOut += price * myShare(); fees += price * (1 - myShare()); }
+      if (j.status === 'open' || j.status === 'accepted') pipeline += price * myShare();
+      if (j.status === 'completed' && ('' + (j.date || '')).indexOf(ym) === 0) monthNet += price * myShare();
     });
     var money = function (n) { return '$' + Math.round(n).toLocaleString(); };
+    // Tax set-aside guidance: independent detailers typically reserve ~25-30% of net
+    // for self-employment + income tax. We don't withhold anything — this is a
+    // planning estimate, not tax advice.
+    var taxSetAside = paidOut * 0.30;
     var tiles = [
       { cls: 'net', n: money(monthNet), l: 'Net This Month' },
       { cls: 'paid', n: money(paidOut), l: 'Paid Out (all-time)' },
       { cls: 'pipe', n: money(pipeline), l: 'In Pipeline (upcoming)' },
-      { cls: 'fee', n: money(fees), l: 'Platform Fees Paid' }
+      { cls: 'fee', n: money(fees), l: 'Platform Fees Paid (' + myFeePct() + ')' },
+      { cls: 'tax', n: money(taxSetAside), l: 'Suggested Tax Set-Aside (~30%)' }
     ];
     el.innerHTML = tiles.map(function (t) {
       return '<div class="earn-tile ' + t.cls + '"><div class="earn-num">' + t.n + '</div><div class="earn-label">' + t.l + '</div></div>';
-    }).join('');
+    }).join('') +
+    '<div style="grid-column:1/-1; font-size:11.5px; color:#94a3b8; line-height:1.5; margin-top:4px;">' +
+    'Tax set-aside is a planning estimate only (typical self-employment guidance), not tax advice — DetailRadius does not withhold taxes. ' +
+    'Stripe issues your 1099-K when you meet IRS thresholds; talk to a tax professional about your situation.</div>';
   }
 
   // Service performance — which services drive the most revenue (horizontal bars).
@@ -3862,7 +3927,7 @@
     const completedJobsList = jobs ? jobs.filter(j => j.status === 'completed') : [];
     const completedCount = completedJobsList.length;
     const completedValue = completedJobsList.reduce((sum, j) => sum + (j.price || 0), 0);
-    const projectedCut = completedValue * 0.10;
+    const projectedCut = completedValue * 0.05;
 
     container.innerHTML = `
       <div class="card">
@@ -3881,7 +3946,7 @@
         </div>
         <div class="stat-row">
           <div class="stat-box"><div class="num">$${completedValue.toFixed(2)}</div><div class="label">Completed Job Value</div></div>
-          <div class="stat-box"><div class="num">$${projectedCut.toFixed(2)}</div><div class="label">Your 10% (once payments are live)</div></div>
+          <div class="stat-box"><div class="num">$${projectedCut.toFixed(2)}</div><div class="label">Your ~5% platform cut</div></div>
         </div>
       </div>
       ${renderReferralLedger(redemptions || [], refCodes || [], jobs || [])}

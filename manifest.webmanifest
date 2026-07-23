@@ -1,5 +1,5 @@
 {
-  "name": "DetailRadius — Book a Mobile Detailer",
+  "name": "DetailRadius \u2014 Book a Mobile Detailer",
   "short_name": "DetailRadius",
   "description": "Find trusted mobile & drop-off auto detailers near you. Book in minutes, pay securely.",
   "id": "/",
@@ -7,24 +7,53 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#0B1533",
-  "theme_color": "#0B1533",
-  "categories": ["business", "lifestyle", "utilities"],
+  "background_color": "#0F1116",
+  "theme_color": "#0F1116",
+  "categories": [
+    "business",
+    "lifestyle",
+    "utilities"
+  ],
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
     {
       "name": "Find a Detailer",
       "url": "/?source=pwa#find",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "Detailer Dashboard",
       "url": "/?source=pwa#dashboard",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }
