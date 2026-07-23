@@ -4099,7 +4099,7 @@
       container.innerHTML = '<div class="card"><div class="empty-msg">Owner access only.</div></div>';
       return;
     }
-    const { data: detailers } = await sb.from('detailers').select('id');
+    const { data: detailers } = await sb.from('detailers').select('id, name, service_area, pro, founding, featured, certified, created_at, rating, reviews');
     const { data: jobs } = await sb.from('jobs').select('id, price, status');
     const { data: redemptions } = await sb.from('referral_redemptions').select('*').order('created_at', { ascending: false });
     const { data: refCodes } = await sb.from('referral_codes').select('code, email');
@@ -4136,7 +4136,38 @@
       </div>
       ${renderReferralLedger(redemptions || [], refCodes || [], jobs || [])}
       ${renderFleetInquiries(fleetInquiries || [])}
+      ${renderDetailerRoster(detailers || [])}
     `;
+  }
+
+  // Owner: detailer roster with founding/featured toggles — launch-week admin tooling.
+  function renderDetailerRoster(list) {
+    const sorted = list.slice().sort(function (a, b) { return ('' + (b.created_at || '')).localeCompare('' + (a.created_at || '')); });
+    const rows = sorted.map(function (d) {
+      const flags = [
+        d.founding ? '<span style="font-size:10.5px; font-weight:800; background:#1C232C; color:#fff; border-radius:999px; padding:2px 8px;">👑 FOUNDING</span>' : '',
+        d.featured ? '<span style="font-size:10.5px; font-weight:800; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; border-radius:999px; padding:2px 8px;">FEATURED</span>' : '',
+        d.pro ? '<span style="font-size:10.5px; font-weight:800; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; border-radius:999px; padding:2px 8px;">PRO</span>' : ''
+      ].join(' ');
+      return '<div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; border:1px solid #e5e9f2; border-radius:10px; padding:10px 14px; margin-bottom:8px;">' +
+        '<div><span style="font-weight:800;">' + escHtml(d.name || '') + '</span> <span style="font-size:12px; color:#5f6b7d;">· ' + escHtml(d.service_area || 'no area set') + ' · joined ' + escHtml(('' + (d.created_at || '')).slice(0, 10)) + '</span>' +
+        '<div style="margin-top:3px; display:flex; gap:5px; flex-wrap:wrap;">' + flags + '</div></div>' +
+        '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
+        '<button class="secondary" style="font-size:12px; padding:6px 12px;" onclick="ownerToggleFlag(' + d.id + ', \'founding\', ' + !d.founding + ', this)">' + (d.founding ? 'Remove Founding' : 'Grant Founding') + '</button>' +
+        '<button class="secondary" style="font-size:12px; padding:6px 12px;" onclick="ownerToggleFlag(' + d.id + ', \'featured\', ' + !d.featured + ', this)">' + (d.featured ? 'Unfeature' : 'Feature') + '</button>' +
+        '</div></div>';
+    }).join('');
+    return '<div class="card"><h2>Detailer Roster</h2>' +
+      '<p style="font-size:13px; color:#666; margin-bottom:12px;">Newest first. "Grant Founding" = 0% fees on their first 10 jobs (backend-enforced) — pair it with Feature for the full founding package you promised in outreach.</p>' +
+      (rows || '<div class="empty-msg">No detailers yet.</div>') + '</div>';
+  }
+
+  async function ownerToggleFlag(id, flag, value, btn) {
+    if (btn) { btn.disabled = true; btn.textContent = '...'; }
+    const upd = {}; upd[flag] = value;
+    const { error } = await sb.from('detailers').update(upd).eq('id', id);
+    if (error) { alert('Update failed: ' + error.message); if (btn) btn.disabled = false; return; }
+    renderOwnerTab();
   }
 
   // Owner: who referred whom, and what's owed. A referral is "earned" ($10 owed to
