@@ -1600,6 +1600,7 @@
       </div>
       <div class="card" id="sec-jobs">
         <h2>Your Jobs</h2>
+        <div id="jobsFilterRow" style="display:flex; gap:6px; flex-wrap:wrap; margin:8px 0 4px;"></div>
         <div id="jobsCalendar"></div>
         <div id="jobsFeed"><div class="empty-msg">Loading...</div></div>
       </div>
@@ -2655,16 +2656,45 @@
     `;
   }
 
+  var jobsFilter = 'action';
+  function setJobsFilter(f) { jobsFilter = f; loadJobsFeed(); }
+  function renderJobsFilterRow(data) {
+    var row = document.getElementById('jobsFilterRow');
+    if (!row) return;
+    var count = function (fn) { return data.filter(fn).length; };
+    var defs = [
+      ['action', 'Needs action', count(function (j) { return j.status === 'open' || j.status === 'accepted'; })],
+      ['open', 'New requests', count(function (j) { return j.status === 'open'; })],
+      ['accepted', 'In progress', count(function (j) { return j.status === 'accepted'; })],
+      ['completed', 'Completed', count(function (j) { return j.status === 'completed'; })],
+      ['all', 'All', data.length]
+    ];
+    row.innerHTML = defs.map(function (d) {
+      var on = jobsFilter === d[0];
+      return '<button class="secondary" style="font-size:12px; padding:6px 12px;' +
+        (on ? ' background:#1C232C !important; color:#fff !important; border-color:#1C232C !important;' : '') +
+        '" onclick="setJobsFilter(\'' + d[0] + '\')">' + d[1] + (d[2] ? ' (' + d[2] + ')' : '') + '</button>';
+    }).join('');
+  }
+
   async function loadJobsFeed() {
     const el = document.getElementById('jobsFeed');
     if (!el || !myDetailer) return;
     el.innerHTML = '<div class="empty-msg">Loading...</div>';
-    const { data, error } = await sb.from('jobs').select('*').eq('detailer_id', myDetailer.id).order('created_at', { ascending: false });
+    const { data: allData, error } = await sb.from('jobs').select('*').eq('detailer_id', myDetailer.id).order('created_at', { ascending: false });
     if (error) { el.innerHTML = '<div class="empty-msg">Error loading jobs: ' + error.message + '</div>'; return; }
 
-    renderMiniCalendar(data || []);
+    renderMiniCalendar(allData || []);
+    renderJobsFilterRow(allData || []);
 
-    if (!data || data.length === 0) { el.innerHTML = '<div class="empty-msg">No jobs yet.</div>'; return; }
+    if (!allData || allData.length === 0) { el.innerHTML = '<div class="empty-msg">No jobs yet.</div>'; return; }
+    var data = allData;
+    if (jobsFilter === 'action') data = allData.filter(function (j) { return j.status === 'open' || j.status === 'accepted'; });
+    else if (jobsFilter !== 'all') data = allData.filter(function (j) { return j.status === jobsFilter; });
+    if (!data.length) {
+      el.innerHTML = '<div class="empty-msg">Nothing here right now' + (jobsFilter === 'action' ? ' — you\'re all caught up &#127881;' : '') + '. <a href="#" onclick="setJobsFilter(\'all\'); return false;" style="font-weight:700; color:#1C232C;">Show all jobs</a></div>';
+      return;
+    }
     el.innerHTML = data.map(j => `
       <div class="job-card">
         <div class="top-row"><span>${escHtml(j.vehicle)}</span><span>$${j.price}</span></div>
