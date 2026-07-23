@@ -255,6 +255,11 @@ TEMPLATE = """<!DOCTYPE html>
       'https://asfqmjccfnjfrspvhnpt.supabase.co',
       'sb_publishable_pYFsa-rOViOifoGLrRSPiQ_e9-KAfd4'
     );
+    try {{
+      var _ref = document.referrer ? new URL(document.referrer).hostname : '';
+      if (_ref === window.location.hostname) _ref = '';
+      sb.from('page_views').insert([{{ path: window.location.pathname, ref: _ref }}]).then(function () {{}}, function () {{}});
+    }} catch (e) {{}}
     function miles(lat1, lng1, lat2, lng2) {{
       var R = 3958.8, dLat = (lat2 - lat1) * Math.PI / 180, dLng = (lng2 - lng1) * Math.PI / 180;
       var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +

@@ -4249,6 +4249,12 @@
     const { data: redemptions } = await sb.from('referral_redemptions').select('*').order('created_at', { ascending: false });
     const { data: refCodes } = await sb.from('referral_codes').select('code, email');
     const { data: fleetInquiries } = await sb.from('fleet_inquiries').select('*').order('created_at', { ascending: false });
+    const sevenDaysAgo = new Date(Date.now() - 7 * 864e5).toISOString();
+    const todayStart = new Date(new Date().toDateString()).toISOString();
+    const { count: viewsAll } = await sb.from('page_views').select('id', { count: 'exact', head: true });
+    const { count: views7d } = await sb.from('page_views').select('id', { count: 'exact', head: true }).gte('created_at', sevenDaysAgo);
+    const { count: viewsToday } = await sb.from('page_views').select('id', { count: 'exact', head: true }).gte('created_at', todayStart);
+    const { data: recentViews } = await sb.from('page_views').select('path, ref').gte('created_at', sevenDaysAgo).limit(1000);
     const totalDetailers = detailers ? detailers.length : 0;
     const totalJobs = jobs ? jobs.length : 0;
     const openJobs = jobs ? jobs.filter(j => j.status === 'open').length : 0;
@@ -4280,12 +4286,36 @@
         </div>
       </div>
       ${renderReferralLedger(redemptions || [], refCodes || [], jobs || [])}
+      ${renderSiteTraffic(viewsToday || 0, views7d || 0, viewsAll || 0, recentViews || [])}
       ${renderFleetInquiries(fleetInquiries || [])}
       ${renderDetailerRoster(detailers || [])}
     `;
   }
 
   // Owner: detailer roster with founding/featured toggles — launch-week admin tooling.
+  function renderSiteTraffic(today, week, all, recent) {
+    const byPath = {}, byRef = {};
+    recent.forEach(function (v) {
+      var p = (v.path || '/').split('?')[0] || '/';
+      byPath[p] = (byPath[p] || 0) + 1;
+      if (v.ref) byRef[v.ref] = (byRef[v.ref] || 0) + 1;
+    });
+    const top = function (obj, n) {
+      return Object.keys(obj).sort(function (a, b) { return obj[b] - obj[a]; }).slice(0, n)
+        .map(function (k) { return '<span style="font-size:12px; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:999px; padding:3px 10px; margin:2px;">' + escHtml(k) + ' <b>' + obj[k] + '</b></span>'; }).join(' ');
+    };
+    return '<div class="card"><h2>Site Traffic</h2>' +
+      '<p style="font-size:13px; color:#666; margin-bottom:12px;">Our own counter — no cookies, no Google. Includes your own visits, so expect some noise until real traffic arrives.</p>' +
+      '<div class="stat-row">' +
+      '<div class="stat-box"><div class="num">' + today + '</div><div class="label">Views Today</div></div>' +
+      '<div class="stat-box"><div class="num">' + week + '</div><div class="label">Last 7 Days</div></div>' +
+      '<div class="stat-box"><div class="num">' + all + '</div><div class="label">All-Time</div></div>' +
+      '</div>' +
+      (Object.keys(byPath).length ? '<div style="margin-top:10px; font-size:12px; font-weight:700; color:#3B4351;">Top pages (7d)</div><div style="margin-top:4px;">' + top(byPath, 6) + '</div>' : '') +
+      (Object.keys(byRef).length ? '<div style="margin-top:10px; font-size:12px; font-weight:700; color:#3B4351;">Traffic sources (7d)</div><div style="margin-top:4px;">' + top(byRef, 6) + '</div>' : '') +
+      '</div>';
+  }
+
   function renderDetailerRoster(list) {
     const sorted = list.slice().sort(function (a, b) { return ('' + (b.created_at || '')).localeCompare('' + (a.created_at || '')); });
     const rows = sorted.map(function (d) {
@@ -4403,6 +4433,18 @@
     if (el) el.addEventListener('change', rememberCustomer);
   });
   prefillCustomer();
+
+  // Privacy-light traffic logging: path + referrer domain only. No cookies,
+  // no IP, no fingerprinting — just enough for the owner to see if outreach works.
+  (function logPageView() {
+    try {
+      var ref = '';
+      try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+      if (ref === window.location.hostname) ref = '';
+      var path = window.location.pathname + (window.location.search ? window.location.search.slice(0, 40) : '');
+      sb.from('page_views').insert([{ path: path, ref: ref }]).then(function () {}, function () {});
+    } catch (e) {}
+  })();
 
   // ---------- INIT ----------
   checkConnection();
