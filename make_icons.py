@@ -1,40 +1,22 @@
 #!/usr/bin/env python3
-"""Generate PWA icons matching the DetailRadius favicon (navy rounded square, cyan car)."""
+"""DetailRadius brand icons: obsidian tile + emerald radar-ring mark."""
 from PIL import Image, ImageDraw
+OBSIDIAN=(15,17,22,255); EM=(16,185,129,255); EM_SOFT=(16,185,129,76)
 
-NAVY = (11, 21, 51, 255)      # #0B1533
-CYAN = (56, 189, 248, 255)    # #38BDF8
+def radar(size, rounded=True, path="icon.png", scale=1.0):
+    img = Image.new("RGBA",(size,size),(0,0,0,0)); d = ImageDraw.Draw(img)
+    if rounded: d.rounded_rectangle([0,0,size,size], radius=size*0.225, fill=OBSIDIAN)
+    else: d.rectangle([0,0,size,size], fill=OBSIDIAN)
+    s = size/48.0*scale; off = size*(1-scale)/2; X = lambda v: off+v*s
+    w = max(2, int(size*0.073))
+    d.ellipse([X(5),X(5),X(43),X(43)], outline=EM, width=w)
+    d.pieslice([X(5),X(5),X(43),X(43)], start=-90, end=-30, fill=EM_SOFT)
+    r=size*0.088; cx=cy=size*scale/2+off
+    d.ellipse([cx-r,cy-r,cx+r,cy+r], fill=EM)
+    bx,by,br = X(33.5),X(11.5),size*0.062
+    d.ellipse([bx-br,by-br,bx+br,by+br], fill=EM)
+    img.save(path); print(path, img.size)
 
-def make(size, maskable=False, path="icon.png"):
-    img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    d = ImageDraw.Draw(img)
-    s = size / 40.0  # favicon viewBox is 40x40
-
-    if maskable:
-        # maskable: full-bleed background, art shrunk into the 80% safe zone
-        d.rectangle([0, 0, size, size], fill=NAVY)
-        scale = 0.72
-        off = size * (1 - scale) / 2
-        s2 = s * scale
-        def X(v): return off + v * s2
-    else:
-        r = size * 0.225  # rounded corner radius
-        d.rounded_rectangle([0, 0, size, size], radius=r, fill=NAVY)
-        def X(v): return v * s
-        s2 = s
-
-    # car body bar: x=4 y=21 w=32 h=7 rx=3.5
-    d.rounded_rectangle([X(4), X(21), X(4+32), X(21+7)], radius=3.5*s2, fill=CYAN)
-    # cab: trapezoid M9 21 L13 13 H27 L31 21 Z
-    d.polygon([(X(9), X(21)), (X(13), X(13)), (X(27), X(13)), (X(31), X(21))], fill=CYAN)
-    # wheels: circles (12,29) r3 and (28,29) r3 in navy
-    for cx in (12, 28):
-        d.ellipse([X(cx-3), X(29-3), X(cx+3), X(29+3)], fill=NAVY)
-
-    img.save(path, "PNG")
-    print(path, img.size)
-
-make(192, False, "/tmp/frontend/icon-192.png")
-make(512, False, "/tmp/frontend/icon-512.png")
-make(512, True,  "/tmp/frontend/icon-512-maskable.png")
-make(180, False, "/tmp/frontend/apple-touch-icon.png")
+if __name__ == "__main__":
+    radar(192, True, "icon-192.png"); radar(512, True, "icon-512.png")
+    radar(512, False, "icon-512-maskable.png", 0.72); radar(180, True, "apple-touch-icon.png")

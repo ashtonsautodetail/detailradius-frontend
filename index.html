@@ -620,7 +620,7 @@
   /* Reviews */
   .rev-summary{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
   .rev-avg{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:38px; color:#1E3A8A; line-height:1; }
-  .rev-stars{ color:#F59E0B; font-size:18px; letter-spacing:2px; }
+  .rev-stars{ color:#10B981; font-size:18px; letter-spacing:2px; }
   .rev-item{ border-top:1px solid #eef1f6; padding:11px 0; }
   .rev-item:first-child{ border-top:none; }
   .rev-item .rev-head{ display:flex; justify-content:space-between; gap:10px; font-size:12.5px; color:#556074; }
@@ -822,46 +822,46 @@
      Graphite-black surfaces, warm porcelain light, torch-amber signal color, Space
      Grotesk display type, radar-ring mark. Deliberately NOT the navy/purple SaaS look. */
   :root{
-    --navy:#0F1116; --brand:#1C232C; --cyan:#F59E0B; --violet:#92600A;
-    --bg:#F4F2EC; --ring:rgba(245,158,11,.35);
-    --accent-grad:linear-gradient(135deg,#F5A623,#D97706);
+    --navy:#0F1116; --brand:#1C232C; --cyan:#10B981; --violet:#075E44;
+    --bg:#F4F2EC; --ring:rgba(16,185,129,.35);
+    --accent-grad:linear-gradient(135deg,#12B981,#0A8F63);
   }
   h1,h2,h3,.logo,.stat-box .num,.trust-item strong{ font-family:'Space Grotesk','Sora','Inter',sans-serif; letter-spacing:-.3px; }
   body{ background:var(--bg); }
   /* Dark surfaces: graphite, not navy */
-  header{ background:linear-gradient(135deg,#171C23 0%,#0F1116 100%) !important; border-bottom:1px solid rgba(245,158,11,.14); }
+  header{ background:linear-gradient(135deg,#171C23 0%,#0F1116 100%) !important; border-bottom:1px solid rgba(16,185,129,.14); }
   .hero{ background:
-    radial-gradient(900px circle at 78% -10%, rgba(245,158,11,.13), transparent 55%),
+    radial-gradient(900px circle at 78% -10%, rgba(16,185,129,.11), transparent 55%),
     linear-gradient(150deg,#12161C 0%,#0F1116 55%,#171C23 100%) !important; }
-  .final-cta-inner{ background:linear-gradient(135deg,#1A2028,#0F1116) !important; border-color:rgba(245,158,11,.22) !important;
+  .final-cta-inner{ background:linear-gradient(135deg,#1A2028,#0F1116) !important; border-color:rgba(16,185,129,.22) !important;
     box-shadow:0 34px 74px -34px rgba(0,0,0,.7) !important; }
   footer.site-footer{ background:linear-gradient(135deg,#12161C,#0F1116) !important; }
   .stat-box{ background:linear-gradient(135deg,#1A2028,#0F1116) !important; }
-  .stat-box .num{ color:#F5A623 !important; }
+  .stat-box .num{ color:#12B981 !important; }
   .aurora-bg{ display:none !important; }
   body::before{ content:""; position:fixed; inset:0; z-index:-2;
-    background:radial-gradient(1100px circle at 85% -5%, rgba(245,158,11,.07), transparent 60%), var(--bg); }
+    background:radial-gradient(1100px circle at 85% -5%, rgba(16,185,129,.06), transparent 60%), var(--bg); }
   /* Signal color: torch amber. CTAs carry dark ink for contrast. */
   .book-btn, a.cta, .btn-cta, button.primary, .tab-btn.active{
-    background:var(--accent-grad) !important; color:#1A1205 !important;
-    box-shadow:0 8px 22px -8px rgba(217,119,6,.55) !important; border:none !important; }
+    background:var(--accent-grad) !important; color:#FFFFFF !important;
+    box-shadow:0 8px 22px -8px rgba(10,143,99,.5) !important; border:none !important; }
   button.primary:hover{ filter:brightness(1.06); }
   .hero-cta{ background:none !important; box-shadow:none !important; }
-  .logo .radius{ color:#F5A623; }
-  .trust-item strong{ color:#F5C36B; }
-  .hero .badge, .hero-eyebrow{ color:#F5C36B; }
-  .section-eyebrow{ color:#B45309 !important; }
-  .dash-nav-link.active{ box-shadow:inset 3px 0 0 #F59E0B; background:#FCF6EA; color:#7C4A03; }
-  .dash-nav-link.active svg{ color:#D97706; }
-  .badge.featured{ background:#1C232C; color:#F5C36B; }
-  .detailer-card.featured{ border-color:#F3D9A4; box-shadow:0 8px 22px -10px rgba(217,119,6,.28); }
-  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color:#F3D9A4; }
+  .logo .radius{ color:#12B981; }
+  .trust-item strong{ color:#7FE0BC; }
+  .hero .badge, .hero-eyebrow{ color:#7FE0BC; }
+  .section-eyebrow{ color:#0A7D57 !important; }
+  .dash-nav-link.active{ box-shadow:inset 3px 0 0 #10B981; background:#ECFDF5; color:#065F46; }
+  .dash-nav-link.active svg{ color:#0A8F63; }
+  .badge.featured{ background:#1C232C; color:#7FE0BC; }
+  .detailer-card.featured{ border-color:#A7F3D0; box-shadow:0 8px 22px -10px rgba(10,143,99,.26); }
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color:#A7F3D0; }
   .payout-badge.verified{ background:#ECFDF5; }
   .card{ border-color:#E9E5DB; background:#FFFFFF; }
-  .faq-group-title{ color:#1C232C; border-bottom-color:#F3D9A4; }
-  .trust-item strong{ color:#F5C36B !important; }
-  .step-card::before{ background:linear-gradient(90deg,#F5A623,#D97706) !important; }
-  .step-num{ background:linear-gradient(135deg,#F5A623,#B45309) !important; -webkit-background-clip:text !important; background-clip:text !important; }
+  .faq-group-title{ color:#1C232C; border-bottom-color:#A7F3D0; }
+  .trust-item strong{ color:#7FE0BC !important; }
+  .step-card::before{ background:linear-gradient(90deg,#12B981,#0A8F63) !important; }
+  .step-num{ background:linear-gradient(135deg,#12B981,#0A7D57) !important; -webkit-background-clip:text !important; background-clip:text !important; }
 </style>
 </head>
 <body>
@@ -872,10 +872,10 @@
   <div class="logo">
     <span class="car-icon" aria-hidden="true">
       <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="19" fill="none" stroke="#F59E0B" stroke-width="3.5"/>
-        <path d="M24 24 L24 5 A19 19 0 0 1 40.5 14.5 Z" fill="rgba(245,158,11,.30)"/>
-        <circle cx="24" cy="24" r="4.2" fill="#F59E0B"/>
-        <circle cx="33.5" cy="11.5" r="3" fill="#F59E0B"/>
+        <circle cx="24" cy="24" r="19" fill="none" stroke="#10B981" stroke-width="3.5"/>
+        <path d="M24 24 L24 5 A19 19 0 0 1 40.5 14.5 Z" fill="rgba(16,185,129,.30)"/>
+        <circle cx="24" cy="24" r="4.2" fill="#10B981"/>
+        <circle cx="33.5" cy="11.5" r="3" fill="#10B981"/>
       </svg>
     </span>
     <span>Detail</span><span class="radius">Radius</span>
@@ -883,7 +883,7 @@
   <div class="tabs" role="tablist" aria-label="Main sections">
     <button class="tab-btn active" id="tab-customer" role="tab" aria-selected="true" aria-controls="customer" tabindex="0" onclick="switchTab('customer')" onkeydown="tabKey(event)">Find a Detailer</button>
     <button class="tab-btn" id="tab-detailer" role="tab" aria-selected="false" aria-controls="detailer" tabindex="-1" onclick="switchTab('detailer')" onkeydown="tabKey(event)">Detailer Dashboard</button>
-    <button class="tab-btn" id="tab-owner" role="tab" aria-selected="false" aria-controls="owner" tabindex="-1" onclick="switchTab('owner')" onkeydown="tabKey(event)">Owner</button>
+
   </div>
 </header>
 
@@ -1124,7 +1124,7 @@
   </div>
 
   <!-- OWNER TAB -->
-  <div id="owner" class="tab-content" role="tabpanel" aria-labelledby="tab-owner" tabindex="0">
+  <div id="owner" class="tab-content" role="tabpanel" aria-label="Platform overview" tabindex="0">
     <div id="ownerContent"></div>
   </div>
 
@@ -1464,7 +1464,7 @@
       <div id="dashActions" class="dash-actions" aria-live="polite"></div>
       <div id="setupChecklist"></div>
       <div class="dash-shell">
-        <aside class="dash-sidebar" id="dashSidebar"><div class="dash-sidebar-inner"><button class="dash-collapse" onclick="toggleDashSidebar()" aria-label="Collapse menu" title="Collapse / expand menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><nav class="dash-nav" aria-label="Dashboard sections"><a class="dash-nav-link" data-sec="sec-overview" href="#" onclick="dashNav('sec-overview',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="dnl-txt">Overview</span></a><a class="dash-nav-link" data-sec="sec-schedule" href="#" onclick="dashNav('sec-schedule',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span class="dnl-txt">Schedule</span></a><a class="dash-nav-link" data-sec="sec-analytics" href="#" onclick="dashNav('sec-analytics',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16l3-4 3 2 4-7"/></svg><span class="dnl-txt">Analytics</span></a><a class="dash-nav-link" data-sec="sec-pipeline" href="#" onclick="dashNav('sec-pipeline',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></svg><span class="dnl-txt">Pipeline</span></a><a class="dash-nav-link" data-sec="sec-earnings" href="#" onclick="dashNav('sec-earnings',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.2c0-1 1.1-1.7 2.5-1.7s2.5.7 2.5 1.7-1.1 1.6-2.5 1.6-2.5.7-2.5 1.7 1.1 1.7 2.5 1.7 2.5-.7 2.5-1.7"/></svg><span class="dnl-txt">Earnings</span></a><a class="dash-nav-link" data-sec="sec-performance" href="#" onclick="dashNav('sec-performance',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4"/><rect x="7" y="12" width="3.2" height="8" rx="1"/><rect x="12.4" y="8" width="3.2" height="12" rx="1"/><rect x="17.8" y="14" width="3.2" height="6" rx="1"/></svg><span class="dnl-txt">Performance</span></a><a class="dash-nav-link" data-sec="sec-reviews" href="#" onclick="dashNav('sec-reviews',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8 6.8 19l1-5.8L3.6 9.1l5.8-.8z"/></svg><span class="dnl-txt">Reviews</span></a><a class="dash-nav-link" data-sec="sec-customers" href="#" onclick="dashNav('sec-customers',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.4 3.1-5.6 7-5.6s7 2.2 7 5.6"/></svg><span class="dnl-txt">Customers</span></a><a class="dash-nav-link" data-sec="getPaidCard" href="#" onclick="dashNav('getPaidCard',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg><span class="dnl-txt">Payouts</span></a><a class="dash-nav-link" data-sec="sec-pro" href="#" onclick="dashNav('sec-pro',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l6 4 6-4v9a6 6 0 0 1-12 0z"/><path d="M9 20h6"/></svg><span class="dnl-txt">Pro</span></a><a class="dash-nav-link" data-sec="sec-jobs" href="#" onclick="dashNav('sec-jobs',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A2 2 0 0 1 11 3.5h2a2 2 0 0 1 2 2V7"/></svg><span class="dnl-txt">Jobs</span></a><a class="dash-nav-link" data-sec="sec-quotes" href="#" onclick="dashNav('sec-quotes',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span class="dnl-txt">Quotes</span></a><a class="dash-nav-link" data-sec="sec-photos" href="#" onclick="dashNav('sec-photos',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.4"/><path d="M21 16l-5-5-9 9"/></svg><span class="dnl-txt">Photos</span></a><a class="dash-nav-link" data-sec="sec-services" href="#" onclick="dashNav('sec-services',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13 21a2 2 0 0 1-2.8 0L3 13.8V4h9.8z"/><circle cx="7.8" cy="7.8" r="1.1"/></svg><span class="dnl-txt">Services</span></a><a class="dash-nav-link" data-sec="sec-profile" href="#" onclick="dashNav('sec-profile',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-6M4 11V3M12 21v-8M12 9V3M20 21v-4M20 13V3M1 15h6M9 9h6M17 17h6"/></svg><span class="dnl-txt">Profile</span></a></nav></div></aside>
+        <aside class="dash-sidebar" id="dashSidebar"><div class="dash-sidebar-inner"><button class="dash-collapse" onclick="toggleDashSidebar()" aria-label="Collapse menu" title="Collapse / expand menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><nav class="dash-nav" aria-label="Dashboard sections"><a class="dash-nav-link" data-sec="sec-overview" href="#" onclick="dashNav('sec-overview',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="dnl-txt">Overview</span></a><a class="dash-nav-link" data-sec="sec-schedule" href="#" onclick="dashNav('sec-schedule',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><span class="dnl-txt">Schedule</span></a><a class="dash-nav-link" data-sec="sec-analytics" href="#" onclick="dashNav('sec-analytics',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16l3-4 3 2 4-7"/></svg><span class="dnl-txt">Analytics</span></a><a class="dash-nav-link" data-sec="sec-pipeline" href="#" onclick="dashNav('sec-pipeline',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></svg><span class="dnl-txt">Pipeline</span></a><a class="dash-nav-link" data-sec="sec-earnings" href="#" onclick="dashNav('sec-earnings',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.2c0-1 1.1-1.7 2.5-1.7s2.5.7 2.5 1.7-1.1 1.6-2.5 1.6-2.5.7-2.5 1.7 1.1 1.7 2.5 1.7 2.5-.7 2.5-1.7"/></svg><span class="dnl-txt">Earnings</span></a><a class="dash-nav-link" data-sec="sec-performance" href="#" onclick="dashNav('sec-performance',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4"/><rect x="7" y="12" width="3.2" height="8" rx="1"/><rect x="12.4" y="8" width="3.2" height="12" rx="1"/><rect x="17.8" y="14" width="3.2" height="6" rx="1"/></svg><span class="dnl-txt">Performance</span></a><a class="dash-nav-link" data-sec="sec-reviews" href="#" onclick="dashNav('sec-reviews',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8 6.8 19l1-5.8L3.6 9.1l5.8-.8z"/></svg><span class="dnl-txt">Reviews</span></a><a class="dash-nav-link" data-sec="sec-customers" href="#" onclick="dashNav('sec-customers',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.4 3.1-5.6 7-5.6s7 2.2 7 5.6"/></svg><span class="dnl-txt">Customers</span></a><a class="dash-nav-link" data-sec="getPaidCard" href="#" onclick="dashNav('getPaidCard',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg><span class="dnl-txt">Payouts</span></a><a class="dash-nav-link" data-sec="sec-pro" href="#" onclick="dashNav('sec-pro',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l6 4 6-4v9a6 6 0 0 1-12 0z"/><path d="M9 20h6"/></svg><span class="dnl-txt">Pro</span></a>${myDetailer.is_admin ? `<a class="dash-nav-link" href="#" onclick="switchTab('owner'); return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg><span class="dnl-txt">Platform</span></a>` : ''}<a class="dash-nav-link" data-sec="sec-jobs" href="#" onclick="dashNav('sec-jobs',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A2 2 0 0 1 11 3.5h2a2 2 0 0 1 2 2V7"/></svg><span class="dnl-txt">Jobs</span></a><a class="dash-nav-link" data-sec="sec-quotes" href="#" onclick="dashNav('sec-quotes',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg><span class="dnl-txt">Quotes</span></a><a class="dash-nav-link" data-sec="sec-photos" href="#" onclick="dashNav('sec-photos',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.4"/><path d="M21 16l-5-5-9 9"/></svg><span class="dnl-txt">Photos</span></a><a class="dash-nav-link" data-sec="sec-services" href="#" onclick="dashNav('sec-services',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13 21a2 2 0 0 1-2.8 0L3 13.8V4h9.8z"/><circle cx="7.8" cy="7.8" r="1.1"/></svg><span class="dnl-txt">Services</span></a><a class="dash-nav-link" data-sec="sec-profile" href="#" onclick="dashNav('sec-profile',event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-6M4 11V3M12 21v-8M12 9V3M20 21v-4M20 13V3M1 15h6M9 9h6M17 17h6"/></svg><span class="dnl-txt">Profile</span></a></nav></div></aside>
         <div class="dash-main">
       <div class="overview-grid" id="sec-overview">
         <div class="metric-card"><div class="metric-top"><div class="num" id="mRevenue">$0.00</div><span id="mRevTrend"></span></div><div class="label">Total Revenue (after 10% fee)</div><div class="metric-spark" id="mRevSpark"></div></div>
@@ -1551,7 +1551,7 @@
       <div class="card" id="sec-pro" style="border:1px solid #bfdbfe; background:linear-gradient(180deg,#f8fbff, #fff);">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
           <h2 style="margin:0;">DetailRadius Pro</h2>
-          <span id="proBadge" style="display:none; background:linear-gradient(135deg,#38BDF8,#2563eb); color:#fff; font-size:11px; font-weight:800; letter-spacing:.5px; padding:4px 10px; border-radius:999px;">PRO ACTIVE</span>
+          <span id="proBadge" style="display:none; background:linear-gradient(135deg,#12B981,#0A8F63); color:#fff; font-size:11px; font-weight:800; letter-spacing:.5px; padding:4px 10px; border-radius:999px;">PRO ACTIVE</span>
         </div>
         <div id="proContent" style="margin-top:10px;"><div class="empty-msg">Loading…</div></div>
       </div>
@@ -1721,7 +1721,7 @@
         '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:13px; margin-bottom:12px;">' +
         '<thead><tr><th style="text-align:left; padding:8px 10px; color:#5f6b7d;"></th>' +
         '<th style="padding:8px 10px; color:#5f6b7d; font-weight:700;">Free</th>' +
-        '<th style="padding:8px 10px; background:linear-gradient(135deg,#2563EB,#1D4ED8); color:#fff; border-radius:8px 8px 0 0;">PRO — $19/mo</th></tr></thead><tbody>' +
+        '<th style="padding:8px 10px; background:linear-gradient(135deg,#12B981,#0A8F63); color:#fff; border-radius:8px 8px 0 0;">PRO — $19/mo</th></tr></thead><tbody>' +
         row('Platform fee per job', '5%', '<span style="font-size:15px;">3%</span>') +
         row('You keep', '95%', '<span style="font-size:15px;">97%</span>') +
         row('Placement in customer search', 'Standard', 'Pinned to top + Featured badge') +
@@ -2415,7 +2415,7 @@
     el.dataset.rating = n;
     [...el.children].forEach(s => {
       const sn = parseInt(s.dataset.n);
-      s.style.color = (sn <= n) ? '#F59E0B' : '#d1d5db';   // fill up to the chosen star
+      s.style.color = (sn <= n) ? '#10B981' : '#d1d5db';   // fill up to the chosen star
       s.setAttribute('aria-checked', sn === n ? 'true' : 'false');
       s.tabIndex = (sn === n) ? 0 : -1;                     // roving tabindex → one tab stop
     });
@@ -3120,7 +3120,7 @@
       var items = data.filter(function (r) { return r.comment; }).slice(0, 3).map(function (r) {
         var em = ('' + (r.customer_email || '')).split('@')[0] || 'Customer';
         var rs = ''; for (var i = 1; i <= 5; i++) rs += (i <= (+r.rating || 0) ? '★' : '☆');
-        return '<div class="rev-item"><div class="rev-head"><span style="color:#F59E0B;letter-spacing:1px;">' + rs + '</span><span>' + escHtml(em) + ' · ' + escHtml(('' + (r.created_at || '')).slice(0, 10)) + '</span></div>' +
+        return '<div class="rev-item"><div class="rev-head"><span style="color:#10B981;letter-spacing:1px;">' + rs + '</span><span>' + escHtml(em) + ' · ' + escHtml(('' + (r.created_at || '')).slice(0, 10)) + '</span></div>' +
           '<div class="rev-body">' + escHtml(r.comment) + '</div></div>';
       }).join('');
       el.innerHTML = head + (items || '<div style="font-size:13px;color:#556074;">No written comments yet — your star ratings are shown above.</div>');
@@ -3930,6 +3930,7 @@
     const projectedCut = completedValue * 0.05;
 
     container.innerHTML = `
+      <div style="margin-bottom:10px;"><a href="#" onclick="switchTab('detailer'); return false;" style="font-size:13px; font-weight:700; color:#0A7D57;">← Back to dashboard</a></div>
       <div class="card">
         <h2>Owner Overview</h2>
         <p style="font-size:13px; color:#666; margin-bottom:16px;">
