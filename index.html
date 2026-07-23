@@ -4196,6 +4196,35 @@
       '</div>';
   }
 
+  // Returning customers: remember contact info locally so repeat bookings are two taps.
+  function rememberCustomer() {
+    try {
+      var v = {
+        n: (document.getElementById('customerName') || {}).value || '',
+        e: (document.getElementById('customerEmail') || {}).value || '',
+        p: (document.getElementById('customerPhone') || {}).value || ''
+      };
+      if (v.e) localStorage.setItem('dr_customer', JSON.stringify(v));
+    } catch (e) {}
+  }
+  function prefillCustomer() {
+    try {
+      var raw = localStorage.getItem('dr_customer');
+      if (!raw) return;
+      var v = JSON.parse(raw);
+      [['customerName', v.n], ['customerEmail', v.e], ['customerPhone', v.p],
+       ['checkBookingEmail', v.e], ['checkQuoteEmail', v.e], ['quoteName', v.n], ['quoteEmail', v.e]].forEach(function (pair) {
+        var el = document.getElementById(pair[0]);
+        if (el && !el.value && pair[1]) el.value = pair[1];
+      });
+    } catch (e) {}
+  }
+  ['customerName', 'customerEmail', 'customerPhone'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('change', rememberCustomer);
+  });
+  prefillCustomer();
+
   // ---------- INIT ----------
   checkConnection();
   initAuth();
