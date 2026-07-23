@@ -1407,6 +1407,11 @@
       container.innerHTML = `
         <div class="card">
           <h2>Detailer Login</h2>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin:2px 0 14px;">
+            <span style="font-size:12px; font-weight:700; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; padding:5px 12px; border-radius:999px;">Free to list</span>
+            <span style="font-size:12px; font-weight:700; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; padding:5px 12px; border-radius:999px;">Keep 95% — 97% with Pro</span>
+            <span style="font-size:12px; font-weight:700; background:#1C232C; color:#fff; padding:5px 12px; border-radius:999px;">Founding spots open in 15 metros</span>
+          </div>
           <div class="form-grid">
             <div class="field"><label for="authEmail">Email</label><input type="email" id="authEmail" autocomplete="email"></div>
             <div class="field"><label for="authPassword">Password</label><input type="password" id="authPassword" autocomplete="current-password" onkeydown="if(event.key==='Enter'){event.preventDefault(); this.closest('.card').querySelector('button.primary').click();}"></div>
@@ -1432,7 +1437,7 @@
       container.innerHTML = `
         <div class="card">
           <h2>Create Your Business Listing</h2>
-          <p style="font-size:13px; color:#666; margin-bottom:12px;">Logged in as ${currentUser.email}. One more step to go live.</p>
+          <p style="font-size:13px; color:#666; margin-bottom:12px;">Logged in as ${currentUser.email}. Two fields and you're live — you can add services, photos, and hours right after.</p>
           <div class="form-grid">
             <div class="field"><label>Business Name</label><input type="text" id="cName" placeholder="e.g. Ashton's Auto Detail"></div>
             <div class="field"><label>Starting Price ($)</label><input type="number" id="cPrice" placeholder="e.g. 150"></div>
