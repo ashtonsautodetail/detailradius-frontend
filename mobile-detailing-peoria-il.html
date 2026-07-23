@@ -64,29 +64,29 @@
 <style>
   :root { --navy:#0F1116; --navy2:#1A2028; --cyan:#C9CDD6; --ink:#1e293b; --muted:#556074; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); background:#f6f9ff; }
+  body { font-family:'Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); background:#F4F3F0; }
   a { color:inherit; }
   .hero { background:linear-gradient(150deg,#12161C 0%,#0F1116 55%,#1A2028 100%); color:#fff; padding:56px 20px 64px; text-align:center; }
   .hero .logo { font-size:24px; font-weight:800; letter-spacing:-.5px; margin-bottom:26px; display:inline-flex; align-items:center; gap:9px; }
   .hero .logo img { width:36px; height:36px; border-radius:8px; }
   .hero .logo span { color:var(--cyan); }
   .hero h1 { font-size:clamp(28px,5vw,44px); line-height:1.15; max-width:760px; margin:0 auto 14px; }
-  .hero p { color:#b9c6e2; max-width:640px; margin:0 auto 28px; font-size:17px; line-height:1.6; }
+  .hero p { color:#C2C8D2; max-width:640px; margin:0 auto 28px; font-size:17px; line-height:1.6; }
   .cta { display:inline-block; background:linear-gradient(135deg,#F2F4F8,#B9C0CC); color:#0F1116; font-weight:800; font-size:17px; padding:15px 34px; border-radius:12px; text-decoration:none; box-shadow:0 14px 30px -8px rgba(15,17,22,.35); }
   .cta:hover { filter:brightness(1.07); }
   .badges { margin-top:22px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
-  .badge { font-size:12.5px; font-weight:600; background:rgba(56,189,248,.14); border:1px solid rgba(56,189,248,.32); color:#cfe4f6; padding:6px 13px; border-radius:999px; }
+  .badge { font-size:12.5px; font-weight:600; background:rgba(201,205,214,.14); border:1px solid rgba(201,205,214,.32); color:#E5E9F0; padding:6px 13px; border-radius:999px; }
   .wrap { max-width:960px; margin:0 auto; padding:52px 20px; }
   h2 { font-size:26px; color:var(--navy); margin-bottom:10px; }
   .sub { color:var(--muted); margin-bottom:26px; line-height:1.6; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; }
   .card { background:#fff; border:1px solid #e3e9f6; border-radius:14px; padding:20px; box-shadow:0 6px 18px -10px rgba(15,32,84,.14); }
   .card h3 { font-size:17px; color:var(--navy); }
-  .price { color:var(--cyan); font-weight:800; font-size:20px; margin:6px 0 8px; }
+  .price { color:#1C232C; font-weight:800; font-size:20px; margin:6px 0 8px; }
   .card p { font-size:13.5px; color:var(--muted); line-height:1.55; }
   .steps { counter-reset:s; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }
   .step { background:#fff; border:1px solid #e3e9f6; border-radius:14px; padding:20px; }
-  .step::before { counter-increment:s; content:"0" counter(s); font-weight:800; font-size:22px; color:var(--cyan); display:block; margin-bottom:6px; }
+  .step::before { counter-increment:s; content:"0" counter(s); font-weight:800; font-size:22px; color:#9CA3AF; display:block; margin-bottom:6px; }
   .faq { background:#fff; border:1px solid #e3e9f6; border-radius:14px; padding:6px 22px; }
   .faq details { padding:15px 0; border-bottom:1px solid #edf1f9; }
   .faq details:last-child { border-bottom:none; }
@@ -96,7 +96,7 @@
   .band h2 { color:#fff; }
   .band p { color:#b9c6e2; margin:10px auto 24px; max-width:560px; line-height:1.6; }
   footer { text-align:center; padding:26px 16px; font-size:13px; color:#7c8aa5; }
-  footer a { color:#5b7bb6; }
+  footer a { color:#3B4351; }
 </style>
 </head>
 <body>
@@ -195,7 +195,7 @@
         }
         box.innerHTML = list.slice(0, 6).map(function (d) {
           return '<div class="card">' +
-            '<h3>' + esc(d.name) + ((d.pro || d.featured) ? ' <span style="font-size:11px; font-weight:800; color:#0369a1; background:#e0f2fe; padding:2px 8px; border-radius:999px; vertical-align:middle;">FEATURED</span>' : '') + '</h3>' +
+            '<h3>' + esc(d.name) + ((d.pro || d.featured) ? ' <span style="font-size:11px; font-weight:800; color:#1C232C; background:#F1F2F5; padding:2px 8px; border-radius:999px; vertical-align:middle;">FEATURED</span>' : '') + '</h3>' +
             '<p style="margin:4px 0 2px;">⭐ ' + (d.rating || 'New') + ' (' + (d.reviews || 0) + ' reviews) · ' + d.dist.toFixed(1) + ' mi</p>' +
             (d.service_area ? '<p style="margin:0 0 6px;">' + esc(d.service_area) + '</p>' : '') +
             '<div class="price" style="font-size:16px;">from $' + (d.price || 70) + '</div>' +

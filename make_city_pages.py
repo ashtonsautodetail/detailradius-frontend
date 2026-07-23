@@ -89,23 +89,23 @@ TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Detailing in {city}, IL — Book Online | DetailRadius</title>
-<meta name="description" content="Book trusted mobile auto detailing in {city}, Illinois. Upfront prices from $70, vetted local detailers, secure online booking — they come to your driveway. Serving {areas}.">
-<link rel="canonical" href="{base}/mobile-detailing-{slug}-il.html">
+<title>Mobile Detailing in {city}, {st_ab} — Book Online | DetailRadius</title>
+<meta name="description" content="Book trusted mobile auto detailing in {city}, {state_full}. Upfront prices from $70, vetted local detailers, secure online booking — they come to your driveway. Serving {areas}.">
+<link rel="canonical" href="{base}/mobile-detailing-{slug}-{st}.html">
 <meta name="theme-color" content="#0F1116">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="/icon-192.png">
-<meta property="og:title" content="Mobile Detailing in {city}, IL — DetailRadius">
+<meta property="og:title" content="Mobile Detailing in {city}, {st_ab} — DetailRadius">
 <meta property="og:description" content="Vetted local detailers come to you. Upfront prices, secure deposits, book in minutes.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="{base}/mobile-detailing-{slug}-il.html">
+<meta property="og:url" content="{base}/mobile-detailing-{slug}-{st}.html">
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",
   "@type": "Service",
   "serviceType": "Mobile auto detailing",
-  "name": "Mobile Detailing in {city}, IL",
+  "name": "Mobile Detailing in {city}, {st_ab}",
   "provider": {{
     "@type": "Organization",
     "name": "DetailRadius",
@@ -114,7 +114,7 @@ TEMPLATE = """<!DOCTYPE html>
   "areaServed": {{
     "@type": "City",
     "name": "{city}",
-    "containedInPlace": {{ "@type": "AdministrativeArea", "name": "{county}, Illinois" }}
+    "containedInPlace": {{ "@type": "AdministrativeArea", "name": "{county}, {state_full}" }}
   }},
   "offers": [
     {{ "@type": "Offer", "name": "Express Detail", "price": "70", "priceCurrency": "USD" }},
@@ -136,7 +136,7 @@ TEMPLATE = """<!DOCTYPE html>
     }},
     {{
       "@type": "Question",
-      "name": "How much does mobile detailing cost in {city}, IL?",
+      "name": "How much does mobile detailing cost in {city}, {st_ab}?",
       "acceptedAnswer": {{ "@type": "Answer", "text": "Packages on DetailRadius start at $70 for an Express Detail, $150 for a Standard Detail, $280 for a Premium Detail, and $400 for ceramic coating. Final price depends on vehicle size and condition — every listing shows upfront pricing before you book." }}
     }},
     {{
@@ -150,29 +150,29 @@ TEMPLATE = """<!DOCTYPE html>
 <style>
   :root {{ --navy:#0F1116; --navy2:#1A2028; --cyan:#C9CDD6; --ink:#1e293b; --muted:#556074; }}
   * {{ box-sizing:border-box; margin:0; padding:0; }}
-  body {{ font-family:'Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); background:#f6f9ff; }}
+  body {{ font-family:'Segoe UI',system-ui,-apple-system,sans-serif; color:var(--ink); background:#F4F3F0; }}
   a {{ color:inherit; }}
   .hero {{ background:linear-gradient(150deg,#12161C 0%,#0F1116 55%,#1A2028 100%); color:#fff; padding:56px 20px 64px; text-align:center; }}
   .hero .logo {{ font-size:24px; font-weight:800; letter-spacing:-.5px; margin-bottom:26px; display:inline-flex; align-items:center; gap:9px; }}
   .hero .logo img {{ width:36px; height:36px; border-radius:8px; }}
   .hero .logo span {{ color:var(--cyan); }}
   .hero h1 {{ font-size:clamp(28px,5vw,44px); line-height:1.15; max-width:760px; margin:0 auto 14px; }}
-  .hero p {{ color:#b9c6e2; max-width:640px; margin:0 auto 28px; font-size:17px; line-height:1.6; }}
+  .hero p {{ color:#C2C8D2; max-width:640px; margin:0 auto 28px; font-size:17px; line-height:1.6; }}
   .cta {{ display:inline-block; background:linear-gradient(135deg,#F2F4F8,#B9C0CC); color:#0F1116; font-weight:800; font-size:17px; padding:15px 34px; border-radius:12px; text-decoration:none; box-shadow:0 14px 30px -8px rgba(15,17,22,.35); }}
   .cta:hover {{ filter:brightness(1.07); }}
   .badges {{ margin-top:22px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }}
-  .badge {{ font-size:12.5px; font-weight:600; background:rgba(56,189,248,.14); border:1px solid rgba(56,189,248,.32); color:#cfe4f6; padding:6px 13px; border-radius:999px; }}
+  .badge {{ font-size:12.5px; font-weight:600; background:rgba(201,205,214,.14); border:1px solid rgba(201,205,214,.32); color:#E5E9F0; padding:6px 13px; border-radius:999px; }}
   .wrap {{ max-width:960px; margin:0 auto; padding:52px 20px; }}
   h2 {{ font-size:26px; color:var(--navy); margin-bottom:10px; }}
   .sub {{ color:var(--muted); margin-bottom:26px; line-height:1.6; }}
   .grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; }}
   .card {{ background:#fff; border:1px solid #e3e9f6; border-radius:14px; padding:20px; box-shadow:0 6px 18px -10px rgba(15,32,84,.14); }}
   .card h3 {{ font-size:17px; color:var(--navy); }}
-  .price {{ color:var(--cyan); font-weight:800; font-size:20px; margin:6px 0 8px; }}
+  .price {{ color:#1C232C; font-weight:800; font-size:20px; margin:6px 0 8px; }}
   .card p {{ font-size:13.5px; color:var(--muted); line-height:1.55; }}
   .steps {{ counter-reset:s; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; }}
   .step {{ background:#fff; border:1px solid #e3e9f6; border-radius:14px; padding:20px; }}
-  .step::before {{ counter-increment:s; content:"0" counter(s); font-weight:800; font-size:22px; color:var(--cyan); display:block; margin-bottom:6px; }}
+  .step::before {{ counter-increment:s; content:"0" counter(s); font-weight:800; font-size:22px; color:#9CA3AF; display:block; margin-bottom:6px; }}
   .faq {{ background:#fff; border:1px solid #e3e9f6; border-radius:14px; padding:6px 22px; }}
   .faq details {{ padding:15px 0; border-bottom:1px solid #edf1f9; }}
   .faq details:last-child {{ border-bottom:none; }}
@@ -182,13 +182,13 @@ TEMPLATE = """<!DOCTYPE html>
   .band h2 {{ color:#fff; }}
   .band p {{ color:#b9c6e2; margin:10px auto 24px; max-width:560px; line-height:1.6; }}
   footer {{ text-align:center; padding:26px 16px; font-size:13px; color:#7c8aa5; }}
-  footer a {{ color:#5b7bb6; }}
+  footer a {{ color:#3B4351; }}
 </style>
 </head>
 <body>
 <header class="hero">
   <div class="logo"><img src="/icon-192.png" alt="DetailRadius logo">Detail<span>Radius</span></div>
-  <h1>Mobile Detailing in {city}, IL — Booked in Minutes</h1>
+  <h1>Mobile Detailing in {city}, {st_ab} — Booked in Minutes</h1>
   <p>{blurb}</p>
   <a class="cta" href="/?city={slug}#find">Find a {city} Detailer →</a>
   <div class="badges">
@@ -278,7 +278,7 @@ TEMPLATE = """<!DOCTYPE html>
         }}
         box.innerHTML = list.slice(0, 6).map(function (d) {{
           return '<div class="card">' +
-            '<h3>' + esc(d.name) + ((d.pro || d.featured) ? ' <span style="font-size:11px; font-weight:800; color:#0369a1; background:#e0f2fe; padding:2px 8px; border-radius:999px; vertical-align:middle;">FEATURED</span>' : '') + '</h3>' +
+            '<h3>' + esc(d.name) + ((d.pro || d.featured) ? ' <span style="font-size:11px; font-weight:800; color:#1C232C; background:#F1F2F5; padding:2px 8px; border-radius:999px; vertical-align:middle;">FEATURED</span>' : '') + '</h3>' +
             '<p style="margin:4px 0 2px;">⭐ ' + (d.rating || 'New') + ' (' + (d.reviews || 0) + ' reviews) · ' + d.dist.toFixed(1) + ' mi</p>' +
             (d.service_area ? '<p style="margin:0 0 6px;">' + esc(d.service_area) + '</p>' : '') +
             '<div class="price" style="font-size:16px;">from $' + (d.price || 70) + '</div>' +
@@ -295,13 +295,81 @@ TEMPLATE = """<!DOCTYPE html>
 card_tpl = '<div class="card"><h3>{n}</h3><div class="price">{p}</div><p>{d}</p></div>'
 package_cards = "\n    ".join(card_tpl.format(n=n, p=p, d=d) for n, p, d in PACKAGES)
 
+# National metro expansion — the US-wide play. Each empty metro shows the
+# "Be the first detailer / founding spot" recruitment CTA automatically.
+METROS = [
+ dict(slug="dallas", city="Dallas", county="Dallas County", st="tx", st_ab="TX", state_full="Texas",
+   lat=32.7767, lng=-96.7970, areas="Dallas, Plano, Irving, Arlington, Frisco, and Garland",
+   blurb="From Uptown to Frisco, book a vetted mobile detailer who brings the shop to your driveway — upfront prices, secure deposit, no phone tag.",
+   faq_local="Yes — DetailRadius detailers in the Dallas–Fort Worth metro come to your home or office, covering Dallas, Plano, Irving, Arlington, and surrounding suburbs."),
+ dict(slug="houston", city="Houston", county="Harris County", st="tx", st_ab="TX", state_full="Texas",
+   lat=29.7604, lng=-95.3698, areas="Houston, Katy, Sugar Land, The Woodlands, Pearland, and Cypress",
+   blurb="Houston heat is brutal on paint. Book a trusted mobile detailer who comes to you — driveway, office garage, anywhere inside the loop or out.",
+   faq_local="Yes — detailers on DetailRadius serve greater Houston including Katy, Sugar Land, The Woodlands, and Pearland, fully mobile."),
+ dict(slug="phoenix", city="Phoenix", county="Maricopa County", st="az", st_ab="AZ", state_full="Arizona",
+   lat=33.4484, lng=-112.0740, areas="Phoenix, Scottsdale, Tempe, Mesa, Chandler, and Glendale",
+   blurb="Desert sun destroys clear coats. Get a vetted Valley detailer to your driveway with upfront pricing and secure online booking.",
+   faq_local="Yes — Valley detailers on DetailRadius cover Phoenix, Scottsdale, Tempe, Mesa, and Chandler, and most work fully mobile year-round."),
+ dict(slug="los-angeles", city="Los Angeles", county="Los Angeles County", st="ca", st_ab="CA", state_full="California",
+   lat=34.0522, lng=-118.2437, areas="Los Angeles, Long Beach, Glendale, Pasadena, Santa Monica, and Burbank",
+   blurb="Skip the car wash line on Ventura. Book a vetted mobile detailer anywhere in LA — they come to your driveway or office with everything they need.",
+   faq_local="Yes — LA-area detailers on DetailRadius are mobile-first, covering the city plus Long Beach, Pasadena, Santa Monica, and the Valley."),
+ dict(slug="san-diego", city="San Diego", county="San Diego County", st="ca", st_ab="CA", state_full="California",
+   lat=32.7157, lng=-117.1611, areas="San Diego, Chula Vista, Oceanside, El Cajon, and Carlsbad",
+   blurb="Salt air is rough on finishes. Book a trusted San Diego mobile detailer online — upfront prices, secure deposit, done in your driveway.",
+   faq_local="Yes — detailers cover San Diego County from Oceanside down to Chula Vista, and most are fully mobile."),
+ dict(slug="atlanta", city="Atlanta", county="Fulton County", st="ga", st_ab="GA", state_full="Georgia",
+   lat=33.7490, lng=-84.3880, areas="Atlanta, Marietta, Alpharetta, Sandy Springs, Decatur, and Smyrna",
+   blurb="Pollen season meets its match. Book a vetted Atlanta mobile detailer to your driveway — upfront pricing, secure booking, no phone tag.",
+   faq_local="Yes — metro Atlanta detailers on DetailRadius cover the city plus Marietta, Alpharetta, Sandy Springs, and Decatur, fully mobile."),
+ dict(slug="miami", city="Miami", county="Miami-Dade County", st="fl", st_ab="FL", state_full="Florida",
+   lat=25.7617, lng=-80.1918, areas="Miami, Fort Lauderdale, Hialeah, Coral Gables, and Hollywood",
+   blurb="Sun, salt, and Sahara dust — Miami cars earn their details. Book a vetted mobile detailer online and they come to you.",
+   faq_local="Yes — South Florida detailers on DetailRadius cover Miami-Dade and Broward, from Coral Gables up to Fort Lauderdale."),
+ dict(slug="tampa", city="Tampa", county="Hillsborough County", st="fl", st_ab="FL", state_full="Florida",
+   lat=27.9506, lng=-82.4572, areas="Tampa, St. Petersburg, Clearwater, Brandon, and Wesley Chapel",
+   blurb="From Bayshore to St. Pete, book a trusted mobile detailer who brings the shop to your driveway — upfront prices, secure deposit.",
+   faq_local="Yes — Tampa Bay detailers on DetailRadius cover Tampa, St. Petersburg, Clearwater, and Brandon, fully mobile."),
+ dict(slug="orlando", city="Orlando", county="Orange County", st="fl", st_ab="FL", state_full="Florida",
+   lat=28.5384, lng=-81.3789, areas="Orlando, Kissimmee, Winter Park, Sanford, and Lake Nona",
+   blurb="Love bugs and theme-park miles are no joke. Book a vetted Orlando mobile detailer online — they come to your driveway or office.",
+   faq_local="Yes — Orlando-area detailers on DetailRadius cover the metro including Kissimmee, Winter Park, and Lake Nona."),
+ dict(slug="charlotte", city="Charlotte", county="Mecklenburg County", st="nc", st_ab="NC", state_full="North Carolina",
+   lat=35.2271, lng=-80.8431, areas="Charlotte, Concord, Gastonia, Huntersville, and Matthews",
+   blurb="From Uptown to Lake Norman, book a vetted mobile detailer with upfront prices and secure online booking — they come to you.",
+   faq_local="Yes — Charlotte-area detailers on DetailRadius cover Mecklenburg County plus Concord, Huntersville, and Matthews."),
+ dict(slug="nashville", city="Nashville", county="Davidson County", st="tn", st_ab="TN", state_full="Tennessee",
+   lat=36.1627, lng=-86.7816, areas="Nashville, Franklin, Murfreesboro, Hendersonville, and Brentwood",
+   blurb="Music City mud and pollen don't stand a chance. Book a trusted Nashville mobile detailer online — driveway service, upfront prices.",
+   faq_local="Yes — Nashville detailers on DetailRadius cover Davidson County plus Franklin, Brentwood, and Murfreesboro."),
+ dict(slug="denver", city="Denver", county="Denver County", st="co", st_ab="CO", state_full="Colorado",
+   lat=39.7392, lng=-104.9903, areas="Denver, Aurora, Lakewood, Littleton, and Westminster",
+   blurb="Mag-chloride and mountain dust eat finishes. Book a vetted Denver mobile detailer to your driveway — upfront pricing, secure booking.",
+   faq_local="Yes — Front Range detailers on DetailRadius cover metro Denver including Aurora, Lakewood, and Littleton."),
+ dict(slug="seattle", city="Seattle", county="King County", st="wa", st_ab="WA", state_full="Washington",
+   lat=47.6062, lng=-122.3321, areas="Seattle, Bellevue, Tacoma, Kirkland, Renton, and Everett",
+   blurb="Rain doesn't clean your car — it just moves the dirt. Book a vetted Seattle mobile detailer online and they come to you, covered parking or not.",
+   faq_local="Yes — Puget Sound detailers on DetailRadius cover Seattle, Bellevue, Tacoma, and the Eastside, fully mobile."),
+ dict(slug="las-vegas", city="Las Vegas", county="Clark County", st="nv", st_ab="NV", state_full="Nevada",
+   lat=36.1699, lng=-115.1398, areas="Las Vegas, Henderson, North Las Vegas, and Summerlin",
+   blurb="Desert dust and casino valet miles add up. Book a trusted Vegas mobile detailer online — upfront prices, secure deposit, driveway service.",
+   faq_local="Yes — Las Vegas detailers on DetailRadius cover the valley including Henderson, Summerlin, and North Las Vegas."),
+ dict(slug="st-louis", city="St. Louis", county="St. Louis County", st="mo", st_ab="MO", state_full="Missouri",
+   lat=38.6270, lng=-90.1994, areas="St. Louis, Clayton, Chesterfield, St. Charles, and Kirkwood",
+   blurb="Just across the river from our Illinois home turf. Book a vetted St. Louis mobile detailer online — upfront prices, they come to you.",
+   faq_local="Yes — St. Louis detailers on DetailRadius cover the metro on both sides of the river, including Clayton, Chesterfield, and St. Charles."),
+]
+for c in CITIES:
+    c.setdefault("st", "il"); c.setdefault("st_ab", "IL"); c.setdefault("state_full", "Illinois")
+CITIES = CITIES + METROS
+
 urls = []
 for c in CITIES:
     page = TEMPLATE.format(base=BASE, package_cards=package_cards, **c)
-    fn = f"/tmp/frontend/mobile-detailing-{c['slug']}-il.html"
+    fn = f"/tmp/frontend/mobile-detailing-{c['slug']}-{c['st']}.html"
     with open(fn, "w") as f:
         f.write(page)
-    urls.append(f"{BASE}/mobile-detailing-{c['slug']}-il.html")
+    urls.append(f"{BASE}/mobile-detailing-{c['slug']}-{c['st']}.html")
     print("wrote", fn, len(page), "bytes")
 
 # Rebuild sitemap with all pages

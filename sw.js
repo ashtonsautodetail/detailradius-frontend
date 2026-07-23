@@ -3,7 +3,7 @@
    Never caches API traffic (Supabase / Stripe / Netlify functions), so live
    data, auth, and payments always hit the network. Bump VERSION on deploys
    that must invalidate old caches. */
-const VERSION = 'dr-v13';
+const VERSION = 'dr-v14';
 const OFFLINE_URLS = ['/', '/icon-192.png', '/icon-512.png', '/manifest.webmanifest'];
 
 // Hosts that must NEVER be cached or intercepted meaningfully
