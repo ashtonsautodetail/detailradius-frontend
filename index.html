@@ -1442,6 +1442,36 @@
             <div class="field"><label>Business Name</label><input type="text" id="cName" placeholder="e.g. Ashton's Auto Detail"></div>
             <div class="field"><label>Starting Price ($)</label><input type="number" id="cPrice" placeholder="e.g. 150"></div>
           </div>
+          <div class="field" style="margin-top:10px;"><label>Primary City (so customers near you can find you)</label>
+            <select id="cCity">
+            <option value="">Other / I'll set my exact location later</option>
+            <option value="39.8403|-88.9548|Decatur, IL">Decatur, IL</option>
+            <option value="39.7817|-89.6501|Springfield, IL">Springfield, IL</option>
+            <option value="40.1164|-88.2434|Champaign-Urbana, IL">Champaign-Urbana, IL</option>
+            <option value="40.4842|-88.9937|Bloomington-Normal, IL">Bloomington-Normal, IL</option>
+            <option value="40.6936|-89.589|Peoria, IL">Peoria, IL</option>
+            <option value="41.8781|-87.6298|Chicago, IL">Chicago, IL</option>
+            <option value="41.7508|-88.1535|Naperville-Aurora, IL">Naperville-Aurora, IL</option>
+            <option value="41.525|-88.0817|Joliet, IL">Joliet, IL</option>
+            <option value="42.0334|-88.0834|Schaumburg, IL">Schaumburg, IL</option>
+            <option value="42.2711|-89.094|Rockford, IL">Rockford, IL</option>
+            <option value="32.7767|-96.797|Dallas, TX">Dallas, TX</option>
+            <option value="29.7604|-95.3698|Houston, TX">Houston, TX</option>
+            <option value="33.4484|-112.074|Phoenix, AZ">Phoenix, AZ</option>
+            <option value="34.0522|-118.2437|Los Angeles, CA">Los Angeles, CA</option>
+            <option value="32.7157|-117.1611|San Diego, CA">San Diego, CA</option>
+            <option value="33.749|-84.388|Atlanta, GA">Atlanta, GA</option>
+            <option value="25.7617|-80.1918|Miami, FL">Miami, FL</option>
+            <option value="27.9506|-82.4572|Tampa, FL">Tampa, FL</option>
+            <option value="28.5384|-81.3789|Orlando, FL">Orlando, FL</option>
+            <option value="35.2271|-80.8431|Charlotte, NC">Charlotte, NC</option>
+            <option value="36.1627|-86.7816|Nashville, TN">Nashville, TN</option>
+            <option value="39.7392|-104.9903|Denver, CO">Denver, CO</option>
+            <option value="47.6062|-122.3321|Seattle, WA">Seattle, WA</option>
+            <option value="36.1699|-115.1398|Las Vegas, NV">Las Vegas, NV</option>
+            <option value="38.627|-90.1994|St. Louis, MO">St. Louis, MO</option>
+            </select>
+          </div>
           <button class="primary" onclick="createMyListing()">Create Listing</button>
           <button class="secondary" style="margin-top:8px; width:100%;" onclick="handleLogout()">Log Out</button>
         </div>
@@ -1860,10 +1890,17 @@
     const name = document.getElementById('cName').value.trim();
     const price = document.getElementById('cPrice').value;
     if (!name || !price) { alert('Enter a business name and starting price.'); return; }
-    const { error } = await sb.from('detailers').insert([{
+    const row = {
       name, price: parseInt(price), user_id: currentUser.id,
       rating: null, reviews: 0, certified: false, featured: false
-    }]);
+    };
+    const cityPick = (document.getElementById('cCity') || {}).value || '';
+    if (cityPick) {
+      const parts = cityPick.split('|');
+      row.latitude = parseFloat(parts[0]); row.longitude = parseFloat(parts[1]);
+      row.service_area = parts[2] + ' area';
+    }
+    const { error } = await sb.from('detailers').insert([row]);
     if (error) { alert('Could not create listing: ' + error.message); return; }
     renderDetailerTab();
   }
