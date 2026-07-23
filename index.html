@@ -2711,6 +2711,9 @@
         ${j.status === 'accepted' ? renderAcceptedJobActions(j) : ''}
         ${j.status !== 'declined' ? `
           <div class="msg-thread" id="msgThread-${j.id}"></div>
+          <div style="display:flex; gap:5px; flex-wrap:wrap; margin-bottom:6px;">
+              ${["On my way! \ud83d\ude97","Running ~15 min behind \u2014 sorry!","All done \u2014 she\u2019s shining! \u2728","Thanks for booking \u2014 see you then!"].map(t => `<button class="secondary" style="font-size:11.5px; padding:4px 10px;" onclick="quickReply(${j.id}, this.textContent)">${t}</button>`).join('')}
+          </div>
           <div class="msg-row">
             <input type="text" id="msgInput-${j.id}" placeholder="Message the customer..." onkeydown="if(event.key==='Enter'){event.preventDefault(); this.nextElementSibling.click();}">
             <button class="secondary" onclick="sendMessage(${j.id}, 'detailer', 'msgInput-${j.id}', 'msgThread-${j.id}', 'detailer')">Send</button>
@@ -2794,6 +2797,13 @@
     // Off-platform payment apps / phrases — flag (don't necessarily rewrite the word)
     if (/\b(venmo|cash\s?app|cashapp|zelle|paypal|apple\s?pay|google\s?pay|text me|call me|my (cell|number)|off the app|outside the app|pay(ing)? cash)\b/i.test(text)) flagged = true;
     return { clean: clean, flagged: flagged };
+  }
+
+  function quickReply(jobId, text) {
+    var input = document.getElementById('msgInput-' + jobId);
+    if (!input) return;
+    input.value = text;
+    sendMessage(jobId, 'detailer', 'msgInput-' + jobId, 'msgThread-' + jobId, 'detailer');
   }
 
   async function sendMessage(jobId, sender, inputId, containerId, viewerRole) {
