@@ -88,6 +88,8 @@
   .msg-bubble.them { background: #E5E7EB; color: #1a1a1a; }
   .msg-row { display: flex; gap: 6px; }
   .msg-row input { flex: 1; }
+  .msg-who { font-size: 10.5px; font-weight: 700; color: #6B7280; margin: 2px 0 2px 4px; }
+  .msg-time { display: block; font-size: 10px; opacity: .55; margin-top: 3px; }
   .delete-btn { background: #FEE2E2; color: #991B1B; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 8px; font-size: 13px; }
   .stat-row { display: flex; gap: 16px; margin-bottom: 20px; }
   .stat-box { flex: 1; background: linear-gradient(135deg, #1C232C, #0B1533); color: white; border-radius: 10px; padding: 18px; text-align: center; }
@@ -2479,7 +2481,7 @@
         ${j.status !== 'declined' ? `
           <div class="msg-thread" id="cmsgThread-${j.id}"></div>
           <div class="msg-row">
-            <input type="text" id="cmsgInput-${j.id}" placeholder="Message the detailer...">
+            <input type="text" id="cmsgInput-${j.id}" placeholder="Message the detailer..." onkeydown="if(event.key==='Enter'){event.preventDefault(); this.nextElementSibling.click();}">
             <button class="secondary" onclick="sendMessage(${j.id}, 'customer', 'cmsgInput-${j.id}', 'cmsgThread-${j.id}', 'customer')">Send</button>
           </div>
         ` : ''}
@@ -2490,7 +2492,7 @@
       </div>
     `).join('');
     data.forEach(j => {
-      if (j.status !== 'declined') loadMessages(j.id, 'cmsgThread-' + j.id, 'customer');
+      if (j.status !== 'declined') loadMessages(j.id, 'cmsgThread-' + j.id, 'customer', (j.detailers && j.detailers.name) ? j.detailers.name : 'Detailer');
     });
   }
 
@@ -2680,7 +2682,7 @@
         ${j.status !== 'declined' ? `
           <div class="msg-thread" id="msgThread-${j.id}"></div>
           <div class="msg-row">
-            <input type="text" id="msgInput-${j.id}" placeholder="Message the customer...">
+            <input type="text" id="msgInput-${j.id}" placeholder="Message the customer..." onkeydown="if(event.key==='Enter'){event.preventDefault(); this.nextElementSibling.click();}">
             <button class="secondary" onclick="sendMessage(${j.id}, 'detailer', 'msgInput-${j.id}', 'msgThread-${j.id}', 'detailer')">Send</button>
           </div>
         ` : ''}
@@ -2689,7 +2691,7 @@
     `).join('');
 
     data.forEach(j => {
-      if (j.status !== 'declined') loadMessages(j.id, 'msgThread-' + j.id, 'detailer');
+      if (j.status !== 'declined') loadMessages(j.id, 'msgThread-' + j.id, 'detailer', j.customer || 'Customer');
     });
   }
 
@@ -2709,15 +2711,36 @@
     return safe.replace(/(https?:\/\/[^\s"'<>]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#1C232C; font-weight:700; text-decoration:underline;">Pay Now →</a>');
   }
 
-  async function loadMessages(jobId, containerId, viewerRole) {
+  function fmtMsgTime(ts) {
+    try {
+      var d = new Date(ts);
+      if (isNaN(d)) return '';
+      var today = new Date();
+      var sameDay = d.toDateString() === today.toDateString();
+      var t = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      return sameDay ? t : (d.toLocaleDateString([], { month: 'short', day: 'numeric' }) + ' \u00b7 ' + t);
+    } catch (e) { return ''; }
+  }
+
+  async function loadMessages(jobId, containerId, viewerRole, themName) {
     const el = document.getElementById(containerId);
     if (!el) return;
+    if (themName) el.dataset.themName = themName;
+    const who = el.dataset.themName || (viewerRole === 'customer' ? 'Detailer' : 'Customer');
     const { data, error } = await sb.from('messages').select('*').eq('job_id', jobId).order('created_at', { ascending: true });
     if (error) { el.innerHTML = '<div class="empty-msg">Error loading messages.</div>'; return; }
-    if (!data || data.length === 0) { el.innerHTML = '<div class="empty-msg" style="padding:6px; font-size:12px;">No messages yet.</div>'; return; }
+    if (!data || data.length === 0) {
+      el.innerHTML = '<div class="empty-msg" style="padding:8px; font-size:12.5px; line-height:1.5;">No messages yet \u2014 say hello \ud83d\udc4b<br><span style="font-size:11.5px; color:#94a3b8;">' +
+        (viewerRole === 'customer' ? 'Ask about timing, your vehicle, or anything else.' : 'A quick \u201cGot your booking \u2014 see you then!\u201d goes a long way.') + '</span></div>';
+      return;
+    }
+    let lastSender = null;
     el.innerHTML = data.map(m => {
       const isMe = m.sender === viewerRole;
-      return `<div class="msg-bubble ${isMe ? 'me' : 'them'}">${linkify(m.body)}</div>`;
+      const showName = !isMe && m.sender !== lastSender;
+      lastSender = m.sender;
+      return (showName ? '<div class="msg-who">' + escHtml(who.split(' ')[0]) + '</div>' : '') +
+        `<div class="msg-bubble ${isMe ? 'me' : 'them'}">${linkify(m.body)}<span class="msg-time">${fmtMsgTime(m.created_at)}</span></div>`;
     }).join('');
     el.scrollTop = el.scrollHeight;
   }
