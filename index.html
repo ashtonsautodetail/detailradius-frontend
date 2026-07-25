@@ -1197,7 +1197,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">How does the platform fee work?</div>
-      <div class="faq-a">DetailRadius takes 10% of each completed job. Automatic payment collection isn't live yet — for now this is tracked in the Owner panel and settled directly as the platform grows.</div>
+      <div class="faq-a">Customers never pay extra — the price you see is the price you pay, and tips go 100% to your detailer. Detailers pay a small 5% platform fee (3% with Pro) plus standard card processing, only on jobs they actually complete.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I set my prices and services?</div>
@@ -1288,6 +1288,10 @@
   var detailerAvailability = {};   // id -> {days,start,end} (filled when results render)
   // Plan-based platform fee: free = 5% (keep 95%), Pro members = 3% (keep 97%).
   function myShare() { return (myDetailer && myDetailer.pro) ? 0.97 : 0.95; }
+  // Net payout estimate for one job: platform fee + card processing at cost
+  // (2.9% + 30\u00a2 per charge; a job is usually deposit + balance = 2 charges).
+  // Mirrors stripe-complete-job.js. Tips are never touched by fees.
+  function myNet(price) { price = +price || 0; return Math.max(0, price * myShare() - (price * 0.029 + 0.60)); }
   function myFeePct() { return (myDetailer && myDetailer.pro) ? '3%' : '5%'; }
   let customerLng = null;
   let custMapInstance = null;
@@ -1547,7 +1551,7 @@
       <div class="card" id="sec-earnings">
         <div class="card-head">
           <h2 style="margin-bottom:0;">Earnings &amp; Payouts</h2>
-          <span class="card-sub" id="feeShareSub">You keep 95% — 5% platform fee (Pro members keep 97%)</span>
+          <span class="card-sub" id="feeShareSub">5% platform fee (3% with Pro) + card processing at cost (2.9% + 30&cent; — same as any card reader). Tips: always 100% yours.</span>
         </div>
         <div id="dashEarnings" class="earn-grid"><div class="empty-msg">Loading...</div></div>
       </div>
@@ -2943,8 +2947,8 @@
     try {
       const job = (window._lastDashJobs || []).find(function (j) { return j.id === id; });
       if (job && job.price) {
-        var est = Math.round(job.price * myShare());
-        payoutNote = '\n\nAn estimated $' + est + ' (your ' + Math.round(myShare()*100) + '% share) will be sent to your connected bank account.';
+        var est = Math.round(myNet(job.price));
+        payoutNote = '\n\nAn estimated $' + est + ' (your share after the ' + Math.round((1-myShare())*100) + '% platform fee and card processing) will be sent to your connected bank account.';
       }
     } catch (e) {}
     if (!confirm('Mark this job complete?' + payoutNote + '\n\nThis closes the job and releases your payout — it can’t be undone.')) return;
@@ -2987,7 +2991,7 @@
     dashJobs = data;
 
     const completed = data.filter(j => j.status === 'completed');
-    const revenue = completed.reduce((s, j) => s + (j.price || 0) * myShare(), 0);
+    const revenue = completed.reduce((s, j) => s + myNet(j.price), 0);
     const upcoming = data.filter(j => j.status === 'open' || j.status === 'accepted').length;
     const total = data.filter(j => j.status !== 'declined').length;
     const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
@@ -3006,7 +3010,7 @@
     data.forEach(j => {
       const k = (j.date || '').slice(0, 10);
       if (k in book && j.status !== 'declined') book[k] += (j.price || 0);
-      if (k in rev && j.status === 'completed') rev[k] += (j.price || 0) * myShare();
+      if (k in rev && j.status === 'completed') rev[k] += myNet(j.price);
     });
     const labels = days.map(d => (d.getMonth() + 1) + '/' + d.getDate());
     var revSeries = days.map(function (d) { return rev[key(d)]; });
@@ -3018,8 +3022,8 @@
     data.forEach(function (j) {
       var ds = ('' + (j.date || '')).slice(0, 10); if (!ds) return;
       var dd = new Date(ds + 'T00:00:00'); var diff = Math.round((t0 - dd) / 86400000);
-      if (diff >= 0 && diff < 30) { if (j.status !== 'declined') curBook += (+j.price || 0); if (j.status === 'completed') curRev += (+j.price || 0) * myShare(); }
-      else if (diff >= 30 && diff < 60) { if (j.status !== 'declined') prevBook += (+j.price || 0); if (j.status === 'completed') prevRev += (+j.price || 0) * myShare(); }
+      if (diff >= 0 && diff < 30) { if (j.status !== 'declined') curBook += (+j.price || 0); if (j.status === 'completed') curRev += myNet(j.price); }
+      else if (diff >= 30 && diff < 60) { if (j.status !== 'declined') prevBook += (+j.price || 0); if (j.status === 'completed') prevRev += myNet(j.price); }
       if (diff <= 0 && diff >= -6 && (j.status === 'open' || j.status === 'accepted')) next7++;
     });
     var setH = function (id, html) { var e = document.getElementById(id); if (e) e.innerHTML = html; };
@@ -3264,9 +3268,9 @@
     var ym = localDateStr().slice(0, 7);
     jobs.forEach(function (j) {
       var price = +j.price || 0;
-      if (j.payment_status === 'transferred') { paidOut += price * myShare(); fees += price * (1 - myShare()); }
-      if (j.status === 'open' || j.status === 'accepted') pipeline += price * myShare();
-      if (j.status === 'completed' && ('' + (j.date || '')).indexOf(ym) === 0) monthNet += price * myShare();
+      if (j.payment_status === 'transferred') { paidOut += myNet(price); fees += price - myNet(price); }
+      if (j.status === 'open' || j.status === 'accepted') pipeline += myNet(price);
+      if (j.status === 'completed' && ('' + (j.date || '')).indexOf(ym) === 0) monthNet += myNet(price);
     });
     var money = function (n) { return '$' + Math.round(n).toLocaleString(); };
     // Tax set-aside guidance: independent detailers typically reserve ~25-30% of net
@@ -3284,7 +3288,7 @@
       { cls: 'net', n: money(monthNet), l: 'Net This Month' },
       { cls: 'paid', n: money(paidOut), l: 'Paid Out (all-time)' },
       { cls: 'pipe', n: money(pipeline), l: 'In Pipeline (upcoming)' },
-      { cls: 'fee', n: money(fees), l: 'Platform Fees Paid (' + myFeePct() + ')' },
+      { cls: 'fee', n: money(fees), l: 'Fees Paid (platform ' + myFeePct() + ' + card)' },
       { cls: 'tax', n: money(taxSetAsideChosen), l: 'Tax Vault (' + Math.round(taxRate * 100) + '% of payouts)' }
     ];
     el.innerHTML = tiles.map(function (t) {
