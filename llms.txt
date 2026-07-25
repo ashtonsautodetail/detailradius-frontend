@@ -3,45 +3,45 @@
 > DetailRadius is a US marketplace that connects customers with vetted mobile and drop-off auto detailers. Customers compare local detailers with upfront prices, book online in minutes, and pay securely through Stripe with a small deposit. Detailers join free, keep 95% of every job (97% with DetailRadius Pro), and get a full business dashboard with scheduling, payments, analytics, and reviews.
 
 ## Book a detailer
-- [Find a detailer](https://serene-cupcake-78a254.netlify.app/): search by location, compare prices and reviews, book with a deposit
-- [All cities](https://serene-cupcake-78a254.netlify.app/locations.html): every DetailRadius city page in one place
+- [Find a detailer](https://detailradius.com/): search by location, compare prices and reviews, book with a deposit
+- [All cities](https://detailradius.com/locations.html): every DetailRadius city page in one place
 - Packages: Express Detail from $70, Standard Detail from $150, Premium Detail from $280, Ceramic Coating from $400
 - Not covered yet? The search offers a waitlist — leave an email and get notified when a detailer reaches your area
 
 ## City pages — Illinois
-- [Decatur, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-decatur-il.html)
-- [Springfield, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-springfield-il.html)
-- [Champaign-Urbana, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-champaign-urbana-il.html)
-- [Bloomington-Normal, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-bloomington-normal-il.html)
-- [Peoria, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-peoria-il.html)
-- [Chicago, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-chicago-il.html)
-- [Naperville-Aurora, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-naperville-aurora-il.html)
-- [Joliet, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-joliet-il.html)
-- [Schaumburg, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-schaumburg-il.html)
-- [Rockford, IL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-rockford-il.html)
+- [Decatur, IL](https://detailradius.com/mobile-detailing-decatur-il.html)
+- [Springfield, IL](https://detailradius.com/mobile-detailing-springfield-il.html)
+- [Champaign-Urbana, IL](https://detailradius.com/mobile-detailing-champaign-urbana-il.html)
+- [Bloomington-Normal, IL](https://detailradius.com/mobile-detailing-bloomington-normal-il.html)
+- [Peoria, IL](https://detailradius.com/mobile-detailing-peoria-il.html)
+- [Chicago, IL](https://detailradius.com/mobile-detailing-chicago-il.html)
+- [Naperville-Aurora, IL](https://detailradius.com/mobile-detailing-naperville-aurora-il.html)
+- [Joliet, IL](https://detailradius.com/mobile-detailing-joliet-il.html)
+- [Schaumburg, IL](https://detailradius.com/mobile-detailing-schaumburg-il.html)
+- [Rockford, IL](https://detailradius.com/mobile-detailing-rockford-il.html)
 
 ## City pages — US metros
-- [Dallas, TX](https://serene-cupcake-78a254.netlify.app/mobile-detailing-dallas-tx.html)
-- [Houston, TX](https://serene-cupcake-78a254.netlify.app/mobile-detailing-houston-tx.html)
-- [Phoenix, AZ](https://serene-cupcake-78a254.netlify.app/mobile-detailing-phoenix-az.html)
-- [Los Angeles, CA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-los-angeles-ca.html)
-- [San Diego, CA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-san-diego-ca.html)
-- [Atlanta, GA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-atlanta-ga.html)
-- [Miami, FL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-miami-fl.html)
-- [Tampa, FL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-tampa-fl.html)
-- [Orlando, FL](https://serene-cupcake-78a254.netlify.app/mobile-detailing-orlando-fl.html)
-- [Charlotte, NC](https://serene-cupcake-78a254.netlify.app/mobile-detailing-charlotte-nc.html)
-- [Nashville, TN](https://serene-cupcake-78a254.netlify.app/mobile-detailing-nashville-tn.html)
-- [Denver, CO](https://serene-cupcake-78a254.netlify.app/mobile-detailing-denver-co.html)
-- [Seattle, WA](https://serene-cupcake-78a254.netlify.app/mobile-detailing-seattle-wa.html)
-- [Las Vegas, NV](https://serene-cupcake-78a254.netlify.app/mobile-detailing-las-vegas-nv.html)
-- [St. Louis, MO](https://serene-cupcake-78a254.netlify.app/mobile-detailing-st-louis-mo.html)
+- [Dallas, TX](https://detailradius.com/mobile-detailing-dallas-tx.html)
+- [Houston, TX](https://detailradius.com/mobile-detailing-houston-tx.html)
+- [Phoenix, AZ](https://detailradius.com/mobile-detailing-phoenix-az.html)
+- [Los Angeles, CA](https://detailradius.com/mobile-detailing-los-angeles-ca.html)
+- [San Diego, CA](https://detailradius.com/mobile-detailing-san-diego-ca.html)
+- [Atlanta, GA](https://detailradius.com/mobile-detailing-atlanta-ga.html)
+- [Miami, FL](https://detailradius.com/mobile-detailing-miami-fl.html)
+- [Tampa, FL](https://detailradius.com/mobile-detailing-tampa-fl.html)
+- [Orlando, FL](https://detailradius.com/mobile-detailing-orlando-fl.html)
+- [Charlotte, NC](https://detailradius.com/mobile-detailing-charlotte-nc.html)
+- [Nashville, TN](https://detailradius.com/mobile-detailing-nashville-tn.html)
+- [Denver, CO](https://detailradius.com/mobile-detailing-denver-co.html)
+- [Seattle, WA](https://detailradius.com/mobile-detailing-seattle-wa.html)
+- [Las Vegas, NV](https://detailradius.com/mobile-detailing-las-vegas-nv.html)
+- [St. Louis, MO](https://detailradius.com/mobile-detailing-st-louis-mo.html)
 
 ## For detailers
-- [Become a detailer](https://serene-cupcake-78a254.netlify.app/for-detailers.html): free to join, keep 95% (97% with Pro at $19/mo), deposits stop no-shows, business dashboard included; founding-detailer spots open in every metro above
-- [Fleet & business detailing](https://serene-cupcake-78a254.netlify.app/fleet.html): recurring fleet detailing for dealerships, rental lots, and delivery fleets — one invoice
-- [Link hub](https://serene-cupcake-78a254.netlify.app/links.html)
+- [Become a detailer](https://detailradius.com/for-detailers.html): free to join, keep 95% (97% with Pro at $19/mo), deposits stop no-shows, business dashboard included; founding-detailer spots open in every metro above
+- [Fleet & business detailing](https://detailradius.com/fleet.html): recurring fleet detailing for dealerships, rental lots, and delivery fleets — one invoice
+- [Link hub](https://detailradius.com/links.html)
 
 ## Policies
-- [Terms of Service](https://serene-cupcake-78a254.netlify.app/terms.html)
-- [Privacy Policy](https://serene-cupcake-78a254.netlify.app/privacy.html)
+- [Terms of Service](https://detailradius.com/terms.html)
+- [Privacy Policy](https://detailradius.com/privacy.html)

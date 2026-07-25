@@ -2,7 +2,7 @@
 """Generate per-city SEO landing pages for DetailRadius (Netlify Drop static files)."""
 import html
 
-BASE = "https://serene-cupcake-78a254.netlify.app"
+BASE = "https://detailradius.com"
 
 CITIES = [
     {

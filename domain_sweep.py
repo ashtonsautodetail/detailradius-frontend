@@ -63,7 +63,7 @@ for doc in glob.glob('/mnt/user-data/outputs/DetailRadius-*.md'):
 # rebuild deploy zip + repo staging
 zipname = '/mnt/user-data/outputs/detailradius-site.zip'
 if os.path.exists(zipname): os.remove(zipname)
-deploy = ['index.html', 'sw.js', 'manifest.webmanifest', 'sitemap.xml', 'robots.txt', 'llms.txt',
+deploy = ['index.html', '404.html', 'sw.js', 'manifest.webmanifest', 'sitemap.xml', 'robots.txt', 'llms.txt',
           'links.html', 'locations.html', 'og-image.png', 'icon-192.png', 'icon-512.png',
           'icon-512-maskable.png', 'apple-touch-icon.png', 'fleet.html', 'for-detailers.html',
           'privacy.html', 'terms.html'] + sorted(glob.glob('mobile-detailing-*.html'))
