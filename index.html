@@ -1197,7 +1197,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">How does the platform fee work?</div>
-      <div class="faq-a">Customers never pay extra — the price you see is the price you pay, and tips go 100% to your detailer. Detailers pay a small 5% platform fee (3% with Pro) plus standard card processing, only on jobs they actually complete.</div>
+      <div class="faq-a">Customers never pay extra — the price you see is the price you pay, and tips go 100% to your detailer. Prefer cash? Book with the small card deposit, then choose to pay the balance in cash at your appointment. Detailers pay a small 5% platform fee (3% with Pro) plus standard card processing, only on jobs they actually complete.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">How do I set my prices and services?</div>
@@ -2472,6 +2472,20 @@
     var note = document.getElementById('tipNote-' + jobId);
     if (note) note.textContent = tip > 0 ? ' + $' + tip + ' tip' : '';
   }
+  // Customer picks how they'll settle the remaining balance: online by card
+  // (default) or in cash at the appointment. The card deposit always secures
+  // the booking either way; this only changes how the remainder is collected.
+  async function chooseBalanceMethod(jobId, method) {
+    const { error } = await sb.from('jobs').update({ balance_method: method }).eq('id', jobId);
+    if (error) { alert('Could not update: ' + error.message); return; }
+    try {
+      await sb.from('messages').insert([{ job_id: jobId, sender: 'customer', body: method === 'cash'
+        ? "I'll pay the remaining balance in cash at the appointment. \ud83d\udcb5"
+        : "I'll pay the remaining balance by card online after all." }]);
+    } catch (e) {}
+    checkMyBookings();
+  }
+
   async function payMyBalance(jobId, btn) {
     var tip = chosenTips[jobId] || 0;
     if (btn) { btn.disabled = true; btn.textContent = 'Opening secure checkout\u2026'; }
@@ -2517,14 +2531,19 @@
         <div class="details">${escHtml(j.vehicle)} &nbsp;•&nbsp; ${escHtml(j.service)}<br>${escHtml(j.date)}${j.requested_time ? ' · ' + escHtml(j.requested_time) : ''}</div>
         <div class="status-pill ${j.status}">${j.status}</div>
         ${j.status !== 'declined' ? `<div style="font-size:12px; color:#666; margin:4px 0;">${paymentStatusLabel(j)}</div>` : ''}
-        ${(j.payment_status === 'deposit_paid' && (j.price - (j.deposit_amount || 0)) > 0 && j.status !== 'declined' && j.status !== 'cancelled') ? `
+        ${(j.payment_status === 'deposit_paid' && (j.price - (j.deposit_amount || 0)) > 0 && j.status !== 'declined' && j.status !== 'cancelled') ? (j.balance_method === 'cash' ? `
+          <div style="border:1px solid #D5D9E0; background:#F4F5F7; border-radius:10px; padding:10px 12px; margin:8px 0; font-size:12.5px; color:#1C232C;">
+            \ud83d\udcb5 <b>You're paying the $${j.price - (j.deposit_amount || 0)} balance in cash</b> at your appointment — nothing more to do online.
+            <div style="margin-top:5px;"><a href="#" onclick="chooseBalanceMethod(${j.id}, 'card'); return false;" style="font-size:12px; font-weight:700; color:#1C232C;">Changed your mind? Pay by card instead</a></div>
+          </div>` : `
           <div style="border:1px solid #D5D9E0; background:#F4F5F7; border-radius:10px; padding:10px 12px; margin:8px 0;">
             <div style="font-size:12.5px; font-weight:700; color:#1C232C; margin-bottom:6px;">Add a tip for your detailer? <span style="font-weight:500; color:#6B7280;">(they keep 100%)</span></div>
             <div style="display:flex; gap:5px; flex-wrap:wrap; margin-bottom:8px;">
               ${[0, 0.15, 0.20, 0.25].map(p => `<button class="secondary tip-chip" data-job="${j.id}" data-tip="${p === 0 ? 0 : Math.round((j.price - (j.deposit_amount || 0)) * p)}" style="font-size:12px; padding:5px 11px;" onclick="pickTip(this)">${p === 0 ? 'No tip' : Math.round(p * 100) + '% ($' + Math.round((j.price - (j.deposit_amount || 0)) * p) + ')'}</button>`).join('')}
             </div>
             <button class="primary" style="font-size:13px;" onclick="payMyBalance(${j.id}, this)">Pay balance ($${j.price - (j.deposit_amount || 0)}<span id="tipNote-${j.id}"></span>)</button>
-          </div>` : ''}
+            <div style="font-size:12px; color:#6B7280; margin-top:7px;">Prefer cash? <a href="#" onclick="chooseBalanceMethod(${j.id}, 'cash'); return false;" style="font-weight:700; color:#1C232C;">Pay the balance in person \ud83d\udcb5</a></div>
+          </div>`) : ''}
         ${j.status !== 'declined' ? `
           <div class="msg-thread" id="cmsgThread-${j.id}"></div>
           <div class="msg-row">
@@ -2885,6 +2904,14 @@
   function renderAcceptedJobActions(j) {
     const remainderDue = j.price - (j.deposit_amount || 0);
     const fullyPaid = j.payment_status === 'fully_paid' || j.payment_status === 'transferred' || remainderDue <= 0;
+    // Customer chose cash for the balance: no payment request needed — collect
+    // the cash on site and complete. The deposit share still pays out via Stripe.
+    if (!fullyPaid && j.balance_method === 'cash' && j.payment_status === 'deposit_paid') {
+      return `
+        <div style="font-size:12.5px; color:#1C232C; background:#F4F5F7; border:1px solid #D5D9E0; border-radius:10px; padding:8px 12px; margin-bottom:8px;">💵 Customer is paying the <b>$${remainderDue} balance in cash</b> on site — collect it, then mark complete.</div>
+        <button class="accept-btn" onclick="completeJob(${j.id}, this)">Mark Complete &amp; Get Paid</button>
+      `;
+    }
     if (!fullyPaid) {
       return `
         <div class="form-grid" style="margin-bottom:8px;">
@@ -2901,7 +2928,9 @@
     const depositAmt = j.deposit_amount || 0;
     const remainderDue = j.price - depositAmt;
     if (!j.payment_status || j.payment_status === 'pending_deposit') return '💳 Deposit not paid yet';
-    if (j.payment_status === 'deposit_paid') return `💳 Deposit paid: $${depositAmt} — Balance due: $${remainderDue}`;
+    if (j.payment_status === 'deposit_paid') return j.balance_method === 'cash'
+      ? `💳 Deposit paid: $${depositAmt} — 💵 $${remainderDue} in cash at the appointment`
+      : `💳 Deposit paid: $${depositAmt} — Balance due: $${remainderDue}`;
     if (j.payment_status === 'fully_paid') return '💳 Paid in full';
     if (j.payment_status === 'transferred') return '💳 Paid in full — funds sent';
     return '';
@@ -2947,8 +2976,12 @@
     try {
       const job = (window._lastDashJobs || []).find(function (j) { return j.id === id; });
       if (job && job.price) {
-        var est = Math.round(myNet(job.price));
-        payoutNote = '\n\nAn estimated $' + est + ' (your share after the ' + Math.round((1-myShare())*100) + '% platform fee and card processing) will be sent to your connected bank account.';
+        var cashJob = job.balance_method === 'cash' && job.payment_status !== 'fully_paid';
+        var cardBase = cashJob ? (job.deposit_amount || 0) : (+job.price || 0);
+        var est = Math.round(Math.max(0, cardBase * myShare() - (cardBase * 0.029 + (cashJob ? 0.30 : 0.60))));
+        payoutNote = cashJob
+          ? '\n\nAn estimated $' + est + ' (your share of the card deposit) transfers to your bank — plus the $' + Math.round((+job.price || 0) - (job.deposit_amount || 0)) + ' cash you collect on site.'
+          : '\n\nAn estimated $' + est + ' (your share after the ' + Math.round((1-myShare())*100) + '% platform fee and card processing) will be sent to your connected bank account.';
       }
     } catch (e) {}
     if (!confirm('Mark this job complete?' + payoutNote + '\n\nThis closes the job and releases your payout — it can’t be undone.')) return;
