@@ -1185,7 +1185,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">I manage a fleet or dealership — can you handle multiple vehicles?</div>
-      <div class="faq-a">Absolutely. We coordinate vetted detailers for dealer lots, rental fleets, and company vehicles on a recurring schedule with one invoice. See the <a href="/fleet.html">Fleet &amp; Business page</a> to request a quote.</div>
+      <div class="faq-a">Absolutely. We coordinate vetted detailers for dealer lots, rental fleets, and company vehicles on a recurring schedule with one invoice. See the <a href='/fleet'>Fleet &amp; Business page</a> to request a quote.</div>
     </div>
     </div>
 
@@ -1254,18 +1254,18 @@
     </div>
     <nav class="footer-links">
       <a href="#" onclick="scrollToBooking();return false;">Find a Detailer</a>
-      <a href="/locations.html">All Cities</a>
-      <a href="/for-detailers.html">For Detailers</a>
-      <a href="/fleet.html">Fleet &amp; Business</a>
+      <a href='/locations'>All Cities</a>
+      <a href='/for-detailers'>For Detailers</a>
+      <a href='/fleet'>Fleet &amp; Business</a>
       <a href="#" onclick="scrollToHow();return false;">How it works</a>
       <a href="#" onclick="document.querySelector('.faq-section').scrollIntoView({behavior:'smooth'});return false;">FAQ</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/terms'>Terms</a>
     </nav>
   </div>
   <div class="footer-cities" style="max-width:1080px; margin:0 auto; padding:14px 24px 4px; font-size:12.5px; line-height:2; color:#8A93A3;">
     <strong style="display:block; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:#AEB6C2; margin-bottom:4px;">Mobile detailing near you</strong>
-    <a href="/mobile-detailing-chicago-il.html">Chicago</a> · <a href="/mobile-detailing-springfield-il.html">Springfield</a> · <a href="/mobile-detailing-peoria-il.html">Peoria</a> · <a href="/mobile-detailing-rockford-il.html">Rockford</a> · <a href="/mobile-detailing-decatur-il.html">Decatur</a> · <a href="/mobile-detailing-dallas-tx.html">Dallas</a> · <a href="/mobile-detailing-houston-tx.html">Houston</a> · <a href="/mobile-detailing-phoenix-az.html">Phoenix</a> · <a href="/mobile-detailing-los-angeles-ca.html">Los Angeles</a> · <a href="/mobile-detailing-san-diego-ca.html">San Diego</a> · <a href="/mobile-detailing-atlanta-ga.html">Atlanta</a> · <a href="/mobile-detailing-miami-fl.html">Miami</a> · <a href="/mobile-detailing-tampa-fl.html">Tampa</a> · <a href="/mobile-detailing-orlando-fl.html">Orlando</a> · <a href="/mobile-detailing-charlotte-nc.html">Charlotte</a> · <a href="/mobile-detailing-nashville-tn.html">Nashville</a> · <a href="/mobile-detailing-denver-co.html">Denver</a> · <a href="/mobile-detailing-seattle-wa.html">Seattle</a> · <a href="/mobile-detailing-las-vegas-nv.html">Las Vegas</a> · <a href="/mobile-detailing-st-louis-mo.html">St. Louis</a>
+    <a href='/mobile-detailing-chicago-il'>Chicago</a> · <a href='/mobile-detailing-springfield-il'>Springfield</a> · <a href='/mobile-detailing-peoria-il'>Peoria</a> · <a href='/mobile-detailing-rockford-il'>Rockford</a> · <a href='/mobile-detailing-decatur-il'>Decatur</a> · <a href='/mobile-detailing-dallas-tx'>Dallas</a> · <a href='/mobile-detailing-houston-tx'>Houston</a> · <a href='/mobile-detailing-phoenix-az'>Phoenix</a> · <a href='/mobile-detailing-los-angeles-ca'>Los Angeles</a> · <a href='/mobile-detailing-san-diego-ca'>San Diego</a> · <a href='/mobile-detailing-atlanta-ga'>Atlanta</a> · <a href='/mobile-detailing-miami-fl'>Miami</a> · <a href='/mobile-detailing-tampa-fl'>Tampa</a> · <a href='/mobile-detailing-orlando-fl'>Orlando</a> · <a href='/mobile-detailing-charlotte-nc'>Charlotte</a> · <a href='/mobile-detailing-nashville-tn'>Nashville</a> · <a href='/mobile-detailing-denver-co'>Denver</a> · <a href='/mobile-detailing-seattle-wa'>Seattle</a> · <a href='/mobile-detailing-las-vegas-nv'>Las Vegas</a> · <a href='/mobile-detailing-st-louis-mo'>St. Louis</a>
   </div>
   <div class="footer-bottom">
     <span>&copy; 2026 DetailRadius</span>
@@ -1357,11 +1357,32 @@
   }
 
   // ---------- AUTH ----------
+  // authReady resolves once the stored session (if any) has been restored, so
+  // renderDetailerTab never flashes the login form at an already-logged-in detailer.
+  let _authReadyResolve;
+  const authReady = new Promise(function (res) { _authReadyResolve = res; });
+  // True while the user arrived from a password-reset email and hasn't saved a
+  // new password yet — makes the detailer tab show the recovery form instead of
+  // login/dashboard (renderDetailerTab runs async, so without this flag it
+  // would race and paint over the recovery form).
+  let recoveryMode = false;
+
   async function initAuth() {
-    const { data } = await sb.auth.getSession();
-    currentUser = data.session ? data.session.user : null;
+    try {
+      const { data } = await sb.auth.getSession();
+      currentUser = data.session ? data.session.user : null;
+    } catch (e) { currentUser = null; }
+    _authReadyResolve();
     sb.auth.onAuthStateChange((event, session) => {
       currentUser = session ? session.user : null;
+      if (event === 'PASSWORD_RECOVERY') { recoveryMode = true; switchTab('detailer'); return; }
+      // If the detailer tab is showing the wrong state (login form while logged
+      // in, or dashboard while logged out), re-render it. Never re-render on
+      // token refreshes when the state already matches — that would wipe form input.
+      const detailerTabActive = document.getElementById('detailer') && document.getElementById('detailer').classList.contains('active');
+      if (!detailerTabActive) return;
+      const loginFormShowing = !!document.getElementById('authEmail');
+      if ((currentUser && loginFormShowing) || (!currentUser && !loginFormShowing)) renderDetailerTab();
     });
   }
 
@@ -1380,13 +1401,24 @@
     if (password.length < 6) { msgEl.textContent = 'Password must be at least 6 characters.'; msgEl.style.color = '#b91c1c'; return; }
     var orig = btn ? btn.textContent : ''; _authBtnBusy(btn, true);
     try {
-      const { data, error } = await sb.auth.signUp({ email, password });
-      if (error) { msgEl.textContent = error.message; msgEl.style.color = '#b91c1c'; return; }
+      const { data, error } = await sb.auth.signUp({
+        email, password,
+        options: { emailRedirectTo: window.location.origin + '/#detailers' }
+      });
+      if (error) { msgEl.textContent = friendlyAuthError(error, email); msgEl.style.color = '#b91c1c'; return; }
+      // Supabase returns a "fake" user with no identities when the email is
+      // already registered — without this check the old code told existing
+      // users "Account created", which was very confusing.
+      if (data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
+        msgEl.innerHTML = 'That email already has an account — press <strong>Log In</strong> instead, or <a href="#" onclick="handleForgotPassword(event)">reset your password</a>.';
+        msgEl.style.color = '#b91c1c';
+        return;
+      }
       if (data.session) {
         currentUser = data.user;
         renderDetailerTab();
       } else {
-        msgEl.textContent = 'Account created — if asked, check your email to confirm, then log in.';
+        msgEl.innerHTML = 'Account created! Check your email (<strong>' + escHtml(email) + '</strong>) for a confirmation link, then come back and log in. <a href="#" onclick="handleResendConfirm(event, \'' + escHtml(email).replace(/'/g, "\\'") + '\')">Resend email</a>';
         msgEl.style.color = '#166534';
       }
     } catch (e) {
@@ -1404,9 +1436,112 @@
     var orig = btn ? btn.textContent : ''; _authBtnBusy(btn, true);
     try {
       const { data, error } = await sb.auth.signInWithPassword({ email, password });
-      if (error) { msgEl.textContent = error.message; msgEl.style.color = '#b91c1c'; return; }
+      if (error) { msgEl.innerHTML = friendlyAuthError(error, email); msgEl.style.color = '#b91c1c'; return; }
       currentUser = data.user;
       renderDetailerTab();
+    } catch (e) {
+      msgEl.textContent = 'Something went wrong — please try again.'; msgEl.style.color = '#b91c1c';
+    } finally {
+      _authBtnBusy(btn, false, orig);
+    }
+  }
+
+  // Translate Supabase auth errors into messages a detailer can act on.
+  function friendlyAuthError(error, email) {
+    const m = (error && error.message) || '';
+    if (/invalid login credentials/i.test(m)) {
+      return 'That email and password don’t match. Double-check for typos, or <a href="#" onclick="handleForgotPassword(event)">reset your password</a>.';
+    }
+    if (/email not confirmed/i.test(m)) {
+      return 'Your email isn’t confirmed yet — check your inbox (and spam) for the confirmation link. <a href="#" onclick="handleResendConfirm(event, \'' + escHtml(email || '').replace(/'/g, "\\'") + '\')">Resend it</a>';
+    }
+    if (/rate limit|too many/i.test(m)) {
+      return 'Too many attempts — wait a minute and try again.';
+    }
+    if (/network|fetch/i.test(m)) {
+      return 'Connection problem — check your signal and try again.';
+    }
+    return escHtml(m || 'Something went wrong — please try again.');
+  }
+
+  async function handleForgotPassword(ev) {
+    if (ev) ev.preventDefault();
+    const emailEl = document.getElementById('authEmail');
+    const msgEl = document.getElementById('authMsg');
+    const email = emailEl ? emailEl.value.trim() : '';
+    if (!email) {
+      msgEl.textContent = 'Type your email in the Email box above, then tap "Forgot password?" again.';
+      msgEl.style.color = '#b91c1c';
+      if (emailEl) emailEl.focus();
+      return;
+    }
+    msgEl.textContent = 'Sending reset link…'; msgEl.style.color = '#3B4351';
+    try {
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + '/' });
+      if (error) { msgEl.innerHTML = friendlyAuthError(error, email); msgEl.style.color = '#b91c1c'; return; }
+      msgEl.textContent = 'Reset link sent to ' + email + ' — open it on this device and you’ll be asked to set a new password.';
+      msgEl.style.color = '#166534';
+    } catch (e) {
+      msgEl.textContent = 'Couldn’t send the reset email — please try again.'; msgEl.style.color = '#b91c1c';
+    }
+  }
+
+  async function handleResendConfirm(ev, email) {
+    if (ev) ev.preventDefault();
+    const msgEl = document.getElementById('authMsg');
+    if (!email) return;
+    try {
+      const { error } = await sb.auth.resend({ type: 'signup', email: email, options: { emailRedirectTo: window.location.origin + '/#detailers' } });
+      if (error) { msgEl.innerHTML = friendlyAuthError(error, email); msgEl.style.color = '#b91c1c'; return; }
+      msgEl.textContent = 'Confirmation email re-sent to ' + email + ' — check spam if you don’t see it.';
+      msgEl.style.color = '#166534';
+    } catch (e) {
+      msgEl.textContent = 'Couldn’t resend — please try again in a minute.'; msgEl.style.color = '#b91c1c';
+    }
+  }
+
+  function togglePwVisibility(btn) {
+    const pw = document.getElementById('authPassword');
+    if (!pw) return;
+    const show = pw.type === 'password';
+    pw.type = show ? 'text' : 'password';
+    btn.textContent = show ? 'Hide' : 'Show';
+    btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    pw.focus();
+  }
+
+  // Shown when the user lands here from a password-reset email (PASSWORD_RECOVERY).
+  function renderRecoveryForm() {
+    const container = document.getElementById('detailerContent');
+    if (!container) return;
+    container.innerHTML = `
+      <div class="card">
+        <h2>Set a New Password</h2>
+        <p style="font-size:13px; color:#5f6b7d; margin-bottom:12px;">You’re signed in from your reset link — choose a new password below.</p>
+        <div class="form-grid">
+          <div class="field"><label for="newPw1">New password (6+ characters)</label><input type="password" id="newPw1" autocomplete="new-password"></div>
+          <div class="field"><label for="newPw2">Repeat it</label><input type="password" id="newPw2" autocomplete="new-password"></div>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button class="primary" onclick="handleSetNewPassword(this)">Save New Password</button>
+        </div>
+        <div id="recoveryMsg" style="margin-top:10px; font-size:13px;"></div>
+      </div>`;
+  }
+
+  async function handleSetNewPassword(btn) {
+    const p1 = (document.getElementById('newPw1') || {}).value || '';
+    const p2 = (document.getElementById('newPw2') || {}).value || '';
+    const msgEl = document.getElementById('recoveryMsg');
+    if (p1.length < 6) { msgEl.textContent = 'Password must be at least 6 characters.'; msgEl.style.color = '#b91c1c'; return; }
+    if (p1 !== p2) { msgEl.textContent = 'Those don’t match — try again.'; msgEl.style.color = '#b91c1c'; return; }
+    var orig = btn ? btn.textContent : ''; _authBtnBusy(btn, true);
+    try {
+      const { error } = await sb.auth.updateUser({ password: p1 });
+      if (error) { msgEl.textContent = error.message; msgEl.style.color = '#b91c1c'; return; }
+      recoveryMode = false;
+      msgEl.textContent = 'Password updated — taking you to your dashboard…'; msgEl.style.color = '#166534';
+      setTimeout(function () { renderDetailerTab(); }, 900);
     } catch (e) {
       msgEl.textContent = 'Something went wrong — please try again.'; msgEl.style.color = '#b91c1c';
     } finally {
@@ -1426,6 +1561,13 @@
   async function renderDetailerTab() {
     const container = document.getElementById('detailerContent');
 
+    // Wait for the stored session to be restored before deciding what to show —
+    // otherwise a logged-in detailer opening straight to #dashboard sees the
+    // login form and thinks they were logged out.
+    await authReady;
+
+    if (recoveryMode) { renderRecoveryForm(); return; }
+
     if (!currentUser) {
       container.innerHTML = `
         <div class="card">
@@ -1437,11 +1579,17 @@
           </div>
           <div class="form-grid">
             <div class="field"><label for="authEmail">Email</label><input type="email" id="authEmail" autocomplete="email"></div>
-            <div class="field"><label for="authPassword">Password</label><input type="password" id="authPassword" autocomplete="current-password" onkeydown="if(event.key==='Enter'){event.preventDefault(); this.closest('.card').querySelector('button.primary').click();}"></div>
+            <div class="field"><label for="authPassword">Password</label>
+              <div style="display:flex; gap:6px; align-items:stretch;">
+                <input type="password" id="authPassword" autocomplete="current-password" style="flex:1; min-width:0;" onkeydown="if(event.key==='Enter'){event.preventDefault(); this.closest('.card').querySelector('button.primary').click();}">
+                <button type="button" onclick="togglePwVisibility(this)" aria-label="Show password" style="flex:0 0 auto; font-size:12px; font-weight:700; padding:0 12px; border:1px solid #D5D9E0; border-radius:8px; background:#F1F2F5; color:#3B4351; cursor:pointer;">Show</button>
+              </div>
+            </div>
           </div>
-          <div style="display:flex; gap:10px;">
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
             <button class="primary" onclick="handleLogin(this)">Log In</button>
             <button class="secondary" onclick="handleSignUp(this)">Sign Up</button>
+            <a href="#" onclick="handleForgotPassword(event)" style="font-size:13px; font-weight:600; color:#3B4351; margin-left:auto;">Forgot password?</a>
           </div>
           <div id="authMsg" style="margin-top:10px; font-size:13px;"></div>
         </div>
@@ -2978,7 +3126,9 @@
       if (job && job.price) {
         var cashJob = job.balance_method === 'cash' && job.payment_status !== 'fully_paid';
         var cardBase = cashJob ? (job.deposit_amount || 0) : (+job.price || 0);
-        var est = Math.round(Math.max(0, cardBase * myShare() - (cardBase * 0.029 + (cashJob ? 0.30 : 0.60))));
+        var est = cashJob
+          ? Math.round(Math.max(0, cardBase - (+job.price || 0) * (1 - myShare()) - (cardBase * 0.029 + 0.30)))
+          : Math.round(Math.max(0, cardBase * myShare() - (cardBase * 0.029 + 0.60)));
         payoutNote = cashJob
           ? '\n\nAn estimated $' + est + ' (your share of the card deposit) transfers to your bank — plus the $' + Math.round((+job.price || 0) - (job.deposit_amount || 0)) + ' cash you collect on site.'
           : '\n\nAn estimated $' + est + ' (your share after the ' + Math.round((1-myShare())*100) + '% platform fee and card processing) will be sent to your connected bank account.';
