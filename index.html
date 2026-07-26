@@ -13,7 +13,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="DetailRadius">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20width%3D%2748%27%20height%3D%2748%27%20rx%3D%2711%27%20fill%3D%27%230F1116%27%2F%3E%3Cpath%20fill-rule%3D%27evenodd%27%20d%3D%27M11%209%20H24%20A15.5%2015.5%200%200%201%2024%2040%20H11%20Z%20M17%2015%20V34%20H24%20A9.5%209.5%200%200%200%2024%2015%20Z%27%20fill%3D%27%23C9CDD6%27%2F%3E%3Cpath%20d%3D%27M33%206.2%20A6.8%206.8%200%200%201%2039.8%2013%27%20stroke%3D%27%23C9CDD6%27%20stroke-width%3D%272.6%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20opacity%3D%27.8%27%2F%3E%3Cpath%20d%3D%27M33%201.8%20A11.2%2011.2%200%200%201%2044.2%2013%27%20stroke%3D%27%23C9CDD6%27%20stroke-width%3D%272.4%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20opacity%3D%27.45%27%2F%3E%3Ccircle%20cx%3D%2733%27%20cy%3D%2713%27%20r%3D%272.9%27%20fill%3D%27%23FFFFFF%27%2F%3E%3C%2Fsvg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20x%3D%272%27%20y%3D%272%27%20width%3D%2744%27%20height%3D%2744%27%20rx%3D%2713%27%20fill%3D%27%23E5322D%27%2F%3E%3Ccircle%20cx%3D%2724%27%20cy%3D%2724%27%20r%3D%274.4%27%20fill%3D%27%23fff%27%2F%3E%3Cpath%20d%3D%27M24%2024%20A13%2013%200%200%201%2037%2024%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273.4%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20opacity%3D%27.9%27%2F%3E%3Cpath%20d%3D%27M24%2024%20A20%2020%200%200%201%2044%2024%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20opacity%3D%27.5%27%2F%3E%3C%2Fsvg%3E">
 <meta property="og:title" content="DetailRadius — Book a Trusted Mobile Detailer in Minutes">
 <meta property="og:description" content="Real local car detailers, upfront prices, booked and confirmed online. Mobile or drop-off.">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
 <link rel="preconnect" href="https://asfqmjccfnjfrspvhnpt.supabase.co">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -55,12 +55,12 @@
     background: transparent; border: 2px solid rgba(255,255,255,0.25); color: white;
     padding: 8px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600;
   }
-  .tab-btn.active { background: #C9CDD6; border-color: #C9CDD6; color: #0B1533; }
+  .tab-btn.active { background: #C9CDD6; border-color: #242A32; color: #F4F6F8; }
   main { max-width: 900px; margin: 0 auto; padding: 24px; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
   .card { background: white; border-radius: 14px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.10); }
-  h2 { margin-bottom: 16px; color: #1C232C; }
+  h2 { margin-bottom: 16px; color: #F4F6F8; }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
   .field { display: flex; flex-direction: column; gap: 6px; }
   label { font-size: 13px; font-weight: 600; color: #555; }
@@ -74,21 +74,21 @@
   button.primary:hover { background: #16296b; }
   button.secondary { background: #eee; color: #333; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; }
   .detailer-card { display: flex; justify-content: space-between; align-items: center; border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 10px; gap: 10px; }
-  .detailer-card.featured { border: 2px solid #C9CDD6; background: #F6F7F9; }
+  .detailer-card.featured { border: 2px solid #242A32; background: #F6F7F9; }
   .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; margin-left: 6px; }
   .badge.cert { background: #DCFCE7; color: #166534; }
-  .badge.featured { background: #EDEFF3; color: #1C232C; }
-  .book-btn { background: #C9CDD6; color: #0B1533; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+  .badge.featured { background: #14171C; color: #F4F6F8; }
+  .book-btn { background: #C9CDD6; color: #F4F6F8; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap; }
   .link-chip-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
-  .link-chip { font-size: 11px; font-weight: 700; color: #1C232C; background: #F1F2F5; padding: 4px 9px; border-radius: 20px; text-decoration: none; }
-  .link-chip:hover { background: #EDEFF3; }
+  .link-chip { font-size: 11px; font-weight: 700; color: #F4F6F8; background: #14171C; padding: 4px 9px; border-radius: 20px; text-decoration: none; }
+  .link-chip:hover { background: #14171C; }
   .msg-thread { display: flex; flex-direction: column; max-height: 180px; overflow-y: auto; margin: 10px 0; padding: 8px; background: #FAFAFA; border-radius: 8px; }
   .msg-bubble { max-width: 85%; padding: 7px 11px; border-radius: 12px; margin-bottom: 6px; font-size: 13px; line-height: 1.4; }
   .msg-bubble.me { background: #1C232C; color: white; margin-left: auto; }
   .msg-bubble.them { background: #E5E7EB; color: #1a1a1a; }
   .msg-row { display: flex; gap: 6px; }
   .msg-row input { flex: 1; }
-  .msg-who { font-size: 10.5px; font-weight: 700; color: #6B7280; margin: 2px 0 2px 4px; }
+  .msg-who { font-size: 10.5px; font-weight: 700; color: #9AA3AF; margin: 2px 0 2px 4px; }
   .msg-time { display: block; font-size: 10px; opacity: .55; margin-top: 3px; }
   .delete-btn { background: #FEE2E2; color: #991B1B; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 8px; font-size: 13px; }
   .stat-row { display: flex; gap: 16px; margin-bottom: 20px; }
@@ -97,23 +97,23 @@
   .stat-box .label { font-size: 12px; opacity: 0.85; margin-top: 4px; }
   .job-card { border: 1px solid #eee; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
   .job-card .top-row { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 6px; }
-  .job-card .details { font-size: 13px; color: #666; margin-bottom: 10px; }
-  .status-pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; background: #F1F2F5; color: #1C232C; margin-bottom: 8px; }
-  .status-pill.open { background: #F1F2F5; color: #1C232C; }
+  .job-card .details { font-size: 13px; color: #9AA3AF; margin-bottom: 10px; }
+  .status-pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; background: #14171C; color: #F4F6F8; margin-bottom: 8px; }
+  .status-pill.open { background: #14171C; color: #F4F6F8; }
   .status-pill.accepted { background: #1C232C; color: #fff; }
   .status-pill.cancelled { background: #FEF2F2; color: #B91C1C; }
   .status-pill.completed { background: #DCFCE7; color: #166534; }
-  .status-pill.declined { background: #F3F4F6; color: #6B7280; }
+  .status-pill.declined { background: #F3F4F6; color: #9AA3AF; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 16px; }
-  .cal-head { text-align: center; font-size: 11px; font-weight: 700; color: #5f6b7d; }
+  .cal-head { text-align: center; font-size: 11px; font-weight: 700; color: #9AA3AF; }
   .cal-cell { text-align: center; font-size: 13px; padding: 7px 0; border-radius: 6px; background: #F7F8FB; position: relative; }
   .cal-cell.empty { background: transparent; }
   .cal-cell.today { border: 2px solid #1C232C; font-weight: 700; }
-  .cal-cell.has-jobs { background: #EDEFF3; color: #1C232C; font-weight: 700; }
+  .cal-cell.has-jobs { background: #14171C; color: #F4F6F8; font-weight: 700; }
   .cal-dot { display: block; font-size: 9px; color: #0284C7; font-weight: 800; }
   .accept-btn { background: #1C232C; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; }
-  .empty-msg { color: #5f6b7d; text-align: center; padding: 20px; }
-  .conn-msg { font-size: 12px; text-align: center; padding: 6px; color: #5f6b7d; }
+  .empty-msg { color: #9AA3AF; text-align: center; padding: 20px; }
+  .conn-msg { font-size: 12px; text-align: center; padding: 6px; color: #9AA3AF; }
   .conn-msg.ok { color: #166534; }
   .conn-msg.err { color: #b91c1c; }
   .radio-row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; padding-top: 4px; }
@@ -121,7 +121,7 @@
   .day-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; margin-bottom: 14px; }
   .day-chip { font-size: 13px; display: flex; align-items: center; gap: 4px; background: #F7F8FB; padding: 6px 10px; border-radius: 6px; }
   #custMap, #locPickMap { border-radius: 10px; overflow: hidden; margin-bottom: 14px; }
-  .loc-status { font-size: 13px; margin-top: 8px; color: #666; }
+  .loc-status { font-size: 13px; margin-top: 8px; color: #9AA3AF; }
   .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(11,21,51,0.6); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
   .modal-box { background: white; border-radius: 14px; padding: 26px; max-width: 380px; width: 100%; }
   footer { text-align: center; padding: 20px; color: #999; font-size: 13px; }
@@ -139,24 +139,24 @@
   .why-us h2 { text-align: center; margin-bottom: 24px; }
   .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .why-card { text-align: center; }
-  .why-icon { width: 56px; height: 56px; border-radius: 50%; background: #EDEFF3; color: #1C232C; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
-  .why-card h3 { font-size: 15px; color: #1C232C; margin-bottom: 6px; }
-  .why-card p { font-size: 13px; color: #666; line-height: 1.5; }
+  .why-icon { width: 56px; height: 56px; border-radius: 50%; background: #14171C; color: #F4F6F8; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+  .why-card h3 { font-size: 15px; color: #F4F6F8; margin-bottom: 6px; }
+  .why-card p { font-size: 13px; color: #9AA3AF; line-height: 1.5; }
 
   .showcase { background: #F7F8FB; padding: 44px 24px; }
   .showcase-inner { max-width: 900px; margin: 0 auto; }
-  .showcase h2 { text-align: center; margin-bottom: 18px; color: #1C232C; }
+  .showcase h2 { text-align: center; margin-bottom: 18px; color: #F4F6F8; }
   .photo-strip { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; }
   .photo-strip-item { flex: 0 0 160px; height: 120px; border-radius: 10px; overflow: hidden; background: #eee; }
   .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .faq-section { background: white; padding: 44px 24px; border-top: 1px solid #eee; }
   .faq-inner { max-width: 700px; margin: 0 auto; }
-  .faq-inner h2 { text-align: center; margin-bottom: 18px; color: #1C232C; }
-  .faq-group-title { color: #1C232C; font-size: 15px; margin: 26px 0 12px; border-bottom: 2px solid #EDEFF3; padding-bottom: 6px; }
+  .faq-inner h2 { text-align: center; margin-bottom: 18px; color: #F4F6F8; }
+  .faq-group-title { color: #F4F6F8; font-size: 15px; margin: 26px 0 12px; border-bottom: 2px solid #EDEFF3; padding-bottom: 6px; }
   .faq-item { margin-bottom: 16px; transition: opacity 0.15s ease; }
   .faq-q { font-weight: 700; font-size: 14px; color: #1a1a1a; margin-bottom: 4px; }
-  .faq-a { font-size: 13px; color: #666; line-height: 1.55; }
+  .faq-a { font-size: 13px; color: #9AA3AF; line-height: 1.55; }
 
   /* Visual polish: depth and motion */
   .card { transition: box-shadow 0.2s ease; }
@@ -276,7 +276,7 @@
   /* inputs */
   input,select,textarea{ border-radius:12px; border:1.5px solid #dfe6f2; background:#fbfcfe;
     transition:border-color .15s, box-shadow .15s, background .15s; }
-  input:focus,select:focus,textarea:focus{ outline:none; border-color:var(--cyan); box-shadow:0 0 0 4px var(--ring); background:#fff; }
+  input:focus,select:focus,textarea:focus{ outline:none; border-color:var(--cyan); box-shadow:0 0 0 4px var(--ring); background: #14171C; }
 
   /* buttons */
   button.primary{ background:linear-gradient(135deg,#1C232C,#1C232C); border-radius:13px;
@@ -294,17 +294,17 @@
   /* marketing sections float over aurora */
   .why-us,.showcase,.faq-section{ background:transparent; border:none; }
   .why-us{ padding:52px 24px 20px; }
-  .why-card{ background:#fff; border:1px solid rgba(15,23,42,.06); border-radius:18px; padding:26px 18px;
+  .why-card{ background: #14171C; border:1px solid rgba(15,23,42,.06); border-radius:18px; padding:26px 18px;
     box-shadow:0 12px 36px -18px rgba(0,0,0,.28); transition:transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s ease; }
   .why-card:hover{ transform:translateY(-7px); box-shadow:0 20px 44px -18px rgba(0,0,0,.4); }
   .why-icon{ background:linear-gradient(135deg,#EDEFF3,#E4E7EC); box-shadow:0 8px 20px -8px rgba(201,205,214,.55); transition:transform .25s ease; }
   .why-card:hover .why-icon{ transform:scale(1.14) rotate(-5deg); }
 
   /* detailer + faq cards */
-  .detailer-card{ border-radius:15px; border:1px solid rgba(15,23,42,.07); background:#fff; }
+  .detailer-card{ border-radius:15px; border:1px solid rgba(15,23,42,.07); background: #14171C; }
   .detailer-card.featured{ background:linear-gradient(135deg,#F6F7F9,#F1F2F5); border-color:var(--cyan); }
   .faq-section{ padding:20px 24px 40px; }
-  .faq-item{ background:#fff; border:1px solid rgba(15,23,42,.05); border-radius:14px; padding:16px 18px; margin-bottom:12px;
+  .faq-item{ background: #14171C; border:1px solid rgba(15,23,42,.05); border-radius:14px; padding:16px 18px; margin-bottom:12px;
     box-shadow:0 6px 20px -14px rgba(0,0,0,.35); transition:transform .18s ease, box-shadow .18s ease; }
   .faq-item:hover{ transform:translateY(-2px); box-shadow:0 10px 26px -14px rgba(0,0,0,.4); }
   .faq-group-title{ border-bottom-color:rgba(201,205,214,.4); }
@@ -341,13 +341,13 @@
     transition:background .18s ease, border-color .18s ease, transform .15s ease; }
   .btn-ghost:hover{ background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.5); transform:translateY(-2px); }
 
-  .section-eyebrow{ text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:#1C232C; margin-bottom:8px; }
+  .section-eyebrow{ text-align:center; font-size:12px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color: #F4F6F8; margin-bottom:8px; }
 
   .how-section{ padding:60px 24px 22px; }
   .how-inner{ max-width:960px; margin:0 auto; }
   .how-inner h2{ text-align:center; margin-bottom:36px; }
   .how-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-  .step-card{ position:relative; background:#fff; border:1px solid rgba(15,23,42,.06); border-radius:20px; padding:32px 24px 26px;
+  .step-card{ position:relative; background: #14171C; border:1px solid rgba(15,23,42,.06); border-radius:20px; padding:32px 24px 26px;
     box-shadow:0 14px 40px -20px rgba(0,0,0,.3); overflow:hidden; transition:transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s ease; }
   .step-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#C9CDD6,#4A5260); }
   .step-card:hover{ transform:translateY(-6px); box-shadow:0 22px 50px -20px rgba(0,0,0,.44); }
@@ -407,19 +407,19 @@
   input[type="file"]::file-selector-button:hover{ filter:brightness(1.12); }
   input[type="file"]::file-selector-button:active{ transform:scale(.97); }
   button.secondary{
-    background:#F1F2F5; color:#1C232C; border:1.5px solid #D5D9E0; border-radius:10px; font-weight:700;
+    background: #14171C; color: #F4F6F8; border:1.5px solid #242A32; border-radius:10px; font-weight:700;
     transition:background .15s ease, border-color .15s ease, transform .1s ease;
   }
-  button.secondary:hover{ background:#E8EAEE; border-color:#C5CAD2; }
+  button.secondary:hover{ background: #14171C; border-color:#C5CAD2; }
   button.secondary:active{ transform:scale(.98); }
 
   /* ===== Trust band + final CTA ===== */
   .trust-band{ padding:24px 24px 2px; }
   .trust-band-inner{ max-width:960px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; gap:13px; }
-  .trust-pill{ display:inline-flex; align-items:center; gap:9px; font-size:13.5px; font-weight:600; color:#334155;
+  .trust-pill{ display:inline-flex; align-items:center; gap:9px; font-size:13.5px; font-weight:600; color: #F4F6F8;
     background:rgba(255,255,255,.72); border:1px solid rgba(15,23,42,.07); border-radius:999px; padding:9px 16px;
     box-shadow:0 6px 16px -10px rgba(0,0,0,.4); backdrop-filter:blur(4px); }
-  .trust-pill svg{ width:17px; height:17px; color:#1C232C; flex:0 0 auto; }
+  .trust-pill svg{ width:17px; height:17px; color: #F4F6F8; flex:0 0 auto; }
 
   .final-cta{ padding:26px 24px 6px; }
   .final-cta-inner{ position:relative; overflow:hidden; max-width:960px; margin:0 auto; text-align:center;
@@ -442,8 +442,8 @@
   .faq-q::after{ content:""; flex:0 0 auto; width:10px; height:10px; margin-top:5px;
     border-right:2.5px solid #64748b; border-bottom:2.5px solid #64748b; transform:rotate(45deg);
     transition:transform .28s cubic-bezier(.16,1,.3,1); }
-  .faq-item.open .faq-q::after{ transform:rotate(-135deg); border-color:#1C232C; }
-  .faq-item:hover .faq-q{ color:#1C232C; }
+  .faq-item.open .faq-q::after{ transform:rotate(-135deg); border-color: #F4F6F8; }
+  .faq-item:hover .faq-q{ color: #F4F6F8; }
   .faq-a{ display:none; }
   .faq-item.open .faq-a{ display:block; margin-top:9px; animation:fadeUp .26s ease both; }
 
@@ -456,18 +456,18 @@
   .metric-card .num{ font-family:'Sora',sans-serif; font-size:27px; font-weight:800; line-height:1.1;
     background:linear-gradient(135deg,#C9CDD6,#9CA3AF); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
   .metric-card .label{ font-size:12px; opacity:.85; margin-top:5px; }
-  .chart-legend{ font-size:12px; color:#556074; display:flex; align-items:center; gap:4px; }
+  .chart-legend{ font-size:12px; color: #9AA3AF; display:flex; align-items:center; gap:4px; }
   .chart-legend .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; margin:0 4px 0 10px; }
   .chart-legend .dot.rev{ background:#C9CDD6; } .chart-legend .dot.book{ background:#4A5260; }
   .data-table-scroll{ overflow-x:auto; }
   .data-table{ width:100%; border-collapse:collapse; font-size:13.5px; }
-  .data-table th{ text-align:left; padding:10px 12px; color:#475569; font-weight:700; font-size:11.5px;
-    text-transform:uppercase; letter-spacing:.5px; border-bottom:2px solid #eef2f9; cursor:pointer; white-space:nowrap; user-select:none; }
-  .data-table th:hover{ color:#1C232C; }
-  .data-table td{ padding:11px 12px; border-bottom:1px solid #f1f5f9; color:#334155; white-space:nowrap; }
+  .data-table th{ text-align:left; padding:10px 12px; color: #9AA3AF; font-weight:700; font-size:11.5px;
+    text-transform:uppercase; letter-spacing:.5px; border-bottom:2px solid #242A32; cursor:pointer; white-space:nowrap; user-select:none; }
+  .data-table th:hover{ color: #F4F6F8; }
+  .data-table td{ padding:11px 12px; border-bottom:1px solid #f1f5f9; color: #F4F6F8; white-space:nowrap; }
   .data-table tbody tr{ transition:background .12s ease; }
   .data-table tbody tr:hover{ background:#f5f8ff; }
-  .table-pager{ display:flex; align-items:center; justify-content:center; gap:16px; margin-top:16px; font-size:13px; color:#556074; }
+  .table-pager{ display:flex; align-items:center; justify-content:center; gap:16px; margin-top:16px; font-size:13px; color: #9AA3AF; }
   .table-pager button{ padding:7px 16px; font-size:13px; }
   .table-pager button:disabled{ opacity:.45; cursor:default; transform:none; }
   @media (max-width:640px){ .overview-grid{ grid-template-columns:1fr 1fr; } }
@@ -484,41 +484,41 @@
   .services-inner{ max-width:900px; margin:0 auto; text-align:center; }
   .services-inner h2{ margin-bottom:8px; }
   .services-sub{ font-size:14.5px; color:var(--muted); max-width:640px; margin:0 auto 22px; line-height:1.6; }
-  .svc-note{ display:inline-block; font-size:12.5px; color:#5f6b7d; }
-  .svc-tabs{ display:inline-flex; flex-wrap:wrap; justify-content:center; gap:8px; background:#F1F2F5;
+  .svc-note{ display:inline-block; font-size:12.5px; color: #9AA3AF; }
+  .svc-tabs{ display:inline-flex; flex-wrap:wrap; justify-content:center; gap:8px; background: #14171C;
     border:1px solid rgba(15,23,42,.06); border-radius:14px; padding:6px; margin-bottom:22px; }
-  .svc-tab{ font-family:'Sora','Inter',sans-serif; font-weight:700; font-size:14px; color:#475569;
+  .svc-tab{ font-family:'Sora','Inter',sans-serif; font-weight:700; font-size:14px; color: #9AA3AF;
     background:transparent; border:none; border-radius:10px; padding:10px 18px; cursor:pointer;
     transition:background .18s ease, color .18s ease, box-shadow .18s ease; }
-  .svc-tab:hover{ color:#1C232C; }
+  .svc-tab:hover{ color: #F4F6F8; }
   .svc-tab.active{ color:#04263a; background:linear-gradient(135deg,#C9CDD6,#AEB6C2); box-shadow:0 6px 16px -6px rgba(201,205,214,.55); }
   .svc-panel[hidden]{ display:none; }
   .svc-panel{ animation:fadeUp .4s ease both; }
-  .svc-panel-inner{ display:flex; gap:22px; align-items:flex-start; text-align:left; background:#fff;
+  .svc-panel-inner{ display:flex; gap:22px; align-items:flex-start; text-align:left; background: #14171C;
     border:1px solid rgba(15,23,42,.06); border-radius:20px; padding:28px;
     box-shadow:0 16px 40px -22px rgba(0,0,0,.3); }
   .svc-panel-icon{ flex:0 0 auto; width:60px; height:60px; border-radius:16px; display:flex; align-items:center; justify-content:center;
-    color:#1C232C; background:linear-gradient(135deg,#EDEFF3,#E4E7EC); box-shadow:0 8px 20px -8px rgba(201,205,214,.5); }
+    color: #F4F6F8; background:linear-gradient(135deg,#EDEFF3,#E4E7EC); box-shadow:0 8px 20px -8px rgba(201,205,214,.5); }
   .svc-panel-body{ flex:1 1 auto; }
   .svc-panel-body h3{ font-size:19px; color:var(--brand); margin-bottom:6px; }
   .svc-panel-body > p{ font-size:14px; color:var(--muted); line-height:1.6; margin-bottom:14px; }
   .svc-list{ list-style:none; padding:0; margin:0 0 20px; display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
-  .svc-list li{ position:relative; padding-left:24px; font-size:13.5px; color:#334155; line-height:1.45; }
+  .svc-list li{ position:relative; padding-left:24px; font-size:13.5px; color: #F4F6F8; line-height:1.45; }
   .svc-list li::before{ content:""; position:absolute; left:0; top:4px; width:15px; height:15px; border-radius:50%;
     background:#dcfce7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23166534' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/10px no-repeat; }
   .svc-panel-body .btn-cta{ font-size:14px; padding:11px 22px; }
   .svc-price{ display:flex; align-items:baseline; flex-wrap:wrap; gap:6px 10px; margin-bottom:8px; }
   .svc-price > :first-child{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:19px; color:var(--brand); letter-spacing:-.3px; }
-  .svc-price span{ font-weight:600; font-size:13px; color:#64748b; }
+  .svc-price span{ font-weight:600; font-size:13px; color: #9AA3AF; }
   .svc-price b{ margin-left:auto; font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:16px;
-    color:#2A303A; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:999px; padding:4px 12px; white-space:nowrap; }
-  .addons-strip{ margin-top:24px; background:#fff; border:1px solid #e7ecf4; border-radius:18px; padding:20px 22px; }
+    color: #F4F6F8; background: #14171C; border:1px solid #242A32; border-radius:999px; padding:4px 12px; white-space:nowrap; }
+  .addons-strip{ margin-top:24px; background: #14171C; border:1px solid #e7ecf4; border-radius:18px; padding:20px 22px; }
   .addons-title{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:15px; color:var(--brand); margin-bottom:14px; }
   .addons-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; }
-  .addon{ display:flex; flex-direction:column; gap:2px; padding:12px 14px; background:#f8fafc; border:1px solid #eef2f9; border-radius:12px; }
-  .addon span{ font-size:13px; font-weight:600; color:#334155; }
-  .addon b{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:18px; color:#2A303A; }
-  .addon small{ font-size:11px; color:#64748b; }
+  .addon{ display:flex; flex-direction:column; gap:2px; padding:12px 14px; background: #14171C; border:1px solid #242A32; border-radius:12px; }
+  .addon span{ font-size:13px; font-weight:600; color: #F4F6F8; }
+  .addon b{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:18px; color: #F4F6F8; }
+  .addon small{ font-size:11px; color: #9AA3AF; }
   @media (max-width:640px){
     .svc-panel-inner{ flex-direction:column; gap:16px; padding:22px; }
     .svc-list{ grid-template-columns:1fr; }
@@ -526,13 +526,13 @@
   }
 
   /* ===== Detailer dashboard: business-tool panels ===== */
-  .dash-hello{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:19px; color:#0f172a; letter-spacing:-.3px; }
-  .dash-hello-sub{ font-size:13px; color:#556074; margin-top:2px; }
+  .dash-hello{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:19px; color: #F4F6F8; letter-spacing:-.3px; }
+  .dash-hello-sub{ font-size:13px; color: #9AA3AF; margin-top:2px; }
   .dash-actions{ display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
   .dash-action{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
     padding:13px 16px; border-radius:13px; font-size:14px; font-weight:600; border:1px solid transparent; }
   .dash-action.urgent{ background:#FEF2F2; border-color:#FECACA; color:#991B1B; }
-  .dash-action.info{ background:#F1F2F5; border-color:#D5D9E0; color:#1A2028; }
+  .dash-action.info{ background: #14171C; border-color: #242A32; color: #F4F6F8; }
   .dash-action.ok{ background:#f0fdf4; border-color:#bbf7d0; color:#166534; }
   .dash-action-btn{ font-family:'Sora','Inter',sans-serif; font-weight:700; font-size:13px; color:#fff;
     background:#1C232C; border:none; border-radius:9px; padding:8px 15px; cursor:pointer; white-space:nowrap;
@@ -545,42 +545,42 @@
   /* ----- Payout / Stripe Connect status ----- */
   .payout-badge{ font-size:11.5px; font-weight:800; letter-spacing:.02em; padding:4px 10px; border-radius:999px;
     white-space:nowrap; text-transform:uppercase; }
-  .payout-badge.checking{ background:#eef2f7; color:#556074; }
+  .payout-badge.checking{ background:#eef2f7; color: #9AA3AF; }
   .payout-badge.none{ background:#fef2f2; color:#b91c1c; }
   .payout-badge.incomplete{ background:#FEF2F2; color:#B91C1C; }
   .payout-badge.pending{ background:#fefce8; color:#a16207; }
   .payout-badge.verified{ background:#f0fdf4; color:#15803d; }
   .payout-msg{ font-size:13px; line-height:1.5; padding:10px 12px; border-radius:10px; margin-bottom:12px; }
-  .payout-msg.info{ background:#F1F2F5; border:1px solid #D5D9E0; color:#1A2028; }
+  .payout-msg.info{ background: #14171C; border:1px solid #242A32; color: #F4F6F8; }
   .payout-msg.warn{ background:#FEF2F2; border:1px solid #FECACA; color:#991B1B; }
   .payout-msg.error{ background:#fef2f2; border:1px solid #fecaca; color:#991b1b; }
   .payout-msg.ok{ background:#f0fdf4; border:1px solid #bbf7d0; color:#166534; }
   #connectPayoutsBtn[disabled]{ opacity:.7; cursor:progress; }
 
   .card-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .card-sub{ font-size:12.5px; color:#556074; font-weight:600; }
-  .btn-outline{ font-family:'Sora','Inter',sans-serif; font-weight:700; font-size:13px; color:#1C232C;
-    background:#fff; border:1.5px solid #c7d2e4; border-radius:10px; padding:8px 14px; cursor:pointer;
+  .card-sub{ font-size:12.5px; color: #9AA3AF; font-weight:600; }
+  .btn-outline{ font-family:'Sora','Inter',sans-serif; font-weight:700; font-size:13px; color: #F4F6F8;
+    background: #14171C; border:1.5px solid #c7d2e4; border-radius:10px; padding:8px 14px; cursor:pointer;
     transition:background .15s ease, border-color .15s ease; }
-  .btn-outline:hover{ background:#F1F2F5; border-color:#94a3b8; }
+  .btn-outline:hover{ background: #14171C; border-color:#94a3b8; }
 
   .agenda-row{ display:flex; align-items:center; gap:14px; padding:12px 10px; border-bottom:1px solid #f1f5f9; transition:background .12s ease; }
   .agenda-row:last-child{ border-bottom:none; }
   .agenda-row:hover{ background:#f7faff; }
-  .agenda-row.today{ background:#F6F7F9; border-left:3px solid #C9CDD6; padding-left:12px; border-radius:8px; }
+  .agenda-row.today{ background:#F6F7F9; border-left:3px solid #242A32; padding-left:12px; border-radius:8px; }
   .agenda-date{ flex:0 0 92px; display:flex; flex-direction:column; }
-  .agenda-day{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:14px; color:#1C232C; }
-  .agenda-time{ font-size:12px; color:#5f6b7d; }
+  .agenda-day{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:14px; color: #F4F6F8; }
+  .agenda-time{ font-size:12px; color: #9AA3AF; }
   .agenda-main{ flex:1 1 auto; min-width:0; }
-  .agenda-title{ font-weight:700; font-size:14px; color:#0f172a; }
-  .agenda-sub{ font-size:12.5px; color:#556074; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-  .agenda-more{ text-align:center; font-size:12.5px; color:#5f6b7d; padding:12px 0 2px; }
+  .agenda-title{ font-weight:700; font-size:14px; color: #F4F6F8; }
+  .agenda-sub{ font-size:12.5px; color: #9AA3AF; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .agenda-more{ text-align:center; font-size:12.5px; color: #9AA3AF; padding:12px 0 2px; }
 
   .insights-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(120px,1fr)); gap:12px; }
   .insight-tile{ background:linear-gradient(135deg,#f8fafc,#F1F2F5); border:1px solid rgba(15,23,42,.06);
     border-radius:14px; padding:16px 14px; text-align:center; }
-  .insight-num{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:22px; color:#1C232C; letter-spacing:-.4px; }
-  .insight-label{ font-size:12px; color:#556074; margin-top:4px; }
+  .insight-num{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:22px; color: #F4F6F8; letter-spacing:-.4px; }
+  .insight-label{ font-size:12px; color: #9AA3AF; margin-top:4px; }
 
   .repeat-badge{ display:inline-block; font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.4px;
     color:#166534; background:#dcfce7; border-radius:6px; padding:2px 7px; margin-left:6px; vertical-align:middle; }
@@ -590,31 +590,31 @@
   .earn-tile{ border-radius:14px; padding:16px 15px; border:1px solid transparent; }
   .earn-tile .earn-num{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:23px; letter-spacing:-.5px; }
   .earn-tile .earn-label{ font-size:12px; margin-top:3px; font-weight:600; }
-  .earn-tile.net{ background:linear-gradient(135deg,#F1F2F5,#E6E8ED); border-color:#D5D9E0; }
-  .earn-tile.net .earn-num{ color:#2A303A; } .earn-tile.net .earn-label{ color:#1A2028; }
-  .earn-tile.paid{ background:linear-gradient(135deg,#F1F2F5,#E2E5EA); border-color:#D5D9E0; }
-  .earn-tile.paid .earn-num{ color:#1C232C; } .earn-tile.paid .earn-label{ color:#1A2028; }
+  .earn-tile.net{ background:linear-gradient(135deg,#F1F2F5,#E6E8ED); border-color: #242A32; }
+  .earn-tile.net .earn-num{ color: #F4F6F8; } .earn-tile.net .earn-label{ color: #F4F6F8; }
+  .earn-tile.paid{ background:linear-gradient(135deg,#F1F2F5,#E2E5EA); border-color: #242A32; }
+  .earn-tile.paid .earn-num{ color: #F4F6F8; } .earn-tile.paid .earn-label{ color: #F4F6F8; }
   .earn-tile.pipe{ background:linear-gradient(135deg,#faf5ff,#f3e8ff); border-color:#e9d5ff; }
-  .earn-tile.pipe .earn-num{ color:#4A5260; } .earn-tile.pipe .earn-label{ color:#3B4351; }
+  .earn-tile.pipe .earn-num{ color: #9AA3AF; } .earn-tile.pipe .earn-label{ color: #F4F6F8; }
   .earn-tile.fee{ background:linear-gradient(135deg,#f8fafc,#F1F2F5); border-color:rgba(15,23,42,.06); }
-  .earn-tile.fee .earn-num{ color:#475569; } .earn-tile.fee .earn-label{ color:#556074; }
+  .earn-tile.fee .earn-num{ color: #9AA3AF; } .earn-tile.fee .earn-label{ color: #9AA3AF; }
 
   /* Service performance bars */
   .perf-row{ margin-bottom:12px; }
   .perf-row:last-child{ margin-bottom:0; }
   .perf-top{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; font-size:13.5px; margin-bottom:5px; }
-  .perf-name{ font-weight:700; color:#1e293b; }
-  .perf-meta{ color:#556074; font-size:12.5px; font-weight:600; white-space:nowrap; }
-  .perf-bar{ height:9px; border-radius:6px; background:#eef2f9; overflow:hidden; }
+  .perf-name{ font-weight:700; color: #F4F6F8; }
+  .perf-meta{ color: #9AA3AF; font-size:12.5px; font-weight:600; white-space:nowrap; }
+  .perf-bar{ height:9px; border-radius:6px; background: #14171C; overflow:hidden; }
   .perf-fill{ height:100%; border-radius:6px; background:linear-gradient(90deg,#C9CDD6,#1C232C); }
 
   /* Booking pipeline funnel chips */
   .pipe-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; }
   .pipe-chip{ border-radius:13px; padding:14px 14px; border:1px solid rgba(15,23,42,.06); position:relative; }
   .pipe-chip .pipe-num{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:24px; letter-spacing:-.5px; }
-  .pipe-chip .pipe-lbl{ font-size:12px; font-weight:600; margin-top:2px; color:#556074; }
-  .pipe-chip.new{ background:#F1F2F5; border-color:#D5D9E0; } .pipe-chip.new .pipe-num{ color:#1C232C; }
-  .pipe-chip.prog{ background:#E8EAEE; border-color:#C5CAD2; } .pipe-chip.prog .pipe-num{ color:#1C232C; }
+  .pipe-chip .pipe-lbl{ font-size:12px; font-weight:600; margin-top:2px; color: #9AA3AF; }
+  .pipe-chip.new{ background: #14171C; border-color: #242A32; } .pipe-chip.new .pipe-num{ color: #F4F6F8; }
+  .pipe-chip.prog{ background: #14171C; border-color:#C5CAD2; } .pipe-chip.prog .pipe-num{ color: #F4F6F8; }
   .pipe-chip.done{ background:#f0fdf4; border-color:#bbf7d0; } .pipe-chip.done .pipe-num{ color:#15803d; }
   .pipe-chip.decl{ background:#fef2f2; border-color:#fecaca; } .pipe-chip.decl .pipe-num{ color:#b91c1c; }
 
@@ -623,17 +623,17 @@
   .wd-col{ flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; height:100%; justify-content:flex-end; }
   .wd-bar{ width:100%; max-width:34px; border-radius:6px 6px 3px 3px; background:linear-gradient(180deg,#C9CDD6,#1C232C); min-height:3px; }
   .wd-bar.peak{ background:linear-gradient(180deg,#FFFFFF,#9CA3AF); }
-  .wd-lbl{ font-size:11px; color:#556074; font-weight:600; }
-  .wd-val{ font-size:11px; color:#334155; font-weight:700; }
+  .wd-lbl{ font-size:11px; color: #9AA3AF; font-weight:600; }
+  .wd-val{ font-size:11px; color: #F4F6F8; font-weight:700; }
 
   /* Reviews */
   .rev-summary{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
-  .rev-avg{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:38px; color:#1C232C; line-height:1; }
-  .rev-stars{ color:#1C232C; font-size:18px; letter-spacing:2px; }
+  .rev-avg{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:38px; color: #F4F6F8; line-height:1; }
+  .rev-stars{ color: #F4F6F8; font-size:18px; letter-spacing:2px; }
   .rev-item{ border-top:1px solid #eef1f6; padding:11px 0; }
   .rev-item:first-child{ border-top:none; }
-  .rev-item .rev-head{ display:flex; justify-content:space-between; gap:10px; font-size:12.5px; color:#556074; }
-  .rev-item .rev-body{ font-size:13.5px; color:#334155; margin-top:3px; line-height:1.5; }
+  .rev-item .rev-head{ display:flex; justify-content:space-between; gap:10px; font-size:12.5px; color: #9AA3AF; }
+  .rev-item .rev-body{ font-size:13.5px; color: #F4F6F8; margin-top:3px; line-height:1.5; }
 
   @media (max-width:640px){
     .agenda-date{ flex-basis:74px; }
@@ -645,40 +645,40 @@
   .dash-shell{ display:grid; grid-template-columns:212px minmax(0,1fr); gap:20px; align-items:start; }
   .dash-shell.nav-collapsed{ grid-template-columns:62px minmax(0,1fr); }
   .dash-sidebar{ position:sticky; top:80px; align-self:start; z-index:5; }
-  .dash-sidebar-inner{ background:#fff; border:1px solid rgba(15,23,42,.06); border-radius:16px; padding:10px;
+  .dash-sidebar-inner{ background: #14171C; border:1px solid rgba(15,23,42,.06); border-radius:16px; padding:10px;
     box-shadow:0 14px 34px -22px rgba(0,0,0,.35); }
   .dash-collapse{ display:flex; align-items:center; justify-content:center; width:100%; height:34px; margin-bottom:6px;
-    background:#f1f5f9; border:none; border-radius:9px; color:#475569; cursor:pointer; transition:background .15s; }
-  .dash-collapse:hover{ background:#e2e8f0; color:#1C232C; }
+    background:#f1f5f9; border:none; border-radius:9px; color: #9AA3AF; cursor:pointer; transition:background .15s; }
+  .dash-collapse:hover{ background:#e2e8f0; color: #F4F6F8; }
   .dash-collapse svg{ width:18px; height:18px; }
   .dash-nav{ display:flex; flex-direction:column; gap:2px; }
-  .dash-nav-link{ display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:10px; color:#475569;
+  .dash-nav-link{ display:flex; align-items:center; gap:11px; padding:10px 12px; border-radius:10px; color: #9AA3AF;
     text-decoration:none; font-weight:600; font-size:14px; white-space:nowrap; transition:background .15s, color .15s, box-shadow .15s; }
-  .dash-nav-link svg{ width:18px; height:18px; flex:0 0 auto; color:#5f6b7d; transition:color .15s; }
-  .dash-nav-link:hover{ background:#f1f5f9; color:#1C232C; }
-  .dash-nav-link:hover svg{ color:#1C232C; }
-  .dash-nav-link.active{ background:#F1F2F5; color:#1C232C; box-shadow:inset 3px 0 0 #C9CDD6; }
-  .dash-nav-link.active svg{ color:#1C232C; }
+  .dash-nav-link svg{ width:18px; height:18px; flex:0 0 auto; color: #9AA3AF; transition:color .15s; }
+  .dash-nav-link:hover{ background:#f1f5f9; color: #F4F6F8; }
+  .dash-nav-link:hover svg{ color: #F4F6F8; }
+  .dash-nav-link.active{ background: #14171C; color: #F4F6F8; box-shadow:inset 3px 0 0 #C9CDD6; }
+  .dash-nav-link.active svg{ color: #F4F6F8; }
   .dash-sidebar.collapsed .dnl-txt{ display:none; }
   .dash-sidebar.collapsed .dash-nav-link{ justify-content:center; padding:10px; }
   .dash-main{ min-width:0; }
 
   .setup-card{ background:linear-gradient(135deg,#F1F2F5,#F4F5F7); border:1px solid #E2E5EA; border-radius:18px; padding:20px 22px; margin-bottom:16px; }
   .setup-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-  .setup-title{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:17px; color:#1C232C; }
-  .setup-sub{ font-size:13px; color:#556074; margin-top:2px; }
-  .setup-pct{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:24px; color:#1C232C; line-height:1; }
+  .setup-title{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:17px; color: #F4F6F8; }
+  .setup-sub{ font-size:13px; color: #9AA3AF; margin-top:2px; }
+  .setup-pct{ font-family:'Sora','Inter',sans-serif; font-weight:800; font-size:24px; color: #F4F6F8; line-height:1; }
   .setup-bar{ height:8px; background:#e2e8f0; border-radius:99px; overflow:hidden; margin:14px 0 16px; }
   .setup-bar-fill{ height:100%; background:linear-gradient(90deg,#C9CDD6,#1C232C); border-radius:99px; transition:width .6s cubic-bezier(.16,1,.3,1); }
   .setup-steps{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-  .setup-step{ display:flex; align-items:center; gap:10px; text-align:left; width:100%; background:#fff; border:1px solid rgba(15,23,42,.06);
-    border-radius:11px; padding:11px 13px; cursor:pointer; font-size:13.5px; font-weight:600; color:#334155; transition:box-shadow .15s, transform .1s; }
+  .setup-step{ display:flex; align-items:center; gap:10px; text-align:left; width:100%; background: #14171C; border:1px solid rgba(15,23,42,.06);
+    border-radius:11px; padding:11px 13px; cursor:pointer; font-size:13.5px; font-weight:600; color: #F4F6F8; transition:box-shadow .15s, transform .1s; }
   .setup-step:hover:not(.ok):not(:disabled){ box-shadow:0 8px 18px -10px rgba(0,0,0,.35); transform:translateY(-1px); }
-  .setup-step.ok{ color:#5f6b7d; cursor:default; }
+  .setup-step.ok{ color: #9AA3AF; cursor:default; }
   .setup-check{ width:20px; height:20px; border-radius:50%; border:2px solid #cbd5e1; display:flex; align-items:center; justify-content:center;
     font-size:12px; flex:0 0 auto; color:#fff; }
   .setup-step.ok .setup-check{ background:#15803d; border-color:#15803d; }
-  .setup-go{ margin-left:auto; color:#1C232C; font-weight:700; font-size:12.5px; white-space:nowrap; }
+  .setup-go{ margin-left:auto; color: #F4F6F8; font-weight:700; font-size:12.5px; white-space:nowrap; }
   .setup-done{ background:#f0fdf4; border:1px solid #bbf7d0; color:#166534; border-radius:14px; padding:14px 18px; font-weight:700; margin-bottom:16px; }
 
   @media (max-width:900px){
@@ -798,33 +798,33 @@
     --accent-grad:linear-gradient(135deg,#1C232C,#1C232C);
   }
   /* Primary actions: solid confident blue, white text (was bright cyan/dark text) */
-  .tab-btn.active{ background:var(--accent-grad); color:#0F1116; border-color:transparent;
+  .tab-btn.active{ background:var(--accent-grad); color: #F4F6F8; border-color:transparent;
     box-shadow:0 6px 16px -6px rgba(28,35,44,.5); }
-  .book-btn, a.cta, .btn-cta{ background:var(--accent-grad) !important; color:#0F1116 !important;
+  .book-btn, a.cta, .btn-cta{ background:var(--accent-grad) !important; color: #F4F6F8 !important;
     box-shadow:0 8px 20px -8px rgba(28,35,44,.55) !important; }
   .hero-cta{ background:none !important; box-shadow:none !important; }
   button.primary{ background:var(--accent-grad); }
   button.primary:hover{ filter:brightness(1.08); background:var(--accent-grad); }
   /* Stats: editorial numerals, not terminal monospace */
   .stat-box .num, .trust-item strong{ font-family:'Sora','Inter',sans-serif; letter-spacing:-.5px; }
-  .stat-box .num{ color:#1C232C; }
+  .stat-box .num{ color: #F4F6F8; }
   .trust-item strong{ color:#C9CDD6; }
   /* Quieter aurora: less purple glow, more depth */
   .aurora-bg{ filter:saturate(.8); opacity:.9; }
   /* Cards & chips: crisper borders, softer shadows, consistent radius */
-  .card{ border:1px solid #E5EAF3; box-shadow:0 4px 16px -8px rgba(15,32,84,.10); border-radius:14px; }
+  .card{ border:1px solid #242A32; box-shadow:0 4px 16px -8px rgba(15,32,84,.10); border-radius:14px; }
   .badge{ border-radius:6px; font-weight:700; letter-spacing:.2px; }
   .badge.featured{ background:#1C232C; color:#fff; }
-  .badge.cert{ background:#F1F2F5; color:#2A303A; border:1px solid #D5D9E0; }
-  .detailer-card{ border:1px solid #E5EAF3; border-radius:14px; }
-  .detailer-card.featured{ border-color:#D5D9E0; box-shadow:0 8px 22px -10px rgba(28,35,44,.22); }
+  .badge.cert{ background: #14171C; color: #F4F6F8; border:1px solid #242A32; }
+  .detailer-card{ border:1px solid #242A32; border-radius:14px; }
+  .detailer-card.featured{ border-color: #242A32; box-shadow:0 8px 22px -10px rgba(28,35,44,.22); }
   /* Inputs: calmer focus ring */
-  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color:#C9CDD6; }
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color: #242A32; }
   /* Payout / status chips: muted professional tones */
   .payout-badge{ border-radius:6px; letter-spacing:.3px; }
   /* Dashboard sidebar active: match new accent */
   .dash-nav-link.active{ box-shadow:inset 3px 0 0 #1C232C; }
-  .dash-nav-link.active svg{ color:#1C232C; }
+  .dash-nav-link.active svg{ color: #F4F6F8; }
 </style>
 <style>
   /* ===== BRAND V3 — "MIDNIGHT CHROME" (unique identity layer; keep LAST in head) =====
@@ -852,22 +852,22 @@
     background:radial-gradient(1100px circle at 85% -5%, rgba(15,17,22,.05), transparent 60%), var(--bg); }
   /* Signal: chrome-silver gradient. CTAs carry obsidian ink for contrast. */
   .book-btn, a.cta, .btn-cta, button.primary, .tab-btn.active{
-    background:var(--accent-grad) !important; color:#0F1116 !important;
+    background:var(--accent-grad) !important; color: #F4F6F8 !important;
     box-shadow:0 8px 22px -8px rgba(15,17,22,.4) !important; border:1px solid rgba(15,17,22,.14) !important; }
   button.primary:hover{ filter:brightness(1.06); }
   .hero-cta{ background:none !important; box-shadow:none !important; }
   .logo .radius{ color:#C9CDD6; }
   .trust-item strong{ color:#E5E9F0; }
   .hero .badge, .hero-eyebrow{ color:#E5E9F0; }
-  .section-eyebrow{ color:#3B4351 !important; }
-  .dash-nav-link.active{ box-shadow:inset 3px 0 0 #1C232C; background:#F1F2F5; color:#1A2028; }
-  .dash-nav-link.active svg{ color:#1A2028; }
+  .section-eyebrow{ color: #F4F6F8 !important; }
+  .dash-nav-link.active{ box-shadow:inset 3px 0 0 #1C232C; background: #14171C; color: #F4F6F8; }
+  .dash-nav-link.active svg{ color: #F4F6F8; }
   .badge.featured{ background:#1C232C; color:#E5E9F0; }
-  .detailer-card.featured{ border-color:#D5D9E0; box-shadow:0 8px 22px -10px rgba(28,35,44,.18); }
-  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color:#D5D9E0; }
-  .payout-badge.verified{ background:#F1F2F5; }
-  .card{ border-color:#E9E5DB; background:#FFFFFF; }
-  .faq-group-title{ color:#1C232C; border-bottom-color:#D5D9E0; }
+  .detailer-card.featured{ border-color: #242A32; box-shadow:0 8px 22px -10px rgba(28,35,44,.18); }
+  input:focus, select:focus, textarea:focus{ outline:2px solid var(--ring); border-color: #242A32; }
+  .payout-badge.verified{ background: #14171C; }
+  .card{ border-color:#E9E5DB; background: #14171C; }
+  .faq-group-title{ color: #F4F6F8; border-bottom-color:#D5D9E0; }
   .trust-item strong{ color:#E5E9F0 !important; }
   .step-card::before{ background:linear-gradient(90deg,#C9CDD6,#6E7684) !important; }
   .step-num{ background:linear-gradient(135deg,#4A5260,#12161C) !important; -webkit-background-clip:text !important; background-clip:text !important; }
@@ -885,43 +885,176 @@
   .metric-card:hover{ box-shadow:0 20px 44px -20px rgba(0,0,0,.75) !important; }
   .metric-note{ color:#AEB6C2 !important; }
   .hero .badge{ background:rgba(201,205,214,.12) !important; border-color:rgba(201,205,214,.3) !important; }
-  .svc-tab.active{ background:var(--accent-grad) !important; color:#0F1116 !important; box-shadow:0 6px 16px -6px rgba(15,17,22,.35) !important; }
+  .svc-tab.active{ background:var(--accent-grad) !important; color: #F4F6F8 !important; box-shadow:0 6px 16px -6px rgba(15,17,22,.35) !important; }
   .accept-btn{ background:linear-gradient(135deg,#2A313B,#0F1116) !important; box-shadow:0 8px 18px -8px rgba(15,17,22,.55) !important; }
-  .why-icon{ background:linear-gradient(135deg,#F1F2F5,#E2E5EA) !important; color:#1C232C !important; box-shadow:0 8px 20px -8px rgba(28,35,44,.3) !important; }
-  .faq-item.open .faq-q::after{ border-color:#1C232C !important; }
-  .trust-pill svg{ color:#3B4351 !important; }
+  .why-icon{ background:linear-gradient(135deg,#F1F2F5,#E2E5EA) !important; color: #F4F6F8 !important; box-shadow:0 8px 20px -8px rgba(28,35,44,.3) !important; }
+  .faq-item.open .faq-q::after{ border-color: #F4F6F8 !important; }
+  .trust-pill svg{ color: #F4F6F8 !important; }
   .footer-logo .radius{ color:#C9CDD6 !important; }
   .footer-links a:hover{ color:#E5E9F0 !important; }
-  .footer-cities a{ color:#8A93A3; text-decoration:none; } .footer-cities a:hover{ color:#E5E9F0; }
+  .footer-cities a{ color: #9AA3AF; text-decoration:none; } .footer-cities a:hover{ color:#E5E9F0; }
   *:focus-visible{ outline-color:#6E7684 !important; }
   .chart-legend .dot.rev{ background:#4A5260 !important; } .chart-legend .dot.book{ background:#9CA3AF !important; }
   .perf-fill{ background:linear-gradient(90deg,#9CA3AF,#4A5260) !important; }
   .wd-bar{ background:linear-gradient(180deg,#C9CDD6,#6E7684) !important; }
   .setup-card{ background:linear-gradient(135deg,#F4F5F7,#ECEDF0) !important; border-color:#DDE0E5 !important; }
-  .setup-pct{ color:#1C232C !important; } .setup-go{ color:#3B4351 !important; }
+  .setup-pct{ color: #F4F6F8 !important; } .setup-go{ color: #F4F6F8 !important; }
   .setup-bar-fill{ background:linear-gradient(90deg,#6E7684,#1C232C) !important; }
-  .cal-cell.has-jobs{ background:#EDEFF2 !important; color:#1A2028 !important; }
-  .agenda-row.today{ background:#F4F5F7 !important; border-left-color:#1C232C !important; }
-  .link-chip:hover{ background:#F1F2F5 !important; }
-  input[type="radio"], input[type="checkbox"]{ accent-color:#1C232C; }
+  .cal-cell.has-jobs{ background:#EDEFF2 !important; color: #F4F6F8 !important; }
+  .agenda-row.today{ background: #14171C !important; border-left-color: #F4F6F8 !important; }
+  .link-chip:hover{ background: #14171C !important; }
+  input[type="radio"], input[type="checkbox"]{ accent-color: #F4F6F8; }
   .loc-seg{ display:flex !important; gap:8px; flex-wrap:wrap; padding-top:4px; }
   .loc-seg .loc-opt{ flex:1 1 140px; display:flex !important; align-items:center !important; justify-content:center !important;
-    gap:8px; border:1.5px solid #D5D9E0 !important; border-radius:11px; padding:12px 10px; cursor:pointer;
-    font-weight:700 !important; font-size:13.5px !important; color:#1C232C !important; background:#fff;
+    gap:8px; border:1.5px solid #242A32 !important; border-radius:11px; padding:12px 10px; cursor:pointer;
+    font-weight:700 !important; font-size:13.5px !important; color: #F4F6F8 !important; background: #14171C;
     margin:0 !important; width:auto !important; text-align:center; line-height:1.25; }
   .loc-seg .loc-opt input{ margin:0 !important; width:16px !important; height:16px; flex:0 0 auto; }
-  .loc-seg .loc-opt:has(input:checked){ border-color:#1C232C !important; background:#F1F2F5; box-shadow:inset 0 0 0 1px #1C232C; }
+  .loc-seg .loc-opt:has(input:checked){ border-color: #F4F6F8 !important; background: #14171C; box-shadow:inset 0 0 0 1px #1C232C; }
   .earn-tile.paid{ background:linear-gradient(135deg,#F4F5F7,#ECEDF0) !important; border-color:#DDE0E5 !important; }
-  .earn-tile.paid .earn-num{ color:#1C232C !important; } .earn-tile.paid .earn-label{ color:#3B4351 !important; }
-  .earn-tile.pipe .earn-num{ color:#4A5260 !important; } .earn-tile.pipe .earn-label{ color:#3B4351 !important; }
-  .pipe-chip.new{ background:#F1F2F5 !important; border-color:#D5D9E0 !important; } .pipe-chip.new .pipe-num{ color:#1C232C !important; }
-  .dash-action.info{ background:#F1F2F5 !important; border-color:#D5D9E0 !important; color:#1A2028 !important; }
-  .payout-msg.info{ background:#F1F2F5 !important; border-color:#D5D9E0 !important; color:#1A2028 !important; }
-  button.secondary{ background:#F1F2F5 !important; border-color:#D5D9E0 !important; color:#1C232C !important; }
-  button.secondary:hover{ background:#E8EAEE !important; border-color:#C5CAD2 !important; }
-  .link-chip{ color:#1C232C !important; background:#F1F2F5 !important; }
-  .status-pill, .status-pill.open{ background:#F1F2F5 !important; color:#1C232C !important; }
+  .earn-tile.paid .earn-num{ color: #F4F6F8 !important; } .earn-tile.paid .earn-label{ color: #F4F6F8 !important; }
+  .earn-tile.pipe .earn-num{ color: #9AA3AF !important; } .earn-tile.pipe .earn-label{ color: #F4F6F8 !important; }
+  .pipe-chip.new{ background: #14171C !important; border-color: #242A32 !important; } .pipe-chip.new .pipe-num{ color: #F4F6F8 !important; }
+  .dash-action.info{ background: #14171C !important; border-color: #242A32 !important; color: #F4F6F8 !important; }
+  .payout-msg.info{ background: #14171C !important; border-color: #242A32 !important; color: #F4F6F8 !important; }
+  button.secondary{ background: #14171C !important; border-color: #242A32 !important; color: #F4F6F8 !important; }
+  button.secondary:hover{ background: #14171C !important; border-color:#C5CAD2 !important; }
+  .link-chip{ color: #F4F6F8 !important; background: #14171C !important; }
+  .status-pill, .status-pill.open{ background: #14171C !important; color: #F4F6F8 !important; }
   .detailer-card.featured{ background:linear-gradient(135deg,#FFFFFF,#F1F2F5) !important; }
+</style>
+<style>
+  /* ===== BRAND V4 — "OBSIDIAN / RED" (final theme layer; MUST stay last in head) =====
+     Full dark app with a single disciplined brand-red accent. Modeled on
+     Netflix (near-black + one red accent), Uber (functional hero), Spotify
+     (bold type, card grid). Overrides the Midnight Chrome layer above. */
+  :root{
+    --o-bg:#0A0B0D; --o-bg2:#101216; --o-card:#14171C; --o-card2:#181C22;
+    --o-line:#242A32; --o-text:#F4F6F8; --o-muted:#9AA3AF; --o-dim:#6B7280;
+    --o-red:#E5322D; --o-red2:#F5453F; --o-redglow:rgba(229,50,45,.4);
+    --bg:var(--o-bg); --ring:rgba(229,50,45,.35);
+    --accent-grad:linear-gradient(135deg,var(--o-red),var(--o-red2));
+  }
+  html,body{ background:var(--o-bg) !important; color:var(--o-text) !important; font-family:'Outfit','Inter',-apple-system,BlinkMacSystemFont,sans-serif !important; }
+  body::before{ background:radial-gradient(1100px circle at 85% -5%, rgba(229,50,45,.05), transparent 60%), var(--o-bg) !important; }
+  ::selection{ background:rgba(229,50,45,.35); color:#fff; }
+  /* Modern sleek display type */
+  h1,h2,h3,h4,.logo,.stat-box .num,.trust-item strong,.hero h1,.section h2{
+    font-family:'Outfit','Inter',sans-serif !important; letter-spacing:-.02em !important; color:var(--o-text) !important; }
+  .hero h1{ font-weight:800 !important; letter-spacing:-.035em !important; }
+  p{ color:var(--o-muted); }
+  /* Logo: clean wordmark, no blocky mark */
+  .logo{ font-family:'Outfit','Inter',sans-serif !important; font-weight:800 !important; font-size:21px !important; letter-spacing:-.03em !important; gap:0 !important; }
+  .logo .car-icon{ display:inline-flex !important; margin-right:9px; }
+  .logo .radius{ color:var(--o-red) !important; }
+
+  /* header / nav */
+  header{ background:rgba(10,11,13,.86) !important; backdrop-filter:blur(12px); border-bottom:1px solid var(--o-line) !important; }
+  .logo, .logo span{ color:var(--o-text) !important; }
+  .logo .radius{ color:var(--o-red) !important; }
+  .tab-btn{ color:var(--o-muted) !important; }
+  .tab-btn:hover{ color:var(--o-text) !important; }
+  .tab-btn.active{ background:var(--o-text) !important; color:var(--o-bg) !important; border-color:transparent !important; box-shadow:none !important; }
+
+  /* hero */
+  .hero{ background:
+      radial-gradient(760px circle at 50% -12%, rgba(229,50,45,.20), transparent 62%),
+      linear-gradient(160deg,#0C0E12 0%,#0A0B0D 60%,#0E1013 100%) !important; }
+  .hero h1{ color:var(--o-text) !important; }
+  .hero p{ color:var(--o-muted) !important; }
+  .hero-eyebrow, .section-eyebrow{ color:var(--o-red2) !important; background:rgba(229,50,45,.1); border:1px solid rgba(229,50,45,.28); }
+  .section-eyebrow{ display:inline-block; padding:6px 13px; border-radius:999px; }
+
+  /* generic surfaces */
+  main, .how-section, body{ background:var(--o-bg) !important; }
+  .card, .step-card, .stat-box, .detailer-card, .job-card, .svc-panel,
+  .dash-card, .rev-item, .final-cta-inner, .modal-card, .dash-sidebar-inner{
+    background:var(--o-card) !important; border:1px solid var(--o-line) !important; color:var(--o-text) !important; }
+  .detailer-card.featured{ background:linear-gradient(135deg,#16191F,#101216) !important; border-color:rgba(229,50,45,.4) !important; }
+  .stat-box .num, .stat-box .num *{ color:var(--o-text) !important; }
+  .trust-item strong{ color:var(--o-text) !important; }
+  .trust-item{ color:var(--o-muted) !important; }
+  .step-card h3, .card h2, .card h3{ color:var(--o-text) !important; }
+  .how-section h2, .section-title, .final-cta-inner h2{ color:var(--o-text) !important; }
+
+  /* inputs */
+  input, select, textarea{ background:var(--o-bg2) !important; border:1px solid var(--o-line) !important; color:var(--o-text) !important; }
+  input::placeholder, textarea::placeholder{ color:var(--o-dim) !important; }
+  input:focus, select:focus, textarea:focus{ outline:2px solid rgba(229,50,45,.4) !important; border-color:var(--o-red) !important; }
+  label{ color:var(--o-muted) !important; }
+  select option{ background:#14171C; color:var(--o-text); }
+
+  /* buttons: primary actions = red */
+  .book-btn, a.cta, .btn-cta, button.primary, .accept-btn, .findbtn, .primary{
+    background:var(--o-red) !important; color:#fff !important; border:1px solid var(--o-red) !important;
+    box-shadow:0 10px 26px -12px var(--o-redglow) !important; }
+  .book-btn:hover, button.primary:hover, .accept-btn:hover{ background:var(--o-red2) !important; filter:none !important; }
+  .btn-cta{ background:var(--o-red) !important; }
+  .hero-cta .btn-cta{ background:var(--o-red) !important; color:#fff !important; }
+  .hero-cta .btn-ghost, .btn-ghost{ background:var(--o-card) !important; color:var(--o-text) !important; border:1px solid var(--o-line) !important; }
+  button.secondary{ background:var(--o-card2) !important; border:1px solid var(--o-line) !important; color:var(--o-text) !important; }
+  button.secondary:hover{ background:#1E232A !important; border-color:#2C333C !important; }
+  .delete-btn{ background:transparent !important; color:#F5453F !important; border:1px solid rgba(245,69,63,.4) !important; }
+
+  /* badges / chips / pills */
+  .badge.featured{ background:var(--o-red) !important; color:#fff !important; }
+  .badge.cert{ background:var(--o-card2) !important; color:var(--o-text) !important; border:1px solid var(--o-line) !important; }
+  .link-chip{ color:var(--o-text) !important; background:var(--o-card2) !important; border:1px solid var(--o-line) !important; }
+  .status-pill{ background:var(--o-card2) !important; color:var(--o-muted) !important; border:1px solid var(--o-line) !important; }
+  .status-pill.completed, .status-pill.accepted{ background:rgba(34,197,94,.14) !important; color:#4ADE80 !important; border-color:rgba(34,197,94,.3) !important; }
+  .status-pill.declined, .status-pill.cancelled{ background:rgba(148,163,184,.12) !important; color:#94A3B8 !important; }
+
+  /* messaging */
+  .msg-thread{ background:var(--o-bg2) !important; border:1px solid var(--o-line) !important; }
+  .msg-bubble.them{ background:var(--o-card2) !important; color:var(--o-text) !important; }
+  .msg-bubble.me{ background:var(--o-red) !important; color:#fff !important; }
+  .msg-who, .msg-time{ color:var(--o-dim) !important; }
+  .empty-msg{ color:var(--o-muted) !important; }
+
+  /* dashboard shell */
+  .dash-sidebar, .dash-sidebar-inner{ background:var(--o-bg2) !important; border-color:var(--o-line) !important; }
+  .dash-nav-link{ color:var(--o-muted) !important; }
+  .dash-nav-link:hover{ color:var(--o-text) !important; background:var(--o-card) !important; }
+  .dash-nav-link.active{ color:var(--o-text) !important; background:var(--o-card) !important; box-shadow:inset 3px 0 0 var(--o-red) !important; }
+  .dash-nav-link.active svg{ color:var(--o-red) !important; }
+  .earn-grid, .earn-tile{ background:var(--o-card) !important; border-color:var(--o-line) !important; color:var(--o-text) !important; }
+
+  /* tabs on service editor, filter chips */
+  .tab-content{ background:transparent !important; }
+  .faq-item{ border-color:var(--o-line) !important; }
+  .faq-q{ color:var(--o-text) !important; }
+  .faq-a{ color:var(--o-muted) !important; }
+
+  /* footer */
+  footer.site-footer{ background:#0C0E12 !important; border-top:1px solid var(--o-line) !important; }
+  footer.site-footer a{ color:var(--o-muted) !important; }
+  footer.site-footer a:hover{ color:var(--o-text) !important; }
+  .footer-bottom{ color:var(--o-dim) !important; }
+
+  /* modal backdrop */
+  .modal, .modal-backdrop{ background:rgba(5,6,8,.72) !important; }
+  .conn-msg{ background:var(--o-bg2) !important; color:var(--o-muted) !important; border-bottom:1px solid var(--o-line) !important; }
+
+  /* PWA install banner */
+  .install-banner{ background:var(--o-card) !important; border:1px solid var(--o-line) !important; color:var(--o-text) !important; }
+
+  /* --- contrast fixes: light-on-light survivors from older layers (high specificity) --- */
+  .earn-grid .earn-tile, .earn-tile.paid, .earn-tile.pipe, .earn-tile.fee, .earn-tile.net,
+  .setup-card, .onboard-card, .cal-cell.has-jobs, .data-table, .data-table th, .data-table td{
+    background:var(--o-card) !important; color:var(--o-text) !important; border-color:var(--o-line) !important; }
+  .earn-tile .num, .earn-tile b, .earn-tile strong{ color:var(--o-text) !important; }
+  .earn-tile .lbl, .earn-tile span, .data-table th{ color:var(--o-muted) !important; }
+  .cal-cell{ color:var(--o-text) !important; }
+  .cal-cell.has-jobs{ background:rgba(229,50,45,.16) !important; color:#fff !important; border-color:rgba(229,50,45,.4) !important; }
+  .cal-cell.today{ outline:2px solid var(--o-red) !important; }
+  .data-table tr:nth-child(even) td{ background:var(--o-bg2) !important; }
+  /* review stars: gold, readable on dark (was near-black, invisible) */
+  .star, .stars, .rev-stars, .rating-star, .rating .on, .star.on{ color:#F5B301 !important; }
+  /* the amber tip/warning box: keep its own light styling but darken to fit */
+  .svc-tab{ color:var(--o-muted) !important; }
+  .svc-tab.active{ color:var(--o-text) !important; border-color:var(--o-red) !important; }
+  /* muted status text used across dashboards */
+  .muted, .sub, .hint, .note-text, small{ color:var(--o-muted) !important; }
 </style>
 </head>
 <body>
@@ -931,11 +1064,11 @@
 <header>
   <div class="logo">
     <span class="car-icon" aria-hidden="true">
-      <svg width="26" height="26" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M11 9 H24 A15.5 15.5 0 0 1 24 40 H11 Z M17 15 V34 H24 A9.5 9.5 0 0 0 24 15 Z" fill="#C9CDD6"/>
-        <path d="M33 6.2 A6.8 6.8 0 0 1 39.8 13" stroke="#C9CDD6" stroke-width="2.6" fill="none" stroke-linecap="round" opacity=".8"/>
-        <path d="M33 1.8 A11.2 11.2 0 0 1 44.2 13" stroke="#C9CDD6" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".45"/>
-        <circle cx="33" cy="13" r="2.9" fill="#FFFFFF"/>
+      <svg width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="44" height="44" rx="13" fill="#E5322D"/>
+        <circle cx="24" cy="24" r="4.4" fill="#fff"/>
+        <path d="M24 24 A13 13 0 0 1 37 24" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" opacity=".9"/>
+        <path d="M24 24 A20 20 0 0 1 44 24" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5"/>
       </svg>
     </span>
     <span>Detail</span><span class="radius">Radius</span>
@@ -991,7 +1124,7 @@
           <input type="text" id="customerName" placeholder="Your name" autocomplete="name">
         </div>
         <div class="field">
-          <label>Your Email <span style="font-weight:500; color:#6B7280;">(required — how the detailer reaches you)</span></label>
+          <label>Your Email <span style="font-weight:500; color: #9AA3AF;">(required — how the detailer reaches you)</span></label>
           <input type="email" id="customerEmail" placeholder="you@example.com" autocomplete="email" inputmode="email" required aria-required="true">
         </div>
         <div class="field">
@@ -1029,14 +1162,14 @@
       </div>
 
       <div class="field" style="margin-bottom:14px;">
-        <label>Referral code (optional) <span style="font-weight:400; color:#5f6b7d;">— friend gave you one? You get $10 off your final balance.</span></label>
+        <label>Referral code (optional) <span style="font-weight:400; color: #9AA3AF;">— friend gave you one? You get $10 off your final balance.</span></label>
         <input type="text" id="refCode" placeholder="e.g. DR-A7K2" autocomplete="off" style="text-transform:uppercase;">
         <div id="refCodeMsg" style="display:none; font-size:12.5px; margin-top:5px;"></div>
       </div>
 
       <label style="display:flex;align-items:flex-start;gap:8px;margin:4px 0 14px;font-size:0.92em;line-height:1.4;text-align:left;cursor:pointer;">
         <input type="checkbox" id="agreeTerms" style="width:18px;height:18px;min-width:18px;margin:2px 0 0;flex:0 0 auto;">
-        <span style="flex:1 1 auto;">I agree to the <a href="#" onclick="showTerms(event)" style="color:#1C232C;text-decoration:underline;">Terms &amp; Conditions</a>, and I understand a deposit is charged now to confirm my booking (the balance is due after the service).</span>
+        <span style="flex:1 1 auto;">I agree to the <a href="#" onclick="showTerms(event)" style="color: #F4F6F8;text-decoration:underline;">Terms &amp; Conditions</a>, and I understand a deposit is charged now to confirm my booking (the balance is due after the service).</span>
       </label>
 
       <button class="primary" onclick="searchDetailers()">Search Detailers</button>
@@ -1046,7 +1179,7 @@
       <h2>Available Detailers</h2>
       <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
         <button class="secondary" onclick="findMyLocation()">📍 Use My Location (sort by distance)</button>
-        <label for="sortBy" style="font-size:12.5px; font-weight:700; color:#3B4351; margin-left:auto;">Sort</label>
+        <label for="sortBy" style="font-size:12.5px; font-weight:700; color: #F4F6F8; margin-left:auto;">Sort</label>
         <select id="sortBy" onchange="searchDetailers()" style="width:auto; font-size:13px;">
           <option value="best">Featured first</option>
           <option value="distance">Closest first</option>
@@ -1061,7 +1194,7 @@
 
     <div class="card">
       <h2>Need a Custom Quote?</h2>
-      <p style="font-size:13px; color:#666; margin-bottom:12px;">Got something unusual — heavy pet hair, deep stains, a bigger vehicle? Ask a detailer directly instead of booking a fixed price.</p>
+      <p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Got something unusual — heavy pet hair, deep stains, a bigger vehicle? Ask a detailer directly instead of booking a fixed price.</p>
       <div class="form-grid">
         <div class="field"><label>Detailer</label><select id="quoteDetailer"><option value="">Choose a detailer</option></select></div>
         <div class="field"><label>Vehicle</label><input type="text" id="quoteVehicle" placeholder="e.g. 2018 Suburban"></div>
@@ -1072,7 +1205,7 @@
         <label>Describe what you need</label>
         <textarea id="quoteDescription" rows="3" placeholder="Tell them what's going on with your vehicle..."></textarea>
       </div>
-      <button class="primary" onclick="submitQuote()">Request a Quote</button>
+      <button class="primary" onclick="submitQuote(this)">Request a Quote</button>
       <div id="quoteMsg" style="margin-top:8px; font-size:13px;"></div>
     </div>
 
@@ -1087,7 +1220,7 @@
 
     <div class="card">
       <h2>My Bookings</h2>
-      <p style="font-size:13px; color:#666; margin-bottom:12px;">Check your booking status and message your detailer directly.</p>
+      <p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Check your booking status and message your detailer directly.</p>
       <div class="form-grid">
         <div class="field"><label>Your Email</label><input type="email" id="checkBookingEmail"></div>
         <div class="field" style="align-self:end;"><button class="secondary" onclick="checkMyBookings()">Check My Bookings</button></div>
@@ -1263,7 +1396,7 @@
       <a href='/terms'>Terms</a>
     </nav>
   </div>
-  <div class="footer-cities" style="max-width:1080px; margin:0 auto; padding:14px 24px 4px; font-size:12.5px; line-height:2; color:#8A93A3;">
+  <div class="footer-cities" style="max-width:1080px; margin:0 auto; padding:14px 24px 4px; font-size:12.5px; line-height:2; color: #9AA3AF;">
     <strong style="display:block; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:#AEB6C2; margin-bottom:4px;">Mobile detailing near you</strong>
     <a href='/mobile-detailing-chicago-il'>Chicago</a> · <a href='/mobile-detailing-springfield-il'>Springfield</a> · <a href='/mobile-detailing-peoria-il'>Peoria</a> · <a href='/mobile-detailing-rockford-il'>Rockford</a> · <a href='/mobile-detailing-decatur-il'>Decatur</a> · <a href='/mobile-detailing-dallas-tx'>Dallas</a> · <a href='/mobile-detailing-houston-tx'>Houston</a> · <a href='/mobile-detailing-phoenix-az'>Phoenix</a> · <a href='/mobile-detailing-los-angeles-ca'>Los Angeles</a> · <a href='/mobile-detailing-san-diego-ca'>San Diego</a> · <a href='/mobile-detailing-atlanta-ga'>Atlanta</a> · <a href='/mobile-detailing-miami-fl'>Miami</a> · <a href='/mobile-detailing-tampa-fl'>Tampa</a> · <a href='/mobile-detailing-orlando-fl'>Orlando</a> · <a href='/mobile-detailing-charlotte-nc'>Charlotte</a> · <a href='/mobile-detailing-nashville-tn'>Nashville</a> · <a href='/mobile-detailing-denver-co'>Denver</a> · <a href='/mobile-detailing-seattle-wa'>Seattle</a> · <a href='/mobile-detailing-las-vegas-nv'>Las Vegas</a> · <a href='/mobile-detailing-st-louis-mo'>St. Louis</a>
   </div>
@@ -1278,6 +1411,16 @@
   const SUPABASE_KEY = 'sb_publishable_pYFsa-rOViOifoGLrRSPiQ_e9-KAfd4';
   const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
   const BACKEND_URL = 'https://detailradius-backend.netlify.app/.netlify/functions';
+  // Builds request headers including the Supabase session token, so the backend
+  // can verify the caller owns the detailer/job before moving any money.
+  async function authHeaders() {
+    const h = { 'Content-Type': 'application/json' };
+    try {
+      const { data } = await sb.auth.getSession();
+      if (data && data.session && data.session.access_token) h.Authorization = 'Bearer ' + data.session.access_token;
+    } catch (e) {}
+    return h;
+  }
 
   const DECATUR = [39.8403, -88.9548];
   const DAY_NAMES = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
@@ -1286,13 +1429,41 @@
   let myDetailer = null;
   let customerLat = null;
   var detailerAvailability = {};   // id -> {days,start,end} (filled when results render)
-  // Plan-based platform fee: free = 5% (keep 95%), Pro members = 3% (keep 97%).
-  function myShare() { return (myDetailer && myDetailer.pro) ? 0.97 : 0.95; }
-  // Net payout estimate for one job: platform fee + card processing at cost
-  // (2.9% + 30\u00a2 per charge; a job is usually deposit + balance = 2 charges).
-  // Mirrors stripe-complete-job.js. Tips are never touched by fees.
-  function myNet(price) { price = +price || 0; return Math.max(0, price * myShare() - (price * 0.029 + 0.60)); }
-  function myFeePct() { return (myDetailer && myDetailer.pro) ? '3%' : '5%'; }
+  // Plan-based platform fee: free = 5% (keep 95%), Pro = 3% (keep 97%),
+  // founding detailers = 0% on their first 10 completed jobs. Mirrors
+  // stripe-complete-job.js so the dashboard numbers match the real payout.
+  function myFeeRate() {
+    if (myDetailer && myDetailer.founding) {
+      var used = (dashJobs || []).filter(function (j) { return j.payment_status === 'transferred'; }).length;
+      if (used < 10) return 0;
+    }
+    return (myDetailer && myDetailer.pro) ? 0.03 : 0.05;
+  }
+  function myShare() { return 1 - myFeeRate(); }
+  function myFeePct() { return Math.round(myFeeRate() * 100) + '%'; }
+  // Per-charge card-processing pass-through, at cost, in cents (matches backend).
+  function _procCents(c) { return c > 0 ? Math.round(c * 0.029) + 30 : 0; }
+  // Accurate net the detailer actually takes home for one job \u2014 mirrors
+  // stripe-complete-job.js: platform fee + card cost per charge, tips at 100%,
+  // and for cash-balance jobs the in-person cash counts toward their total.
+  // Accepts a job object (preferred) or a bare price number for legacy callers.
+  function myNet(job) {
+    if (typeof job === 'number') job = { price: job };
+    job = job || {};
+    var price = +job.price || 0;
+    if (price <= 0) return 0;
+    var deposit = +job.deposit_amount || Math.round(price * 0.25);
+    var tipCents = Math.max(0, Math.round((parseFloat(job.tip_amount) || 0) * 100));
+    var fee = myFeeRate();
+    var depCents = Math.round(deposit * 100);
+    var depTransfer = Math.max(0, Math.round(depCents * (1 - fee)) - _procCents(depCents));
+    var remCents = Math.round((price - deposit) * 100);
+    var cash = job.balance_method === 'cash' && job.payment_status !== 'fully_paid';
+    var remPart = cash
+      ? remCents                                                        // collected in person, 100% to detailer
+      : Math.max(0, Math.round(remCents * (1 - fee)) - _procCents(remCents));
+    return (depTransfer + remPart + tipCents) / 100;
+  }
   let customerLng = null;
   let custMapInstance = null;
   let custMarkersLayer = null;
@@ -1475,7 +1646,7 @@
       if (emailEl) emailEl.focus();
       return;
     }
-    msgEl.textContent = 'Sending reset link…'; msgEl.style.color = '#3B4351';
+    msgEl.textContent = 'Sending reset link…'; msgEl.style.color = '#9AA3AF';
     try {
       const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + '/' });
       if (error) { msgEl.innerHTML = friendlyAuthError(error, email); msgEl.style.color = '#b91c1c'; return; }
@@ -1517,7 +1688,7 @@
     container.innerHTML = `
       <div class="card">
         <h2>Set a New Password</h2>
-        <p style="font-size:13px; color:#5f6b7d; margin-bottom:12px;">You’re signed in from your reset link — choose a new password below.</p>
+        <p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">You’re signed in from your reset link — choose a new password below.</p>
         <div class="form-grid">
           <div class="field"><label for="newPw1">New password (6+ characters)</label><input type="password" id="newPw1" autocomplete="new-password"></div>
           <div class="field"><label for="newPw2">Repeat it</label><input type="password" id="newPw2" autocomplete="new-password"></div>
@@ -1573,8 +1744,8 @@
         <div class="card">
           <h2>Detailer Login</h2>
           <div style="display:flex; gap:8px; flex-wrap:wrap; margin:2px 0 14px;">
-            <span style="font-size:12px; font-weight:700; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; padding:5px 12px; border-radius:999px;">Free to list</span>
-            <span style="font-size:12px; font-weight:700; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; padding:5px 12px; border-radius:999px;">Keep 95% — 97% with Pro</span>
+            <span style="font-size:12px; font-weight:700; background: #14171C; border:1px solid #242A32; color: #F4F6F8; padding:5px 12px; border-radius:999px;">Free to list</span>
+            <span style="font-size:12px; font-weight:700; background: #14171C; border:1px solid #242A32; color: #F4F6F8; padding:5px 12px; border-radius:999px;">Keep 95% — 97% with Pro</span>
             <span style="font-size:12px; font-weight:700; background:#1C232C; color:#fff; padding:5px 12px; border-radius:999px;">Founding spots open in 15 metros</span>
           </div>
           <div class="form-grid">
@@ -1582,14 +1753,14 @@
             <div class="field"><label for="authPassword">Password</label>
               <div style="display:flex; gap:6px; align-items:stretch;">
                 <input type="password" id="authPassword" autocomplete="current-password" style="flex:1; min-width:0;" onkeydown="if(event.key==='Enter'){event.preventDefault(); this.closest('.card').querySelector('button.primary').click();}">
-                <button type="button" onclick="togglePwVisibility(this)" aria-label="Show password" style="flex:0 0 auto; font-size:12px; font-weight:700; padding:0 12px; border:1px solid #D5D9E0; border-radius:8px; background:#F1F2F5; color:#3B4351; cursor:pointer;">Show</button>
+                <button type="button" onclick="togglePwVisibility(this)" aria-label="Show password" style="flex:0 0 auto; font-size:12px; font-weight:700; padding:0 12px; border:1px solid #242A32; border-radius:8px; background: #14171C; color: #F4F6F8; cursor:pointer;">Show</button>
               </div>
             </div>
           </div>
           <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
             <button class="primary" onclick="handleLogin(this)">Log In</button>
             <button class="secondary" onclick="handleSignUp(this)">Sign Up</button>
-            <a href="#" onclick="handleForgotPassword(event)" style="font-size:13px; font-weight:600; color:#3B4351; margin-left:auto;">Forgot password?</a>
+            <a href="#" onclick="handleForgotPassword(event)" style="font-size:13px; font-weight:600; color: #F4F6F8; margin-left:auto;">Forgot password?</a>
           </div>
           <div id="authMsg" style="margin-top:10px; font-size:13px;"></div>
         </div>
@@ -1608,7 +1779,7 @@
       container.innerHTML = `
         <div class="card">
           <h2>Create Your Business Listing</h2>
-          <p style="font-size:13px; color:#666; margin-bottom:12px;">Logged in as ${currentUser.email}. Two fields and you're live — you can add services, photos, and hours right after.</p>
+          <p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Logged in as ${currentUser.email}. Two fields and you're live — you can add services, photos, and hours right after.</p>
           <div class="form-grid">
             <div class="field"><label>Business Name</label><input type="text" id="cName" placeholder="e.g. Ashton's Auto Detail"></div>
             <div class="field"><label>Starting Price ($)</label><input type="number" id="cPrice" placeholder="e.g. 150"></div>
@@ -1736,14 +1907,14 @@
           <h2 style="margin:0;">Get Paid</h2>
           <span id="payoutBadge" class="payout-badge checking">Checking…</span>
         </div>
-        <p id="payoutBlurb" style="font-size:13px; color:#666; margin:10px 0 12px;">
+        <p id="payoutBlurb" style="font-size:13px; color: #9AA3AF; margin:10px 0 12px;">
           Checking your payout status…
         </p>
         <div id="payoutMsg" class="payout-msg" style="display:none;"></div>
         <button class="primary" id="connectPayoutsBtn" onclick="connectPayouts()">Connect Payouts</button>
         <button class="secondary" id="viewEarningsBtn" style="margin-top:8px; width:100%; display:none;" onclick="viewMyEarnings()">View My Earnings</button>
       </div>
-      <div class="card" id="sec-pro" style="border:1px solid #D5D9E0; background:linear-gradient(180deg,#f8fbff, #fff);">
+      <div class="card" id="sec-pro" style="border:1px solid #242A32; background:linear-gradient(180deg,#f8fbff, #fff);">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
           <h2 style="margin:0;">DetailRadius Pro</h2>
           <span id="proBadge" style="display:none; background:linear-gradient(135deg,#2A313B,#0F1116); color:#fff; font-size:11px; font-weight:800; letter-spacing:.5px; padding:4px 10px; border-radius:999px;">PRO ACTIVE</span>
@@ -1762,14 +1933,14 @@
       </div>
       <div class="card" id="sec-photos">
         <h2>My Photos</h2>
-        <p style="font-size:13px; color:#666; margin-bottom:12px;">Real before/after shots of your own work — this is what shows up on the homepage.</p>
+        <p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Real before/after shots of your own work — this is what shows up on the homepage.</p>
         <div id="photoGallery" class="photo-grid"><div class="empty-msg">Loading...</div></div>
         <input type="file" id="photoUpload" accept="image/*" style="margin-top:6px; margin-bottom:10px;">
         <button class="primary" onclick="uploadPhoto(this)">Upload Photo</button>
       </div>
       <div class="card" id="sec-services">
         <h2>My Services &amp; Pricing</h2>
-        <p style="font-size:13px; color:#666; margin-bottom:12px;">Add each service you offer with its own price — anything from a Basic Wash up through Ceramic Coating and Paint Correction.</p>
+        <p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Add each service you offer with its own price — anything from a Basic Wash up through Ceramic Coating and Paint Correction.</p>
         <div id="servicesList"><div class="empty-msg">Loading...</div></div>
         <div class="form-grid" style="margin-top:14px;">
           <div class="field"><label>Service Name</label><input type="text" id="newSvcName" placeholder="e.g. Paint Correction"></div>
@@ -1779,16 +1950,16 @@
       </div>
       <div class="card" id="sec-share">
         <h2 style="margin-bottom:4px;">Your Booking Link</h2>
-        <p style="font-size:13px; color:#666; margin-bottom:12px;">Put this everywhere — Instagram bio, business cards, a QR sticker on your window. Customers land straight on YOUR profile and book.</p>
+        <p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Put this everywhere — Instagram bio, business cards, a QR sticker on your window. Customers land straight on YOUR profile and book.</p>
         <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start;">
           <div style="flex:1; min-width:240px;">
             <div style="display:flex; gap:8px;">
               <input type="text" id="myBookLink" readonly style="flex:1; font-size:13px;" onclick="this.select()">
               <button class="secondary" style="flex:0 0 auto;" onclick="copyMyBookLink(this)">Copy</button>
             </div>
-            <div style="font-size:12px; color:#5f6b7d; margin-top:8px;">The QR code goes to the same place — right-click it to save as an image for print.</div>
+            <div style="font-size:12px; color: #9AA3AF; margin-top:8px;">The QR code goes to the same place — right-click it to save as an image for print.</div>
           </div>
-          <div id="myBookQr" style="width:132px; height:132px; background:#fff; border:1px solid #E3E5E9; border-radius:10px; padding:6px; display:flex; align-items:center; justify-content:center;"><span style="font-size:11px; color:#94a3b8;">QR…</span></div>
+          <div id="myBookQr" style="width:132px; height:132px; background: #14171C; border:1px solid #E3E5E9; border-radius:10px; padding:6px; display:flex; align-items:center; justify-content:center;"><span style="font-size:11px; color:#94a3b8;">QR…</span></div>
         </div>
       </div>
       <div class="card" id="sec-profile">
@@ -1929,10 +2100,10 @@
     box.innerHTML =
       '<div style="display:flex; align-items:center; justify-content:space-between; font-size:13px; font-weight:700;">' +
       '<span>Profile strength</span><span style="color:' + color + ';">' + score + '%</span></div>' +
-      '<div style="background:#eef2f9; border-radius:999px; height:9px; margin:6px 0;">' +
+      '<div style="background: #14171C; border-radius:999px; height:9px; margin:6px 0;">' +
       '<div style="width:' + score + '%; height:9px; border-radius:999px; background:linear-gradient(90deg,#C9CDD6,#1C232C); transition:width .4s;"></div></div>' +
       (missing.length
-        ? '<div style="font-size:12.5px; color:#5f6b7d;">Boost it: ' + missing.map(m => m.tip).join(' · ') + '</div>'
+        ? '<div style="font-size:12.5px; color: #9AA3AF;">Boost it: ' + missing.map(m => m.tip).join(' · ') + '</div>'
         : '<div style="font-size:12.5px; color:#15803d;">✓ Complete profile — this is what gets you booked.</div>');
   }
 
@@ -1950,15 +2121,15 @@
 
     if (!isPro) {
       var row = function (label, free, pro) {
-        return '<tr><td style="padding:8px 10px; border-bottom:1px solid #eef2f9;">' + label + '</td>' +
-          '<td style="padding:8px 10px; border-bottom:1px solid #eef2f9; text-align:center; color:#64748b;">' + free + '</td>' +
-          '<td style="padding:8px 10px; border-bottom:1px solid #eef2f9; text-align:center; font-weight:700; color:#0f172a; background:#f8fafc;">' + pro + '</td></tr>';
+        return '<tr><td style="padding:8px 10px; border-bottom:1px solid #242A32;">' + label + '</td>' +
+          '<td style="padding:8px 10px; border-bottom:1px solid #242A32; text-align:center; color: #9AA3AF;">' + free + '</td>' +
+          '<td style="padding:8px 10px; border-bottom:1px solid #242A32; text-align:center; font-weight:700; color: #F4F6F8; background: #14171C;">' + pro + '</td></tr>';
       };
       box.innerHTML =
         '<p style="font-size:13.5px; color:#555; line-height:1.55; margin:0 0 12px;">Pro members pay <strong>3% instead of 5%</strong> and get the top spot in search. On a $200 job that\'s $4 back in your pocket — Pro pays for itself in about 5 jobs, before counting the extra bookings from being featured.</p>' +
         '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:13px; margin-bottom:12px;">' +
-        '<thead><tr><th style="text-align:left; padding:8px 10px; color:#5f6b7d;"></th>' +
-        '<th style="padding:8px 10px; color:#5f6b7d; font-weight:700;">Free</th>' +
+        '<thead><tr><th style="text-align:left; padding:8px 10px; color: #9AA3AF;"></th>' +
+        '<th style="padding:8px 10px; color: #9AA3AF; font-weight:700;">Free</th>' +
         '<th style="padding:8px 10px; background:linear-gradient(135deg,#2A313B,#0F1116); color:#fff; border-radius:8px 8px 0 0;">PRO — $19/mo</th></tr></thead><tbody>' +
         row('Platform fee per job', '5%', '<span style="font-size:15px;">3%</span>') +
         row('You keep', '95%', '<span style="font-size:15px;">97%</span>') +
@@ -1969,7 +2140,7 @@
         '</tbody></table></div>' +
         '<div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">' +
         '<button class="primary" onclick="upgradeToPro(this)">Go Pro — $19/mo, keep 97%</button>' +
-        '<span style="font-size:12px; color:#5f6b7d;">Cancel anytime. Fee drop applies to every job you complete while Pro.</span>' +
+        '<span style="font-size:12px; color: #9AA3AF;">Cancel anytime. Fee drop applies to every job you complete while Pro.</span>' +
         '</div>' +
         '<div id="proMsg" style="display:none; margin-top:10px; font-size:13px;"></div>';
     } else {
@@ -1980,11 +2151,11 @@
         '<div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">' +
         '<code style="font-size:12px; background:#f1f5f9; padding:7px 10px; border-radius:8px; word-break:break-all;">' + link + '</code>' +
         '<button class="secondary" style="width:auto;" onclick="copyProText(this, \'link\')">Copy link</button></div>' +
-        '<div style="font-size:12px; color:#5f6b7d; margin-top:5px;">Customers who open it land straight on your card, ready to book.</div></div>' +
+        '<div style="font-size:12px; color: #9AA3AF; margin-top:5px;">Customers who open it land straight on your card, ready to book.</div></div>' +
         '<div style="margin-bottom:12px;"><div style="font-weight:700; font-size:13.5px; margin-bottom:5px;">Review booster</div>' +
         '<button class="secondary" style="width:auto;" onclick="copyProText(this, \'review\')">Copy review request text</button>' +
-        '<div style="font-size:12px; color:#5f6b7d; margin-top:5px;">Paste it into a text to your customer right after you finish a job.</div></div>' +
-        '<div style="font-size:12px; color:#5f6b7d;">Manage or cancel: email <a href="mailto:ashtons.autodetail4@gmail.com">support</a> and we\'ll take care of it same-day.</div>' +
+        '<div style="font-size:12px; color: #9AA3AF; margin-top:5px;">Paste it into a text to your customer right after you finish a job.</div></div>' +
+        '<div style="font-size:12px; color: #9AA3AF;">Manage or cancel: email <a href="mailto:ashtons.autodetail4@gmail.com">support</a> and we\'ll take care of it same-day.</div>' +
         '<div id="proMsg" style="display:none; margin-top:10px; font-size:13px;"></div>';
     }
   }
@@ -1993,7 +2164,7 @@
     const el = document.getElementById('proMsg');
     if (!el) return;
     el.style.display = '';
-    el.style.color = kind === 'ok' ? '#15803d' : (kind === 'err' ? '#b91c1c' : '#475569');
+    el.style.color = kind === 'ok' ? '#15803d' : (kind === 'err' ? '#b91c1c' : '#9AA3AF');
     el.innerHTML = text;
   }
 
@@ -2005,11 +2176,11 @@
       const base = window.location.origin + window.location.pathname;
       const res = await fetch(BACKEND_URL + '/stripe-pro-subscribe', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await authHeaders(),
         body: JSON.stringify({
           action: 'create',
           detailerId: myDetailer.id,
-          successUrl: base + '?pro=success',
+          successUrl: base + '?pro=success&session_id={CHECKOUT_SESSION_ID}',
           cancelUrl: base + '?pro=cancelled'
         })
       });
@@ -2041,7 +2212,7 @@
       try {
         const res = await fetch(BACKEND_URL + '/stripe-pro-subscribe', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: await authHeaders(),
           body: JSON.stringify({ action: 'verify', detailerId: myDetailer.id, sessionId: sessionId })
         });
         const data = await res.json();
@@ -2054,6 +2225,21 @@
         }
       } catch (err) {
         setProMsg('Couldn’t verify just now — refresh in a minute. If you paid, your Pro will activate automatically.', 'info');
+      }
+    } else if (proStatus === 'success') {
+      // No session_id came back (older link / redirect quirk) — re-read Pro state
+      // from the DB so the detailer still sees confirmation instead of silence.
+      setProMsg('Confirming your Pro subscription…', 'info');
+      try {
+        const { data: fresh } = await sb.from('detailers').select('pro').eq('id', myDetailer.id).single();
+        if (fresh && fresh.pro) {
+          myDetailer.pro = true; renderProCard();
+          setProMsg('&#10003; Welcome to Pro! You’re now featured at the top of search.', 'ok');
+        } else {
+          setProMsg('Payment received — your Pro upgrade will activate in a moment. Refresh if it doesn’t show shortly.', 'info');
+        }
+      } catch (e) {
+        setProMsg('Payment received — your Pro upgrade will activate shortly.', 'info');
       }
     }
   }
@@ -2121,10 +2307,22 @@
 
   async function saveMyListing() {
     const msgEl = document.getElementById('editMsg');
+    const name = document.getElementById('eName').value.trim();
+    const priceRaw = document.getElementById('ePrice').value;
+    const price = parseInt(priceRaw);
+    // Validate: an empty name or price would render broken cards to customers.
+    if (!name) { msgEl.textContent = 'Add your business name before saving.'; msgEl.style.color = '#b91c1c'; return; }
+    if (!priceRaw || isNaN(price) || price <= 0) { msgEl.textContent = 'Enter a valid starting price (a number above 0).'; msgEl.style.color = '#b91c1c'; return; }
+    // Validate any social/map URLs so a typo doesn't save a broken/blocked link.
+    const urlFields = { eGoogleUrl: 'Google', eInstagram: 'Instagram', eFacebook: 'Facebook', eTiktok: 'TikTok' };
+    for (const id in urlFields) {
+      const v = document.getElementById(id).value.trim();
+      if (v && !/^https?:\/\//i.test(v)) { msgEl.textContent = urlFields[id] + ' link must start with http:// or https:// (or leave it blank).'; msgEl.style.color = '#b91c1c'; return; }
+    }
     const days = DAY_NAMES.filter(d => document.getElementById('day-' + d).checked).join(',');
     const updated = {
-      name: document.getElementById('eName').value.trim(),
-      price: parseInt(document.getElementById('ePrice').value),
+      name: name,
+      price: price,
       service_area: document.getElementById('eServiceArea').value.trim(),
       available_days: days,
       avail_start: document.getElementById('eAvailStart').value,
@@ -2144,9 +2342,11 @@
       msgEl.textContent = 'Save failed: ' + error.message;
       msgEl.style.color = '#b91c1c';
     } else {
-      msgEl.textContent = 'Saved!';
+      // Patch local state and keep the inline confirmation — no full re-render,
+      // so the detailer isn't scrolled back to the top of the dashboard.
+      Object.assign(myDetailer, updated);
+      msgEl.textContent = 'Saved! ✓';
       msgEl.style.color = '#166534';
-      renderDetailerTab();
     }
   }
 
@@ -2188,7 +2388,7 @@
       try {
         const res = await fetch(BACKEND_URL + '/stripe-account-status', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: await authHeaders(),
           body: JSON.stringify({ detailerId: myDetailer.id })
         });
         data = await res.json();
@@ -2254,7 +2454,7 @@
     try {
       const res = await fetch(BACKEND_URL + '/stripe-connect-account', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await authHeaders(),
         body: JSON.stringify({ detailerId: myDetailer.id, returnUrl })
       });
       const data = await res.json().catch(() => ({}));
@@ -2280,7 +2480,7 @@
     try {
       const res = await fetch(BACKEND_URL + '/stripe-login-link', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await authHeaders(),
         body: JSON.stringify({ detailerId: myDetailer.id })
       });
       const data = await res.json();
@@ -2372,6 +2572,7 @@
   }
 
   async function deletePhoto(id) {
+    if (!confirm('Remove this photo from your listing?')) return;
     const { error } = await sb.from('photos').delete().eq('id', id);
     if (error) { alert('Could not remove: ' + error.message); return; }
     loadMyPhotos();
@@ -2429,7 +2630,7 @@
         <button class="btn-cta" onclick="scrollToBooking()">Find a Detailer <span>&rarr;</span></button>
         <button class="btn-ghost" onclick="scrollToHow()">How it works</button>
       </div>
-      <div style="margin-top:14px; font-size:12.5px; font-weight:600; color:#8A93A3; letter-spacing:.3px;">Free to book &nbsp;·&nbsp; No account needed &nbsp;·&nbsp; Secure Stripe deposits</div>
+      <div style="margin-top:14px; font-size:12.5px; font-weight:600; color: #9AA3AF; letter-spacing:.3px;">Free to book &nbsp;·&nbsp; No account needed &nbsp;·&nbsp; Secure Stripe deposits</div>
     `,
     detailer: `
       <div class="hero-eyebrow">For detailers · free to list</div>
@@ -2563,10 +2764,10 @@
     const sel = document.getElementById('quoteDetailer');
     if (!sel) return;
     sel.innerHTML = '<option value="">Choose a detailer</option>' +
-      list.map(d => `<option value="${d.id}">${d.name.replace(/"/g, '')}</option>`).join('');
+      list.map(d => `<option value="${d.id}">${escHtml(d.name)}</option>`).join('');
   }
 
-  async function submitQuote() {
+  async function submitQuote(btn) {
     const msgEl = document.getElementById('quoteMsg');
     const detailerId = document.getElementById('quoteDetailer').value;
     const vehicle = document.getElementById('quoteVehicle').value.trim();
@@ -2578,14 +2779,24 @@
       msgEl.style.color = '#b91c1c';
       return;
     }
+    // Guard against double-taps creating duplicate quote rows on slow connections.
+    var orig = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.textContent = 'Sending…'; }
     const { error } = await sb.from('quotes').insert([{
-      detailer_id: parseInt(detailerId), customer_name: name, customer_email: email, vehicle, description, status: 'pending'
+      detailer_id: parseInt(detailerId), customer_name: name, customer_email: email.toLowerCase(), vehicle, description, status: 'pending'
     }]);
-    if (error) { msgEl.textContent = 'Error: ' + error.message; msgEl.style.color = '#b91c1c'; return; }
+    if (error) {
+      msgEl.textContent = 'Error: ' + error.message; msgEl.style.color = '#b91c1c';
+      if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.textContent = orig; }
+      return;
+    }
     msgEl.textContent = 'Request sent! Check back here with your email, or they may reach out directly.';
     msgEl.style.color = '#166534';
     document.getElementById('quoteVehicle').value = '';
     document.getElementById('quoteDescription').value = '';
+    document.getElementById('quoteName').value = '';
+    document.getElementById('quoteEmail').value = '';
+    if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.textContent = orig; }
   }
 
   async function checkMyQuotes() {
@@ -2654,6 +2865,24 @@
     }
   }
 
+  // Resume an unpaid booking's deposit checkout (abandoned earlier).
+  async function resumeDeposit(jobId, btn) {
+    if (btn) { btn.disabled = true; btn.textContent = 'Starting…'; }
+    try {
+      const base = window.location.origin + window.location.pathname;
+      const res = await fetch(BACKEND_URL + '/stripe-checkout', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jobId: jobId, type: 'deposit', successUrl: base + '?booking=success&job=' + jobId, cancelUrl: base + '?booking=cancelled&job=' + jobId })
+      });
+      const data = await res.json().catch(function () { return {}; });
+      if (!data.url) throw new Error(data.error || 'Could not start checkout');
+      window.location.href = data.url;
+    } catch (e) {
+      if (btn) { btn.disabled = false; btn.textContent = 'Pay deposit to confirm'; }
+      alert('Payment could not start: ' + e.message);
+    }
+  }
+
   async function cancelMyBooking(jobId, email) {
     if (!confirm('Cancel this booking request? If you paid a deposit, message the detailer about a refund — cancelling before they accept usually means a full refund.')) return;
     const { error } = await sb.from('jobs').update({ status: 'cancelled' }).eq('id', jobId);
@@ -2663,11 +2892,11 @@
   }
 
   async function checkMyBookings() {
-    const email = document.getElementById('checkBookingEmail').value.trim();
+    const email = document.getElementById('checkBookingEmail').value.trim().toLowerCase();
     const el = document.getElementById('myBookingsList');
     if (!email) { el.innerHTML = '<div class="empty-msg">Enter your email first.</div>'; return; }
     el.innerHTML = '<div class="empty-msg">Checking...</div>';
-    const { data, error } = await sb.from('jobs').select('*, detailers(name)').eq('customer_email', email).order('created_at', { ascending: false });
+    const { data, error } = await sb.from('jobs').select('*, detailers(name)').ilike('customer_email', email).order('created_at', { ascending: false });
     if (error) { el.innerHTML = '<div class="empty-msg">Error: ' + error.message + '</div>'; return; }
     if (!data || data.length === 0) { el.innerHTML = '<div class="empty-msg">No bookings found for that email.</div>'; return; }
     const jobIds = data.map(j => j.id);
@@ -2678,19 +2907,24 @@
         <div class="top-row"><span>${escHtml(j.detailers ? j.detailers.name : 'Detailer')}</span><span>$${j.price}</span></div>
         <div class="details">${escHtml(j.vehicle)} &nbsp;•&nbsp; ${escHtml(j.service)}<br>${escHtml(j.date)}${j.requested_time ? ' · ' + escHtml(j.requested_time) : ''}</div>
         <div class="status-pill ${j.status}">${j.status}</div>
-        ${j.status !== 'declined' ? `<div style="font-size:12px; color:#666; margin:4px 0;">${paymentStatusLabel(j)}</div>` : ''}
+        ${j.status !== 'declined' ? `<div style="font-size:12px; color: #9AA3AF; margin:4px 0;">${paymentStatusLabel(j)}</div>` : ''}
+        ${((!j.payment_status || j.payment_status === 'pending_deposit') && j.status !== 'declined' && j.status !== 'cancelled') ? `
+          <div style="border:1px solid #FCD34D; background:#FFFBEB; border-radius:10px; padding:10px 12px; margin:8px 0; font-size:12.5px; color:#92400E;">
+            Your deposit isn't paid yet, so this booking isn't confirmed.
+            <div style="margin-top:6px;"><button class="primary" style="font-size:13px;" onclick="resumeDeposit(${j.id}, this)">Pay $${Math.round(j.price * 0.25)} deposit to confirm</button></div>
+          </div>` : ''}
         ${(j.payment_status === 'deposit_paid' && (j.price - (j.deposit_amount || 0)) > 0 && j.status !== 'declined' && j.status !== 'cancelled') ? (j.balance_method === 'cash' ? `
-          <div style="border:1px solid #D5D9E0; background:#F4F5F7; border-radius:10px; padding:10px 12px; margin:8px 0; font-size:12.5px; color:#1C232C;">
+          <div style="border:1px solid #242A32; background: #14171C; border-radius:10px; padding:10px 12px; margin:8px 0; font-size:12.5px; color: #F4F6F8;">
             \ud83d\udcb5 <b>You're paying the $${j.price - (j.deposit_amount || 0)} balance in cash</b> at your appointment — nothing more to do online.
-            <div style="margin-top:5px;"><a href="#" onclick="chooseBalanceMethod(${j.id}, 'card'); return false;" style="font-size:12px; font-weight:700; color:#1C232C;">Changed your mind? Pay by card instead</a></div>
+            <div style="margin-top:5px;"><a href="#" onclick="chooseBalanceMethod(${j.id}, 'card'); return false;" style="font-size:12px; font-weight:700; color: #F4F6F8;">Changed your mind? Pay by card instead</a></div>
           </div>` : `
-          <div style="border:1px solid #D5D9E0; background:#F4F5F7; border-radius:10px; padding:10px 12px; margin:8px 0;">
-            <div style="font-size:12.5px; font-weight:700; color:#1C232C; margin-bottom:6px;">Add a tip for your detailer? <span style="font-weight:500; color:#6B7280;">(they keep 100%)</span></div>
+          <div style="border:1px solid #242A32; background: #14171C; border-radius:10px; padding:10px 12px; margin:8px 0;">
+            <div style="font-size:12.5px; font-weight:700; color: #F4F6F8; margin-bottom:6px;">Add a tip for your detailer? <span style="font-weight:500; color: #9AA3AF;">(they keep 100%)</span></div>
             <div style="display:flex; gap:5px; flex-wrap:wrap; margin-bottom:8px;">
-              ${[0, 0.15, 0.20, 0.25].map(p => `<button class="secondary tip-chip" data-job="${j.id}" data-tip="${p === 0 ? 0 : Math.round((j.price - (j.deposit_amount || 0)) * p)}" style="font-size:12px; padding:5px 11px;" onclick="pickTip(this)">${p === 0 ? 'No tip' : Math.round(p * 100) + '% ($' + Math.round((j.price - (j.deposit_amount || 0)) * p) + ')'}</button>`).join('')}
+              ${[0, 0.15, 0.20, 0.25].map(p => `<button class="secondary tip-chip" data-job="${j.id}" data-tip="${p === 0 ? 0 : Math.round(j.price * p)}" style="font-size:12px; padding:5px 11px;" onclick="pickTip(this)">${p === 0 ? 'No tip' : Math.round(p * 100) + '% ($' + Math.round(j.price * p) + ')'}</button>`).join('')}
             </div>
             <button class="primary" style="font-size:13px;" onclick="payMyBalance(${j.id}, this)">Pay balance ($${j.price - (j.deposit_amount || 0)}<span id="tipNote-${j.id}"></span>)</button>
-            <div style="font-size:12px; color:#6B7280; margin-top:7px;">Prefer cash? <a href="#" onclick="chooseBalanceMethod(${j.id}, 'cash'); return false;" style="font-weight:700; color:#1C232C;">Pay the balance in person \ud83d\udcb5</a></div>
+            <div style="font-size:12px; color: #9AA3AF; margin-top:7px;">Prefer cash? <a href="#" onclick="chooseBalanceMethod(${j.id}, 'cash'); return false;" style="font-weight:700; color: #F4F6F8;">Pay the balance in person \ud83d\udcb5</a></div>
           </div>`) : ''}
         ${j.status !== 'declined' ? `
           <div class="msg-thread" id="cmsgThread-${j.id}"></div>
@@ -2771,9 +3005,9 @@
     if (!data || data.length === 0) { el.innerHTML = '<div class="empty-msg">No quote requests yet.</div>'; return; }
     el.innerHTML = data.map(q => `
       <div class="job-card">
-        <div class="top-row"><span>${q.customer_name}</span><span>${q.vehicle || ''}</span></div>
-        <div class="details">${q.description}<br>Contact: ${q.customer_email}</div>
-        <div class="status-pill ${q.status === 'quoted' ? 'completed' : 'open'}">${q.status}</div>
+        <div class="top-row"><span>${escHtml(q.customer_name)}</span><span>${escHtml(q.vehicle || '')}</span></div>
+        <div class="details">${escHtml(q.description)}<br>Contact: ${escHtml(q.customer_email)}</div>
+        <div class="status-pill ${q.status === 'quoted' ? 'completed' : 'open'}">${escHtml(q.status)}</div>
         ${q.status === 'pending' ? `
           <div class="form-grid" style="margin-top:10px;">
             <div class="field"><label>Your Price ($)</label><input type="number" id="qPrice-${q.id}"></div>
@@ -2827,6 +3061,7 @@
   }
 
   async function deleteService(id) {
+    if (!confirm('Remove this service from your pricing?')) return;
     const { error } = await sb.from('services').delete().eq('id', id);
     if (error) { alert('Could not remove: ' + error.message); return; }
     loadServices();
@@ -2842,11 +3077,11 @@
     const firstDay = new Date(year, month, 1);
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const startOffset = firstDay.getDay();
-    const todayStr = now.toISOString().split('T')[0];
+    const todayStr = localDateStr(now);
 
     const jobsByDate = {};
     jobs.forEach(j => {
-      if (!j.date || j.status === 'declined') return;
+      if (!j.date || j.status === 'declined' || j.status === 'cancelled') return;
       jobsByDate[j.date] = (jobsByDate[j.date] || 0) + 1;
     });
 
@@ -2861,7 +3096,7 @@
     }
 
     el.innerHTML = `
-      <div style="font-weight:700; margin-bottom:8px; color:#1C232C;">${monthName}</div>
+      <div style="font-weight:700; margin-bottom:8px; color: #F4F6F8;">${monthName}</div>
       <div class="cal-grid">
         ${['S', 'M', 'T', 'W', 'T', 'F', 'S'].map(d => '<div class="cal-head">' + d + '</div>').join('')}
         ${cells}
@@ -2880,22 +3115,34 @@
       ['open', 'New requests', count(function (j) { return j.status === 'open'; })],
       ['accepted', 'In progress', count(function (j) { return j.status === 'accepted'; })],
       ['completed', 'Completed', count(function (j) { return j.status === 'completed'; })],
+      ['cancelled', 'Cancelled', count(function (j) { return j.status === 'cancelled'; })],
       ['all', 'All', data.length]
     ];
     row.innerHTML = defs.map(function (d) {
       var on = jobsFilter === d[0];
       return '<button class="secondary" style="font-size:12px; padding:6px 12px;' +
-        (on ? ' background:#1C232C !important; color:#fff !important; border-color:#1C232C !important;' : '') +
+        (on ? ' background:#1C232C !important; color:#fff !important; border-color: #F4F6F8 !important;' : '') +
         '" onclick="setJobsFilter(\'' + d[0] + '\')">' + d[1] + (d[2] ? ' (' + d[2] + ')' : '') + '</button>';
     }).join('');
+  }
+
+  // A job counts as "real" once its deposit is paid (or it's further along).
+  // Jobs still in pending_deposit are abandoned/incomplete checkouts.
+  function isRealJob(j) {
+    return j && j.payment_status && j.payment_status !== 'pending_deposit';
   }
 
   async function loadJobsFeed() {
     const el = document.getElementById('jobsFeed');
     if (!el || !myDetailer) return;
     el.innerHTML = '<div class="empty-msg">Loading...</div>';
-    const { data: allData, error } = await sb.from('jobs').select('*').eq('detailer_id', myDetailer.id).order('created_at', { ascending: false });
+    const { data: rawData, error } = await sb.from('jobs').select('*').eq('detailer_id', myDetailer.id).order('created_at', { ascending: false });
     if (error) { el.innerHTML = '<div class="empty-msg">Error loading jobs: ' + error.message + '</div>'; return; }
+
+    // Hide abandoned checkouts: a job whose deposit was never paid isn't a real
+    // booking yet — don't show it in the feed, counts, or calendar so detailers
+    // never chase a no-show. (isRealJob is shared by the analytics loader too.)
+    const allData = (rawData || []).filter(isRealJob);
 
     renderMiniCalendar(allData || []);
     renderJobsFilterRow(allData || []);
@@ -2905,7 +3152,7 @@
     if (jobsFilter === 'action') data = allData.filter(function (j) { return j.status === 'open' || j.status === 'accepted'; });
     else if (jobsFilter !== 'all') data = allData.filter(function (j) { return j.status === jobsFilter; });
     if (!data.length) {
-      el.innerHTML = '<div class="empty-msg">Nothing here right now' + (jobsFilter === 'action' ? ' — you\'re all caught up &#127881;' : '') + '. <a href="#" onclick="setJobsFilter(\'all\'); return false;" style="font-weight:700; color:#1C232C;">Show all jobs</a></div>';
+      el.innerHTML = '<div class="empty-msg">Nothing here right now' + (jobsFilter === 'action' ? ' — you\'re all caught up &#127881;' : '') + '. <a href="#" onclick="setJobsFilter(\'all\'); return false;" style="font-weight:700; color: #F4F6F8;">Show all jobs</a></div>';
       return;
     }
     el.innerHTML = data.map(j => `
@@ -2919,8 +3166,9 @@
           ${j.referral_code ? '<br><span style="color:#b45309;">🎁 Referral code <strong>' + escHtml(j.referral_code) + '</strong> — honor $10 off the final balance</span>' : ''}
         </div>
         <div class="status-pill ${j.status}">${j.status}</div><br>
-        ${j.status !== 'declined' ? `<div style="font-size:12px; color:#666; margin-bottom:6px;">${paymentStatusLabel(j)}</div>` : ''}
+        ${j.status !== 'declined' ? `<div style="font-size:12px; color: #9AA3AF; margin-bottom:6px;">${paymentStatusLabel(j)}</div>` : ''}
         ${j.status === 'open' ? `<button class="accept-btn" onclick="acceptJob(${j.id})">Accept</button> <button class="secondary" onclick="declineJob(${j.id})">Decline</button>` : ''}
+        ${j.status === 'declined' ? `<div style="font-size:12px; color: #9AA3AF; margin-bottom:6px;">You declined this request. <a href="#" onclick="reopenJob(${j.id}); return false;" style="font-weight:700; color: #F4F6F8;">Reopen it</a></div>` : ''}
         ${j.status === 'accepted' ? renderAcceptedJobActions(j) : ''}
         ${j.status !== 'declined' ? `
           <div class="msg-thread" id="msgThread-${j.id}"></div>
@@ -2932,7 +3180,7 @@
             <button class="secondary" onclick="sendMessage(${j.id}, 'detailer', 'msgInput-${j.id}', 'msgThread-${j.id}', 'detailer')">Send</button>
           </div>
         ` : ''}
-        <button class="delete-btn" onclick="deleteJob(${j.id})">Delete Booking</button>
+        ${(j.status === 'declined' || j.status === 'cancelled') ? `<button class="delete-btn" onclick="deleteJob(${j.id})">Delete Booking</button>` : ''}
       </div>
     `).join('');
 
@@ -2954,7 +3202,15 @@
   // quotes and angle-brackets so a crafted URL can't break out of the href attribute.
   function linkify(text) {
     const safe = escHtml(text);
-    return safe.replace(/(https?:\/\/[^\s"'<>]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#1C232C; font-weight:700; text-decoration:underline;">Pay Now →</a>');
+    // Only a real checkout link (our Stripe/backend domain) gets the bold "Pay Now"
+    // treatment; any other URL renders as its plain hostname so a normal link a
+    // detailer shares (photos, their site) never looks like a payment demand.
+    return safe.replace(/(https?:\/\/[^\s"'<>]+)/g, function (url) {
+      const isPay = /stripe\.com|checkout\.stripe|detailradius-backend|\/pay/i.test(url);
+      if (isPay) return '<a href="' + url + '" target="_blank" rel="noopener" style="color: #F4F6F8; font-weight:700; text-decoration:underline;">Pay Now →</a>';
+      let host = url; try { host = new URL(url).hostname.replace(/^www\./, ''); } catch (e) {}
+      return '<a href="' + url + '" target="_blank" rel="noopener" style="color: #F4F6F8; text-decoration:underline;">' + escHtml(host) + ' ↗</a>';
+    });
   }
 
   function fmtMsgTime(ts) {
@@ -2966,6 +3222,24 @@
       var t = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
       return sameDay ? t : (d.toLocaleDateString([], { month: 'short', day: 'numeric' }) + ' \u00b7 ' + t);
     } catch (e) { return ''; }
+  }
+
+  // Poll open message threads so replies appear without a manual refresh.
+  // Re-runs loadMessages for every thread currently on the page (customer +
+  // detailer). Only runs when the tab is visible to save battery/requests.
+  let _msgPollTimer = null;
+  function refreshOpenThreads() {
+    if (document.visibilityState !== 'visible') return;
+    document.querySelectorAll('[id^="cmsgThread-"]').forEach(el => {
+      const id = parseInt(el.id.replace('cmsgThread-', '')); if (id) loadMessages(id, el.id, 'customer');
+    });
+    document.querySelectorAll('[id^="msgThread-"]').forEach(el => {
+      const id = parseInt(el.id.replace('msgThread-', '')); if (id) loadMessages(id, el.id, 'detailer');
+    });
+  }
+  function startMsgPolling() {
+    if (_msgPollTimer) return;
+    _msgPollTimer = setInterval(refreshOpenThreads, 20000);
   }
 
   async function loadMessages(jobId, containerId, viewerRole, themName) {
@@ -2988,7 +3262,11 @@
       return (showName ? '<div class="msg-who">' + escHtml(who.split(' ')[0]) + '</div>' : '') +
         `<div class="msg-bubble ${isMe ? 'me' : 'them'}">${linkify(m.body)}<span class="msg-time">${fmtMsgTime(m.created_at)}</span></div>`;
     }).join('');
-    el.scrollTop = el.scrollHeight;
+    // Only auto-scroll to the newest message when the count actually grew, so a
+    // background poll doesn't yank the reader away from history they scrolled up to.
+    const prevCount = parseInt(el.dataset.msgCount || '0');
+    if (data.length > prevCount) el.scrollTop = el.scrollHeight;
+    el.dataset.msgCount = data.length;
   }
 
   // Anti–off-platform safeguard: DetailRadius only earns (and only protects the
@@ -3008,7 +3286,7 @@
     // $cashtags / payment handles
     clean = clean.replace(/\$[A-Za-z][A-Za-z0-9_]{2,}/g, function () { flagged = true; return '[hidden]'; });
     // Off-platform payment apps / phrases — flag (don't necessarily rewrite the word)
-    if (/\b(venmo|cash\s?app|cashapp|zelle|paypal|apple\s?pay|google\s?pay|text me|call me|my (cell|number)|off the app|outside the app|pay(ing)? cash)\b/i.test(text)) flagged = true;
+    if (/\b(venmo|cash\s?app|cashapp|zelle|paypal|apple\s?pay|google\s?pay|text me|call me|my (cell|number)|off the app|outside the app)\b/i.test(text)) flagged = true;
     return { clean: clean, flagged: flagged };
   }
 
@@ -3041,8 +3319,16 @@
   }
 
   async function declineJob(id) {
+    if (!confirm('Decline this booking request? The customer will be turned away. You can reopen it afterward if it was a mistake.')) return;
     const { error } = await sb.from('jobs').update({ status: 'declined' }).eq('id', id);
     if (error) { alert('Error declining job: ' + error.message); return; }
+    loadJobsFeed();
+    updateStats();
+  }
+
+  async function reopenJob(id) {
+    const { error } = await sb.from('jobs').update({ status: 'open' }).eq('id', id);
+    if (error) { alert('Could not reopen: ' + error.message); return; }
     loadJobsFeed();
     updateStats();
   }
@@ -3052,12 +3338,17 @@
   function renderAcceptedJobActions(j) {
     const remainderDue = j.price - (j.deposit_amount || 0);
     const fullyPaid = j.payment_status === 'fully_paid' || j.payment_status === 'transferred' || remainderDue <= 0;
+    // Mark Complete moves money, so it needs payouts connected. If they're not,
+    // show a link to connect instead of a button that would just error out.
+    const completeBtn = payoutReady()
+      ? `<button class="accept-btn" onclick="completeJob(${j.id}, this)">Mark Complete &amp; Get Paid</button>`
+      : `<button class="accept-btn" onclick="dashNav('getPaidCard')">Connect payouts to get paid →</button>`;
     // Customer chose cash for the balance: no payment request needed — collect
     // the cash on site and complete. The deposit share still pays out via Stripe.
     if (!fullyPaid && j.balance_method === 'cash' && j.payment_status === 'deposit_paid') {
       return `
-        <div style="font-size:12.5px; color:#1C232C; background:#F4F5F7; border:1px solid #D5D9E0; border-radius:10px; padding:8px 12px; margin-bottom:8px;">💵 Customer is paying the <b>$${remainderDue} balance in cash</b> on site — collect it, then mark complete.</div>
-        <button class="accept-btn" onclick="completeJob(${j.id}, this)">Mark Complete &amp; Get Paid</button>
+        <div style="font-size:12.5px; color: #F4F6F8; background: #14171C; border:1px solid #242A32; border-radius:10px; padding:8px 12px; margin-bottom:8px;">💵 Customer is paying the <b>$${remainderDue} balance in cash</b> on site — collect it, then mark complete.</div>
+        ${completeBtn}
       `;
     }
     if (!fullyPaid) {
@@ -3068,7 +3359,7 @@
         <button class="accept-btn" onclick="sendRemainderRequest(${j.id}, this)">Send Payment Request</button>
       `;
     }
-    return `<button class="accept-btn" onclick="completeJob(${j.id}, this)">Mark Complete &amp; Get Paid</button>`;
+    return completeBtn;
   }
 
   // Friendly one-line payment status shown on job cards for both detailer and customer.
@@ -3125,13 +3416,10 @@
       const job = (window._lastDashJobs || []).find(function (j) { return j.id === id; });
       if (job && job.price) {
         var cashJob = job.balance_method === 'cash' && job.payment_status !== 'fully_paid';
-        var cardBase = cashJob ? (job.deposit_amount || 0) : (+job.price || 0);
-        var est = cashJob
-          ? Math.round(Math.max(0, cardBase - (+job.price || 0) * (1 - myShare()) - (cardBase * 0.029 + 0.30)))
-          : Math.round(Math.max(0, cardBase * myShare() - (cardBase * 0.029 + 0.60)));
+        var est = Math.round(myNet(job));   // same math as the earnings tiles + backend
         payoutNote = cashJob
-          ? '\n\nAn estimated $' + est + ' (your share of the card deposit) transfers to your bank — plus the $' + Math.round((+job.price || 0) - (job.deposit_amount || 0)) + ' cash you collect on site.'
-          : '\n\nAn estimated $' + est + ' (your share after the ' + Math.round((1-myShare())*100) + '% platform fee and card processing) will be sent to your connected bank account.';
+          ? '\n\nAn estimated $' + est + ' total — your card-deposit share transfers to your bank, plus the $' + Math.round((+job.price || 0) - (job.deposit_amount || 0)) + ' cash you collect on site.'
+          : '\n\nAn estimated $' + est + ' (your share after the ' + myFeePct() + ' platform fee and card processing) will be sent to your connected bank account.';
       }
     } catch (e) {}
     if (!confirm('Mark this job complete?' + payoutNote + '\n\nThis closes the job and releases your payout — it can’t be undone.')) return;
@@ -3141,7 +3429,7 @@
     try {
       const res = await fetch(BACKEND_URL + '/stripe-complete-job', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await authHeaders(),
         body: JSON.stringify({ jobId: id })
       });
       const data = await res.json().catch(function () { return {}; });
@@ -3165,16 +3453,21 @@
   let dashSort = { col: 'date', dir: 'desc' };
   let dashPage = 0;
   let revChartInstance = null;
-  const escHtml = s => ('' + (s == null ? '' : s)).replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+  const escHtml = s => ('' + (s == null ? '' : s)).replace(/[<>&"']/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&#39;' }[c]));
+  // Only allow http(s) URLs into href/src attributes — blocks javascript:, data:, etc.
+  // Returns '' for anything unsafe so the caller can drop the link.
+  const safeUrl = u => { const s = ('' + (u == null ? '' : u)).trim(); return /^https?:\/\//i.test(s) ? s.replace(/"/g, '%22').replace(/</g, '%3C') : ''; };
 
   async function loadDashboardAnalytics() {
     if (!myDetailer) return;
-    const { data, error } = await sb.from('jobs').select('*').eq('detailer_id', myDetailer.id);
-    if (error || !data) return;
+    const { data: rawJobs, error } = await sb.from('jobs').select('*').eq('detailer_id', myDetailer.id);
+    if (error || !rawJobs) return;
+    // Exclude abandoned (unpaid) checkouts and cancelled jobs from every stat.
+    const data = rawJobs.filter(j => isRealJob(j) && j.status !== 'cancelled');
     dashJobs = data;
 
     const completed = data.filter(j => j.status === 'completed');
-    const revenue = completed.reduce((s, j) => s + myNet(j.price), 0);
+    const revenue = completed.reduce((s, j) => s + myNet(j), 0);
     const upcoming = data.filter(j => j.status === 'open' || j.status === 'accepted').length;
     const total = data.filter(j => j.status !== 'declined').length;
     const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
@@ -3193,7 +3486,7 @@
     data.forEach(j => {
       const k = (j.date || '').slice(0, 10);
       if (k in book && j.status !== 'declined') book[k] += (j.price || 0);
-      if (k in rev && j.status === 'completed') rev[k] += myNet(j.price);
+      if (k in rev && j.status === 'completed') rev[k] += myNet(j);
     });
     const labels = days.map(d => (d.getMonth() + 1) + '/' + d.getDate());
     var revSeries = days.map(function (d) { return rev[key(d)]; });
@@ -3205,8 +3498,8 @@
     data.forEach(function (j) {
       var ds = ('' + (j.date || '')).slice(0, 10); if (!ds) return;
       var dd = new Date(ds + 'T00:00:00'); var diff = Math.round((t0 - dd) / 86400000);
-      if (diff >= 0 && diff < 30) { if (j.status !== 'declined') curBook += (+j.price || 0); if (j.status === 'completed') curRev += myNet(j.price); }
-      else if (diff >= 30 && diff < 60) { if (j.status !== 'declined') prevBook += (+j.price || 0); if (j.status === 'completed') prevRev += myNet(j.price); }
+      if (diff >= 0 && diff < 30) { if (j.status !== 'declined') curBook += (+j.price || 0); if (j.status === 'completed') curRev += myNet(j); }
+      else if (diff >= 30 && diff < 60) { if (j.status !== 'declined') prevBook += (+j.price || 0); if (j.status === 'completed') prevRev += myNet(j); }
       if (diff <= 0 && diff >= -6 && (j.status === 'open' || j.status === 'accepted')) next7++;
     });
     var setH = function (id, html) { var e = document.getElementById(id); if (e) e.innerHTML = html; };
@@ -3451,9 +3744,9 @@
     var ym = localDateStr().slice(0, 7);
     jobs.forEach(function (j) {
       var price = +j.price || 0;
-      if (j.payment_status === 'transferred') { paidOut += myNet(price); fees += price - myNet(price); }
-      if (j.status === 'open' || j.status === 'accepted') pipeline += myNet(price);
-      if (j.status === 'completed' && ('' + (j.date || '')).indexOf(ym) === 0) monthNet += myNet(price);
+      if (j.payment_status === 'transferred') { paidOut += myNet(j); fees += price - myNet(j); }
+      if (j.status === 'open' || j.status === 'accepted') pipeline += myNet(j);
+      if (j.status === 'completed' && ('' + (j.date || '')).indexOf(ym) === 0) monthNet += myNet(j);
     });
     var money = function (n) { return '$' + Math.round(n).toLocaleString(); };
     // Tax set-aside guidance: independent detailers typically reserve ~25-30% of net
@@ -3480,12 +3773,12 @@
     '<div style="grid-column:1/-1; font-size:11.5px; color:#94a3b8; line-height:1.5; margin-top:4px;">' +
     'Tax set-aside is a planning estimate only (typical self-employment guidance), not tax advice — DetailRadius does not withhold taxes. ' +
     'Stripe issues your 1099-K when you meet IRS thresholds; talk to a tax professional about your situation.</div>' +
-    '<div style="grid-column:1/-1; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:12.5px; color:#3B4351; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:10px; padding:10px 14px;">' +
+    '<div style="grid-column:1/-1; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:12.5px; color: #F4F6F8; background: #14171C; border:1px solid #242A32; border-radius:10px; padding:10px 14px;">' +
     '<b>Tax Vault:</b> every payday, move <select onchange="setTaxRate(this.value)" style="width:auto; font-size:12.5px; padding:4px 8px;">' +
     [0, 0.20, 0.25, 0.30].map(function (r) { return '<option value="' + r + '"' + (Math.abs(r - taxRate) < 0.001 ? ' selected' : '') + '>' + Math.round(r * 100) + '%</option>'; }).join('') +
     '</select> of your payout into a separate savings account. The tile above is your running target — when tax season hits, the money is already sitting there. (We can\'t hold it for you — payouts are legally 100% yours the moment Stripe sends them.)</div>' +
     ((myDetailer && myDetailer.founding)
-      ? '<div style="grid-column:1/-1; font-size:12.5px; color:#3B4351; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:10px; padding:10px 14px;">👑 <b>Founding detailer:</b> your first 10 completed jobs pay out 100% — the platform fee is $0. Tiles show standard rates, so your actual payouts will be higher until job 11.</div>'
+      ? '<div style="grid-column:1/-1; font-size:12.5px; color: #F4F6F8; background: #14171C; border:1px solid #242A32; border-radius:10px; padding:10px 14px;">👑 <b>Founding detailer:</b> your first 10 completed jobs pay out 100% — the platform fee is $0. Tiles show standard rates, so your actual payouts will be higher until job 11.</div>'
       : '');
   }
 
@@ -3526,14 +3819,14 @@
       for (var i = 1; i <= 5; i++) stars += (i <= full ? '★' : '☆');
       var head = '<div class="rev-summary"><div class="rev-avg">' + avg.toFixed(1) + '</div>' +
         '<div><div class="rev-stars" aria-label="' + avg.toFixed(1) + ' out of 5 stars">' + stars + '</div>' +
-        '<div style="font-size:12.5px;color:#556074;margin-top:3px;">across ' + data.length + (data.length === 1 ? ' review' : ' reviews') + '</div></div></div>';
+        '<div style="font-size:12.5px;color: #9AA3AF;margin-top:3px;">across ' + data.length + (data.length === 1 ? ' review' : ' reviews') + '</div></div></div>';
       var items = data.filter(function (r) { return r.comment; }).slice(0, 3).map(function (r) {
         var em = ('' + (r.customer_email || '')).split('@')[0] || 'Customer';
         var rs = ''; for (var i = 1; i <= 5; i++) rs += (i <= (+r.rating || 0) ? '★' : '☆');
-        return '<div class="rev-item"><div class="rev-head"><span style="color:#1C232C;letter-spacing:1px;">' + rs + '</span><span>' + escHtml(em) + ' · ' + escHtml(('' + (r.created_at || '')).slice(0, 10)) + '</span></div>' +
+        return '<div class="rev-item"><div class="rev-head"><span style="color: #F4F6F8;letter-spacing:1px;">' + rs + '</span><span>' + escHtml(em) + ' · ' + escHtml(('' + (r.created_at || '')).slice(0, 10)) + '</span></div>' +
           '<div class="rev-body">' + escHtml(r.comment) + '</div></div>';
       }).join('');
-      el.innerHTML = head + (items || '<div style="font-size:13px;color:#556074;">No written comments yet — your star ratings are shown above.</div>');
+      el.innerHTML = head + (items || '<div style="font-size:13px;color: #9AA3AF;">No written comments yet — your star ratings are shown above.</div>');
     } catch (e) {
       el.innerHTML = '<div class="empty-msg">Could not load reviews right now.</div>';
     }
@@ -3664,10 +3957,11 @@
   // ---------- CUSTOMER SIDE ----------
   function buildLinkChips(d) {
     const links = [];
-    if (d.google_maps_url) links.push(`<a href="${d.google_maps_url}" target="_blank" rel="noopener" class="link-chip">Google Reviews</a>`);
-    if (d.instagram_url) links.push(`<a href="${d.instagram_url}" target="_blank" rel="noopener" class="link-chip">Instagram</a>`);
-    if (d.facebook_url) links.push(`<a href="${d.facebook_url}" target="_blank" rel="noopener" class="link-chip">Facebook</a>`);
-    if (d.tiktok_url) links.push(`<a href="${d.tiktok_url}" target="_blank" rel="noopener" class="link-chip">TikTok</a>`);
+    const g = safeUrl(d.google_maps_url), ig = safeUrl(d.instagram_url), fb = safeUrl(d.facebook_url), tk = safeUrl(d.tiktok_url);
+    if (g) links.push(`<a href="${g}" target="_blank" rel="noopener" class="link-chip">Google Reviews</a>`);
+    if (ig) links.push(`<a href="${ig}" target="_blank" rel="noopener" class="link-chip">Instagram</a>`);
+    if (fb) links.push(`<a href="${fb}" target="_blank" rel="noopener" class="link-chip">Facebook</a>`);
+    if (tk) links.push(`<a href="${tk}" target="_blank" rel="noopener" class="link-chip">TikTok</a>`);
     if (links.length === 0) return '';
     return `<div class="link-chip-row">${links.join('')}</div>`;
   }
@@ -3796,10 +4090,10 @@
       };
       var filtered = list.filter(matches);
       if (filtered.length) {
-        if (filtered.length < list.length) svcFilterNote = '<div style="font-size:12.5px; color:#3B4351; margin-bottom:10px;">Showing detailers offering <b>' + kw + '</b> services — <a href="#" onclick="document.getElementById(\'serviceType\').value=\'both\'; searchDetailers(); return false;" style="color:#1C232C; font-weight:700;">show everyone</a></div>';
+        if (filtered.length < list.length) svcFilterNote = '<div style="font-size:12.5px; color: #F4F6F8; margin-bottom:10px;">Showing detailers offering <b>' + kw + '</b> services — <a href="#" onclick="document.getElementById(\'serviceType\').value=\'both\'; searchDetailers(); return false;" style="color: #F4F6F8; font-weight:700;">show everyone</a></div>';
         list = filtered;
       } else {
-        svcFilterNote = '<div style="font-size:12.5px; color:#3B4351; margin-bottom:10px;">No detailers list a dedicated ' + kw + ' service nearby — showing everyone instead.</div>';
+        svcFilterNote = '<div style="font-size:12.5px; color: #F4F6F8; margin-bottom:10px;">No detailers list a dedicated ' + kw + ' service nearby — showing everyone instead.</div>';
       }
     }
 
@@ -3811,16 +4105,16 @@
       list.forEach(d => { if (d.distance !== null && (nearest === null || d.distance < nearest)) nearest = d.distance; });
       if (nearest === null || nearest > NEAR_MI) {
         waitlistHtml =
-          '<div class="card" style="border:1px solid #D5D9E0; background:linear-gradient(135deg,#F4F5F7,#ECEDF0); margin-bottom:14px;">' +
-          '<div style="font-weight:800; font-size:15.5px; color:#0F1116;">DetailRadius hasn\'t reached your area yet' + (nearest !== null ? ' — closest pro is ' + nearest.toFixed(0) + ' mi away' : '') + '</div>' +
-          '<p style="font-size:13px; color:#3B4351; margin:6px 0 10px; line-height:1.5;">Drop your email and we\'ll let you know the moment a vetted detailer covers your neighborhood. Know a great local detailer? Send them our way — founding detailers get featured placement.</p>' +
+          '<div class="card" style="border:1px solid #242A32; background:linear-gradient(135deg,#F4F5F7,#ECEDF0); margin-bottom:14px;">' +
+          '<div style="font-weight:800; font-size:15.5px; color: #F4F6F8;">DetailRadius hasn\'t reached your area yet' + (nearest !== null ? ' — closest pro is ' + nearest.toFixed(0) + ' mi away' : '') + '</div>' +
+          '<p style="font-size:13px; color: #F4F6F8; margin:6px 0 10px; line-height:1.5;">Drop your email and we\'ll let you know the moment a vetted detailer covers your neighborhood. Know a great local detailer? Send them our way — founding detailers get featured placement.</p>' +
           '<div style="display:flex; gap:8px; flex-wrap:wrap;">' +
           '<input type="email" id="wlEmail" placeholder="you@example.com" style="flex:2; min-width:180px;">' +
           '<input type="text" id="wlCity" placeholder="Your city / ZIP" style="flex:1; min-width:120px;">' +
           '<button class="primary" style="flex:0 0 auto;" onclick="joinWaitlist(this)">Notify me</button>' +
           '</div>' +
           '<div id="wlMsg" style="font-size:12.5px; font-weight:700; margin-top:8px;"></div>' +
-          '<div style="font-size:12px; margin-top:8px;"><a href="/for-detailers.html" style="font-weight:700; color:#1C232C;">I\'m a detailer — claim this area &rarr;</a></div>' +
+          '<div style="font-size:12px; margin-top:8px;"><a href="/for-detailers.html" style="font-weight:700; color: #F4F6F8;">I\'m a detailer — claim this area &rarr;</a></div>' +
           '</div>';
       }
     }
@@ -3828,28 +4122,30 @@
     resultsEl.innerHTML = svcFilterNote + waitlistHtml + list.map(d => {
       const svcs = servicesByDetailer[d.id];
       const svcOptions = (svcs && svcs.length)
-        ? svcs.map(s => `<option value="${s.name.replace(/"/g, '')}|${s.price}">${s.name} — $${s.price}</option>`).join('')
+        ? svcs.map(s => `<option value="${escHtml(s.name)}|${s.price}">${escHtml(s.name)} — $${s.price}</option>`).join('')
         : `<option value="Standard Detail|${d.price}">Standard Detail — $${d.price}</option>`;
+      const dLogo = safeUrl(d.logo_url);
       return `
       <div class="detailer-card ${(d.featured || d.pro) ? 'featured' : ''}" id="dcard-${d.id}">
-        ${d.logo_url ? `<img src="${d.logo_url}" alt="${d.name.replace(/"/g,'')}" style="width:52px; height:52px; border-radius:10px; object-fit:cover; border:1px solid #eee; flex-shrink:0; align-self:flex-start;">` : ''}
+        ${dLogo ? `<img src="${dLogo}" alt="${escHtml(d.name)}" style="width:52px; height:52px; border-radius:10px; object-fit:cover; border:1px solid #eee; flex-shrink:0; align-self:flex-start;">` : ''}
         <div style="flex:1;">
           <div style="font-weight:700; font-size:16px;">
-            ${d.name}
+            ${escHtml(d.name)}
             ${d.certified ? '<span class="badge cert">Certified</span>' : ''}
             ${(d.featured || d.pro) ? '<span class="badge featured">Featured</span>' : ''}
           </div>
-          <div style="font-size:13px; color:#666; margin-top:4px;">
+          <div style="font-size:13px; color: #9AA3AF; margin-top:4px;">
             ⭐ ${d.rating ? d.rating : 'New'} (${d.reviews || 0} reviews)
             ${d.distance !== null ? ' &nbsp;•&nbsp; ' + d.distance.toFixed(1) + ' mi away' : ''}
           </div>
-          ${d.available_days ? `<div style="font-size:12px; color:#5f6b7d; margin-top:4px;">Available: ${d.available_days}${d.avail_start ? ' · ' + d.avail_start + '–' + d.avail_end : ''} <span class="avail-warn" id="availwarn-${d.id}" style="color:#B91C1C; font-weight:700;"></span></div>` : ''}
-          ${d.service_area ? `<div style="font-size:12px; color:#5f6b7d;">${d.service_area}</div>` : ''}
-          ${d.bio ? `<div style="font-size:12.5px; color:#555; margin-top:6px; line-height:1.4;">${(d.bio.length > 160 ? d.bio.slice(0,160) + '…' : d.bio).replace(/</g,'&lt;')}</div>` : ''}
-          <a href="#" onclick="openDetailerProfile(${d.id}); return false;" style="display:inline-block; font-size:12.5px; font-weight:700; color:#1C232C; margin-top:6px;">View full profile — photos &amp; reviews →</a>
-          <select id="svc-${d.id}" aria-label="Choose a service to book with ${(d.name||'this detailer').replace(/"/g,'')}" style="margin-top:8px;">${svcOptions}</select>
+          ${d.available_days ? `<div style="font-size:12px; color: #9AA3AF; margin-top:4px;">Available: ${d.available_days}${d.avail_start ? ' · ' + d.avail_start + '–' + d.avail_end : ''} <span class="avail-warn" id="availwarn-${d.id}" style="color:#B91C1C; font-weight:700;"></span></div>` : ''}
+          ${d.service_area ? `<div style="font-size:12px; color: #9AA3AF;">${escHtml(d.service_area)}</div>` : ''}
+          ${d.bio ? `<div style="font-size:12.5px; color:#555; margin-top:6px; line-height:1.4;">${escHtml(d.bio.length > 160 ? d.bio.slice(0,160) + '…' : d.bio)}</div>` : ''}
+          <a href="#" onclick="openDetailerProfile(${d.id}); return false;" style="display:inline-block; font-size:12.5px; font-weight:700; color: #F4F6F8; margin-top:6px;">View full profile — photos &amp; reviews →</a>
+          <select id="svc-${d.id}" aria-label="Choose a service to book with ${escHtml(d.name || 'this detailer')}" style="margin-top:8px;" onchange="updateDepositNote(${d.id})">${svcOptions}</select>
+          <div id="depnote-${d.id}" style="font-size:12px; color: #9AA3AF; margin-top:6px;"></div>
         </div>
-        <button class="book-btn" onclick="bookDetailer(${d.id}, '${d.name.replace(/'/g, "")}', this)">Book</button>
+        <button class="book-btn" data-did="${d.id}" onclick="bookDetailer(${d.id}, this.getAttribute('data-dname'), this)" data-dname="${escHtml(d.name || '')}">Book</button>
       </div>
     `;
     }).join('');
@@ -3858,6 +4154,7 @@
     detailerAvailability = {};
     list.forEach(d => { detailerAvailability[d.id] = { days: d.available_days || '', start: d.avail_start || '', end: d.avail_end || '' }; });
     updateAvailWarnings();
+    list.forEach(d => updateDepositNote(d.id));
 
     renderCustomerMap(list);
     populateQuoteDetailerSelect(list);
@@ -4072,7 +4369,7 @@
       ['Instagram', d.instagram_url], ['Facebook', d.facebook_url],
       ['TikTok', d.tiktok_url], ['Google', d.google_maps_url]
     ].filter(s => s[1] && /^https?:\/\//i.test(s[1]))
-     .map(s => `<a href="${escHtml(s[1])}" target="_blank" rel="noopener" style="font-size:12.5px; font-weight:700; color:#1C232C; background:#F1F2F5; border:1px solid #D5D9E0; padding:5px 12px; border-radius:999px; text-decoration:none;">${s[0]} ↗</a>`)
+     .map(s => `<a href="${escHtml(s[1])}" target="_blank" rel="noopener" style="font-size:12.5px; font-weight:700; color: #F4F6F8; background: #14171C; border:1px solid #242A32; padding:5px 12px; border-radius:999px; text-decoration:none;">${s[0]} ↗</a>`)
      .join(' ');
 
     box.innerHTML = `
@@ -4080,16 +4377,16 @@
         ${d.logo_url ? `<img src="${escHtml(d.logo_url)}" alt="" style="width:54px; height:54px; border-radius:12px; object-fit:cover; border:1px solid #e5e9f2;">` : ''}
         <div>
           <h2 style="margin:0;">${escHtml(d.name)} ${(d.pro || d.featured) ? '<span class="badge featured">Featured</span>' : ''}${d.certified ? ' <span class="badge cert">Certified</span>' : ''}</h2>
-          <div style="font-size:13px; color:#b45309;">${d.rating ? stars(d.rating) + ' ' + d.rating : '⭐ New'} <span style="color:#5f6b7d;">(${d.reviews || 0} reviews)</span></div>
+          <div style="font-size:13px; color:#b45309;">${d.rating ? stars(d.rating) + ' ' + d.rating : '⭐ New'} <span style="color: #9AA3AF;">(${d.reviews || 0} reviews)</span></div>
         </div>
       </div>
-      ${d.service_area ? `<div style="font-size:13px; color:#5f6b7d;">📍 ${escHtml(d.service_area)}</div>` : ''}
-      ${d.available_days ? `<div style="font-size:13px; color:#5f6b7d; margin-top:2px;">🗓 ${escHtml(d.available_days)}${d.avail_start ? ' · ' + escHtml(d.avail_start) + '–' + escHtml(d.avail_end || '') : ''}</div>` : ''}
-      ${d.bio ? `<p style="font-size:13.5px; color:#475569; line-height:1.55; margin:10px 0 0;">${escHtml(d.bio)}</p>` : ''}
+      ${d.service_area ? `<div style="font-size:13px; color: #9AA3AF;">📍 ${escHtml(d.service_area)}</div>` : ''}
+      ${d.available_days ? `<div style="font-size:13px; color: #9AA3AF; margin-top:2px;">🗓 ${escHtml(d.available_days)}${d.avail_start ? ' · ' + escHtml(d.avail_start) + '–' + escHtml(d.avail_end || '') : ''}</div>` : ''}
+      ${d.bio ? `<p style="font-size:13.5px; color: #9AA3AF; line-height:1.55; margin:10px 0 0;">${escHtml(d.bio)}</p>` : ''}
       ${socials ? `<div style="display:flex; gap:7px; flex-wrap:wrap; margin-top:10px;">${socials}</div>` : ''}
       ${photos.length ? `<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-top:14px;">${photos.map(p => `<img src="${escHtml(p.url)}" alt="Work photo" loading="lazy" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:9px;">`).join('')}</div>` : ''}
       ${services.length ? `<div style="margin-top:14px;"><div style="font-weight:800; font-size:14px; margin-bottom:6px;">Services &amp; prices</div>${services.map(s => `<div style="display:flex; justify-content:space-between; font-size:13.5px; padding:7px 2px; border-bottom:1px solid #f1f5f9;"><span>${escHtml(s.name)}</span><strong>$${s.price}</strong></div>`).join('')}</div>` : ''}
-      ${reviews.length ? `<div style="margin-top:14px;"><div style="font-weight:800; font-size:14px; margin-bottom:6px;">Recent reviews</div>${reviews.map(r => `<div style="background:#f8fafc; border-radius:9px; padding:9px 12px; margin-bottom:7px;"><span style="color:#b45309; font-size:12.5px;">${stars(r.rating || 5)}</span>${r.comment ? `<div style="font-size:13px; color:#475569; margin-top:3px; line-height:1.5;">${escHtml(r.comment)}</div>` : ''}</div>`).join('')}</div>` : ''}
+      ${reviews.length ? `<div style="margin-top:14px;"><div style="font-weight:800; font-size:14px; margin-bottom:6px;">Recent reviews</div>${reviews.map(r => `<div style="background: #14171C; border-radius:9px; padding:9px 12px; margin-bottom:7px;"><span style="color:#b45309; font-size:12.5px;">${stars(r.rating || 5)}</span>${r.comment ? `<div style="font-size:13px; color: #9AA3AF; margin-top:3px; line-height:1.5;">${escHtml(r.comment)}</div>` : ''}</div>`).join('')}</div>` : ''}
       <div id="googleReviews-${d.id}"></div>
       <button class="primary" style="width:100%; margin-top:16px;" onclick="profileBook(${d.id})">Book ${escHtml((d.name || '').split(' ')[0])} →</button>
     `;
@@ -4113,14 +4410,14 @@
         '<div style="margin-top:14px;">' +
         '<div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">' +
         '<span style="font-weight:800; font-size:14px;">Reviews from Google</span>' +
-        '<span style="background:#fff; border:1px solid #e5e9f2; border-radius:999px; padding:2px 10px; font-size:12.5px; font-weight:700;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#b45309;">' + gStars + '</span> ' + data.rating + ' <span style="color:#5f6b7d; font-weight:500;">(' + (data.count || 0) + ')</span></span>' +
+        '<span style="background: #14171C; border:1px solid #e5e9f2; border-radius:999px; padding:2px 10px; font-size:12.5px; font-weight:700;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span style="color:#b45309;">' + gStars + '</span> ' + data.rating + ' <span style="color: #9AA3AF; font-weight:500;">(' + (data.count || 0) + ')</span></span>' +
         '</div>' +
         (data.reviews || []).slice(0, 4).map(function (r) {
-          return '<div style="background:#f8fafc; border-radius:9px; padding:9px 12px; margin-bottom:7px;">' +
-            '<div style="font-size:12px; color:#5f6b7d;"><strong style="color:#334155;">' + escHtml(r.author || 'Google user') + '</strong>' +
+          return '<div style="background: #14171C; border-radius:9px; padding:9px 12px; margin-bottom:7px;">' +
+            '<div style="font-size:12px; color: #9AA3AF;"><strong style="color: #F4F6F8;">' + escHtml(r.author || 'Google user') + '</strong>' +
             (r.rating ? ' · <span style="color:#b45309;">' + '★'.repeat(Math.round(r.rating)) + '</span>' : '') +
             (r.when ? ' · ' + escHtml(r.when) : '') + '</div>' +
-            (r.text ? '<div style="font-size:13px; color:#475569; margin-top:3px; line-height:1.5;">' + escHtml(r.text) + '</div>' : '') +
+            (r.text ? '<div style="font-size:13px; color: #9AA3AF; margin-top:3px; line-height:1.5;">' + escHtml(r.text) + '</div>' : '') +
             '</div>';
         }).join('') +
         '</div>';
@@ -4224,7 +4521,7 @@
       box.innerHTML =
         '<div style="background:#F6F7F9; border:1px solid #D7DBE2; border-radius:10px; padding:12px 14px; margin-top:14px; text-align:left;">' +
         '<div style="font-weight:700; font-size:14px; margin-bottom:4px;">🎁 Give $10, get $10</div>' +
-        '<div style="font-size:12.5px; color:#475569; line-height:1.5;">Share your code <strong>' + code + '</strong> — friends get $10 off their first detail, and you get $10 off your next one after they complete a booking.</div>' +
+        '<div style="font-size:12.5px; color: #9AA3AF; line-height:1.5;">Share your code <strong>' + code + '</strong> — friends get $10 off their first detail, and you get $10 off your next one after they complete a booking.</div>' +
         '<button class="secondary" style="width:auto; margin-top:8px;" onclick="copyRefShare(this)">Copy my invite</button>' +
         '</div>';
     })();
@@ -4270,6 +4567,18 @@
     try { el.focus({ preventScroll: true }); } catch (e) {}
   }
 
+  // Show the customer exactly what they'll pay now vs. later, before they commit.
+  function updateDepositNote(detailerId) {
+    const sel = document.getElementById('svc-' + detailerId);
+    const note = document.getElementById('depnote-' + detailerId);
+    if (!sel || !note) return;
+    const parts = (sel.value || '').split('|');
+    const price = parseInt(parts[1]);
+    if (!price || isNaN(price)) { note.textContent = ''; return; }
+    const deposit = Math.round(price * 0.25);
+    note.innerHTML = `Pay a <b>$${deposit}</b> deposit now to reserve · <b>$${price - deposit}</b> due after the detail`;
+  }
+
   async function bookDetailer(detailerId, detailerName, btn) {
     const svcSelect = document.getElementById('svc-' + detailerId);
     if (!svcSelect || !svcSelect.value) {
@@ -4297,7 +4606,7 @@
       formNudge('custAddress', 'Enter the address the detailer should come to.');
       return;
     }
-    const date = document.getElementById('prefDate').value || new Date().toISOString().split('T')[0];
+    const date = document.getElementById('prefDate').value || localDateStr();
     const time = document.getElementById('prefTime').value;
 
     // Availability check: don't let a booking land on a day this detailer doesn't work.
@@ -4335,12 +4644,13 @@
 
     const { data: inserted, error } = await sb.from('jobs').insert([{
       customer: customerName,
-      customer_email: customerEmail,
+      customer_email: customerEmail.toLowerCase(),
       customer_phone: customerPhone,
       vehicle: vehicle,
       service: serviceName,
       price: price,
       status: 'open',
+      payment_status: 'pending_deposit',
       date: date,
       detailer_id: detailerId,
       service_location_type: locationType,
@@ -4388,33 +4698,45 @@
     const jobId = params.get('job');
     if (!bookingStatus || !jobId) return;
 
-    history.replaceState(null, '', window.location.pathname);
-
     if (bookingStatus === 'cancelled') {
+      // Retire the abandoned booking so it never surfaces to the detailer.
+      try { await sb.from('jobs').update({ status: 'cancelled' }).eq('id', jobId).eq('payment_status', 'pending_deposit'); } catch (e) {}
+      history.replaceState(null, '', window.location.pathname);
       alert('No worries — the deposit payment was cancelled, so this booking was not confirmed. You can book again anytime.');
       return;
     }
 
     if (bookingStatus === 'paid' || params.get('balance') === 'paid') {
       // Customer just paid their balance (possibly with a tip) — thank them properly.
-      const { data: job } = await sb.from('jobs').select('*, detailers(name)').eq('id', jobId).single();
+      let job = null;
+      try { const r = await sb.from('jobs').select('*, detailers(name)').eq('id', jobId).single(); job = r.data; } catch (e) {}
+      history.replaceState(null, '', window.location.pathname);
       const dn = job && job.detailers ? job.detailers.name : 'your detailer';
       const tip = job ? (parseFloat(job.tip_amount) || 0) : 0;
       document.getElementById('bookingModalContent').innerHTML =
         '<h2 style="margin-bottom:6px;">Balance paid &#10003;</h2>' +
-        '<p style="font-size:14px; color:#475569; line-height:1.6;">You\u2019re all settled with ' + escHtml(dn) + '.' +
+        '<p style="font-size:14px; color: #9AA3AF; line-height:1.6;">You\u2019re all settled with ' + escHtml(dn) + '.' +
         (tip > 0 ? ' Your <b>$' + tip + ' tip</b> goes to them in full \u2014 100%, no fees. They\u2019ll appreciate it more than you know. &#129505;' : '') +
         '</p>' +
-        (job && job.customer_email ? '<p style="font-size:13.5px; color:#475569; margin-top:10px;">One last thing \u2014 a quick review helps ' + escHtml(dn.split(' ')[0]) + ' win their next customer:</p>' +
+        (job && job.customer_email ? '<p style="font-size:13.5px; color: #9AA3AF; margin-top:10px;">One last thing \u2014 a quick review helps ' + escHtml(dn.split(' ')[0]) + ' win their next customer:</p>' +
         '<button class="primary" style="margin-top:8px;" onclick="document.getElementById(\'bookingModal\').style.display=\'none\'; document.getElementById(\'checkBookingEmail\').value=\'' + escHtml(job.customer_email) + '\'; checkMyBookings(); document.getElementById(\'checkBookingEmail\').scrollIntoView({behavior:\'smooth\', block:\'center\'});">Leave a review &#11088;</button>' : '');
       document.getElementById('bookingModal').style.display = 'flex';
       return;
     }
 
     if (bookingStatus === 'success') {
-      const { data: job } = await sb.from('jobs').select('*, detailers(name)').eq('id', jobId).single();
+      let job = null;
+      try { const r = await sb.from('jobs').select('*, detailers(name)').eq('id', jobId).single(); job = r.data; } catch (e) {}
+      history.replaceState(null, '', window.location.pathname);
       if (job) {
         openBookingConfirmation(job.detailers ? job.detailers.name : 'Your detailer', job.price, job.date, job.requested_time, job.service_location_type, job.service_address, job.customer_email);
+      } else {
+        // Deposit went through but details couldn't load — still confirm, don't blank out.
+        const c = document.getElementById('bookingModalContent');
+        if (c) {
+          c.innerHTML = '<h2 style="margin-bottom:6px;">Deposit received &#10003;</h2><p style="font-size:14px; color: #9AA3AF; line-height:1.6;">Your booking is confirmed and your detailer has been notified. Look it up anytime under &ldquo;My Bookings&rdquo; with your email.</p>';
+          document.getElementById('bookingModal').style.display = 'flex';
+        }
       }
     }
   }
@@ -4452,10 +4774,10 @@
     const projectedCut = completedValue * 0.05;
 
     container.innerHTML = `
-      <div style="margin-bottom:10px;"><a href="#" onclick="switchTab('detailer'); return false;" style="font-size:13px; font-weight:700; color:#3B4351;">← Back to dashboard</a></div>
+      <div style="margin-bottom:10px;"><a href="#" onclick="switchTab('detailer'); return false;" style="font-size:13px; font-weight:700; color: #F4F6F8;">← Back to dashboard</a></div>
       <div class="card">
         <h2>Owner Overview</h2>
-        <p style="font-size:13px; color:#666; margin-bottom:16px;">
+        <p style="font-size:13px; color: #9AA3AF; margin-bottom:16px;">
           Based on completed jobs. Real payments aren't wired in yet, so this is what you'd collect, not what's actually been paid.
         </p>
         <div class="stat-row">
@@ -4489,17 +4811,17 @@
     });
     const top = function (obj, n) {
       return Object.keys(obj).sort(function (a, b) { return obj[b] - obj[a]; }).slice(0, n)
-        .map(function (k) { return '<span style="font-size:12px; background:#F1F2F5; border:1px solid #D5D9E0; border-radius:999px; padding:3px 10px; margin:2px;">' + escHtml(k) + ' <b>' + obj[k] + '</b></span>'; }).join(' ');
+        .map(function (k) { return '<span style="font-size:12px; background: #14171C; border:1px solid #242A32; border-radius:999px; padding:3px 10px; margin:2px;">' + escHtml(k) + ' <b>' + obj[k] + '</b></span>'; }).join(' ');
     };
     return '<div class="card"><h2>Site Traffic</h2>' +
-      '<p style="font-size:13px; color:#666; margin-bottom:12px;">Our own counter — no cookies, no Google. Includes your own visits, so expect some noise until real traffic arrives.</p>' +
+      '<p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Our own counter — no cookies, no Google. Includes your own visits, so expect some noise until real traffic arrives.</p>' +
       '<div class="stat-row">' +
       '<div class="stat-box"><div class="num">' + today + '</div><div class="label">Views Today</div></div>' +
       '<div class="stat-box"><div class="num">' + week + '</div><div class="label">Last 7 Days</div></div>' +
       '<div class="stat-box"><div class="num">' + all + '</div><div class="label">All-Time</div></div>' +
       '</div>' +
-      (Object.keys(byPath).length ? '<div style="margin-top:10px; font-size:12px; font-weight:700; color:#3B4351;">Top pages (7d)</div><div style="margin-top:4px;">' + top(byPath, 6) + '</div>' : '') +
-      (Object.keys(byRef).length ? '<div style="margin-top:10px; font-size:12px; font-weight:700; color:#3B4351;">Traffic sources (7d)</div><div style="margin-top:4px;">' + top(byRef, 6) + '</div>' : '') +
+      (Object.keys(byPath).length ? '<div style="margin-top:10px; font-size:12px; font-weight:700; color: #F4F6F8;">Top pages (7d)</div><div style="margin-top:4px;">' + top(byPath, 6) + '</div>' : '') +
+      (Object.keys(byRef).length ? '<div style="margin-top:10px; font-size:12px; font-weight:700; color: #F4F6F8;">Traffic sources (7d)</div><div style="margin-top:4px;">' + top(byRef, 6) + '</div>' : '') +
       '</div>';
   }
 
@@ -4508,11 +4830,11 @@
     const rows = sorted.map(function (d) {
       const flags = [
         d.founding ? '<span style="font-size:10.5px; font-weight:800; background:#1C232C; color:#fff; border-radius:999px; padding:2px 8px;">👑 FOUNDING</span>' : '',
-        d.featured ? '<span style="font-size:10.5px; font-weight:800; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; border-radius:999px; padding:2px 8px;">FEATURED</span>' : '',
-        d.pro ? '<span style="font-size:10.5px; font-weight:800; background:#F1F2F5; border:1px solid #D5D9E0; color:#1C232C; border-radius:999px; padding:2px 8px;">PRO</span>' : ''
+        d.featured ? '<span style="font-size:10.5px; font-weight:800; background: #14171C; border:1px solid #242A32; color: #F4F6F8; border-radius:999px; padding:2px 8px;">FEATURED</span>' : '',
+        d.pro ? '<span style="font-size:10.5px; font-weight:800; background: #14171C; border:1px solid #242A32; color: #F4F6F8; border-radius:999px; padding:2px 8px;">PRO</span>' : ''
       ].join(' ');
       return '<div style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; border:1px solid #e5e9f2; border-radius:10px; padding:10px 14px; margin-bottom:8px;">' +
-        '<div><span style="font-weight:800;">' + escHtml(d.name || '') + '</span> <span style="font-size:12px; color:#5f6b7d;">· ' + escHtml(d.service_area || 'no area set') + ' · joined ' + escHtml(('' + (d.created_at || '')).slice(0, 10)) + '</span>' +
+        '<div><span style="font-weight:800;">' + escHtml(d.name || '') + '</span> <span style="font-size:12px; color: #9AA3AF;">· ' + escHtml(d.service_area || 'no area set') + ' · joined ' + escHtml(('' + (d.created_at || '')).slice(0, 10)) + '</span>' +
         '<div style="margin-top:3px; display:flex; gap:5px; flex-wrap:wrap;">' + flags + '</div></div>' +
         '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
         '<button class="secondary" style="font-size:12px; padding:6px 12px;" onclick="ownerToggleFlag(' + d.id + ', \'founding\', ' + !d.founding + ', this)">' + (d.founding ? 'Remove Founding' : 'Grant Founding') + '</button>' +
@@ -4520,7 +4842,7 @@
         '</div></div>';
     }).join('');
     return '<div class="card"><h2>Detailer Roster</h2>' +
-      '<p style="font-size:13px; color:#666; margin-bottom:12px;">Newest first. "Grant Founding" = 0% fees on their first 10 jobs (backend-enforced) — pair it with Feature for the full founding package you promised in outreach.</p>' +
+      '<p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Newest first. "Grant Founding" = 0% fees on their first 10 jobs (backend-enforced) — pair it with Feature for the full founding package you promised in outreach.</p>' +
       (rows || '<div class="empty-msg">No detailers yet.</div>') + '</div>';
   }
 
@@ -4552,11 +4874,11 @@
         '</tr>';
     }).join('');
     return '<div class="card"><h2>Referral Program</h2>' +
-      '<p style="font-size:13px; color:#666; margin-bottom:12px;">Give $10, get $10. "Owed" turns on when the referred booking is completed — credit the referrer $10 off their next detail (or pay it out however you choose).</p>' +
+      '<p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">Give $10, get $10. "Owed" turns on when the referred booking is completed — credit the referrer $10 off their next detail (or pay it out however you choose).</p>' +
       '<div class="stat-row"><div class="stat-box"><div class="num">' + redemptions.length + '</div><div class="label">Referral Bookings</div></div>' +
       '<div class="stat-box"><div class="num">$' + earned.toFixed(2) + '</div><div class="label">Referrer Credits Owed</div></div></div>' +
       (rows
-        ? '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:13px; margin-top:10px;"><thead><tr style="text-align:left; color:#5f6b7d;"><th style="padding:7px 10px;">Referrer</th><th style="padding:7px 10px;">Friend</th><th style="padding:7px 10px;">Job Status</th><th style="padding:7px 10px;">Credit</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
+        ? '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:13px; margin-top:10px;"><thead><tr style="text-align:left; color: #9AA3AF;"><th style="padding:7px 10px;">Referrer</th><th style="padding:7px 10px;">Friend</th><th style="padding:7px 10px;">Job Status</th><th style="padding:7px 10px;">Credit</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
         : '<div class="empty-msg" style="margin-top:8px;">No referral bookings yet — codes are handed out automatically after every booking.</div>') +
       '</div>';
   }
@@ -4570,24 +4892,24 @@
     const cityRows = Object.keys(byCity).sort(function (a, b) { return byCity[b].length - byCity[a].length; }).map(function (c) {
       var sigs = byCity[c];
       return '<div style="display:flex; justify-content:space-between; align-items:center; border:1px solid #e5e9f2; border-radius:10px; padding:10px 14px; margin-bottom:8px;">' +
-        '<div><span style="font-weight:800;">' + escHtml(c) + '</span> <span style="font-size:12px; color:#5f6b7d;">· latest ' + escHtml((sigs[0].created_at || '').slice(0, 10)) + '</span>' +
-        '<div style="font-size:12px; color:#475569; margin-top:2px;">' + sigs.slice(0, 3).map(function (f) { return escHtml(f.email || ''); }).join(', ') + (sigs.length > 3 ? ' +' + (sigs.length - 3) + ' more' : '') + '</div></div>' +
-        '<span style="font-weight:800; font-size:18px; color:#1C232C;">' + sigs.length + '</span></div>';
+        '<div><span style="font-weight:800;">' + escHtml(c) + '</span> <span style="font-size:12px; color: #9AA3AF;">· latest ' + escHtml((sigs[0].created_at || '').slice(0, 10)) + '</span>' +
+        '<div style="font-size:12px; color: #9AA3AF; margin-top:2px;">' + sigs.slice(0, 3).map(function (f) { return escHtml(f.email || ''); }).join(', ') + (sigs.length > 3 ? ' +' + (sigs.length - 3) + ' more' : '') + '</div></div>' +
+        '<span style="font-weight:800; font-size:18px; color: #F4F6F8;">' + sigs.length + '</span></div>';
     }).join('');
     const waitlistCard = '<div class="card"><h2>Customer Waitlist — Demand Map</h2>' +
-      '<p style="font-size:13px; color:#666; margin-bottom:12px;">People who searched, found nobody nearby, and left an email. Each city here is a recruiting target — sign one detailer and you instantly have their first customers.</p>' +
+      '<p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">People who searched, found nobody nearby, and left an email. Each city here is a recruiting target — sign one detailer and you instantly have their first customers.</p>' +
       (cityRows || '<div class="empty-msg">No waitlist signups yet. They\'ll appear automatically when someone searches an uncovered area.</div>') +
       '</div>';
     const rows = list.map(function (f) {
       return '<div style="border:1px solid #e5e9f2; border-radius:10px; padding:12px 14px; margin-bottom:10px;">' +
-        '<div style="font-weight:700;">' + escHtml(f.company || '') + ' <span style="font-weight:400; color:#5f6b7d;">· ' + escHtml(f.fleet_size || '?') + ' vehicles · ' + escHtml(f.city || '') + '</span></div>' +
-        '<div style="font-size:13px; color:#475569; margin-top:4px;">' + escHtml(f.contact_name || '') + ' — <a href="mailto:' + escHtml(f.email || '') + '">' + escHtml(f.email || '') + '</a>' + (f.phone ? ' · 📱 ' + escHtml(f.phone) : '') + '</div>' +
+        '<div style="font-weight:700;">' + escHtml(f.company || '') + ' <span style="font-weight:400; color: #9AA3AF;">· ' + escHtml(f.fleet_size || '?') + ' vehicles · ' + escHtml(f.city || '') + '</span></div>' +
+        '<div style="font-size:13px; color: #9AA3AF; margin-top:4px;">' + escHtml(f.contact_name || '') + ' — <a href="mailto:' + escHtml(f.email || '') + '">' + escHtml(f.email || '') + '</a>' + (f.phone ? ' · 📱 ' + escHtml(f.phone) : '') + '</div>' +
         (f.message ? '<div style="font-size:13px; color:#555; margin-top:6px; line-height:1.5;">' + escHtml(f.message) + '</div>' : '') +
         '<div style="font-size:11.5px; color:#94a3b8; margin-top:6px;">' + escHtml((f.created_at || '').slice(0, 10)) + '</div>' +
         '</div>';
     }).join('');
     return waitlistCard + '<div class="card"><h2>Fleet &amp; Business Inquiries</h2>' +
-      '<p style="font-size:13px; color:#666; margin-bottom:12px;">From the fleet page — dealerships, rental lots, and businesses that want recurring detailing. One contract here can equal a month of consumer bookings; reply same-day.</p>' +
+      '<p style="font-size:13px; color: #9AA3AF; margin-bottom:12px;">From the fleet page — dealerships, rental lots, and businesses that want recurring detailing. One contract here can equal a month of consumer bookings; reply same-day.</p>' +
       (rows || '<div class="empty-msg">No inquiries yet. Share the fleet page: <code>/fleet.html</code></div>') +
       '</div>';
   }
@@ -4640,11 +4962,12 @@
   renderMarketing('customer');
   loadPublicPhotoStrip();
   checkBookingReturn();
+  startMsgPolling();
   // Prevent booking a date in the past — set the date picker's floor to today.
   (function () {
     var d = document.getElementById('prefDate');
     if (d) {
-      try { d.min = new Date().toISOString().split('T')[0]; } catch (e) {}
+      try { d.min = localDateStr(); } catch (e) {}
       d.addEventListener('change', updateAvailWarnings);
     }
   })();

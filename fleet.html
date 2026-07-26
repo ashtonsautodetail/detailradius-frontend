@@ -63,6 +63,30 @@
   footer a { color:#5b7bb6; }
   @media (max-width:640px){ .frow { grid-template-columns:1fr; } }
 </style>
+<style>
+/* ===== DARK/RED THEME OVERRIDE — match detailradius.com homepage (keep last) ===== */
+:root{ --ink:#F4F6F8 !important; --bg:#0A0B0D !important; --muted:#9AA3AF !important; }
+html,body{ background:#0A0B0D !important; color:#F4F6F8 !important; }
+h1,h2,h3,h4,h5,h6{ color:#F4F6F8 !important; }
+a{ color:#F5453F; }
+a:hover{ color:#E5322D; }
+header,nav,.nav,.site-header,.topbar{ background:rgba(10,11,13,.9) !important; border-color:#242A32 !important; color:#F4F6F8 !important; }
+.card,.section,.box,.panel,.feature,.tier,.plan,.faq,.faq-item,.step,.stat,.listing,.detailer,.detailer-card,.testimonial,.cta-box,.hero-card,.price-card{
+  background:#14171C !important; border-color:#242A32 !important; color:#F4F6F8 !important; }
+section{ background:transparent !important; }
+.hero,.hero-section{ background:radial-gradient(760px circle at 50% -12%, rgba(229,50,45,.16), transparent 62%), linear-gradient(160deg,#0C0E12,#0A0B0D) !important; color:#F4F6F8 !important; }
+.btn,.button,button,.cta,a.btn,a.button,.book,.book-btn,input[type=submit]{
+  background:#E5322D !important; color:#fff !important; border:1px solid #E5322D !important; }
+.btn:hover,.button:hover,button:hover{ background:#F5453F !important; }
+.btn-ghost,.btn-secondary,.secondary{ background:#14171C !important; color:#F4F6F8 !important; border:1px solid #242A32 !important; }
+input,select,textarea{ background:#101216 !important; color:#F4F6F8 !important; border-color:#242A32 !important; }
+footer,.footer,.site-footer{ background:#0C0E12 !important; color:#9AA3AF !important; border-top:1px solid #242A32 !important; }
+footer a,.footer a{ color:#9AA3AF !important; }
+.badge,.pill,.chip,.tag{ background:#181C22 !important; color:#F4F6F8 !important; border:1px solid #242A32 !important; }
+.muted,.sub,.small,small,.dim{ color:#9AA3AF !important; }
+table,th,td{ border-color:#242A32 !important; color:#F4F6F8 !important; }
+hr{ border-color:#242A32 !important; }
+</style>
 </head>
 <body>
 <header class="hero">
